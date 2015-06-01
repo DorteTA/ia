@@ -68,7 +68,7 @@ $header = <<<END
     <!-- home -->
     <ul class="nav navbar-nav">
         <li class="dropdown">
-	        <a href="index.php" class="dropdown-toggle" data-toggle="dropdown">Hem </a>
+	        <a href="index.php">Hem </a>
         </li>
     </ul>
 
