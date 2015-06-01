@@ -89,7 +89,7 @@ $header = <<<END
           <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Träna <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Skridskoskola</a></li>
+            <li><a href="school.php">Skridskoskola</a></li>
             <li><a href="#">Elitnivåträning</a></li>
             <li><a href="#">Så bedöms konståkning</a></li>
             <li><a href="#">Elitsatsning</a></li>
