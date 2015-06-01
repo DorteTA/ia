@@ -64,98 +64,98 @@ $header = <<<END
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+    <!-- home -->
+    <ul class="nav navbar-nav">
+        <li class="dropdown">
+	        <a href="index.php" class="dropdown-toggle" data-toggle="dropdown">Hem </a>
+        </li>
+    </ul>
+
+    <!-- dropdown meny Om oss -->
       <ul class="nav navbar-nav">
           <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Om oss <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Förbundsnyheter</a></li>
-            <li><a href="#">Förbundsinformation</b></a></li>
-			<li><a href="#">Samarbetspartnare & Sponsorer</a></li>
-			<li><a href="#">Stipendium & Utmärkelse</a></li>
-			<li><a href="#">Dokument</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Kontakta oss</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Länkar</a></li>
+            <li><a href="#">Dokument</a></li>
+            <li><a href="#">Historia</a></li>
+            <li><a href="#">Skate Sweden</a></li>
           </ul>
         </li>
       </ul>
+
+      <!-- dropdown meny Träna -->
 	  <ul class="nav navbar-nav">
           <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Konståkning <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Träna <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Grenar inom konståkning</a></li>
-            <li><a href="#">så här bedöms konståkning</a></li>
-            <li><a href="#">Börja med konståkning</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Sök förening</a></li>
-          </ul>
-        </li>
-      </ul>
-	  
-	  <ul class="nav navbar-nav">
-          <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Föreningar <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Föreningsnformation</a></li>
             <li><a href="#">Skridskoskola</a></li>
-            <li><a href="#">Starta Förening</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Dokument & Blanketter</a></li>
+            <li><a href="#">Elitnivåträning</a></li>
+            <li><a href="#">Så bedöms konståkning</a></li>
+            <li><a href="#">Elitsatsning</a></li>
           </ul>
         </li>
       </ul>
-	  
+
+	  <!-- Dropdown meny Tävla -->
 	  <ul class="nav navbar-nav">
           <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Elit <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tävla <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Landslag</a></li>
-            <li><a href="#">Elitserie</a></li>
-            <li><a href="#">Ranking</a></li>
-			<li class="divider"></li>
-            <li><a href="#">Antidoping</a></li>
+            <li><a href="#">Elitserien 2014-2015</a></li>
+            <li><a href="#">Regler</a></li>
+            <li><a href="#">EM 2015</a></li>
+            <li><a href="#">Svenska mästerskapen 2014</a></li>
+            <li><a href="#">Tävlingar och resultat</a></li>
+            <li><a href="#">Medaljer 1984-2014</a></li>
+            <li><a href="#">Information</a></li>
           </ul>
         </li>
       </ul>
 	  
+	   
       <!-- högre delen av navbar med 3 dropdown menyer -->
-	  
-	  <!-- dropdown meny utbildning -->
-      <ul class="nav navbar-nav navbar-right padding-form">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Utbildning <b class="caret"></b></a>
+	 
+	  <!-- dropdown meny Driva Förening -->
+	  <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Driva Förening <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Anmälan</a></li>
-            <li><a href="#">Nationella Idrottsgymnasiet</a></li>
-            <li><a href="#">SISU-utbildarna</a></li>
+            <li><a href="#">Starta förening</a></li>
+            <li><a href="#">Arrangera tävling</a></li>
+            <li><a href="#">Ansöka om namnbyte</a></li>
+            <li><a href="#">Riktlinjer vid istidsförhandlingar</a></li>
+          </ul>
+        </li>
+      </ul>
+
+	  <!-- dropdown meny Engagera dig -->
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Engagera dig <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Utvecklingskommiten</a></li>
+            <li><a href="#">Utbildning</a></li>
           </ul>
         </li>
       </ul>
 	  
-	  <!-- dropdown meny Tävling -->
+	  <!-- dropdown meny Kontakta oss -->
 	  <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tävling &amp; Evenemang <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kontakta oss <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Kalender</a></li>
-            <li><a href="#">Tävlinganformation</a></li>
-            <li><a href="#">Tävlingsresultat</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Lediga Jobb</a></li>
+            <li><a href="#">Avdelningar</a></li>
+            <li><a href="#">Distrikt och föreningar</a></li>
+            
           </ul>
         </li>
       </ul>
 	  
-	  <!-- dropdown meny Media -->
-	  <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Media <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Nyheter</a></li>
-			<li><a href="#">Arkiv</a></li>
-            <li><a href="#">Kontakt</a></li>
-          </ul>
-        </li>
-      </ul> 
+	 
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
