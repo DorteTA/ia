@@ -77,9 +77,9 @@ $header = <<<END
           <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Om oss <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Dokument</a></li>
-            <li><a href="#">Historia</a></li>
-            <li><a href="#">Skate Sweden</a></li>
+            <li><a href="om.php">Dokument</a></li>
+            <li><a href="om.php">Historia</a></li>
+            <li><a href="om.php">Skate Sweden</a></li>
           </ul>
         </li>
       </ul>
