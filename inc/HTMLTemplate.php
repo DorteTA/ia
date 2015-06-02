@@ -185,7 +185,7 @@ $header = <<<END
 		<!-- undermeny tom -->
 		<div class="col-xs-12 col-md-6">
 			<ul class="list-inline padding">
-				<li class="yellow"><a class="li yellow" href="http://skatesweden.sporrongshop.com/Startpage/Startpage.aspx?MenuID=3121">Shoppa</a> &middot; <a class="li yellow" href="#">Varukorg <b class="caret"></b></a></li>
+				<li class="yellow"><a class="li yellow" href="http://skatesweden.sporrongshop.com/Startpage/Startpage.aspx?MenuID=3121">Butik</a></li>
 			</ul>
 		</div><!-- col-xs-6 col-md-3 -->
 

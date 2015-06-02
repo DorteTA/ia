@@ -49,19 +49,31 @@ $content = <<<END
 			<div class="row">
 				<div class="col-md-3">
 					<div class="panel panel-blue">
+
+						<div class="panel-heading">
 						
-						<!-- Skridskoskola undermeny -->
+						<!-- Om oss undermeny -->
+						
+							<h3 class="panel-title yellow">Historia</h3>
+						</div><!-- panel heading -->
+						</a>
+					
+							
 						<div class="panel-body">
-							<div class="media">
+							<div class="collapse-in" id="dokument">
 								
-								<div class="media-body">
-									Skridskoskola
-								</div><!-- media body -->
-							</div><!-- media -->	
-						</div><!-- panel-body -->
-						
-					</div><!-- panel panel-blue -->								
-				</div><!-- col-md-3 -->
+									<ul class="">
+	   									<a href="historia.php">
+	   										<li>Förbundets Historia</li>
+	   									</a>
+	   									<a href="historia.php">
+	   										<li>Konståkningens Historia</li>
+	   									</a>	   									
+	   								</ul>
+								</div><!-- collapse -->
+						</div><!-- panel body -->
+					</div><!-- panel panel blue -->									
+				</div><!-- col md 3 -->
 				
 				<div class="col-xs-12 col-md-6">
 					{$artikeltime}	
