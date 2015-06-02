@@ -39,15 +39,31 @@ $content = <<<END
 	   									<div class="collapse" id="blanketter">
 	   										Bla bla om blanketter och brochurer
 	   									</div>
-	   									<a href="#">
+	   									<a data-toggle="collapse" href="#stadger" aria-expanded="false"
+										aria-controls="collapseExample">
 	   										<li>Stadgar <b class="caret"></b></li>
 	   									</a>
-	   									<a href="#">
+
+	   									<!-- stadger -->
+	   									<div class="collapse" id="stadger">
+	   										Bla bla om stadger
+	   									</div>
+	   									<a data-toggle="collapse" href="#styrelsearbete" aria-expanded="false"
+										aria-controls="collapseExample">
 	   										<li>Styrelsearbete <b class="caret"></b></li>
 	   									</a>
-	   									<a href="#">
+	   									<!-- styrelsearbete -->
+	   									<div class="collapse" id="styrelsearbete">
+	   										Bla bla om styrelsearbete
+	   									</div>
+	   									<a data-toggle="collapse" href="#policy" aria-expanded="false"
+										aria-controls="collapseExample">
 	   										<li>Policy <b class="caret"></b></li>
-	   									</a>	   									
+	   									</a>
+	   									<!-- policy -->
+	   									<div class="collapse" id="policy">
+	   										Bla bla om policy
+	   									</div>	   									
 	   								</ul>
 								</div><!-- collapse -->
 						</div><!-- panel body -->
