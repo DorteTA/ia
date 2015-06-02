@@ -13,7 +13,7 @@ $adminHTML = "";
 if(isset($_SESSION["username"])) {
 
  $adminHTML = <<<END
-				<li class="yellow">Inloggat som: <a class="li yellow" href="profile.php"><strong>{$_SESSION["username"]}</strong></a> &middot; <a class="li yellow" href="logout.php">Logga ut</a> &middot;</li>
+				<li class="yellow">Inloggad som: <a class="li yellow" href="profile.php"><strong>{$_SESSION["username"]}</strong></a> &middot; <a class="li yellow" href="logout.php">Logga ut</a> &middot;</li>
 
 END;
 }

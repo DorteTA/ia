@@ -8,6 +8,46 @@ The first page the visitor sees
 include_once("inc/HTMLTemplate.php");
 include_once("inc/Connstring.php");
 
+$artikelnews = "";
+
+$query = <<<END
+
+	SELECT *
+	FROM artikel
+	ORDER BY Artikeltimestamp
+END;
+
+$res = $mysqli->query($query) or die();
+
+if($res->num_rows > 0)
+{
+	while($row = $res->fetch_object())
+	{
+		$artikelname = $row->ArtikelName;
+		$artikelmessage = $row->ArtikelMessage;
+		$artikelsubtext = substr($artikelmessage, 0, 160);
+		$artikeltimestamp = $row->ArtikelTimeStamp;
+
+		$artikelnews .= <<<END
+
+		
+						<div class="panel-body">
+							<div class="media">
+								<a class="pull-left" href="#">
+								<img class="media-object img-rounded" src="http://placehold.it/64x64" alt="...">
+								</a>
+								<div class="media-body">
+								<h4 class="media-heading">{$artikelname}</h4>
+								{$artikelsubtext}...<br>
+								 <p><a class="btn btn-blue btn-xs" role="button">Läs mer</a></p><br>
+								</div><!-- media body -->
+							</div><!-- media -->	
+						</div><!-- panel-body -->
+	
+
+END;
+	}
+}
 $content = <<<END
 
 			
@@ -15,36 +55,10 @@ $content = <<<END
 			<div class="row">
 				<div class="col-md-3">
 					<div class="panel panel-blue">
-						<div class="panel-heading">
+					<div class="panel-heading">
 							<h3 class="panel-title">Nyheter</h3>
 						</div><!-- panel-heading -->
-						<div class="panel-body">
-							<div class="media">
-								<a class="pull-left" href="#">
-								<img class="media-object img-rounded" src="http://placehold.it/64x64" alt="...">
-								</a>
-								<div class="media-body">
-								<h4 class="media-heading">Se film om projektet Jämlik Ishall</h4>
-								<small>2014-04-30</small>
-								<p>"Förbundets utvecklingsprojekt "Jämlik Ishall" engagerar allt fler föreningar och kommuner runt om i landet.
-								 <p><a class="btn btn-blue btn-xs" role="button">Läs mer</a></p>
-								</div><!-- media body -->
-							</div><!-- media -->	
-						</div><!-- panel-body -->
-						
-						<div class="panel-body">
-							<div class="media">
-								<a class="pull-left" href="#">
-								<img class="media-object img-rounded" src="http://placehold.it/64x64" alt="...">
-								</a>
-								<div class="media-body">
-								<h4 class="media-heading">Se film om projektet Jämlik Ishall</h4>
-								<small>2014-04-30</small>
-								<p>"Förbundets utvecklingsprojekt "Jämlik Ishall" engagerar allt fler föreningar och kommuner runt om i landet.
-								 <p><a class="btn btn-blue btn-xs" role="button">Läs mer</a></p>
-								</div><!-- media body -->
-							</div><!-- media -->	
-						</div><!-- panel-body -->
+						{$artikelnews}
 						
 					</div><!-- panel panel-blue -->								
 				</div><!-- col-md-3 -->
