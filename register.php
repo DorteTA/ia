@@ -24,11 +24,11 @@ if(!empty($_POST))
 			}
 			else
 			{
-
+				$password = md5($pass);
 				$query = <<<END
 
 					INSERT INTO user (username, mail, name, surname, address, zipcode, city, password)
-					VALUES ('{$username}', '{$mail}', '{$name}', '{$surname}', '{$address}', '{$zipcode}', '{$city}', '{$pass}');
+					VALUES ('{$username}', '{$mail}', '{$name}', '{$surname}', '{$address}', '{$zipcode}', '{$city}', '{$password}');
 END;
 				$res = $mysqli->query($query) or die("Could not query database" . $mysqli->errno . 
 				        " : " . $mysqli->error);
