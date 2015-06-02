@@ -13,8 +13,25 @@ $adminHTML = "";
 if(isset($_SESSION["username"])) {
 
  $adminHTML = <<<END
-				<li class="yellow">Inloggad som: <a class="li yellow" href="profile.php"><strong>{$_SESSION["username"]}</strong></a> &middot; <a class="li yellow" href="logout.php">Logga ut</a> &middot;</li>
 
+    <div class="col-xs-6 col-md-3">
+      <ul class="list-inline padding">
+       <li class="yellow">Inloggad som: <a class="li yellow" href="profile.php"><strong>{$_SESSION["username"]}</strong></a> &middot; <a class="li yellow" href="logout.php">Logga ut</a> &middot;</li>
+      </ul>
+    </div><!-- col-xs-6 col-md-3 -->
+
+
+END;
+}
+else
+{
+  $adminHTML = <<<END
+
+    <div class="col-xs-6 col-md-3">
+      <ul class="list-inline padding">
+        <li class="yellow"><a class="li yellow" href="login.php">Logga in</a> &middot; <a class="li yellow" href="register.php">Registrera dig</a></li>
+      </ul>
+    </div><!-- col-xs-6 col-md-3 -->
 END;
 }
 
@@ -163,16 +180,12 @@ $header = <<<END
 <!-- undermeny m logga i, shoppa, se varukorg -->
 <div class="undermeny">
 	<div class="row">
-		<div class="col-xs-6 col-md-3">
-			<ul class="list-inline padding">
-				<li class="yellow"><a class="li yellow" href="login.php">Logga in</a> &middot; <a class="li yellow" href="register.php">Registrera dig</a></li>
-			</ul>
-		</div><!-- col-xs-6 col-md-3 -->
+		{$adminHTML}
 
 		<!-- undermeny tom -->
 		<div class="col-xs-12 col-md-6">
 			<ul class="list-inline padding">
-				<li class="yellow">{$adminHTML}<a class="li yellow" href="http://skatesweden.sporrongshop.com/Startpage/Startpage.aspx?MenuID=3121">Shoppa</a> &middot; <a class="li yellow" href="#">Varukorg <b class="caret"></b></a></li>
+				<li class="yellow"><a class="li yellow" href="http://skatesweden.sporrongshop.com/Startpage/Startpage.aspx?MenuID=3121">Shoppa</a> &middot; <a class="li yellow" href="#">Varukorg <b class="caret"></b></a></li>
 			</ul>
 		</div><!-- col-xs-6 col-md-3 -->
 
