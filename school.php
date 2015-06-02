@@ -8,6 +8,31 @@ The first page the visitor sees
 include_once("inc/HTMLTemplate.php");
 include_once("inc/Connstring.php");
 
+
+$query = <<<END
+
+	SELECT *
+	FROM artikel
+	ORDER BY Artikeltimestamp
+END;
+
+$res = $$mysqli->query($query) or die();
+
+if($res->num_rows > 0)
+{
+	while($row = $res->fetch_object())
+	{
+		$artikelname = $row->Artikelname;
+		$artikelmessage = $row->Artikelmessage;
+		$artikeltimestamp = $row->Artikeltimestamp;
+
+		$artikeltime = <<<END
+		{$artikelname}<br>
+		{$artikelmessage}<br>
+
+END;
+	}
+}
 $content = <<<END
 
 			
