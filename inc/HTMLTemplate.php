@@ -179,11 +179,12 @@ $header = <<<END
 		<!-- undermeny m sök form -->
 		<div class="col-xs-6 col-md-3">
 			<div class="col-xs-12 pull-left">
-				<form class="navbar-form navbar-left" role="search">
+				<form action="search.php" method="GET" class="navbar-form navbar-left" role="search">
 					<div class="form-group">
-						<form action="search.php" method="GET">
+					 
                 <input type="text" class="form-control-search pull-right" id="searchfield" name="search" placeholder="Sök..." required>
-                </form>
+                <input type="submit" value="sök">
+               
 					</div><!-- form-group -->
 				</form>	
 			</div>
