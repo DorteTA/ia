@@ -26,7 +26,13 @@ $content = <<<END
 									Om oss <b class="caret"></b>
 									
 									<ul class="dropdown-menu-left">
-										<li><a href="#">Dokument <b class="caret"></b></a></li>
+										<li><a href="om.php#dokument">Dokument <b class="caret"></b></a></li>
+										<a name="dokument"></a>
+										
+										<li><a href="#">Dok 1</a></li>
+										<li><a href="#">Dok 2</a></li>
+										<li><a href="#">Dok 3</a></li>
+										
 										<li><a href="#">Historia <b class="caret"></b></a></li>
 										<li><a href="#">Skate Sweden <b class="caret"></b></a></li>
 									</ul>
