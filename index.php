@@ -152,16 +152,13 @@ $content = <<<END
 							<h3 class="panel-title">Sponsorer</h3>
 						</div><!-- panel-heading -->
 						<div class="panel-body">
-							<p>På index-sidan ska här ligga en carousel m sponsorer och samarbetspartnare.
+							<p>DORTES PRIMA FLÄSKESVÅL
 							</p>
 							<p class="divider"></p>
-							<p>asdf as adfsfgsfgsdfgsdfg dfg dfg df gsdfg sdfg sdfg sdf gsdfg sdfg
-							sdf sdf asfa ssdfaj sdf. 
-							ksadfj asdf asdf asdf... asdf asdfasdf asdf sadf asdf as adfsfgsfg
-							sdfgsdfg dfg dfg df.
+							<p>Köp nu och vi slänger med en påse regnbågsfärg så du kan färga dina fläskesvål om du vill. Power to the rainbow svål. Ring på nummer: Nöff Nöff Oink
 							</p>
 						</div><!-- panel-body -->
-					</div><!-- panel panel-blue -->								
+					</div><!-- panel panel-blue-->								
 				</div><!-- col-xs-6 col-md-3 -->
 			</div> <!-- row -->
        </div><!-- AVsluta content DIV -->
