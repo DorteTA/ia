@@ -109,7 +109,7 @@ $header = <<<END
             <li><a href="school.php">Skridskoskola</a></li>
             <li><a href="elit.php">Elitnivåträning</a></li>
             <li><a href="bedom.php">Så bedöms konståkning</a></li>
-            <li><a href="#">Elitsatsning</a></li>
+            <li><a href="elitsatsning.php">Elitsatsning</a></li>
           </ul>
         </li>
       </ul>
