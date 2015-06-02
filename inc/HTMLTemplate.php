@@ -181,7 +181,9 @@ $header = <<<END
 			<div class="col-xs-12 pull-left">
 				<form class="navbar-form navbar-left" role="search">
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Sök"><button type="submit" class="btn-search pull-right"><span class="glyphicon glyphicon-search"></span></button>
+						<form action="search.php" method="GET">
+                <input type="text" class="form-control-search pull-right" id="searchfield" name="search" placeholder="Sök..." required>
+                </form>
 					</div><!-- form-group -->
 				</form>	
 			</div>

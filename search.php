@@ -1,45 +1,43 @@
 <?php
-/*---------------------------------
-school.php
-Traena
-Skridskoskola
----------------------------------*/
 
 include_once("inc/HTMLTemplate.php");
 include_once("inc/Connstring.php");
-$artikeltime = "";
 
-$query = <<<END
+$feedback = "";
 
-	SELECT *
-	FROM artikel
-	ORDER BY Artikeltimestamp
-END;
-
-$res = $mysqli->query($query) or die();
-
-if($res->num_rows > 0)
+if(isset($_GET['search']))
 {
-	while($row = $res->fetch_object())
+// Hämtar ut från guidereviewinfo där titlar liknar sökordet
+	$query = <<<END
+		SELECT * FROM artikel
+		WHERE artikelName LIKE '%{$search}%';
+END;
+	$result = $mysqli->query($query) or die();
+
+	if($result->num_rows > 0)
 	{
-		$artikelname = $row->ArtikelName;
-		$artikelmessage = $row->ArtikelMessage;
-		$artikeltimestamp = $row->ArtikelTimeStamp;
-
-		$artikeltime .= <<<END
-
-		<div class="panel panel-yellow">
+		while($row = $result->fetch_object())
+		{
+			$artikelid = $row->artikelid;
+			$artikelname = $row->artikelName;
+			$artikeltext = $row->artikelMessage;
+			$artikeltimestamp = $row->artikelTimeStamp;
+			$article .= <<<END
+				<div class="panel panel-yellow">
 			<div class="panel-heading">
-				<h3 class="panel-title">{$artikelname}</h3>
+				<h3 class="panel-title">{$artikelname}</h3><br><br>
 			</div><!-- panel-heading -->
 				<div class="panel-body">
-					{$artikelmessage}<br><br>	
+					{$artikeltext}<br><br>	
 					{$artikeltimestamp}<br><br>		
 				</div><!-- panel-body -->
 		</div><!-- panel panel-yellow -->
-	
-
 END;
+		}
+	}
+	else
+	{
+		$feedback .= "<p class=\"text-yellow\">Det finns ingen artikel i databasen med det namnet.</p>";
 	}
 }
 $content = <<<END
@@ -64,7 +62,7 @@ $content = <<<END
 				</div><!-- col-md-3 -->
 				
 				<div class="col-xs-12 col-md-6">
-					{$artikeltime}
+					{$article}
 
 					<div class="panel panel-yellow">
 						<div class="panel-heading">
@@ -149,5 +147,4 @@ END;
 echo $header;
 echo $content;
 echo $footer;
-
 ?>
