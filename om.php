@@ -1,8 +1,8 @@
 <?php
 /*---------------------------------
-school.php
-Traena
-Skridskoskola
+om.php
+Om oss
+Dokument
 ---------------------------------*/
 
 include_once("inc/HTMLTemplate.php");
@@ -16,14 +16,23 @@ $content = <<<END
 				<div class="col-md-3">
 					<div class="panel panel-blue">
 						
-						<!-- Skridskoskola undermeny -->
+						<!-- Om oss undermeny -->
 						<div class="panel-body">
-							<div class="media">
-								
-								<div class="media-body">
-									Skridskoskola
-								</div><!-- media body -->
-							</div><!-- media -->	
+							
+
+							<!-- dropdown meny Om oss -->
+							<ul class="nav navbar-nav">
+								<li class="dropdown">
+									Om oss <b class="caret"></b>
+									
+									<ul class="dropdown-menu-left">
+										<li><a href="#">Dokument <b class="caret"></b></a></li>
+										<li><a href="#">Historia <b class="caret"></b></a></li>
+										<li><a href="#">Skate Sweden <b class="caret"></b></a></li>
+									</ul>
+								</li>
+							</ul>
+
 						</div><!-- panel-body -->
 						
 					</div><!-- panel panel-blue -->								
