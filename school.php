@@ -11,8 +11,9 @@ $artikeltime = "";
 
 $query = <<<END
 
-	SELECT *
+	SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori
 	FROM artikel
+	WHERE kategori = 'skola'
 	ORDER BY Artikeltimestamp
 END;
 
