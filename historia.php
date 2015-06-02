@@ -33,8 +33,8 @@ if($res->num_rows > 0)
 				<h3 class="panel-title">{$artikelname}</h3>
 			</div><!-- panel-heading -->
 				<div class="panel-body">
-					{$artikelmessage}<br><br>	
-					{$artikeltimestamp}<br><br>		
+					{$artikelmessage}
+					{$artikeltimestamp}	
 				</div><!-- panel-body -->
 		</div><!-- panel panel-yellow -->
 	
