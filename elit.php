@@ -38,8 +38,8 @@ END;
 				<h3 class="panel-title">{$artikelname}</h3>
 			</div><!-- panel-heading -->
 				<div class="panel-body">
-					{$artikelmessage}<br><br>	
-					{$artikeltimestamp}<br><br>		
+					{$artikelmessage}
+					{$artikeltimestamp}
 				</div><!-- panel-body -->
 		</div><!-- panel panel-yellow -->
 	
@@ -75,8 +75,8 @@ END;
 						<h3 class="panel-title">{$artikelname}</h3>
 					</div><!-- panel-heading -->
 						<div class="panel-body">
-							{$artikelmessage}<br><br>	
-							{$artikeltimestamp}<br><br>		
+							{$artikelmessage}	
+							{$artikeltimestamp}	
 						</div><!-- panel-body -->
 				</div><!-- panel panel-yellow -->
 			
@@ -133,18 +133,16 @@ $content = <<<END
 						<!-- Om oss undermeny -->
 						
 							<h3 class="panel-title yellow">Elitnivåträning</h3>
-						</div><!-- panel heading -->
-						</a>
-					
+						</div><!-- panel heading -->					
 							
 						<div class="panel-body">
 							{$artikelnames}
 						</div><!-- panel body -->
-					</div><!-- panel panel blue -->									
+					</div><!-- panel panel blue -->								
 				</div><!-- col md 3 -->
 				
 				<div class="col-xs-12 col-md-6">
-					{$artikeltime}	
+					{$artikeltime}
 				</div><!-- mitten -->	
 							
 				<!-- Rad högre -->

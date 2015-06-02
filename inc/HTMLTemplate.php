@@ -219,16 +219,25 @@ $content = <<<END
 END;
 
 $footer = <<<END
-	    <div class="footer border-bottom-radius">
+	    <div class="footer border-bottom-radius navbar-fixed-bottom">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 text-center">
 						<ul class="list-inline">
-							<li class="yellow"><a class="li yellow" href="#">Kontakta oss</a> &middot; <a class="li yellow" href="#">FAQ</a> &middot; <a class="li yellow" href="#">Media</a> &middot; <a class="li white" href="#">Samarbetspartnare</a> &middot; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="#"><img src="img/facebook.png"></a> &nbsp; <a href="#"><img src="img/twitter.png"></a> &nbsp; <a href="#"><img src="img/youtube.png"></a></li>
+							<li class="yellow">
+              <a class="li yellow" href="#">Kontakta oss</a> &middot;
+              <a class="li yellow" href="#">FAQ</a> &middot;
+              <a class="li yellow" href="#">Media</a> &middot;
+              <a class="li white" href="#">Samarbetspartnare</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              <a href="#"><img src="img/facebook.png"></a> &nbsp;
+              <a href="#"><img src="img/twitter.png"></a> &nbsp;
+              <a href="#"><img src="img/youtube.png"></a>
+              </li>
 						</ul>
-					</div><!-- col-md-12 -->
-					<div class="col-md-12">
-						<p class="text-center white">Copyright &copy; 2014 Svenska Konståkningsförbundet.</p>
+					   <br>
+             <br>
+             <br>
+						<p class="text-center white text-10px">Copyright &copy; 2014-2015 Svenska Konståkningsförbundet.</p>
 					</div>
 				</div><!-- row -->
 			</div><!-- container -->

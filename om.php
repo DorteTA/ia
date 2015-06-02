@@ -16,14 +16,9 @@ $content = <<<END
 				<div class="col-md-3">
 					<div class="panel panel-blue">
 
-						<div class="panel-heading">
-						
-						<!-- Om oss undermeny -->
-						
+						<div class="panel-heading">						
 							<h3 class="panel-title yellow">Dokument</h3>
-						</div><!-- panel heading -->
-						</a>
-					
+						</div><!-- panel heading -->					
 							
 						<div class="panel-body">
 							<div class="collapse-in" id="dokument">
