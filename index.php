@@ -54,7 +54,7 @@ if($res->num_rows > 0)
 		$artikelid = $row->ArtikelId;
 		$artikelname = $row->ArtikelName;
 		$artikelmessage = $row->ArtikelMessage;
-		$artikelsubtext = substr($artikelmessage, 0, 160);
+		$artikelsubtext = substr($artikelmessage, 0, 80);
 		$artikeltimestamp = $row->ArtikelTimeStamp;
 
 		$artikelnews .= <<<END
