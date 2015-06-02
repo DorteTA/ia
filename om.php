@@ -15,28 +15,45 @@ $content = <<<END
 			<div class="row">
 				<div class="col-md-3">
 					<div class="panel panel-blue">
+
+						<div class="panel-heading">
 						
 						<!-- Om oss undermeny -->
-						<div class="panel-body">
+						<a class="yellow" data-toggle="collapse" href="#dokument" aria-expanded="false"
+						aria-controls="collapseExample">
+							<h3 class="panel-title yellow">Dokument</h3>
+						</div><!-- panel heading -->
+						</a>
+					
 							
+						<div class="panel-body">
+							<div class="collapse" id="dokument">
+								
+									<ul class="">
+          								<li class="dropdown-left">
+	   									<a data-toggle="collapse" href="#blanketter" aria-expanded="false"
+										aria-controls="collapseExample">
+	   										<li>Blanketter och Broschyrer <b class="caret"></b></li>
+	   									</a>
 
-							<!-- dropdown meny Om oss -->
-							<ul class="nav navbar-nav">
-								<li class="dropdown">
-									Om oss <b class="caret"></b>
-									
-									<ul class="dropdown-menu-left">
-										<li><a href="#">Dokument <b class="caret"></b></a></li>
-										<li><a href="#">Historia <b class="caret"></b></a></li>
-										<li><a href="#">Skate Sweden <b class="caret"></b></a></li>
-									</ul>
-								</li>
-							</ul>
-
-						</div><!-- panel-body -->
-						
-					</div><!-- panel panel-blue -->								
-				</div><!-- col-md-3 -->
+	   									<!-- blanketter och brochurer -->
+	   									<div class="collapse" id="blanketter">
+	   										Bla bla om blanketter och brochurer
+	   									</div>
+	   									<a href="#">
+	   										<li>Stadgar <b class="caret"></b></li>
+	   									</a>
+	   									<a href="#">
+	   										<li>Styrelsearbete <b class="caret"></b></li>
+	   									</a>
+	   									<a href="#">
+	   										<li>Policy <b class="caret"></b></li>
+	   									</a>	   									
+	   								</ul>
+								</div><!-- collapse -->
+						</div><!-- panel body -->
+					</div><!-- panel panel blue -->									
+				</div><!-- col md 3 -->
 				
 				<div class="col-xs-12 col-md-6">
 					<div class="panel panel-yellow">
@@ -59,7 +76,6 @@ $content = <<<END
 							Darth mandalore yoda darth qui-gon luke jango skywalker skywalker. Organa mace organa dantooine
 							ventress padmé.
 							</p>
-														
 						</div><!-- panel-body -->
 					</div><!-- panel panel-yellow -->
 					
