@@ -19,15 +19,14 @@ $content = <<<END
 						<div class="panel-heading">
 						
 						<!-- Om oss undermeny -->
-						<a class="yellow" data-toggle="collapse" href="#dokument" aria-expanded="false"
-						aria-controls="collapseExample">
+						
 							<h3 class="panel-title yellow">Dokument</h3>
 						</div><!-- panel heading -->
 						</a>
 					
 							
 						<div class="panel-body">
-							<div class="collapse" id="dokument">
+							<div class="collapse-in" id="dokument">
 								
 									<ul class="">
           								<li class="dropdown-left">
