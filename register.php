@@ -3,6 +3,42 @@
 include_once("inc/HTMLTemplate.php");
 include_once("inc/Connstring.php");
 
+$feedback = "";
+
+if(!empty($_POST))
+{
+	if(isset($_POST['submit']))
+	{
+			$username = $_POST['username'];
+			$mail = $_POST['mail'];
+			$name = $_POST['name'];
+			$surname = $_POST['surname'];
+			$address = $_POST['address'];
+			$zipcode = $_POST['zipcode'];
+			$city = $_POST['city'];
+			$pass = $_POST['password'];
+
+			if($username == '' || $mail == "" || $name == "" || $surname == "" || $address == "" || $zipcode == "" || $city == "" || $pass == "")
+			{
+				$feedback = "<p>Fyll i alla fält</p>";
+			}
+			else
+			{
+
+				$query = <<<END
+
+					INSERT INTO user (username, mail, name, surname, address, zipcode, city, password)
+					VALUES ('{$username}', '{$mail}', '{$name}', '{$surname}', '{$address}', '{$zipcode}', '{$city}', '{$pass}');
+END;
+				$res = $mysqli->query($query) or die("Could not query database" . $mysqli->errno . 
+				        " : " . $mysqli->error);
+
+				header("Location: login.php");
+			}
+		
+
+	}
+}
 $content = <<<END
 
        	<div id="content">
@@ -13,6 +49,7 @@ $content = <<<END
 							<h3 class="panel-title">Registrera dig</h3>
 						</div><!-- panel-heading -->
 						<div class="panel-body">
+						{$feedback}
 							<form action="register.php" method="POST" class="blue" id="register-form">
 							
 								<label for="username">Användarnamn</label>
@@ -34,7 +71,7 @@ $content = <<<END
 								<input type="text" class="form-control" id="zipcode" name="zipcode" placeholder="Ditt postnummer">
 								
 								<label for="city">Ort</label>
-								<input type="text" class="form-control" id="city" name="cit" placeholder="Din ort">
+								<input type="text" class="form-control" id="city" name="city" placeholder="Din ort">
 								
 								<label for="password">Lösenord</label>
 								<input type="password" class="form-control" id="password" name="password" placeholder="Ditt lösenord">
