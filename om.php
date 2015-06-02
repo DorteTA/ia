@@ -15,34 +15,38 @@ $content = <<<END
 			<div class="row">
 				<div class="col-md-3">
 					<div class="panel panel-blue">
+
+						<div class="panel-heading">
 						
 						<!-- Om oss undermeny -->
+						<a class="yellow" data-toggle="collapse" href="#dokument" aria-expanded="false"
+						aria-controls="collapseExample">
+							<h3 class="panel-title yellow">Om oss</h3>
+						</div><!-- panel heading -->
+						</a>
+					
+							
 						<div class="panel-body">
-							
-
-							<!-- dropdown meny Om oss -->
-							
-								<li class="dropdown">
-									Om oss <b class="caret"></b>
-									
-									<ul class="dropdown-menu-left">
-										<li><a href="om.php#dokument">Dokument <b class="caret"></b></a></li>
-										<a name="dokument"></a>
-										
-										<li><a href="#">Dok 1</a></li>
-										<li><a href="#">Dok 2</a></li>
-										<li><a href="#">Dok 3</a></li>
-										
-										<li><a href="#">Historia <b class="caret"></b></a></li>
-										<li><a href="#">Skate Sweden <b class="caret"></b></a></li>
-									</ul>
-								</li>
-							</ul>
-
-						</div><!-- panel-body -->
-						
-					</div><!-- panel panel-blue -->								
-				</div><!-- col-md-3 -->
+							<div class="collapse" id="dokument">
+								<div>
+									<ul class="nav navbar-nav">
+          								<li class="dropdown">
+	   									<a href="#">
+	   										<li>Dokument <b class="caret"></b>
+	   										</li>
+	   									</a>
+								</div>
+									<div>
+	   									<li>Historia/li>
+									</div>
+									<div>
+	   									<li>Skate Sweden/li>
+									</div>
+								</div>
+								
+						</div><!-- panel body -->
+					</div><!-- panel panel blue -->									
+				</div><!-- col md 3 -->
 				
 				<div class="col-xs-12 col-md-6">
 					<div class="panel panel-yellow">
@@ -65,7 +69,6 @@ $content = <<<END
 							Darth mandalore yoda darth qui-gon luke jango skywalker skywalker. Organa mace organa dantooine
 							ventress padmé.
 							</p>
-														
 						</div><!-- panel-body -->
 					</div><!-- panel panel-yellow -->
 					
