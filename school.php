@@ -7,7 +7,7 @@ Skridskoskola
 
 include_once("inc/HTMLTemplate.php");
 include_once("inc/Connstring.php");
-
+$artikeltime = "";
 
 $query = <<<END
 
@@ -16,19 +16,28 @@ $query = <<<END
 	ORDER BY Artikeltimestamp
 END;
 
-$res = $$mysqli->query($query) or die();
+$res = $mysqli->query($query) or die();
 
 if($res->num_rows > 0)
 {
 	while($row = $res->fetch_object())
 	{
-		$artikelname = $row->Artikelname;
-		$artikelmessage = $row->Artikelmessage;
-		$artikeltimestamp = $row->Artikeltimestamp;
+		$artikelname = $row->ArtikelName;
+		$artikelmessage = $row->ArtikelMessage;
+		$artikeltimestamp = $row->ArtikelTimeStamp;
 
-		$artikeltime = <<<END
-		{$artikelname}<br>
-		{$artikelmessage}<br>
+		$artikeltime .= <<<END
+
+		<div class="panel panel-yellow">
+			<div class="panel-heading">
+				<h3 class="panel-title">{$artikelname}</h3><br><br>
+			</div><!-- panel-heading -->
+				<div class="panel-body">
+					{$artikelmessage}<br><br>	
+					{$artikeltimestamp}<br><br>		
+				</div><!-- panel-body -->
+		</div><!-- panel panel-yellow -->
+	
 
 END;
 	}
@@ -55,30 +64,8 @@ $content = <<<END
 				</div><!-- col-md-3 -->
 				
 				<div class="col-xs-12 col-md-6">
-					<div class="panel panel-yellow">
-						<div class="panel-heading">
-							<h3 class="panel-title">Svenska landslaget</h3>
-						</div><!-- panel-heading -->
-						<div class="panel-body">
-							<p><img src="http://placehold.it/600x300" class="img-responsive img-rounded img-100x">					
-							Lucas ipsum dolor sit amet owen darth skywalker r2-d2 calamari jango darth calamari leia hutt.
-							Skywalker hutt grievous dagobah obi-wan yoda luke calamari antilles. Mustafar anakin kit fett
-							<strong>wookiee</strong> mon cade darth. Obi-wan kamino kessel naboo ponda organa mustafar.
-							Boba hutt solo ackbar. Wedge jinn skywalker mothma greedo antilles. Mustafar organa r2-d2
-							antilles moff antilles ponda darth.
-							</p>
-							<p>
-							Wicket anakin skywalker mara calamari kessel. Fisto jawa
-							cade c-3po naboo. Moff moff moff vader grievous c-3p0 organa.Lobot organa tusken raider kit
-							wedge mon bespin darth fett. Darth leia obi-wan organa. Mace sidious windu sidious cade moff
-							secura. R2-d2 wedge lobot jango jango ewok darth antilles anakin. Baba han jabba mara utapau.
-							Darth mandalore yoda darth qui-gon luke jango skywalker skywalker. Organa mace organa dantooine
-							ventress padmé.
-							</p>
-														
-						</div><!-- panel-body -->
-					</div><!-- panel panel-yellow -->
-					
+					{$artikeltime}
+
 					<div class="panel panel-yellow">
 						<div class="panel-heading">
 							<h3 class="panel-title">Rubrik 2</h1>
