@@ -50,19 +50,42 @@ $content = <<<END
 			<div class="row">
 				<div class="col-md-3">
 					<div class="panel panel-blue">
+
+						<div class="panel-heading">
 						
-						<!-- Skridskoskola undermeny -->
+						<!-- Om oss undermeny -->
+						
+							<h3 class="panel-title yellow">Skridskoskola</h3>
+						</div><!-- panel heading -->
+						</a>
+					
+							
 						<div class="panel-body">
-							<div class="media">
+							<div class="collapse-in" id="dokument">
 								
-								<div class="media-body">
-									Skridskoskola
-								</div><!-- media body -->
-							</div><!-- media -->	
-						</div><!-- panel-body -->
-						
-					</div><!-- panel panel-blue -->								
-				</div><!-- col-md-3 -->
+									<ul class="">
+          								<li class="dropdown-left">
+	   									<a data-toggle="collapse" href="#blanketter" aria-expanded="false"
+										aria-controls="collapseExample">
+	   										<li>Så börjar du med konståkning <b class="caret"></b></li>
+	   									</a>
+
+	   									<!-- blanketter och brochurer -->
+	   									<div class="collapse" id="blanketter">
+	   										Piruetter<br>
+	   										Hopp
+	   									</div>
+	   									<a href="#">
+	   										<li>Hoppskola <b class="caret"></b></li>
+	   									</a>
+	   									<a href="#">
+	   										<li>Bli konståkare i  7 steg <b class="caret"></b></li>
+	   									</a>	   									
+	   								</ul>
+								</div><!-- collapse -->
+						</div><!-- panel body -->
+					</div><!-- panel panel blue -->									
+				</div><!-- col md 3 -->
 				
 				<div class="col-xs-12 col-md-6">
 					{$artikeltime}
