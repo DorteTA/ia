@@ -119,8 +119,8 @@ $header = <<<END
           <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tävla <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Elitserien 2014-2015</a></li>
-            <li><a href="#">Regler</a></li>
+            <li><a href="elitserien.php">Elitserien 2014-2015</a></li>
+            <li><a href="regler.php">Regler</a></li>
             <li><a href="#">EM 2015</a></li>
             <li><a href="#">Svenska mästerskapen 2014</a></li>
             <li><a href="#">Tävlingar och resultat</a></li>
