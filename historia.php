@@ -6,8 +6,85 @@ Förbundets historia
 
 include_once("inc/HTMLTemplate.php");
 include_once("inc/Connstring.php");
-$artikeltime = "";
 
+$artikeltime = "";
+$artikelnames = "";
+
+if(!empty($_GET))
+{
+	$getartikelid = isset($_GET['ArtikelId']) ? $_GET['ArtikelId'] : '';
+
+	$query = <<<END
+
+		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp
+		FROM artikel
+		WHERE ArtikelId = "{$getartikelid}";
+END;
+
+	$res = $mysqli->query($query) or die();
+
+	if($res->num_rows > 0)
+	{
+		while($row = $res->fetch_object())
+		{
+			$artikelname = $row->ArtikelName;
+			$artikelmessage = $row->ArtikelMessage;
+			$artikeltimestamp = $row->ArtikelTimeStamp;
+			
+			$artikeltime = <<<END
+
+		<div class="panel panel-yellow">
+			<div class="panel-heading">
+				<h3 class="panel-title">{$artikelname}</h3>
+			</div><!-- panel-heading -->
+				<div class="panel-body">
+					{$artikelmessage}<br><br>	
+					{$artikeltimestamp}<br><br>		
+				</div><!-- panel-body -->
+		</div><!-- panel panel-yellow -->
+	
+
+END;
+		}
+	}
+}
+else
+{
+	$query = <<<END
+
+		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori
+		FROM artikel
+		WHERE kategori = 'historia'
+		ORDER BY Artikeltimestamp
+END;
+
+	$res = $mysqli->query($query) or die();
+
+		if($res->num_rows > 0)
+		{
+			while($row = $res->fetch_object())
+			{
+				$artikelname = $row->ArtikelName;
+				$artikelmessage = $row->ArtikelMessage;
+				$artikeltimestamp = $row->ArtikelTimeStamp;
+
+				$artikeltime = <<<END
+
+				<div class="panel panel-yellow">
+					<div class="panel-heading">
+						<h3 class="panel-title">{$artikelname}</h3>
+					</div><!-- panel-heading -->
+						<div class="panel-body">
+							{$artikelmessage}<br><br>	
+							{$artikeltimestamp}<br><br>		
+						</div><!-- panel-body -->
+				</div><!-- panel panel-yellow -->
+			
+
+END;
+			}
+		}
+}
 $query = <<<END
 
 	SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori
@@ -22,23 +99,24 @@ if($res->num_rows > 0)
 {
 	while($row = $res->fetch_object())
 	{
+		$artikelId = $row->ArtikelId;
 		$artikelname = $row->ArtikelName;
 		$artikelmessage = $row->ArtikelMessage;
 		$artikeltimestamp = $row->ArtikelTimeStamp;
 
-		$artikeltime .= <<<END
+		$artikelnames .= <<<END
 
-		<div class="panel panel-yellow">
-			<div class="panel-heading">
-				<h3 class="panel-title">{$artikelname}</h3>
-			</div><!-- panel-heading -->
-				<div class="panel-body">
-					{$artikelmessage}<br><br>	
-					{$artikeltimestamp}<br><br>		
-				</div><!-- panel-body -->
-		</div><!-- panel panel-yellow -->
-	
 
+			<div class="collapse-in" id="dokument">
+								
+				<ul class="">
+          								
+	   				<a href="historia.php?ArtikelId={$artikelId}">
+	   					<li>{$artikelname}</li>
+	   				</a>	   									
+	   			</ul>
+			</div><!-- collapse -->
+					
 END;
 	}
 }
@@ -60,17 +138,7 @@ $content = <<<END
 					
 							
 						<div class="panel-body">
-							<div class="collapse-in" id="dokument">
-								
-									<ul class="">
-	   									<a href="historia.php">
-	   										<li>Förbundets Historia</li>
-	   									</a>
-	   									<a href="historia.php">
-	   										<li>Konståkningens Historia</li>
-	   									</a>	   									
-	   								</ul>
-								</div><!-- collapse -->
+							{$artikelnames}
 						</div><!-- panel body -->
 					</div><!-- panel panel blue -->									
 				</div><!-- col md 3 -->
