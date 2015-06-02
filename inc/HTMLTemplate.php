@@ -95,7 +95,7 @@ $header = <<<END
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Om oss <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="om.php">Dokument</a></li>
-            <li><a href="om.php">Historia</a></li>
+            <li><a href="historia.php">Historia</a></li>
             <li><a href="om.php">Skate Sweden</a></li>
           </ul>
         </li>
