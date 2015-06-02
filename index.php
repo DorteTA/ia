@@ -11,29 +11,6 @@ include_once("inc/Connstring.php");
 $choosenarticlename = "";
 $choosenarticlemessage = "";
 
-if(!empty($_GET))
-{
-	$getartikelid = isset($_GET['ArtikelId']) ? $_GET['ArtikelId'] : '';
-
-	$query = <<<END
-
-		SELECT ArtikelId, ArtikelName, ArtikelMessage
-		FROM artikel
-		WHERE ArtikelId = "{$getartikelid}";
-END;
-
-	$res = $mysqli->query($query) or die();
-
-	if($res->num_rows == 1)
-	{
-		while($row = $res->fetch_object())
-		{
-			$choosenarticlename = $row->ArtikelName;
-			$choosenarticlemessage = $row->ArtikelMessage;
-			/*$choosenarticletimestamp = $row->ArtikelTimeStamp;*/
-		}
-	}
-}
 
 $artikelnews = "";
 
@@ -76,6 +53,30 @@ if($res->num_rows > 0)
 END;
 	}
 }
+
+if(!empty($_GET))
+{
+	$getartikelid = isset($_GET['ArtikelId']) ? $_GET['ArtikelId'] : '';
+
+	$query = <<<END
+
+		SELECT ArtikelId, ArtikelName, ArtikelMessage
+		FROM artikel
+		WHERE ArtikelId = "{$getartikelid}";
+END;
+
+	$res = $mysqli->query($query) or die();
+
+	if($res->num_rows == 1)
+	{
+		while($row = $res->fetch_object())
+		{
+			$artikelname = $row->ArtikelName;
+			$artikelmessage = $row->ArtikelMessage;
+			/*$choosenarticletimestamp = $row->ArtikelTimeStamp;*/
+		}
+	}
+}
 $content = <<<END
 
 			
@@ -94,11 +95,11 @@ $content = <<<END
 				<div class="col-xs-12 col-md-6">
 					<div class="panel panel-yellow">
 						<div class="panel-heading">
-							<h3 class="panel-title">{$choosenarticlename}</h3>
+							<h3 class="panel-title">{$artikelname}</h3>
 						</div><!-- panel-heading -->
 						<div class="panel-body">
-							<img src="http://placehold.it/600x300" class="img-responsive img-rounded img-100x">					
-							{$choosenarticlemessage}
+							<img src="http://placehold.it/600x300" class="img-responsive img-rounded img-100x">				
+							{$artikelmessage}
 														
 						</div><!-- panel-body -->
 					</div><!-- panel panel-yellow -->
