@@ -27,14 +27,16 @@ END;
 			$artikeltimestamp = $row->ArtikelTimeStamp;
 			$article .= <<<END
 				<div class="panel panel-yellow">
-			<div class="panel-heading">
-				<h3 class="panel-title">{$artikelname}</h3><br><br>
-			</div><!-- panel-heading -->
-				<div class="panel-body">
-					{$artikeltext}<br><br>	
-					{$artikeltimestamp}<br><br>		
-				</div><!-- panel-body -->
-		</div><!-- panel panel-yellow -->
+					<div class="panel-heading">
+						<h3 class="panel-title">{$artikelname}</h3>
+					</div><!-- panel-heading -->
+						<div class="panel-body">
+							{$artikeltext}
+							<br>
+							<br>	
+							{$artikeltimestamp}		
+						</div><!-- panel-body -->
+				</div><!-- panel panel yellow -->
 END;
 		}
 	}
@@ -48,10 +50,11 @@ $content = <<<END
 			
        	<div id="content">
 			<div class="row">
-				<div class="col-md-3">
-											
-				</div><!-- col-md-3 -->
+				<!-- vänster -->
+				<div class="col-md-3">	
+				</div><!-- col md 3 -->
 				
+				<!-- kolumn mitten -->
 				<div class="col-xs-12 col-md-6">
 					{$article}
 				
@@ -59,7 +62,8 @@ $content = <<<END
 							
 				<!-- Rad högre -->
 				<div class="col-md-3 pull-right">
-				</div>	
+				</div><!-- högre -->
+
 			</div> <!-- row -->
        </div><!-- AVsluta content DIV -->
 
