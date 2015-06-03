@@ -1,7 +1,7 @@
 <?php
 /*---------------------------------
-elitsatsning.php
-elit
+medaljer.php
+taevla
 ---------------------------------*/
 
 include_once("inc/HTMLTemplate.php");
@@ -54,7 +54,7 @@ else
 
 		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori
 		FROM artikel
-		WHERE kategori = 'elitsatsning'
+		WHERE kategori = 'medaljer'
 		ORDER BY Artikeltimestamp
 END;
 
@@ -89,7 +89,7 @@ $query = <<<END
 
 	SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori
 	FROM artikel
-	WHERE kategori = 'elitsatsning'
+	WHERE kategori = 'medaljer'
 	ORDER BY Artikeltimestamp
 END;
 
@@ -132,7 +132,7 @@ $content = <<<END
 						
 						<!-- Om oss undermeny -->
 						
-							<h3 class="panel-title yellow">Elitsatsning</h3>
+							<h3 class="panel-title yellow">Tävlingar och resultat</h3>
 						</div><!-- panel heading -->
 						</a>
 					
