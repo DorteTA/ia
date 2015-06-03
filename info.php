@@ -143,8 +143,48 @@ $content = <<<END
 					
 							
 						<div class="panel-body">
+							<div class="collapse-in" id="dokument">
+								
+									<ul class="">
+          								<li class="dropdown-left">
+	   									<a data-toggle="collapse" href="#blanketter" aria-expanded="false"
+										aria-controls="collapseExample">
+	   										<li>Arrangörer <b class="caret"></b></li>
+	   									</a>
 
-							{$artikelnames}
+	   									<!-- blanketter och brochurer -->
+	   									<div class="collapse" id="blanketter">
+	   										{$artikelnames}
+	   									</div>
+	   									<a data-toggle="collapse" href="#stadger" aria-expanded="false"
+										aria-controls="collapseExample">
+	   										<li>För Förare <b class="caret"></b></li>
+	   									</a>
+
+	   									<!-- stadger -->
+	   									<div class="collapse" id="stadger">
+	   										Bla bla om förare
+	   									</div>
+	   									<a data-toggle="collapse" href="#styrelsearbete" aria-expanded="false"
+										aria-controls="collapseExample">
+	   										<li>För föräldrar <b class="caret"></b></li>
+	   									</a>
+	   									<!-- styrelsearbete -->
+	   									<div class="collapse" id="styrelsearbete">
+	   										Bla bla om föräldrar
+	   									</div>
+	   									<a data-toggle="collapse" href="#policy" aria-expanded="false"
+										aria-controls="collapseExample">
+	   										<li>Policy <b class="caret"></b></li>
+	   									</a>
+	   									<!-- policy -->
+	   									<div class="collapse" id="policy">
+	   										Bla bla om policy
+	   									</div>	   									
+	   								</ul>
+								</div><!-- collapse -->
+
+							
 
 						</div><!-- panel body -->
 					</div><!-- panel panel blue -->									
