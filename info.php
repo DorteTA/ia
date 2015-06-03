@@ -168,7 +168,7 @@ $content = <<<END
 	   									</div>
 	   									<a data-toggle="collapse" href="#akare" aria-expanded="false"
 										aria-controls="collapseExample">
-	   										<li>För Åkare <b class="caret"></b></li>
+	   										<li>Åkare <b class="caret"></b></li>
 	   									</a>
 
 	   									<!-- stadger -->
@@ -177,7 +177,7 @@ $content = <<<END
 	   									</div>
 	   									<a data-toggle="collapse" href="#styrelsearbete" aria-expanded="false"
 										aria-controls="collapseExample">
-	   										<li>För föräldrar <b class="caret"></b></li>
+	   										<li>Föräldrar <b class="caret"></b></li>
 	   									</a>
 	   									<!-- styrelsearbete -->
 	   									<div class="collapse" id="styrelsearbete">
