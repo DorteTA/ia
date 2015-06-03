@@ -139,7 +139,7 @@ $header = <<<END
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Driva Förening <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="starta.php">Starta förening</a></li>
-            <li><a href="#">Arrangera tävling</a></li>
+            <li><a href="arrangera.php">Arrangera tävling</a></li>
             <li><a href="#">Ansöka om namnbyte</a></li>
             <li><a href="#">Riktlinjer vid istidsförhandlingar</a></li>
           </ul>
