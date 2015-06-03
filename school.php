@@ -117,7 +117,7 @@ if($res->num_rows > 0)
 				<ul class="">
           								
 	   				<a href="school.php?ArtikelId={$artikelId}">
-	   					<li>{$artikelname}<b class="caret"></b></li>
+	   					<li>{$artikelname}</li>
 	   				</a>	   									
 	   			</ul>
 			</div><!-- collapse -->
@@ -149,25 +149,8 @@ $content = <<<END
 				
 				<div class="col-xs-12 col-md-6">
 					{$artikeltime}
-					<div class="panel panel-yellow">
-						<div class="panel-heading">
-							<h3 class="panel-title">Rubrik 2</h1>
-						</div><!-- panel-heading -->
-							<div class="panel-body">
-								<p>Lucas ipsum dolor sit amet wedge mace kessel skywalker palpatine ackbar skywalker mustafar
-								coruscant lobot. Darth yavin yoda obi-wan windu solo. Organa jinn dooku twi'lek solo amidala yoda
-								jade moff. Hutt fett yoda solo ventress k-3po hutt binks solo. Ahsoka bothan anakin owen. Leia amidala
-								skywalker organa luke jinn organa kit hutt. Yavin jinn lobot solo darth moff jabba ponda naboo. Boba moff
-								jawa solo padmé calamari. Wookiee dagobah jabba skywalker moff tatooine. Fett antilles sidious antilles
-								calrissian fisto naboo.
-								</p>
-					
-							</div><!-- panel-body -->
-					</div><!-- panel panel-yellow -->
 			
-				<!-- rad center, 2 kolumner layout-->
-			
-			</div><!-- mitten -->	
+				</div><!-- mitten -->	
 							
 				<!-- Rad högre -->
 				<div class="col-md-3 pull-right">
