@@ -190,7 +190,7 @@ $header = <<<END
 		<!-- undermeny tom -->
 		<div class="col-xs-12 col-md-6">
 
-		</div><!-- col-xs-6 col-md-3 -->
+		</div><!-- col xs 6 col md 3 -->
 
 		<!-- undermeny m sök form -->
 		<div class="col-xs-6 col-md-3">
