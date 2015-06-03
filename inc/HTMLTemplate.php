@@ -164,7 +164,7 @@ $header = <<<END
           <ul class="dropdown-menu">
             <li><a href="press.php">Press</a></li>
             <li><a href="faq.php">FAQ</a></li>
-            <li><a href="#">Lediga Jobb</a></li>
+            <li><a href="ledigajobb.php">Lediga Jobb</a></li>
             <li><a href="#">Avdelningar</a></li>
             <li><a href="#">Distrikt och föreningar</a></li>
             
