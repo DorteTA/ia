@@ -16,7 +16,11 @@ if(isset($_SESSION["username"])) {
 
     <div class="col-xs-6 col-md-3">
       <ul class="list-inline padding">
-       <li class="yellow">Inloggad som: <a class="li yellow" href="profile.php"><strong>{$_SESSION["username"]}</strong></a> &middot; <a class="li yellow" href="logout.php">Logga ut</a> &middot;</li>
+        <li class="yellow">Inloggad som:
+        <a class="li yellow" href="profile.php">
+          <strong>{$_SESSION["username"]}</strong>
+        </a> &middot; <a class="li yellow" href="logout.php">
+          Logga ut</a> &middot;</li>
       </ul>
     </div><!-- col-xs-6 col-md-3 -->
 
@@ -29,7 +33,8 @@ else
 
     <div class="col-xs-6 col-md-3">
       <ul class="list-inline padding">
-        <li class="yellow"><a class="li yellow" href="login.php">Logga in</a> &middot; <a class="li yellow" href="register.php">Registrera dig</a></li>
+        <li class="yellow"><a class="li yellow" href="login.php">Logga in</a> &middot;
+         <a class="li yellow" href="register.php">Registrera dig</a></li>
       </ul>
     </div><!-- col-xs-6 col-md-3 -->
 END;
@@ -184,9 +189,7 @@ $header = <<<END
 
 		<!-- undermeny tom -->
 		<div class="col-xs-12 col-md-6">
-			<ul class="list-inline padding">
-				<li class="yellow"><a class="li yellow" href="http://skatesweden.sporrongshop.com/Startpage/Startpage.aspx?MenuID=3121">Butik</a></li>
-			</ul>
+
 		</div><!-- col-xs-6 col-md-3 -->
 
 		<!-- undermeny m sök form -->
@@ -199,8 +202,16 @@ $header = <<<END
                 <input type="submit" value="sök">
                
 					</div><!-- form-group -->
-				</form>	
+				</form>
+        <ul class="list-inline padding pull-right">
+        <li class="yellow">
+          <a class="li yellow" href="http://skatesweden.sporrongshop.com/Startpage/Startpage.aspx?MenuID=3121">
+            Butik
+          </a>
+        </li>
+      </ul>
 			</div>
+
 		</div><!-- col-xs-6 col-md-3 -->
 	</div><!-- row -->
 </div><!-- undermeny -->
