@@ -152,7 +152,7 @@ $header = <<<END
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Engagera dig <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="utvecklings.php">Utvecklingskommiten</a></li>
-            <li><a href="#">Utbildning</a></li>
+            <li><a href="utbildning.php">Utbildning</a></li>
           </ul>
         </li>
       </ul>
