@@ -54,7 +54,7 @@ else
 
 		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori
 		FROM artikel
-		WHERE kategori = 'historia'
+		WHERE kategori = 'elitserien'
 		ORDER BY Artikeltimestamp
 END;
 
@@ -89,7 +89,7 @@ $query = <<<END
 
 	SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori
 	FROM artikel
-	WHERE kategori = 'elitsatsning'
+	WHERE kategori = 'elitserien'
 	ORDER BY Artikeltimestamp
 END;
 
@@ -111,7 +111,7 @@ if($res->num_rows > 0)
 								
 				<ul class="">
           								
-	   				<a href="elitsatsning.php?ArtikelId={$artikelId}">
+	   				<a href="elitserien.php?ArtikelId={$artikelId}">
 	   					<li>{$artikelname}</li>
 	   				</a>	   									
 	   			</ul>
