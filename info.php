@@ -162,7 +162,7 @@ $content = <<<END
 	   										<li>Arrangörer <b class="caret"></b></li>
 	   									</a>
 
-	   									<!-- blanketter och brochurer -->
+	   									<!-- Arrangorer -->
 	   									<div class="collapse-in" id="arrangorer">
 	   										{$artikelnames}
 	   									</div>

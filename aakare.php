@@ -108,7 +108,7 @@ if($res->num_rows > 0)
 		$artikelnames .= <<<END
 
 
-			<div class="collapse-in" id="dokument">
+			<div class="collapse-in">
 								
 				<ul class="">
           								
