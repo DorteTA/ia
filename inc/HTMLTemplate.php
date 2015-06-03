@@ -162,7 +162,7 @@ $header = <<<END
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kontakta oss <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Press</a></li>
+            <li><a href="press.php">Press</a></li>
             <li><a href="#">FAQ</a></li>
             <li><a href="#">Lediga Jobb</a></li>
             <li><a href="#">Avdelningar</a></li>
