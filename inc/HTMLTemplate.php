@@ -124,8 +124,8 @@ $header = <<<END
             <li><a href="em2015.php">EM 2015</a></li>
             <li><a href="sm.php">Svenska mästerskapen 2014</a></li>
             <li><a href="resultat.php">Tävlingar och resultat</a></li>
-            <li><a href="#">Medaljer 1984-2014</a></li>
-            <li><a href="#">Information</a></li>
+            <li><a href="medaljer.php">Medaljer 1984-2014</a></li>
+            <li><a href="info.php">Information</a></li>
           </ul>
         </li>
       </ul>

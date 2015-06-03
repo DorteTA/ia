@@ -111,7 +111,7 @@ if($res->num_rows > 0)
 								
 				<ul class="">
           								
-	   				<a href="elitsatsning.php?ArtikelId={$artikelId}">
+	   				<a href="medaljer.php?ArtikelId={$artikelId}">
 	   					<li>{$artikelname}</li>
 	   				</a>	   									
 	   			</ul>
