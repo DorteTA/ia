@@ -166,7 +166,7 @@ $header = <<<END
             <li><a href="faq.php">FAQ</a></li>
             <li><a href="ledigajobb.php">Lediga Jobb</a></li>
             <li><a href="avdelningar.php">Avdelningar</a></li>
-            <li><a href="#">Distrikt och föreningar</a></li>
+            <li><a href="distrikt.php">Distrikt och föreningar</a></li>
             
           </ul>
         </li>
