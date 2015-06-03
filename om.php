@@ -8,143 +8,153 @@ Dokument
 include_once("inc/HTMLTemplate.php");
 include_once("inc/Connstring.php");
 
+$artikeltime = "";
+$artikelnames = "";
+
+if(!empty($_GET))
+{
+	$getartikelid = isset($_GET['ArtikelId']) ? $_GET['ArtikelId'] : '';
+
+	$query = <<<END
+
+		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp
+		FROM artikel
+		WHERE ArtikelId = "{$getartikelid}";
+END;
+
+	$res = $mysqli->query($query) or die();
+
+	if($res->num_rows > 0)
+	{
+		while($row = $res->fetch_object())
+		{
+			$artikelname = $row->ArtikelName;
+			$artikelmessage = $row->ArtikelMessage;
+			$artikeltimestamp = $row->ArtikelTimeStamp;
+			
+			$artikeltime = <<<END
+
+		<div class="panel panel-yellow">
+			<div class="panel-heading">
+				<h3 class="panel-title">{$artikelname}</h3>
+			</div><!-- panel-heading -->
+				<div class="panel-body">
+					{$artikelmessage}	
+					{$artikeltimestamp}		
+				</div><!-- panel-body -->
+		</div><!-- panel panel-yellow -->
+	
+
+END;
+		}
+	}
+}
+else
+{
+	$query = <<<END
+
+		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori
+		FROM artikel
+		WHERE kategori = 'om'
+		ORDER BY Artikeltimestamp
+END;
+
+	$res = $mysqli->query($query) or die();
+
+		if($res->num_rows > 0)
+		{
+			while($row = $res->fetch_object())
+			{
+				$artikelname = $row->ArtikelName;
+				$artikelmessage = $row->ArtikelMessage;
+				$artikeltimestamp = $row->ArtikelTimeStamp;
+
+				$artikeltime = <<<END
+
+
+				<div class="panel panel-yellow">
+					
+					<div class="panel-heading">
+					
+						<h3 class="panel-title">{$artikelname}</h3>
+					</div><!-- panel-heading -->
+						<div class="panel-body">
+							{$artikelmessage}
+							<br>
+							{$artikeltimestamp}		
+						</div><!-- panel-body -->
+				</div><!-- panel panel-yellow -->
+			
+
+END;
+			}
+		}
+}
+$query = <<<END
+
+	SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori
+	FROM artikel
+	WHERE kategori = 'om'
+	ORDER BY Artikeltimestamp
+END;
+
+$res = $mysqli->query($query) or die();
+
+if($res->num_rows > 0)
+{
+	while($row = $res->fetch_object())
+	{
+		$artikelId = $row->ArtikelId;
+		$artikelname = $row->ArtikelName;
+		$artikelmessage = $row->ArtikelMessage;
+		$artikeltimestamp = $row->ArtikelTimeStamp;
+
+		$artikelnames .= <<<END
+
+
+			<div class="collapse-in" id="dokument">
+								
+				<ul class="">
+	
+	   				<a href="om.php?ArtikelId={$artikelId}">
+	   					<li>{$artikelname}</li>
+	   				</a>	   									
+	   			</ul>
+			</div><!-- collapse -->
+					
+END;
+	}
+}
+
 $content = <<<END
 
 			
-       	<div id="content">
+        	<div id="content">
 			<div class="row">
 				<div class="col-md-3">
 					<div class="panel panel-blue">
 
-						<div class="panel-heading">						
+
+
+						<div class="panel-heading">
+						
+						<!-- Om oss undermeny -->
+						
 							<h3 class="panel-title yellow">Dokument</h3>
-						</div><!-- panel heading -->					
+						</div><!-- panel heading -->
+						</a>
+					
 							
 						<div class="panel-body">
-							<div class="collapse-in" id="dokument">
-								
-									<ul class="">
-          								<li class="dropdown-left">
-	   									<a data-toggle="collapse" href="#blanketter" aria-expanded="false"
-										aria-controls="collapseExample">
-	   										<li>Blanketter och Broschyrer <b class="caret"></b></li>
-	   									</a>
-
-	   									<!-- blanketter och brochurer -->
-	   									<div class="collapse" id="blanketter">
-	   										Bla bla om blanketter och brochurer
-	   									</div>
-	   									<a data-toggle="collapse" href="#stadger" aria-expanded="false"
-										aria-controls="collapseExample">
-	   										<li>Stadgar <b class="caret"></b></li>
-	   									</a>
-
-	   									<!-- stadger -->
-	   									<div class="collapse" id="stadger">
-	   										Bla bla om stadger
-	   									</div>
-	   									<a data-toggle="collapse" href="#styrelsearbete" aria-expanded="false"
-										aria-controls="collapseExample">
-	   										<li>Styrelsearbete <b class="caret"></b></li>
-	   									</a>
-	   									<!-- styrelsearbete -->
-	   									<div class="collapse" id="styrelsearbete">
-	   										Bla bla om styrelsearbete
-	   									</div>
-	   									<a data-toggle="collapse" href="#policy" aria-expanded="false"
-										aria-controls="collapseExample">
-	   										<li>Policy <b class="caret"></b></li>
-	   									</a>
-	   									<!-- policy -->
-	   									<div class="collapse" id="policy">
-	   										Bla bla om policy
-	   									</div>	   									
-	   								</ul>
-								</div><!-- collapse -->
+							{$artikelnames}
 						</div><!-- panel body -->
 					</div><!-- panel panel blue -->									
 				</div><!-- col md 3 -->
 				
 				<div class="col-xs-12 col-md-6">
-					<div class="panel panel-yellow">
-						<div class="panel-heading">
-							<h3 class="panel-title">Svenska landslaget</h3>
-						</div><!-- panel-heading -->
-						<div class="panel-body">
-							<p><img src="http://placehold.it/600x300" class="img-responsive img-rounded img-100x">					
-							Lucas ipsum dolor sit amet owen darth skywalker r2-d2 calamari jango darth calamari leia hutt.
-							Skywalker hutt grievous dagobah obi-wan yoda luke calamari antilles. Mustafar anakin kit fett
-							<strong>wookiee</strong> mon cade darth. Obi-wan kamino kessel naboo ponda organa mustafar.
-							Boba hutt solo ackbar. Wedge jinn skywalker mothma greedo antilles. Mustafar organa r2-d2
-							antilles moff antilles ponda darth.
-							</p>
-							<p>
-							Wicket anakin skywalker mara calamari kessel. Fisto jawa
-							cade c-3po naboo. Moff moff moff vader grievous c-3p0 organa.Lobot organa tusken raider kit
-							wedge mon bespin darth fett. Darth leia obi-wan organa. Mace sidious windu sidious cade moff
-							secura. R2-d2 wedge lobot jango jango ewok darth antilles anakin. Baba han jabba mara utapau.
-							Darth mandalore yoda darth qui-gon luke jango skywalker skywalker. Organa mace organa dantooine
-							ventress padmé.
-							</p>
-						</div><!-- panel-body -->
-					</div><!-- panel panel-yellow -->
-					
-					<div class="panel panel-yellow">
-						<div class="panel-heading">
-							<h3 class="panel-title">Rubrik 2</h1>
-						</div><!-- panel-heading -->
-							<div class="panel-body">
-								<p>Lucas ipsum dolor sit amet wedge mace kessel skywalker palpatine ackbar skywalker mustafar
-								coruscant lobot. Darth yavin yoda obi-wan windu solo. Organa jinn dooku twi'lek solo amidala yoda
-								jade moff. Hutt fett yoda solo ventress k-3po hutt binks solo. Ahsoka bothan anakin owen. Leia amidala
-								skywalker organa luke jinn organa kit hutt. Yavin jinn lobot solo darth moff jabba ponda naboo. Boba moff
-								jawa solo padmé calamari. Wookiee dagobah jabba skywalker moff tatooine. Fett antilles sidious antilles
-								calrissian fisto naboo.
-								</p>
-					
-							</div><!-- panel-body -->
-					</div><!-- panel panel-yellow -->
-			
-				<!-- rad center, 2 kolumner layout-->
-				
-				<div class="col-xs-12 col-md-6 sans-padding-left pull-left">
-					<div class="panel panel-yellow">
-						<div class="panel-heading">
-							<h3 class="panel-title">Rubrik 3</h3>
-						</div><!-- panel-heading -->
-						<div class="panel-body">
-							<p>Ipsum lapsum tralalla lal
-							al laaa!
-							asfa ssdfaj sdf ksadfj asdf asdf asdf asdf asdfasdf asdf sadf asdf
-							as adfsfgsfgsdfgsdfg dfg dfg df gsdfg sdfg sdfg sdf gsdfg sdfg sdf
-							sdf asfa ssdfaj sdf ksadfj asdf asdf asdf asdf asdfasdf asdf sadf 
-							asdf as adfsfgsfgsdfgsdfg dfg dfg df gsdfg sdfg sdfg sdf gsdfg sdfg
-							</p>
-									
-						</div><!-- panel-body -->
-					</div><!-- panel panel-yellow -->
-				</div><!-- col-md-6 -->
-				
-				<!-- rad center, andra kolumn layout -->
+					{$artikeltime}
+				</div><!-- mitten -->
 
-				<div class="col-md-6 sans-padding-right pull-left">
-					<div class="panel panel-yellow">
-						<div class="panel-heading">
-							<h3 class="panel-title">Rubrik 4</h3>
-						</div><!-- panel-heading -->
-						<div class="panel-body">
-							<p>Ipsum lapsum tralalla lal
-							al laaa!
-							asfa ssdfaj sdf ksadfj asdf asdf asdf asdf asdfasdf asdf sadf asdf
-							as adfsfgsfgsdfgsdfg dfg dfg df gsdfg sdfg sdfg sdf gsdfg sdfg sdf
-							sdf asfa ssdfaj sdf ksadfj asdf asdf asdf asdf asdfasdf asdf sadf 
-							asdf as adfsfgsfgsdfgsdfg dfg dfg df gsdfg sdfg sdfg sdf gsdfg sdfg
-							</p>
-									
-						</div><!-- panel-body -->
-					</div><!-- panel panel-yellow -->
-				</div><!-- col-xs-6 col-md-3 -->				
-			</div><!-- mitten -->	
 							
 				<!-- Rad högre -->
 				<div class="col-md-3 pull-right">
