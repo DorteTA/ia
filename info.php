@@ -163,7 +163,7 @@ $content = <<<END
 	   									</a>
 
 	   									<!-- blanketter och brochurer -->
-	   									<div class="collapse" id="arrangorer">
+	   									<div class="collapse-in" id="arrangorer">
 	   										{$artikelnames}
 	   									</div>
 	   									<a data-toggle="collapse" href="#akare" aria-expanded="false"
@@ -171,16 +171,16 @@ $content = <<<END
 	   										<li>Åkare <b class="caret"></b></li>
 	   									</a>
 
-	   									<!-- stadger -->
+	   									<!-- åkare -->
 	   									<div class="collapse" id="akare">
 	   										för åkare artiklar
 	   									</div>
-	   									<a data-toggle="collapse" href="#styrelsearbete" aria-expanded="false"
+	   									<a data-toggle="collapse" href="#foraldrar" aria-expanded="false"
 										aria-controls="collapseExample">
 	   										<li>Föräldrar <b class="caret"></b></li>
 	   									</a>
-	   									<!-- styrelsearbete -->
-	   									<div class="collapse" id="styrelsearbete">
+	   									<!-- föräldrar -->
+	   									<div class="collapse" id="foraldrar">
 	   										Bla bla om föräldrar
 	   									</div>
 	   															
