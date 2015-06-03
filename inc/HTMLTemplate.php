@@ -141,7 +141,7 @@ $header = <<<END
             <li><a href="starta.php">Starta förening</a></li>
             <li><a href="arrangera.php">Arrangera tävling</a></li>
             <li><a href="ansoka.php">Ansöka om namnbyte</a></li>
-            <li><a href="#">Riktlinjer vid istidsförhandlingar</a></li>
+            <li><a href="riktlinjer.php">Riktlinjer vid istidsförhandlingar</a></li>
           </ul>
         </li>
       </ul>
