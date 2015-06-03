@@ -227,7 +227,6 @@ $footer = <<<END
 							<li class="yellow">
               <a class="li yellow" href="avdelningar.php">Kontakta oss</a> &middot;
               <a class="li yellow" href="faq.php">FAQ</a> &middot;
-              <a class="li yellow" href="#">Media</a> &middot;
               <a class="li white" href="samarbetspartners.php">Samarbetspartner</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
               <a href="#"><img src="img/facebook.png"></a> &nbsp;
               <a href="#"><img src="img/twitter.png"></a> &nbsp;
