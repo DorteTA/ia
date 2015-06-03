@@ -1,15 +1,13 @@
 <?php
 /*---------------------------------
-medaljer.php
-taevla
+aakare.php
+info
 ---------------------------------*/
 
 include_once("inc/HTMLTemplate.php");
 include_once("inc/Connstring.php");
 
 $artikeltime = "";
-$artikeltime_aakare = "";
-
 $artikelnames = "";
 $artikelnames_aakare = "";
 
@@ -57,10 +55,9 @@ else
 
 		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori
 		FROM artikel
-		WHERE kategori = 'arrangorer'
+		WHERE kategori = 'aakare'
 		ORDER BY Artikeltimestamp
 END;
-
 
 	$res = $mysqli->query($query) or die();
 
@@ -93,15 +90,9 @@ $query = <<<END
 
 	SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori
 	FROM artikel
-	WHERE kategori = 'arrangorer'
+	WHERE kategori = 'aakare'
 	ORDER BY Artikeltimestamp
-	
 END;
-
-// <a href="info.php?ArtikelId={$artikelId}">
-//	   					<li>{$artikelname}</li>
-//	   				</a>
-// 
 
 $res = $mysqli->query($query) or die();
 
@@ -121,20 +112,15 @@ if($res->num_rows > 0)
 								
 				<ul class="">
           								
-	   				<a href="info.php?ArtikelId={$artikelId}">
+	   				<a href="aakare.php?ArtikelId={$artikelId}">
 	   					<li>{$artikelname}</li>
 	   				</a>	   									
 	   			</ul>
 			</div><!-- collapse -->
-
-
 					
 END;
-
-
 	}
 }
-
 $content = <<<END
 
 			
@@ -147,48 +133,13 @@ $content = <<<END
 						
 						<!-- Om oss undermeny -->
 						
-							<h3 class="panel-title yellow">Information</h3>
+							<h3 class="panel-title yellow">Information / För Åkare</h3>
 						</div><!-- panel heading -->
 						</a>
 					
 							
 						<div class="panel-body">
-							<div class="collapse-in" id="dokument">
-								
-									<ul class="">
-          								<li class="dropdown-left">
-	   									<a data-toggle="collapse" href="#arrangorer" aria-expanded="false"
-										aria-controls="collapseExample">
-	   										<li>Arrangörer <b class="caret"></b></li>
-	   									</a>
-
-	   									<!-- blanketter och brochurer -->
-	   									<div class="collapse" id="arrangorer">
-	   										{$artikelnames}
-	   									</div>
-	   									<a data-toggle="collapse" href="#akare" aria-expanded="false"
-										aria-controls="collapseExample">
-	   										<li>För Åkare <b class="caret"></b></li>
-	   									</a>
-
-	   									<!-- stadger -->
-	   									<div class="collapse" id="akare">
-	   										för åkare artiklar
-	   									</div>
-	   									<a data-toggle="collapse" href="#styrelsearbete" aria-expanded="false"
-										aria-controls="collapseExample">
-	   										<li>För föräldrar <b class="caret"></b></li>
-	   									</a>
-	   									<!-- styrelsearbete -->
-	   									<div class="collapse" id="styrelsearbete">
-	   										Bla bla om föräldrar
-	   									</div>
-	   															
-	   								</ul>
-								</div><!-- collapse -->
-
-							
-
+							{$artikelnames}
 						</div><!-- panel body -->
 					</div><!-- panel panel blue -->									
 				</div><!-- col md 3 -->
