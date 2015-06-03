@@ -132,7 +132,7 @@ $content = <<<END
 						
 						<!-- Om oss undermeny -->
 						
-							<h3 class="panel-title yellow">Tävlingar och resultat</h3>
+							<h3 class="panel-title yellow">Medaljer</h3>
 						</div><!-- panel heading -->
 						</a>
 					

@@ -1,6 +1,6 @@
 <?php
 /*---------------------------------
-medaljer.php
+arrangorer.php
 taevla
 ---------------------------------*/
 
@@ -93,11 +93,6 @@ $query = <<<END
 	ORDER BY Artikeltimestamp
 END;
 
-// <a href="info.php?ArtikelId={$artikelId}">
-//	   					<li>{$artikelname}</li>
-//	   				</a>
-// 
-
 $res = $mysqli->query($query) or die();
 
 if($res->num_rows > 0)
@@ -116,7 +111,7 @@ if($res->num_rows > 0)
 								
 				<ul class="">
           								
-	   				<a href="info.php?ArtikelId={$artikelId}">
+	   				<a href="arrangorer.php?ArtikelId={$artikelId}">
 	   					<li>{$artikelname}</li>
 	   				</a>	   									
 	   			</ul>
@@ -137,15 +132,13 @@ $content = <<<END
 						
 						<!-- Om oss undermeny -->
 						
-							<h3 class="panel-title yellow">Information</h3>
+							<h3 class="panel-title yellow">Information / Arrangörer</h3>
 						</div><!-- panel heading -->
 						</a>
 					
 							
 						<div class="panel-body">
-
 							{$artikelnames}
-
 						</div><!-- panel body -->
 					</div><!-- panel panel blue -->									
 				</div><!-- col md 3 -->
