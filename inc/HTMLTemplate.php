@@ -225,10 +225,10 @@ $footer = <<<END
 					<div class="col-md-12 text-center">
 						<ul class="list-inline">
 							<li class="yellow">
-              <a class="li yellow" href="#">Kontakta oss</a> &middot;
-              <a class="li yellow" href="#">FAQ</a> &middot;
+              <a class="li yellow" href="avdelningar.php">Kontakta oss</a> &middot;
+              <a class="li yellow" href="faq.php">FAQ</a> &middot;
               <a class="li yellow" href="#">Media</a> &middot;
-              <a class="li white" href="#">Samarbetspartnare</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              <a class="li white" href="samarbetspartners.php">Samarbetspartner</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
               <a href="#"><img src="img/facebook.png"></a> &nbsp;
               <a href="#"><img src="img/twitter.png"></a> &nbsp;
               <a href="#"><img src="img/youtube.png"></a>
