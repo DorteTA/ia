@@ -172,8 +172,12 @@ $content = <<<END
 	   									</a>
 
 	   									<!-- åkare -->
-	   									<div class="collapse" id="akare">
-	   										för åkare artiklar
+	   									<div class="collapse-in" id="akare">
+	   										<li><a href="info.php?ArtikelId=79">För åkare</a></li>
+	   										<li><a href="info.php?ArtikelId=72">Åkarlicens</a></li>
+											<li><a href="info.php?ArtikelId=80">Föreningsövergång</a></li>
+											<li><a href="info.php?ArtikelId=81">Internationella
+											tävlingar på egen bekostnad</a></li>
 	   									</div>
 	   									<a data-toggle="collapse" href="#foraldrar" aria-expanded="false"
 										aria-controls="collapseExample">
@@ -181,7 +185,9 @@ $content = <<<END
 	   									</a>
 	   									<!-- föräldrar -->
 	   									<div class="collapse" id="foraldrar">
-	   										Bla bla om föräldrar
+	   										<li>För Föräldrar</li>
+											<li>Konståkningen Vill</li>
+											<li>Vanliga frågor</li>
 	   									</div>
 	   															
 	   								</ul>
