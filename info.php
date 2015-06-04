@@ -163,7 +163,7 @@ $content = <<<END
 	   									</a>
 
 	   									<!-- Arrangorer -->
-	   									<div class="collapse-in" id="arrangorer">
+	   									<div class="collapse" id="arrangorer">
 	   										{$artikelnames}
 	   									</div>
 	   									<a data-toggle="collapse" href="#akare" aria-expanded="false"
@@ -172,12 +172,14 @@ $content = <<<END
 	   									</a>
 
 	   									<!-- åkare -->
-	   									<div class="collapse-in" id="akare">
-	   										<li><a href="info.php?ArtikelId=79">För åkare</a></li>
-	   										<li><a href="info.php?ArtikelId=72">Åkarlicens</a></li>
-											<li><a href="info.php?ArtikelId=80">Föreningsövergång</a></li>
-											<li><a href="info.php?ArtikelId=81">Internationella
-											tävlingar på egen bekostnad</a></li>
+	   									<div class="collapse" id="akare">
+	   										<ul class="">
+		   										<li><a href="info.php?ArtikelId=79">För åkare</a></li>
+		   										<li><a href="info.php?ArtikelId=72">Åkarlicens</a></li>
+												<li><a href="info.php?ArtikelId=80">Föreningsövergång</a></li>
+												<li><a href="info.php?ArtikelId=81">Internationella
+												tävlingar på egen bekostnad</a></li>
+											</ul>
 	   									</div>
 	   									<a data-toggle="collapse" href="#foraldrar" aria-expanded="false"
 										aria-controls="collapseExample">
@@ -185,11 +187,23 @@ $content = <<<END
 	   									</a>
 	   									<!-- föräldrar -->
 	   									<div class="collapse" id="foraldrar">
-	   										<li>För Föräldrar</li>
-											<li>Konståkningen Vill</li>
-											<li>Vanliga frågor</li>
+	   										<ul class="">
+		   										<li><a href="info.php?ArtikelId=82">För Föräldrar</a></li>
+												<li><a href="info.php?ArtikelId=83">Konståkningen Vill</a></li>
+												<li><a href="info.php?ArtikelId=84">Vanliga frågor</a></li>
+											</ul>
 	   									</div>
-	   															
+	   										   									
+	   									<a data-toggle="collapse" href="#funktionarer" aria-expanded="false"
+										aria-controls="collapseExample">
+	   										<li>Funktionärer <b class="caret"></b></li>
+	   									</a>
+	   									<!-- funktionarer -->
+	   									<div class="collapse" id="funktionarer">
+	   										<ul class="">
+		   										<li><a href="info.php?ArtikelId=85">För Funktionärer</a></li>
+											</ul>
+	   									</div>					
 	   								</ul>
 								</div><!-- collapse -->
 
