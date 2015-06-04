@@ -239,9 +239,15 @@ $footer = <<<END
               <a class="li yellow" href="avdelningar.php">Kontakta oss</a> &middot;
               <a class="li yellow" href="faq.php">FAQ</a> &middot;
               <a class="li white" href="samarbetspartners.php">Samarbetspartner</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-              <a href="#"><img src="img/facebook.png"></a> &nbsp;
-              <a href="#"><img src="img/twitter.png"></a> &nbsp;
-              <a href="#"><img src="img/youtube.png"></a>
+              <a href="https://www.facebook.com/konstakningsforbundet/">
+                <img src="img/facebook.png">
+              </a> &nbsp;
+              <a href="https://twitter.com/skatesweden/">
+                <img src="img/twitter.png">
+              </a> &nbsp;
+              <a href="https://www.youtube.com/results?search_query=svenska+konst%C3%A5kningsf%C3%B6rbundet">
+                <img src="img/youtube.png">
+              </a>
               </li>
 						</ul>
 					   <br>
