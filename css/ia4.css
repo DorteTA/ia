@@ -102,10 +102,12 @@ div.desc {
     width:100%; 
 }
 
+/* Visar ej innehåll i div */
 div.hidden {
   visibility: hidden;
 }
 
+/* #container div */
 #container {
   position:absolute;
   margin-top: 0px;
@@ -115,6 +117,7 @@ div.hidden {
 
 }
 
+/* #header div */
 #header {
   z-index: 1000;
   position:fixed;
@@ -128,10 +131,13 @@ div.hidden {
   border: 1px solid #ffcc33;
   /*margin-right:200px;*/
 }
+
+/* class som gör att ett element stannar på samma position oavsett om användaren scrollar */
 .fixed {
   position:fixed;
 }
 
+/* Navigerings-menyn */
 .navbar-default {
   top:0px;
   position:fixed;
@@ -204,13 +210,14 @@ img.h1 {
   color: #fff;
 }
 
+/* div till bilder */
 div.bildcontainer{  
     float:left; /* important */  
     position:relative; /* important(so we can absolutely position the description div */  
 }  
 div.bildbeskriv{  
     position:absolute; /* absolute position (so we can position it where we want)*/  
-    bottombottom:0px; /* position will be on bottom */  
+    bottom:0px; /* position will be on bottom */  
     left:0px;  
     width:100%;  
     /* styling below */  
@@ -248,6 +255,7 @@ h1.round {
   
 }
 
+/* class till dropdown-meny med linär bakgrund från grå till vit */
 .dropdown-menu {
   
   position: absolute;
