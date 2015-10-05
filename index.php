@@ -137,7 +137,25 @@ $content = <<<END
 							<p>Köp nu och vi slänger med en påse regnbågsfärg så du kan färga dina fläskesvål om du vill. Power to the rainbow svål. Ring på nummer: Nöff Nöff Oink
 							</p>
 						</div><!-- panel-body -->
-					</div><!-- panel panel-blue-->								
+					</div><!-- panel panel-blue-->
+
+					<!-- kolumn höger rad 2 nyhetsarkiv -->
+
+					<div class="panel panel-blue">
+						<div class="panel-heading">
+							<h3 class="panel-title">Nyhetsarkiv</h3>
+						</div><!-- panel-heading -->
+						<div class="panel-body">
+							<p class="divider"></p>
+							
+							<p>månad 9</p>
+							<p>månad 8</p>
+							<p>månad 7</p>
+							<p>månad 6</p>
+							<p>Senare</p>
+
+						</div><!-- panel-body -->
+					</div><!-- panel panel-blue-->												
 				</div><!-- col-xs-6 col-md-3 -->
 			</div> <!-- row -->
        </div><!-- AVsluta content DIV -->
