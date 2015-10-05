@@ -319,8 +319,9 @@ background: linear-gradient(-15deg, #f9f9f9, #fff); /* Standard syntax (must be 
   float: left;
 }
 .undermeny-search {
-  width: 450px;
+  width: 350px;
   padding-right: 30px;
+  vertical-align: middle;
 
 }
 
@@ -710,26 +711,6 @@ vertical-align:center;
   color: #999;
 }
 
-.btn-search {
-
-margin-left: 0px;
-margin-top:0px;
-margin-bottom:3px;
-  height:28px;
-  display: inline-block;
-  padding: 5px 10px;
-  white-space: nowrap;
-  vertical-align: center;
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  background-image: none;
-  border: 1px solid transparent;
-  border-radius: 8px;
-}
-
 .btn {
   display: inline-block;
   padding: 6px 12px;
@@ -750,7 +731,26 @@ margin-bottom:3px;
   border-radius: 4px;
 }
 
-.btn-yellow{
+.btn-search {
+margin-left: 0;
+margin-top: 0;
+margin-bottom: 7px;
+  height:28px;
+  display: inline-block;
+  padding: 5px 10px;
+  white-space: nowrap;
+  vertical-align: center;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 8px;
+}
+
+.btn-yellow {
 
 background-color: #ffcc33;
 color: #263777;

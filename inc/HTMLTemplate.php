@@ -209,20 +209,12 @@ $header = <<<END
 		</div><!-- col xs 6 col md 3 -->
 
 		<!-- undermeny m sök form -->
-
-  
-
-
-
-      <div class="col-md-4 pull-right undermeny-search">
-
-     
+    <div class="col-md-4 pull-right undermeny-search">
         <form class="navbar-form navbar-left navbar-search" role="search" action="search.php" method="GET">
-          <div class="input-group col-md-9 pull-right">
-            
+          <div class="input-group pull-right">
               <input type="text" class="form-control" placeholder="Sök..." id="searchfield" name="search" required>
                 <span class="input-group-btn">
-                  <button type="submit" class="btn btn-search">
+                  <button type="submit" class="btn btn-warning btn-search">
                     <span class="glyphicon glyphicon-search"></span>
                   </button>
                 </span>
