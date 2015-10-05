@@ -25,14 +25,17 @@ END;
 			$artikelname = $row->ArtikelName;
 			$artikeltext = $row->ArtikelMessage;
 			$artikeltimestamp = $row->ArtikelTimeStamp;
+			$artikelpic = $row->ArtikelPic;
+
 			$article .= <<<END
 				<div class="panel panel-yellow">
 					<div class="panel-heading">
 						<h3 class="panel-title">{$artikelname}</h3>
 					</div><!-- panel-heading -->
 						<div class="panel-body">
+							
+							{$artikelpic}
 							{$artikeltext}
-							<br>
 							<br>	
 							{$artikeltimestamp}		
 						</div><!-- panel-body -->

@@ -5,12 +5,13 @@ Start page with welcome
 The first page the visitor sees
 ---------------------------------*/
 
-include_once("inc/Connstring.php");
 include_once("inc/HTMLTemplate.php");
+include_once("inc/Connstring.php");
 
-//Variabler
-$artikelpic = "";
-$artikelpic_thumb = "";
+$choosenarticlename = "";
+$choosenarticlemessage = "";
+
+
 $artikelnews = "";
 
 $query = <<<END
@@ -18,26 +19,19 @@ $query = <<<END
 	SELECT *
 	FROM artikel
 	WHERE kategori = 'nyhet'
-	ORDER BY ArtikelTimeStamp DESC;
+	ORDER BY Artikeltimestamp
 END;
 
 $res = $mysqli->query($query) or die();
 
-//Sätter tidszonen till europäisk/svensk tidszon
-date_default_timezone_set("Europe/Stockholm");
-
 if($res->num_rows > 0)
 {
-	//Loops through results
 	while($row = $res->fetch_object())
 	{
-
 		$artikelid = $row->ArtikelId;
 		$artikelname = $row->ArtikelName;
 		$artikelmessage = $row->ArtikelMessage;
-		$artikelsubtext = substr($artikelmessage, 0, 75);
-		$artikelpic = $row->ArtikelPic;
-		$artikelpic_thumb = $row->ArtikelPicThumb;
+		$artikelsubtext = substr($artikelmessage, 0, 80);
 		$artikeltimestamp = $row->ArtikelTimeStamp;
 
 		$artikelnews .= <<<END
@@ -45,22 +39,12 @@ if($res->num_rows > 0)
 		
 						<div class="panel-body">
 							<div class="media">
-								<a class="pull-left" href="index.php?ArtikelId={$artikelid}">
-									{$artikelpic_thumb}
+								<a class="pull-left" href="#">
+								<img class="media-object img-rounded" src="http://placehold.it/64x64" alt="...">
 								</a>
-								
-								<div class="tid-nyheter">
-									{$artikeltimestamp}
-								</div>
-								
 								<div class="media-body">
-									<h4 class="media-heading">
-										<a href="index.php?ArtikelId={$artikelid}">
-											{$artikelname}
-										</a>
-									</h4>
-									{$artikelsubtext} ...
-
+								<h4 class="media-heading"><a href="index.php?ArtikelId={$artikelid}">{$artikelname}</a></h4>
+								{$artikelsubtext}...<br>
 								</div><!-- media body -->
 							</div><!-- media -->	
 						</div><!-- panel-body -->
@@ -74,9 +58,9 @@ if(!empty($_GET))
 {
 	$getartikelid = isset($_GET['ArtikelId']) ? $_GET['ArtikelId'] : '';
 
-		$query = <<<END
+	$query = <<<END
 
-		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb
+		SELECT ArtikelId, ArtikelName, ArtikelMessage
 		FROM artikel
 		WHERE ArtikelId = "{$getartikelid}";
 END;
@@ -89,8 +73,6 @@ END;
 		{
 			$artikelname = $row->ArtikelName;
 			$artikelmessage = $row->ArtikelMessage;
-			$artikelpic = $row->ArtikelPic;
-			$artikelpic_thumb = $row->ArtikelPicThumb;
 			/*$choosenarticletimestamp = $row->ArtikelTimeStamp;*/
 		}
 	}
@@ -116,7 +98,7 @@ $content = <<<END
 							<h3 class="panel-title">{$artikelname}</h3>
 						</div><!-- panel-heading -->
 						<div class="panel-body">
-							{$artikelpic}				
+							<img src="http://placehold.it/600x300" class="img-responsive img-rounded img-100x">				
 							{$artikelmessage}
 														
 						</div><!-- panel-body -->

@@ -10,7 +10,6 @@ include_once("inc/Connstring.php");
 
 $artikeltime = "";
 $artikelnames = "";
-$artikelpic = "";
 
 if(!empty($_GET))
 {
@@ -18,7 +17,7 @@ if(!empty($_GET))
 
 	$query = <<<END
 
-		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, ArtikelPic
+		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp
 		FROM artikel
 		WHERE ArtikelId = "{$getartikelid}";
 END;
@@ -32,7 +31,6 @@ END;
 			$artikelname = $row->ArtikelName;
 			$artikelmessage = $row->ArtikelMessage;
 			$artikeltimestamp = $row->ArtikelTimeStamp;
-			$artikelpic = $row->ArtikelPic;
 			
 			$artikeltime = <<<END
 
@@ -42,7 +40,7 @@ END;
 			</div><!-- panel-heading -->
 				<div class="panel-body">
 					{$artikelmessage}	
-					{$artikeltimestamp}	
+					{$artikeltimestamp}		
 				</div><!-- panel-body -->
 		</div><!-- panel panel-yellow -->
 	
@@ -55,7 +53,7 @@ else
 {
 	$query = <<<END
 
-		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori, ArtikelPic
+		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori
 		FROM artikel
 		WHERE kategori = 'om'
 		ORDER BY Artikeltimestamp
@@ -69,9 +67,7 @@ END;
 			{
 				$artikelname = $row->ArtikelName;
 				$artikelmessage = $row->ArtikelMessage;
-				$artikelpic = $row->ArtikelPic;
 				$artikeltimestamp = $row->ArtikelTimeStamp;
-
 
 				$artikeltime = <<<END
 
@@ -83,7 +79,6 @@ END;
 						<h3 class="panel-title">{$artikelname}</h3>
 					</div><!-- panel-heading -->
 						<div class="panel-body">
-							{$artikelpic}
 							{$artikelmessage}
 							<br>
 							{$artikeltimestamp}		
@@ -97,7 +92,7 @@ END;
 }
 $query = <<<END
 
-	SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, ArtikelPic, kategori
+	SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori
 	FROM artikel
 	WHERE kategori = 'om'
 	ORDER BY Artikeltimestamp
@@ -113,7 +108,6 @@ if($res->num_rows > 0)
 		$artikelname = $row->ArtikelName;
 		$artikelmessage = $row->ArtikelMessage;
 		$artikeltimestamp = $row->ArtikelTimeStamp;
-		$artikelpic = $row->ArtikelPic;
 
 		$artikelnames .= <<<END
 

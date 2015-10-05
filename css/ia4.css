@@ -21,6 +21,10 @@ body {
   
 }
 
+.tid-nyheter{
+  font-size: 9px;
+  color: grey;
+}
 .sans-padding-left {
 padding-left: 0;
 padding-right:15px;
@@ -255,6 +259,10 @@ h1.round {
   
 }
 
+img-64px{
+  height: 64px;
+  width: 64px;
+}
 /* class till dropdown-meny med linär bakgrund från grå till vit */
 .dropdown-menu {
   

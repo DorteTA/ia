@@ -6,6 +6,8 @@ Contains HTML code that is the same
 over several pages
 ------------------------------------*/
 
+include_once("inc/Connstring.php");
+
 session_start();
 
 $adminHTML = "";
@@ -50,8 +52,9 @@ $header = <<<END
 	The first page the visitor sees
 	HTML template for IA webbplats
 	----------------------------------->
-		<meta charset="utf-8">
+		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Responsiv -->
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 
 		<!-- Bootstrap core CSS -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -198,8 +201,9 @@ $header = <<<END
 				<form action="search.php" method="GET" class="navbar-form navbar-left" role="search">
 					<div class="form-group">
 					 
-                <input type="text" class="form-control-search pull-right" id="searchfield" name="search" placeholder="Sök..." required>
-                <input type="submit" value="sök">
+            <input type="text" class="form-control-search pull-right" id="searchfield"
+            name="search" placeholder="Sök..." required>
+            <input type="submit" value="sök">
                
 					</div><!-- form-group -->
 				</form>
