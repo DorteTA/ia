@@ -318,6 +318,11 @@ background: linear-gradient(-15deg, #f9f9f9, #fff); /* Standard syntax (must be 
   padding-left: 15px;
   float: left;
 }
+.undermeny-search {
+  width: 450px;
+  padding-right: 30px;
+
+}
 
 /*.col-xs-6, .col-md-3 {
   background-color: white;

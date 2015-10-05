@@ -16,7 +16,7 @@ if(isset($_SESSION["username"])) {
 
  $adminHTML = <<<END
 
-    <div class="col-xs-6 col-md-3">
+    <div class="col-xs-4 col-md-4">
       <ul class="list-inline padding">
         <li class="yellow">Inloggad som:
         <a class="li yellow" href="profile.php">
@@ -195,7 +195,7 @@ $header = <<<END
 		{$adminHTML}
 
 		<!-- undermeny tom -->
-		<div class="col-md-4 pull-left">
+		<div class="col-md-4 col-sx-4 pull-left">
 
       <ul class="list-inline padding pull-left">
         <li class="yellow">
@@ -206,7 +206,7 @@ $header = <<<END
       </ul> 
       
 
-		</div><!-- col xs 6 col md 4 -->
+		</div><!-- col xs 6 col md 3 -->
 
 		<!-- undermeny m sök form -->
 
@@ -214,19 +214,18 @@ $header = <<<END
 
 
 
-      <div class="col-md-4 pull-right">
+      <div class="col-md-4 pull-right undermeny-search">
 
      
-        <form class="navbar-form navbar-right navbar-search" role="search" action="search.php" method="GET">
-          <div class="input-group">
-            <div class="col-md-4">
+        <form class="navbar-form navbar-left navbar-search" role="search" action="search.php" method="GET">
+          <div class="input-group col-md-9 pull-right">
+            
               <input type="text" class="form-control" placeholder="Sök..." id="searchfield" name="search" required>
                 <span class="input-group-btn">
                   <button type="submit" class="btn btn-search">
                     <span class="glyphicon glyphicon-search"></span>
                   </button>
                 </span>
-            </div>
           </div>
         </form>
 
