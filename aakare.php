@@ -10,7 +10,7 @@ include_once("inc/Connstring.php");
 $artikeltime = "";
 $artikelnames = "";
 $artikelnames_aakare = "";
-
+// Hämtar ut den specifika artikeln 
 if(!empty($_GET))
 {
 	$getartikelid = isset($_GET['ArtikelId']) ? $_GET['ArtikelId'] : '';
@@ -49,6 +49,7 @@ END;
 		}
 	}
 }
+// Om inte det finns nån artikel som skickats i adressfältet så görs detta
 else
 {
 	$query = <<<END
@@ -86,6 +87,7 @@ END;
 			}
 		}
 }
+// Hämtar ut undermenyn när användaren klickat på en länk
 $query = <<<END
 
 	SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori
