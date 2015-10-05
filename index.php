@@ -12,7 +12,8 @@ include_once("inc/HTMLTemplate.php");
 $artikelpic = "";
 $artikelpic_thumb = "";
 $artikelnews = "";
-$artikel_archive ="";
+$artikel_month = "";
+$archive = "";
 
 $query = <<<END
 
@@ -27,11 +28,28 @@ $res = $mysqli->query($query) or die();
 //Sätter tidszonen till europäisk/svensk tidszon
 date_default_timezone_set("Europe/Stockholm");
 
+
 if($res->num_rows > 0)
 {
 	//Loops through results
 	while($row = $res->fetch_object())
 	{
+		//setlocale(LC_TIME,"fr_FR.UTF-8");
+		setlocale(LC_TIME, "sv_SE", "sv_SE.65001", "swedish");   
+		$date = strtotime($row->ArtikelTimeStamp);
+
+		
+		
+		utf8_encode($date = strftime("%A %#d %B %Y", $date));
+		//$date = strftime("%A %d %B %Y", mktime(0, 0, 0, 12, 22, 1978));
+		
+
+
+		//http://php.net/manual/en/function.date.php
+		//$date = strftime("%A %d %B %Y", mktime(0, 0, 0, 12, 22, 1978));
+
+		//$date = date("d F Y", $date);
+
 
 		$artikelid = $row->ArtikelId;
 		$artikelname = $row->ArtikelName;
@@ -51,7 +69,7 @@ if($res->num_rows > 0)
 								</a>
 								
 								<div class="tid-nyheter">
-									{$artikeltimestamp}
+									{$date}
 								</div>
 								
 								<div class="media-body">
@@ -77,10 +95,14 @@ if(!empty($_GET))
 
 		$query = <<<END
 
-		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb
+		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb, ArtikelTimeStamp
 		FROM artikel
-		WHERE ArtikelId = "{$getartikelid}";
+		WHERE ArtikelId = "{$getartikelid}"
+		group by year, month DESC;
 END;
+
+
+
 
 	$res = $mysqli->query($query) or die();
 
@@ -92,10 +114,40 @@ END;
 			$artikelmessage = $row->ArtikelMessage;
 			$artikelpic = $row->ArtikelPic;
 			$artikelpic_thumb = $row->ArtikelPicThumb;
+			$artikeltimestamp = $row->ArtikelTimeStamp;
+			$archive = "";
+			   // Get data
+   			$year = $row['year'];
+   			$month = $row['month'];
+   			
+
+   			// Structure it
+   			$archive[$year][] = $month;
+
 			/*$choosenarticletimestamp = $row->ArtikelTimeStamp;*/
 		}
+
+		// Display data
+	foreach($archive as $year => $months) {
+   	// Show year
+
+   	echo "<ul class='year'><li><a>{$year}</a>";
+
+   // Month container
+   echo "<ul class='months'>";
+	}
+   // Get months
+   foreach($months as $month) {
+     echo("<li><a>{$month}</a></li>"); 
+   
+
+   // Close Month/Year containers
+   echo("</ul></li></ul>");
 	}
 }
+	
+}
+
 $content = <<<END
 
 			
@@ -150,10 +202,8 @@ $content = <<<END
 							<p class="divider"></p>
 							
 							<p>månad 9</p>
-							<p>månad 8</p>
-							<p>månad 7</p>
-							<p>månad 6</p>
-							<p>Senare</p>
+							<p>{$date}</p>
+							
 
 						</div><!-- panel-body -->
 					</div><!-- panel panel-blue-->												
