@@ -12,6 +12,7 @@ include_once("inc/HTMLTemplate.php");
 $artikelpic = "";
 $artikelpic_thumb = "";
 $artikelnews = "";
+$artikel_archive ="";
 
 $query = <<<END
 

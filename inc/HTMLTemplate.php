@@ -195,31 +195,46 @@ $header = <<<END
 		{$adminHTML}
 
 		<!-- undermeny tom -->
-		<div class="col-xs-12 col-md-6">
+		<div class="col-md-4 pull-left">
 
-		</div><!-- col xs 6 col md 3 -->
-
-		<!-- undermeny m sök form -->
-		<div class="col-xs-6 col-md-3">
-			<div class="col-xs-12 pull-left">
-				<form action="search.php" method="GET" class="navbar-form navbar-left" role="search">
-					<div class="form-group">
-					 
-            <input type="text" class="form-control-search pull-right btn-search" id="searchfield"
-            name="search" placeholder="Sök..." required>
-            <input type="submit" value="" class="btn-search"
-            placeholder =""><span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-               
-					</div><!-- form group -->
-				</form>
-        <ul class="list-inline padding pull-right">
+      <ul class="list-inline padding pull-left">
         <li class="yellow">
           <a class="li yellow" href="http://skatesweden.sporrongshop.com/Startpage/Startpage.aspx?MenuID=3121">
             Butik
           </a>
         </li>
-      </ul>
-			</div>
+      </ul> 
+      
+
+		</div><!-- col xs 6 col md 4 -->
+
+		<!-- undermeny m sök form -->
+
+  
+
+
+
+      <div class="col-md-4 pull-right">
+
+     
+        <form class="navbar-form navbar-right navbar-search" role="search" action="search.php" method="GET">
+          <div class="input-group">
+            <div class="col-md-4">
+              <input type="text" class="form-control" placeholder="Sök..." id="searchfield" name="search" required>
+                <span class="input-group-btn">
+                  <button type="submit" class="btn btn-search">
+                    <span class="glyphicon glyphicon-search"></span>
+                  </button>
+                </span>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div><!-- col xs 6 col md 3 -->
+
+
+  
 
 		</div><!-- col-xs-6 col-md-3 -->
 	</div><!-- row -->

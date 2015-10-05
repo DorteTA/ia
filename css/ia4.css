@@ -306,9 +306,17 @@ background: linear-gradient(-15deg, #f9f9f9, #fff); /* Standard syntax (must be 
   
 }
 
-.undermeny-form {
+/*.undermeny-form {
   width: 100%;
   padding: 0;
+}
+*/
+
+.undermeny-form {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  float: left;
 }
 
 /*.col-xs-6, .col-md-3 {
@@ -336,6 +344,7 @@ background: linear-gradient(-15deg, #f9f9f9, #fff); /* Standard syntax (must be 
   margin-left: -15px;
 }
 */
+
 
 .navbar {
   z-index:1000;
