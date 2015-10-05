@@ -34,23 +34,14 @@ if($res->num_rows > 0)
 	//Loops through results
 	while($row = $res->fetch_object())
 	{
-		//setlocale(LC_TIME,"fr_FR.UTF-8");
+		//Sätter tid till svenska
 		setlocale(LC_TIME, "sv_SE", "sv_SE.65001", "swedish");   
 		$date = strtotime($row->ArtikelTimeStamp);
 
 		
-		
+		//encode gör att datum visas med svenska tecken
 		utf8_encode($date = strftime("%A %#d %B %Y", $date));
-		//$date = strftime("%A %d %B %Y", mktime(0, 0, 0, 12, 22, 1978));
 		
-
-
-		//http://php.net/manual/en/function.date.php
-		//$date = strftime("%A %d %B %Y", mktime(0, 0, 0, 12, 22, 1978));
-
-		//$date = date("d F Y", $date);
-
-
 		$artikelid = $row->ArtikelId;
 		$artikelname = $row->ArtikelName;
 		$artikelmessage = $row->ArtikelMessage;
