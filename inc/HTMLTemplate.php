@@ -200,7 +200,7 @@ $header = <<<END
       <ul class="list-inline padding pull-left">
         <li class="yellow">
           <a class="li yellow" href="http://skatesweden.sporrongshop.com/Startpage/Startpage.aspx?MenuID=3121">
-            Butik
+            Butik <span class="glyphicon glyphicon-shopping-cart"></span>
           </a>
         </li>
       </ul> 
@@ -214,7 +214,7 @@ $header = <<<END
           <div class="input-group pull-right">
               <input type="text" class="form-control" placeholder="Sök..." id="searchfield" name="search" required>
                 <span class="input-group-btn">
-                  <button type="submit" class="btn btn-warning btn-search">
+                  <button type="submit" class="btn btn-search btn-warning">
                     <span class="glyphicon glyphicon-search"></span>
                   </button>
                 </span>
