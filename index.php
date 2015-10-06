@@ -15,6 +15,7 @@ $artikelnews = "";
 $artikel_month = "";
 $archive = "";
 
+
 $query = <<<END
 
 	SELECT *
@@ -49,7 +50,8 @@ if($res->num_rows > 0)
 		$artikelpic = $row->ArtikelPic;
 		$artikelpic_thumb = $row->ArtikelPicThumb;
 		$artikeltimestamp = $row->ArtikelTimeStamp;
-
+		$artikel_month_juni = $row->ArtikelTimeStamp;
+		
 		$artikelnews .= <<<END
 
 		
@@ -106,38 +108,19 @@ END;
 			$artikelpic = $row->ArtikelPic;
 			$artikelpic_thumb = $row->ArtikelPicThumb;
 			$artikeltimestamp = $row->ArtikelTimeStamp;
-			$archive = "";
-			   // Get data
-   			$year = $row['year'];
-   			$month = $row['month'];
-   			
+			$artikelarchive = "";
 
-   			// Structure it
-   			$archive[$year][] = $month;
-
-			/*$choosenarticletimestamp = $row->ArtikelTimeStamp;*/
+			
 		}
 
-		// Display data
-	foreach($archive as $year => $months) {
-   	// Show year
-
-   	echo "<ul class='year'><li><a>{$year}</a>";
-
-   // Month container
-   echo "<ul class='months'>";
 	}
-   // Get months
-   foreach($months as $month) {
-     echo("<li><a>{$month}</a></li>"); 
-   
 
-   // Close Month/Year containers
-   echo("</ul></li></ul>");
-	}
-}
+
+//WHERE ArtikelTimeStamp = DATE_FORMAT(date,'%M')='Juni'
 	
 }
+
+
 
 $content = <<<END
 
@@ -192,7 +175,8 @@ $content = <<<END
 						<div class="panel-body">
 							<p class="divider"></p>
 							
-							<p>månad 9</p>
+							<p>månad</p>
+							<p>{$artikel_month_juni}</p>
 							<p>{$date}</p>
 							
 
