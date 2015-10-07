@@ -13,7 +13,6 @@ $artikelnames = "";
 $artikelpic = "";
 
 // Hämtar ut den specifika artikeln
-
 if(!empty($_GET))
 {
 	$getartikelid = isset($_GET['ArtikelId']) ? $_GET['ArtikelId'] : '';

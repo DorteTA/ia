@@ -1,6 +1,6 @@
 <?php
 /*---------------------------------
-index.php
+test.php
 Start page with welcome
 The first page the visitor sees
 ---------------------------------*/
