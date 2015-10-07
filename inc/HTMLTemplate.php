@@ -265,9 +265,6 @@ $footer = <<<END
               </a>
               </li>
 						</ul>
-					   <br>
-             <br>
-             <br>
 						<p class="text-center white text-10px">Copyright &copy; 2014-2015 Svenska Konståkningsförbundet.</p>
 					</div>
 				</div><!-- row -->

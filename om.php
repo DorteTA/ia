@@ -61,7 +61,7 @@ else
 		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori, ArtikelPic
 		FROM artikel
 		WHERE kategori = 'om'
-		ORDER BY Artikeltimestamp
+		ORDER BY artikeltimestamp
 END;
 
 	$res = $mysqli->query($query) or die();

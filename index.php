@@ -21,7 +21,7 @@ $query = <<<END
 	SELECT *
 	FROM artikel
 	WHERE kategori = 'nyhet'
-	ORDER BY ArtikelTimeStamp DESC;
+	ORDER BY artikeltimestamp DESC;
 END;
 
 $res = $mysqli->query($query) or die();
@@ -50,7 +50,7 @@ if($res->num_rows > 0)
 		$artikelpic = $row->ArtikelPic;
 		$artikelpic_thumb = $row->ArtikelPicThumb;
 		$artikeltimestamp = $row->ArtikelTimeStamp;
-		$artikel_month_juni = $row->ArtikelTimeStamp;
+		
 		
 		$artikelnews .= <<<END
 
@@ -91,7 +91,7 @@ if(!empty($_GET))
 		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb, ArtikelTimeStamp
 		FROM artikel
 		WHERE ArtikelId = "{$getartikelid}"
-		group by year, month DESC;
+		GROUP by ArtikelTimeStamp DESC;
 END;
 
 
@@ -108,7 +108,7 @@ END;
 			$artikelpic = $row->ArtikelPic;
 			$artikelpic_thumb = $row->ArtikelPicThumb;
 			$artikeltimestamp = $row->ArtikelTimeStamp;
-			$artikelarchive = "";
+			//$artikelarchive = "";
 
 			
 		}
@@ -176,7 +176,7 @@ $content = <<<END
 							<p class="divider"></p>
 							
 							<p>månad</p>
-							<p>{$artikel_month_juni}</p>
+							<p></p>
 							<p>{$date}</p>
 							
 
