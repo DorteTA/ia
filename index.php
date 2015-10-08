@@ -41,7 +41,7 @@ if($res->num_rows > 0)
 		$date = strtotime($row->ArtikelTimeStamp);
 
 		
-		//encode gör att datum visas med svenska tecken
+		//encode gör att datum från DB visas med svenska tecken
 		utf8_encode($date = strftime("%A %#d %B %Y", $date));
 		
 		$artikelid = $row->ArtikelId;
@@ -153,20 +153,56 @@ $content = <<<END
 								
 			</div><!-- mitten -->	
 							
-				<!-- Rad högre -->
+				<!-- Rad högre m sponsorkarusell-->
 				<div class="col-md-3 pull-right">
-					<div class="panel panel-blue">
-						<div class="panel-heading">
-							<h3 class="panel-title">Sponsorer</h3>
-						</div><!-- panel-heading -->
-						<div class="panel-body">
-							<p>DORTES PRIMA FLÄSKESVÅL
-							</p>
-							<p class="divider"></p>
-							<p>Köp nu och vi slänger med en påse regnbågsfärg så du kan färga dina fläskesvål om du vill. Power to the rainbow svål. Ring på nummer: Nöff Nöff Oink
-							</p>
-						</div><!-- panel-body -->
-					</div><!-- panel panel-blue-->
+					<div id="myCarousel" class="carousel">
+
+
+
+            			<ol class="carousel-indicators">
+               				<li data-target = "#myCarousel" data-slide-to = "0" class="active"></li>
+							<li data-target = "#myCarousel" data-slide-to = "1"></li>
+							<li data-target = "#myCarousel" data-slide-to = "2"></li>
+            			</ol>
+
+            			<div id="my-carousel" class="carousel slide" data-ride="carousel">
+
+
+	            			<div class="carousel-inner">
+
+								<div class="item active">
+									<a href="http://www.sporrong.se/" target="_blank">
+		   								<img src="sponsor/sporrong.png" class="karusell-bild" alt="Sporrong">
+	  	      						</a>
+	  	      						<!-- Sporrong beskrivande text på bild -->
+	  	      						<div class="carousel-caption">
+	  	      						    <h4 class="karusell-text">Sporrong beskrivande text</h4>
+		      						</div>
+								</div><!-- item active -->
+
+	               				<div class="item">
+		   							<img src="sponsor/no_fall.png" class="karusell-bild" alt="No Fall">
+		      						
+		      						<div class="carousel-caption">
+		         						<h4 class="karusell-text">No Fall beskrivande text</h4>	
+		      						</div>
+								</div>
+
+	               				<div class="item">
+								   <img src="sponsor/mp_skating.png" class="karusell-bild" alt="MP Skating">
+									
+									<div class="carousel-caption">
+								    	<h4 class="karusell-text">MP Skating beskrivande text</h4>
+								    </div>
+								</div>
+
+	           				</div><!-- carousel-inner -->
+	           			</div><!-- carousel slide -->
+           			
+			
+     				</div><!-- myCarousel -->
+
+
 
 					<!-- kolumn höger rad 2 nyhetsarkiv -->
 

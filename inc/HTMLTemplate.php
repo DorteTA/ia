@@ -56,7 +56,7 @@ $header = <<<END
 		<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Responsiv -->
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 
-		<!-- Bootstrap core CSS -->
+    <!-- Bootstrap core CSS -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/ia4.css" rel="stylesheet">
 		
