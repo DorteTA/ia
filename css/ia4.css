@@ -30,10 +30,17 @@ margin-right: auto;
 background-color: white;
 }
 
-.tid-nyheter{
+.tid-nyheter {
   font-size: 9px;
   color: grey;
 }
+
+.tid-nyheter-arkiv {
+  color: grey;
+  margin-left: 0;
+  margin-right: 15px;
+}
+
 .sans-padding-left {
 padding-left: 0;
 padding-right:15px;
@@ -220,7 +227,6 @@ img.img-100x {
   margin-bottom: 15px;
   margin-left:0px;
   margin-right:0px;
-  border-radius: 0 0 5px 5px;
  
 }
 

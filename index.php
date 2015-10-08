@@ -13,8 +13,7 @@ $artikelpic = "";
 $artikelpic_thumb = "";
 $artikelnews = "";
 $artikel_month = "";
-$archive = "";
-$maanad = "";
+$juni ="";
 
 
 $query = <<<END
@@ -50,9 +49,7 @@ if($res->num_rows > 0)
 		$artikelsubtext = substr($artikelmessage, 0, 75);
 		$artikelpic = $row->ArtikelPic;
 		$artikelpic_thumb = $row->ArtikelPicThumb;
-		$artikeltimestamp = $row->ArtikelTimeStamp;
-		$archive = $row->maanad;
-		
+		$artikeltimestamp = $row->ArtikelTimeStamp;		
 		
 		$artikelnews .= <<<END
 
@@ -90,10 +87,10 @@ if(!empty($_GET))
 
 		$query = <<<END
 
-		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb, ArtikelTimeStamp, maanad
+		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb, ArtikelTimeStamp
 		FROM artikel
 		WHERE ArtikelId = "{$getartikelid}"
-		GROUP by maanad DESC;
+		ORDER by ArtikelTimeStamp DESC;
 END;
 
 
@@ -110,18 +107,102 @@ END;
 			$artikelpic = $row->ArtikelPic;
 			$artikelpic_thumb = $row->ArtikelPicThumb;
 			$artikeltimestamp = $row->ArtikelTimeStamp;
-			$archive = $row->maanad;
+			
+		}
+
+	}
+	
+}
+
+// Hämtar ut artiklar från juni månad
+$query = <<<END
+
+	SELECT * FROM artikel
+	WHERE ArtikelTimeStamp LIKE '%2015-06%'
+	ORDER BY ArtikelTimeStamp DESC;
+
+END;
+
+$res = $mysqli->query($query) or die();
+
+//Sätter tidszonen till europäisk/svensk tidszon
+date_default_timezone_set("Europe/Stockholm");
+
+
+if($res->num_rows > 0)
+{
+	//Loops through results
+	while($row = $res->fetch_object())
+	{
+		//Sätter tid till svenska
+		setlocale(LC_TIME, "sv_SE", "sv_SE.65001", "swedish");   
+		$date = strtotime($row->ArtikelTimeStamp);
+
+		
+		//encode gör att datum från DB visas med svenska tecken
+		utf8_encode($date = strftime("%#d %B", $date));
+		
+		$artikelid = $row->ArtikelId;
+		$artikelname = $row->ArtikelName;
+		$artikeltimestamp = $row->ArtikelTimeStamp;
+	
+		
+		$juni .= <<<END
+
+		
+						      		
+          						
+          							<a class="pull-left" href="index.php?ArtikelId={$artikelid}">
+										<div class="col-md-6 pull-left tid-nyheter-arkiv sans-padding-left">{$date}</div>
+										<div class="col-md-6 pull-left sans-padding-right">{$artikelname}</div>
+									</a>
+									<br>
+								
+	
+
+END;
+	}
+}
+
+if(!empty($_GET))
+{
+	$getartikelid = isset($_GET['ArtikelId']) ? $_GET['ArtikelId'] : '';
+
+		$query = <<<END
+
+		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb, ArtikelTimeStamp
+		FROM artikel
+		WHERE ArtikelId = "{$getartikelid}"
+		ORDER by ArtikelTimeStamp DESC;
+END;
+
+
+
+
+	$res = $mysqli->query($query) or die();
+
+	if($res->num_rows == 1)
+	{
+		while($row = $res->fetch_object())
+		{
+			$artikelname = $row->ArtikelName;
 
 			
 		}
 
 	}
-
-
-//WHERE ArtikelTimeStamp = DATE_FORMAT(date,'%M')='Juni'
 	
 }
+/*
 
+$artikelmessage = $row->ArtikelMessage;
+			$artikelpic = $row->ArtikelPic;
+			$artikelpic_thumb = $row->ArtikelPicThumb;
+			$artikeltimestamp = $row->ArtikelTimeStamp;
+*/
+	   	
+			
+					
 
 
 $content = <<<END
@@ -201,10 +282,30 @@ $content = <<<END
 						</div><!-- panel-heading -->
 						<div class="panel-body">
 							<p class="divider"></p>
-							
-							<p>månad</p>
-							<p>{$archive}</p>
-							<p>{$date}</p>
+
+								<!-- Nyhetsarkiv dropdown meny inddelad i månader -->
+
+								<div class="collapse-in" id="dokument">
+								
+									
+          								<li class="dropdown-left">
+	   									
+	   									<a data-toggle="collapse" href="#juni" aria-expanded="false"
+										aria-controls="collapseExample">
+	   										Juni <b class="caret"></b>
+	   									</a>
+
+	   									<!-- juni -->
+	   									<div class="collapse" id="juni">
+	   										
+		   										<a href="index.php?ArtikelId={$artikelid}">
+													{$juni}
+												</a>
+		   										
+											
+	   									</div>	   														
+	   								
+								</div><!-- collapse -->
 							
 
 						</div><!-- panel-body -->

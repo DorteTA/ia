@@ -96,7 +96,7 @@ $query = <<<END
 	SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori
 	FROM artikel
 	WHERE kategori = 'arrangorer'
-	ORDER BY Artikeltimestamp
+	ORDER BY ArtikelTimeStamp ASC;
 	
 END;
 
