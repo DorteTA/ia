@@ -144,10 +144,11 @@ $content = <<<END
 						<div class="panel-heading">
 							<h3 class="panel-title">{$artikelname}</h3>
 						</div><!-- panel-heading -->
-						<div class="panel-body">
-							{$artikelpic}				
-							{$artikelmessage}
-														
+						<div class="panel-body-15px">
+							{$artikelpic}
+							<p class="padding-15px">				
+								{$artikelmessage}
+							</p>						
 						</div><!-- panel-body -->
 					</div><!-- panel panel-yellow -->
 								
