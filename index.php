@@ -155,32 +155,42 @@ $content = <<<END
 							
 				<!-- Rad högre m sponsorkarusell-->
 				<div class="col-md-3 pull-right">
-					<div id="myCarousel" class="carousel">
 
-            			<div id="my-carousel" class="carousel slide" data-ride="carousel">
-	            			<div class="carousel-inner">
+					<div class="panel panel-blue">
+						<div class="panel-heading">
+							<h3 class="panel-title">Sponsorer</h3>
+						</div><!-- panel-heading -->
+						
+						<div class="panel-body">
 
-								<div class="item active">
-									<a href="http://www.sporrong.se/" target="_blank">
-		   								<img src="sponsor/sporrong.png" class="karusell-bild" alt="Sporrong">
-	  	      						</a>
-								</div><!-- item active -->
+							<div id="myCarousel" class="carousel">
 
-	               				<div class="item">
-	               					<a href="http://nofall.se/" target="_blank">
-		   								<img src="sponsor/no_fall.png" class="karusell-bild" alt="No Fall">
-		   							</a>
-								</div>
+		            			<div id="my-carousel" class="carousel slide" data-ride="carousel">
+			            			<div class="carousel-inner">
 
-	               				<div class="item">
-	               					<a href="http://www.mpskating.com/" target="_blank">
-								   		<img src="sponsor/mp_skating.png" class="karusell-bild" alt="MP Skating">
-								   	</a>
-								</div>
+										<div class="item active">
+											<a href="http://www.sporrong.se/" target="_blank">
+				   								<img src="sponsor/sporrong.png" class="karusell-bild" alt="Sporrong">
+			  	      						</a>
+										</div><!-- item active -->
 
-	           				</div><!-- carousel inner -->
-	           			</div><!-- carousel slide -->			
-     				</div><!-- myCarousel -->
+			               				<div class="item">
+			               					<a href="http://nofall.se/" target="_blank">
+				   								<img src="sponsor/no_fall.png" class="karusell-bild" alt="No Fall">
+				   							</a>
+										</div>
+
+			               				<div class="item">
+			               					<a href="http://www.mpskating.com/" target="_blank">
+										   		<img src="sponsor/mp_skating.png" class="karusell-bild" alt="MP Skating">
+										   	</a>
+										</div>
+
+			           				</div><!-- carousel inner -->
+			           			</div><!-- carousel slide -->			
+		     				</div><!-- myCarousel -->
+		     			</div><!-- panel body -->
+		     		</div><!-- panel panel-blue-->
 
 					<!-- kolumn höger rad 2 nyhetsarkiv -->
 
