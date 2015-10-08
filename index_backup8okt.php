@@ -157,30 +157,52 @@ $content = <<<END
 				<div class="col-md-3 pull-right">
 					<div id="myCarousel" class="carousel">
 
+
+
+            			<ol class="carousel-indicators">
+               				<li data-target = "#myCarousel" data-slide-to = "0" class="active"></li>
+							<li data-target = "#myCarousel" data-slide-to = "1"></li>
+							<li data-target = "#myCarousel" data-slide-to = "2"></li>
+            			</ol>
+
             			<div id="my-carousel" class="carousel slide" data-ride="carousel">
+
+
 	            			<div class="carousel-inner">
 
 								<div class="item active">
 									<a href="http://www.sporrong.se/" target="_blank">
 		   								<img src="sponsor/sporrong.png" class="karusell-bild" alt="Sporrong">
 	  	      						</a>
+	  	      						<!-- Sporrong beskrivande text på bild -->
+	  	      						<div class="carousel-caption">
+	  	      						    <h4 class="karusell-text">Sporrong beskrivande text</h4>
+		      						</div>
 								</div><!-- item active -->
 
 	               				<div class="item">
-	               					<a href="http://nofall.se/" target="_blank">
-		   								<img src="sponsor/no_fall.png" class="karusell-bild" alt="No Fall">
-		   							</a>
+		   							<img src="sponsor/no_fall.png" class="karusell-bild" alt="No Fall">
+		      						
+		      						<div class="carousel-caption">
+		         						<h4 class="karusell-text">No Fall beskrivande text</h4>	
+		      						</div>
 								</div>
 
 	               				<div class="item">
-	               					<a href="http://www.mpskating.com/" target="_blank">
-								   		<img src="sponsor/mp_skating.png" class="karusell-bild" alt="MP Skating">
-								   	</a>
+								   <img src="sponsor/mp_skating.png" class="karusell-bild" alt="MP Skating">
+									
+									<div class="carousel-caption">
+								    	<h4 class="karusell-text">MP Skating beskrivande text</h4>
+								    </div>
 								</div>
 
-	           				</div><!-- carousel inner -->
-	           			</div><!-- carousel slide -->			
+	           				</div><!-- carousel-inner -->
+	           			</div><!-- carousel slide -->
+           			
+			
      				</div><!-- myCarousel -->
+
+
 
 					<!-- kolumn höger rad 2 nyhetsarkiv -->
 
