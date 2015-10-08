@@ -16,7 +16,7 @@ if(!empty($_GET))
 
 	$query = <<<END
 
-		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp
+		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, maanad
 		FROM artikel
 		WHERE ArtikelId = "{$getartikelid}";
 END;
@@ -30,6 +30,7 @@ END;
 			$artikelname = $row->ArtikelName;
 			$artikelmessage = $row->ArtikelMessage;
 			$artikeltimestamp = $row->ArtikelTimeStamp;
+			$maanad = $row->maanad;
 			
 			$artikeltime = <<<END
 
@@ -53,10 +54,10 @@ else
 {
 	$query = <<<END
 
-		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori
+		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori, maanad
 		FROM artikel
 		WHERE kategori = 'arrangera'
-		ORDER BY Artikeltimestamp
+		ORDER BY ArtikelTimeStamp DESC;
 END;
 
 	$res = $mysqli->query($query) or die();
@@ -68,6 +69,7 @@ END;
 				$artikelname = $row->ArtikelName;
 				$artikelmessage = $row->ArtikelMessage;
 				$artikeltimestamp = $row->ArtikelTimeStamp;
+				$maanad = $row->maanad;
 
 				$artikeltime = <<<END
 
@@ -89,10 +91,10 @@ END;
 // Hämtar ut undermenyn när användaren klickat på en länk
 $query = <<<END
 
-	SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori
+	SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori, maanad
 	FROM artikel
 	WHERE kategori = 'arrangera'
-	ORDER BY Artikeltimestamp
+	ORDER BY ArtikelTimeStamp
 END;
 
 $res = $mysqli->query($query) or die();
@@ -105,6 +107,7 @@ if($res->num_rows > 0)
 		$artikelname = $row->ArtikelName;
 		$artikelmessage = $row->ArtikelMessage;
 		$artikeltimestamp = $row->ArtikelTimeStamp;
+		$maanad = $row->maanad;
 
 		$artikelnames .= <<<END
 
@@ -114,9 +117,24 @@ if($res->num_rows > 0)
 				<ul class="">
           								
 	   				<a href="arrangera.php?ArtikelId={$artikelId}">
+
+	   					
+
 	   					<li>{$artikelname}</li>
-	   				</a>	   									
+	   				</a>
 	   			</ul>
+
+	   				<div class="collapse-in" id="dokument">
+								
+							
+          								
+	   							<a href="test3.php?maanad='Juni'">
+	   								Juni
+	   							</a>	   									
+	   			
+						
+						</div><!-- collapse -->	   									
+	   			
 			</div><!-- collapse -->
 					
 END;
