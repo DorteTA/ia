@@ -21,6 +21,14 @@ body {
   
 }
 
+ul.sans-padding {
+
+color: grey;
+padding: none;
+margin-left: 0;
+margin-right: 0;
+}
+
 /* Karusell för sponsorbilder */
 #myCarousel {
 height: 300px;

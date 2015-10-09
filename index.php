@@ -144,19 +144,22 @@ if($res->num_rows > 0)
 		
 		$artikelid = $row->ArtikelId;
 		$artikelname = $row->ArtikelName;
+		$artikelsubtext = substr($artikelname, 0, 24);
 		$artikeltimestamp = $row->ArtikelTimeStamp;
 	
 		
 		$juni .= <<<END
 
 		
-						      		
-          						
-          							<a class="pull-left" href="index.php?ArtikelId={$artikelid}">
-										<div class="col-md-6 pull-left tid-nyheter-arkiv sans-padding-left">{$date}</div>
-										<div class="col-md-6 pull-left sans-padding-right">{$artikelname}</div>
-									</a>
-									<br>
+				
+          			<div class="col-md-12 sans-padding-right">			
+          				
+						<p class="pull-left tid-nyheter-arkiv sans-padding-left">{$date}</p>
+							<a href="index.php?ArtikelId={$artikelid}">
+								<p>{$artikelsubtext} ...</p>
+							</a>
+						
+					</div>
 								
 	
 
@@ -287,7 +290,8 @@ $content = <<<END
 
 								<div class="collapse-in" id="dokument">
 								
-									
+									<ul class="list-unstyled">
+
           								<li class="dropdown-left">
 	   									
 	   									<a data-toggle="collapse" href="#juni" aria-expanded="false"
@@ -304,7 +308,7 @@ $content = <<<END
 		   										
 											
 	   									</div>	   														
-	   								
+	   								</ul>
 								</div><!-- collapse -->
 							
 
@@ -316,6 +320,13 @@ $content = <<<END
 
 END;
 
+//Stänger resultaten
+$res->close();
+
+//Stänger ned uppkoblingen med databasen
+$mysqli->close();
+
+//Visar innehållet av sidans header, content och footer
 echo $header;
 echo $content;
 echo $footer;
