@@ -300,14 +300,32 @@ $content = <<<END
 	   									</a>
 
 	   									<!-- juni -->
-	   									<div class="collapse" id="juni">
+	   									<div class="collapse" id="juni">  									
 	   										
 		   										<a href="index.php?ArtikelId={$artikelid}">
 													{$juni}
 												</a>
-		   										
 											
-	   									</div>	   														
+	   									</div>
+
+	   									<br>
+	   									
+	   									<a data-toggle="collapse" href="#maj" aria-expanded="false"
+										aria-controls="collapseExample">
+	   										Maj <b class="caret"></b>
+	   									</a>
+
+	   									<!-- maj -->
+	   									<div class="collapse" id="maj">  									
+	   										
+		   										<a href="index.php?ArtikelId={$artikelid}">
+													{$juni}
+												</a>
+											
+	   									</div>
+
+
+
 	   								</ul>
 								</div><!-- collapse -->
 							

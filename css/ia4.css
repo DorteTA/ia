@@ -21,12 +21,14 @@ body {
   
 }
 
-ul.sans-padding {
+p.feedback-warning {
+  background-color: Orange;
+  border-radius: 6px;
+  color: White;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: auto;
 
-color: grey;
-padding: none;
-margin-left: 0;
-margin-right: 0;
 }
 
 /* Karusell för sponsorbilder */

@@ -37,7 +37,8 @@ END;
 							{$artikelpic}
 							{$artikeltext}
 							<br>	
-							{$artikeltimestamp}		
+							{$artikeltimestamp}
+
 						</div><!-- panel-body -->
 				</div><!-- panel panel yellow -->
 END;
@@ -45,7 +46,8 @@ END;
 	}
 	else
 	{
-		$feedback .= "<p class=\"text-yellow\">Det finns ingen artikel i databasen med det namnet.</p>";
+		$feedback .= "<p class=\"feedback-warning\">Det finns ingen artikel i databasen med det ordet.</p>";
+
 	}
 }
 $content = <<<END
@@ -60,6 +62,7 @@ $content = <<<END
 				<!-- kolumn mitten -->
 				<div class="col-xs-12 col-md-6">
 					{$article}
+					{$feedback}
 				
 				</div><!-- mitten -->	
 							
