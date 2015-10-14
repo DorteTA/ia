@@ -4,10 +4,14 @@ arkiv_maj.php
 Hämtar innehållet från maj månad
 ---------------------------------*/
 
+// Uppkoblingen till databasen
 include_once("inc/Connstring.php");
+
+// Använder HTML-mallen där CSS och javascript ingår,
+// så detta inte behövs tastas in på varje sida
 include_once("inc/HTMLTemplate.php");
 
-//Variabler
+// Variabler
 $maj ="";
 
 // Hämtar ut artiklar från maj månad
@@ -19,15 +23,16 @@ $query = <<<END
 
 END;
 
+// Hämta resultat
 $res = $mysqli->query($query) or die();
 
-//Sätter tidszonen till europäisk/svensk tidszon
+// Sätter tidszonen till europäisk/svensk tidszon
 date_default_timezone_set("Europe/Stockholm");
 
-
+// Om artiklar finns
 if($res->num_rows > 0)
 {
-	//Loops through results
+	// Kör igenom resultatet
 	while($row = $res->fetch_object())
 	{
 		//Sätter tid till svenska
@@ -43,41 +48,41 @@ if($res->num_rows > 0)
 		$artikelsubtext = substr($artikelname, 0, 24);
 		$artikeltimestamp = $row->ArtikelTimeStamp;
 	
-		
+		// Strängen som innehåller HTML samt resultatet från databasen
 		$maj .= <<<END
 
-		
-				
-         			<div class="col-md-12 sans-padding-right">			
+			
+	       			<div class="col-md-12 sans-padding-right">			
           				
-						<p class="pull-left tid-nyheter-arkiv sans-padding-left">{$date}</p>
-							<a href="index.php?ArtikelId={$artikelid}">
-								<p>{$artikelsubtext} ...</p>
-							</a>
+						<p class="pull-left tid-nyheter-arkiv sans-padding-left">
+							{$date}
+						</p>
+						<a href="index.php?ArtikelId={$artikelid}">
+							<p>
+								{$artikelsubtext} ...
+							</p>
+						</a>
 						
-					</div>
+					</div><!-- col md 12 -->
 
 END;
 	}
 }
 
+// Visar databas-innehållet hämtad in i strängen $maj
 $content .= <<<END
 
+					{$maj}	
 								
-											
-											{$maj}	
-								
-
 END;
 
-//Stänger resultaten
+// Stänger resultaten
 $res->close();
 
-//Stänger ned uppkoblingen med databasen
+// Stänger ned uppkoblingen med databasen
 $mysqli->close();
 
-//Visar innehållet av sidans header, content och footer
-
+// Visar innehållet av sidans content
 echo $content;
 
 ?>

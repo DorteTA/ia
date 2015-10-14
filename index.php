@@ -1,14 +1,13 @@
 <?php
 /*---------------------------------
 index.php
-Start page with welcome
-The first page the visitor sees
+Startsidan
 ---------------------------------*/
 
 include_once("inc/Connstring.php");
 include_once("inc/HTMLTemplate.php");
 
-//Variabler
+// Variabler
 $artikelpic = "";
 $artikelpic_thumb = "";
 $artikelnews = "";
@@ -23,9 +22,10 @@ $query = <<<END
 	ORDER BY artikeltimestamp DESC;
 END;
 
-$res = $mysqli->query($query) or die();
+//Ger felmeddelande om databasen inte kan köras och hänvisar till felnummer, annars körs den
+$res = $mysqli->query($query) or die("Could not query database" . $mysqli->errno . " : " . $mysqli->error);	
 
-//Sätter tidszonen till europäisk/svensk tidszon
+// Sätter tidszonen till europäisk/svensk tidszon
 date_default_timezone_set("Europe/Stockholm");
 
 
@@ -50,8 +50,11 @@ if($res->num_rows > 0)
 		$artikelpic_thumb = $row->ArtikelPicThumb;
 		$artikeltimestamp = $row->ArtikelTimeStamp;		
 		
-		$artikelnews .= <<<END
+		//Hindrar XSS-attack
+		$artikelname	= htmlspecialchars($artikelname);
+		$artikelmessage	= htmlspecialchars($artikelmessage);
 
+		$artikelnews .= <<<END
 		
 						<div class="panel-body">
 							<div class="media">
@@ -208,148 +211,122 @@ $artikelmessage = $row->ArtikelMessage;
 
 
 $content = <<<END
-<!-- Laddar in resultat från sidan arkiv_maj.php i DIV med id ArkivMaj -->
 
-<script type="text/javascript">
-$(document).ready(function(){
-    $("#ArkivMaj").click(function(){
-        $('#ArkivMajArtiklar').load('arkiv_maj.php');
-
-    });
-    
-});
-</script>
-
-
-
-
-			
-       	<div id="content">
-			<div class="row">
-				<div class="col-md-3">
-					<div class="panel panel-blue">
-					<div class="panel-heading">
-							<h3 class="panel-title">Nyheter</h3>
-						</div><!-- panel-heading -->
-						{$artikelnews}
-						
-					</div><!-- panel panel-blue -->								
-				</div><!-- col-md-3 -->
+<div id="content">
+	<div class="row">
+		<div class="col-md-3">
+			<div class="panel panel-blue">
+				<div class="panel-heading">
+					<h3 class="panel-title">Nyheter</h3>
+				</div><!-- panel-heading -->
+				{$artikelnews}
+			</div><!-- panel panel blue -->								
+		</div><!-- col md 3 -->
 				
-				<div class="col-xs-12 col-md-6">
-					<div class="panel panel-yellow">
-						<div class="panel-heading">
-							<h3 class="panel-title">{$artikelname}</h3>
-						</div><!-- panel-heading -->
-						<div class="panel-body-15px">
-							{$artikelpic}
-							<p class="padding-15px">				
-								{$artikelmessage}
-							</p>						
-						</div><!-- panel-body -->
-					</div><!-- panel panel-yellow -->
+		<div class="col-xs-12 col-md-6">
+			<div class="panel panel-yellow">
+				<div class="panel-heading">
+					<h3 class="panel-title">{$artikelname}</h3>
+				</div><!-- panel-heading -->
+		
+				<div class="panel-body-15px">
+					{$artikelpic}
+					<p class="padding-15px">				
+						{$artikelmessage}
+					</p>						
+				</div><!-- panel body -->
+			</div><!-- panel panel yellow -->
 								
-			</div><!-- mitten -->	
+		</div><!-- col xs 12 col md 6 -->	
 							
-				<!-- Rad högre m sponsorkarusell-->
-				<div class="col-md-3 pull-right">
+		<!-- Rad högre m sponsorkarusell-->
 
-					<div class="panel panel-blue">
-						<div class="panel-heading">
-							<h3 class="panel-title">Sponsorer</h3>
-						</div><!-- panel-heading -->
-						
-						<div class="panel-body">
+		<div class="col-md-3 pull-right">
+			<div class="panel panel-blue">
+				<div class="panel-heading">
+					<h3 class="panel-title">Sponsorer</h3>
+				</div><!-- panel-heading -->
 
-							<div id="myCarousel" class="carousel">
+				<!-- Sponsor karusell -->
+				
+				<div class="panel-body">
+					<div id="myCarousel" class="carousel">
+		  				<div id="my-carousel" class="carousel slide" data-ride="carousel">
+			       			<div class="carousel-inner">
+								<div class="item active">
+									<a href="http://www.sporrong.se/" target="_blank">
+		   								<img src="sponsor/sporrong.png" class="karusell-bild" alt="Sporrong">
+	  	      						</a>
+								</div><!-- item active -->
 
-		            			<div id="my-carousel" class="carousel slide" data-ride="carousel">
-			            			<div class="carousel-inner">
+	               				<div class="item">
+	               					<a href="http://nofall.se/" target="_blank">
+		   								<img src="sponsor/no_fall.png" class="karusell-bild" alt="No Fall">
+		   							</a>
+								</div>
 
-										<div class="item active">
-											<a href="http://www.sporrong.se/" target="_blank">
-				   								<img src="sponsor/sporrong.png" class="karusell-bild" alt="Sporrong">
-			  	      						</a>
-										</div><!-- item active -->
+	               				<div class="item">
+	               					<a href="http://www.mpskating.com/" target="_blank">
+								   		<img src="sponsor/mp_skating.png" class="karusell-bild" alt="MP Skating">
+								   	</a>
+								</div>
 
-			               				<div class="item">
-			               					<a href="http://nofall.se/" target="_blank">
-				   								<img src="sponsor/no_fall.png" class="karusell-bild" alt="No Fall">
-				   							</a>
-										</div>
+	           				</div><!-- carousel inner -->
+	           			</div><!-- carousel slide -->			
+	     			</div><!-- myCarousel -->
+		     	</div><!-- panel body -->
+			</div><!-- panel panel-blue-->
 
-			               				<div class="item">
-			               					<a href="http://www.mpskating.com/" target="_blank">
-										   		<img src="sponsor/mp_skating.png" class="karusell-bild" alt="MP Skating">
-										   	</a>
-										</div>
+			<!-- kolumn höger rad 2 nyhetsarkiv -->
 
-			           				</div><!-- carousel inner -->
-			           			</div><!-- carousel slide -->			
-		     				</div><!-- myCarousel -->
-		     			</div><!-- panel body -->
-		     		</div><!-- panel panel-blue-->
-
-					<!-- kolumn höger rad 2 nyhetsarkiv -->
-
-					<div class="panel panel-blue">
-						<div class="panel-heading">
-							<h3 class="panel-title">Nyhetsarkiv 2015</h3>
-						</div><!-- panel-heading -->
-						<div class="panel-body">
-							<p class="divider"></p>
-
-								<!-- Nyhetsarkiv dropdown meny inddelad i månader -->
-
-								<div class="collapse-in" id="dokument">
-								
-									<ul class="list-unstyled">
-
-          								<li class="dropdown-left">
-	   									
-	   									<a data-toggle="collapse" href="#juni" aria-expanded="false"
-										aria-controls="collapseExample">
-	   										Juni <b class="caret"></b>
-	   									</a>
-
-	   									<!-- juni -->
-	   									<div class="collapse" id="juni">  									
-	   										
-		   										<a href="index.php?ArtikelId={$artikelid}">
-													{$juni}
-												</a>
-											
-	   									</div>
-	   									
+			<div class="panel panel-blue">
+				<div class="panel-heading">
+					<h3 class="panel-title">Nyhetsarkiv 2015</h3>
+				</div><!-- panel-heading -->
+				<div class="panel-body">
+					<p class="divider"></p>
+	
+					<!-- Nyhetsarkiv dropdown meny inddelad i månader -->
+					<div class="collapse-in" id="dokument">
+						<ul class="list-unstyled">
+          					<li class="dropdown-left">
+								<a data-toggle="collapse" href="#juni" aria-expanded="false"
+								aria-controls="collapseExample">
+									Juni <b class="caret"></b>
+								</a>
+								<!-- juni -->
+								<div class="collapse" id="juni">
+									<div class="collapse-in">  									
+										<a href="index.php?ArtikelId={$artikelid}">
+											{$juni}
+										</a>
+									</div>									
+	   							</div><!-- juni -->	
 	   								
-	   									<a data-toggle="collapse" href="#maj" aria-expanded="false"
-										aria-controls="collapseExample" id="ArkivMaj">
-										
-	   										Maj <b class="caret"></b>
-	   									
-	   									</a>
+	   							<a data-toggle="collapse" href="#maj" aria-expanded="false"
+								aria-controls="collapseExample" id="ArkivMaj">
+		   							Maj <b class="caret"></b>
+	   							</a>
+								
+								<!-- maj content -->
+	   							
+	   							<div class="collapse" id="maj">	
+	   							
+	   								<div id="ArkivMajArtiklar" class="collapse-in">
+	   								
+	   								<!-- arkiv maj laddas in här -->
+	   								
+  									</div><!-- maj -->
+	   						</li>
+ 						</ul>
+					</div><!-- collapse in -->
+				</div><!-- panel body -->
+			</div><!-- panel panel blue-->												
+		</div><!-- col md 3 pull right -->
+	</div><!-- row -->
+</div><!-- content -->
 
-	   									<!-- maj content -->
-	   									<div class="collapse" id="maj">
-	   									
-	   											<div id="ArkivMajArtiklar" class="collapse-in">
-	   												<!-- arkiv maj laddas in här -->
-	   											</div>
-
-	   									</div>
-            
-    
-
-	   								</ul>
-								</div><!-- collapse -->
-							
-
-						</div><!-- panel-body -->
-					</div><!-- panel panel-blue-->												
-				</div><!-- col-xs-6 col-md-3 -->
-			</div> <!-- row -->
-       </div><!-- AVsluta content DIV -->
-
+<!-- Laddar in resultat från sidan arkiv_maj.php i DIV med id ArkivMaj -->
 <script type="text/javascript">
 $(document).ready(function(){
     $("#ArkivMaj").click(function(){
