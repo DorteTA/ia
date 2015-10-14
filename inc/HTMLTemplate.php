@@ -52,26 +52,35 @@ $header = <<<END
 	The first page the visitor sees
 	HTML template for IA webbplats
 	----------------------------------->
+
+
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Responsiv -->
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 
-    <!-- Bootstrap core CSS -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link href="css/ia4.css" rel="stylesheet">
 		
 		<!-- Bootstrap core JavaScript börjar
 			================================================== -->
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-			<script src="js/bootstrap.min.js"></script>
-			<script src="js/docs.min.js"></script>
-      <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+			
+      <!-- Latest compiled and minified JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+			
+      <script src="js/docs.min.js"></script>
+      <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+      
+      
 	
 		<title>IA webbplats | Konståkning</title>
 
 	</head>
 
 	<body>
+
 		<div id="container"><!-- Börja container DIV -->
 			<div class="fixed" id="header">
 	
@@ -244,6 +253,8 @@ $content = <<<END
   
 
 END;
+
+
 
 $footer = <<<END
 	    <div class="footer border-bottom-radius navbar-fixed-bottom">

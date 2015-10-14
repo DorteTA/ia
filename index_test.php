@@ -15,24 +15,7 @@ $artikelnews = "";
 $artikel_month = "";
 $juni ="";
 
-$content .= <<<END
-
-<body>
-<!-- Laddar in resultat från sidan arkiv_maj.php i DIV med id ArkivMaj -->
-
-<script type="text/javascript">
-$(document).ready(function(){
-    $("#ArkivMaj").click(function(){
-        $('#ArkivMajArtiklar').load('arkiv_maj.php');
-
-    });
-    
-});
-
-</script>
-END;
-
-
+// Hämtar alla artiklar med kategori nyhet och visar senaste först
 $query = <<<END
 
 	SELECT *
@@ -214,6 +197,13 @@ END;
 	
 }
 /*
+$sql = "SELECT L_ListingID FROM `markers`";
+$result = $mysqli->query($sql);
+if ($result !== false) {
+    $rows = $result->fetch_all();
+}
+*/
+/*
 
 $artikelmessage = $row->ArtikelMessage;
 			$artikelpic = $row->ArtikelPic;
@@ -226,20 +216,6 @@ $artikelmessage = $row->ArtikelMessage;
 
 
 $content = <<<END
-<!-- Laddar in resultat från sidan arkiv_maj.php i DIV med id ArkivMaj -->
-
-<script type="text/javascript">
-$(document).ready(function(){
-    $("#ArkivMaj").click(function(){
-        $('#ArkivMajArtiklar').load('arkiv_maj.php');
-
-    });
-    
-});
-</script>
-
-
-
 
 			
        	<div id="content">
@@ -338,25 +314,6 @@ $(document).ready(function(){
 												</a>
 											
 	   									</div>
-	   									
-	   								
-	   									<a data-toggle="collapse" href="#maj" aria-expanded="false"
-										aria-controls="collapseExample" id="ArkivMaj">
-										
-	   										Maj <b class="caret"></b>
-	   									
-	   									</a>
-
-	   									<!-- maj content -->
-	   									<div class="collapse" id="maj">
-	   									
-	   											<div id="ArkivMajArtiklar" class="collapse-in">
-	   												<!-- arkiv maj laddas in här -->
-	   											</div>
-
-	   									</div>
-            
-    
 
 	   								</ul>
 								</div><!-- collapse -->
@@ -367,16 +324,6 @@ $(document).ready(function(){
 				</div><!-- col-xs-6 col-md-3 -->
 			</div> <!-- row -->
        </div><!-- AVsluta content DIV -->
-
-<script type="text/javascript">
-$(document).ready(function(){
-    $("#ArkivMaj").click(function(){
-        $('#ArkivMajArtiklar').load('arkiv_maj.php');
-
-    });
-    
-});
-</script>
 
 END;
 

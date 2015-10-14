@@ -226,19 +226,13 @@ $artikelmessage = $row->ArtikelMessage;
 
 
 $content = <<<END
-<!-- Laddar in resultat från sidan arkiv_maj.php i DIV med id ArkivMaj -->
-
 <script type="text/javascript">
-$(document).ready(function(){
-    $("#ArkivMaj").click(function(){
-        $('#ArkivMajArtiklar').load('arkiv_maj.php');
-
-    });
-    
+// Fill modal with content from link href
+$("#myModal").on("show.bs.modal", function(e) {
+    var link = $(e.relatedTarget);
+    $(this).find(".modal-body").load(link.attr("href"));
 });
 </script>
-
-
 
 
 			
@@ -341,20 +335,43 @@ $(document).ready(function(){
 	   									
 	   								
 	   									<a data-toggle="collapse" href="#maj" aria-expanded="false"
-										aria-controls="collapseExample" id="ArkivMaj">
-										
-	   										Maj <b class="caret"></b>
-	   									
-	   									</a>
+                						aria-controls="collapseExample">
+                   							Maj <b class="caret"></b>
+                						</a>
+            							
+            							<!-- maj -->                
+                						<div class="collapse" id="maj" href="arkiv_maj.php"
+                						 data-target="#ArkivMajArtiklar">
 
-	   									<!-- maj content -->
-	   									<div class="collapse" id="maj">
-	   									
-	   											<div id="ArkivMajArtiklar" class="collapse-in">
-	   												<!-- arkiv maj laddas in här -->
-	   											</div>
+                						 <div id="ArkivMajArtiklar">
+                						 <!-- Link trigger modal -->
+<a href="arkiv_maj.php" data-remote="false" data-toggle="modal" data-target="#myModal" class="btn btn-default">
+    Launch Modal
+</a>
 
-	   									</div>
+<!-- Default bootstrap modal example -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+                						 </div>
+
+            							<!-- This is where test2.php should be inserted -->
+
+                						</div>        
             
     
 
@@ -367,16 +384,6 @@ $(document).ready(function(){
 				</div><!-- col-xs-6 col-md-3 -->
 			</div> <!-- row -->
        </div><!-- AVsluta content DIV -->
-
-<script type="text/javascript">
-$(document).ready(function(){
-    $("#ArkivMaj").click(function(){
-        $('#ArkivMajArtiklar').load('arkiv_maj.php');
-
-    });
-    
-});
-</script>
 
 END;
 

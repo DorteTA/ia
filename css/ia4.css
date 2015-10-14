@@ -426,8 +426,9 @@ z-index:1000;
 }
 
 .black a.li:link,a.li:active,a.li:hover,a.li:visited {color: #000; }
+/*
 .white a.li:link,a.li:active,a.li:hover,a.li:visited {color: #fff; }
-
+*/
 .yellow a.li:link,a.li:link,a.li:active,a.li:hover,a.li:visited {color: #ffcc33; }
 
 

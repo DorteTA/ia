@@ -15,23 +15,6 @@ $artikelnews = "";
 $artikel_month = "";
 $juni ="";
 
-$content .= <<<END
-
-<body>
-<!-- Laddar in resultat från sidan arkiv_maj.php i DIV med id ArkivMaj -->
-
-<script type="text/javascript">
-$(document).ready(function(){
-    $("#ArkivMaj").click(function(){
-        $('#ArkivMajArtiklar').load('arkiv_maj.php');
-
-    });
-    
-});
-
-</script>
-END;
-
 
 $query = <<<END
 
@@ -226,20 +209,6 @@ $artikelmessage = $row->ArtikelMessage;
 
 
 $content = <<<END
-<!-- Laddar in resultat från sidan arkiv_maj.php i DIV med id ArkivMaj -->
-
-<script type="text/javascript">
-$(document).ready(function(){
-    $("#ArkivMaj").click(function(){
-        $('#ArkivMajArtiklar').load('arkiv_maj.php');
-
-    });
-    
-});
-</script>
-
-
-
 
 			
        	<div id="content">
@@ -340,21 +309,38 @@ $(document).ready(function(){
 	   									</div>
 	   									
 	   								
-	   									<a data-toggle="collapse" href="#maj" aria-expanded="false"
-										aria-controls="collapseExample" id="ArkivMaj">
-										
-	   										Maj <b class="caret"></b>
-	   									
-	   									</a>
+	   									<!-- maj -->
 
-	   									<!-- maj content -->
-	   									<div class="collapse" id="maj">
-	   									
-	   											<div id="ArkivMajArtiklar" class="collapse-in">
-	   												<!-- arkiv maj laddas in här -->
-	   											</div>
+<!-- Laddar in resultat från sidan arkiv_maj.php i DIV med id ArkivMaj -->
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#ArkivMaj").click(function(){
+        $('#ArkivMajArtiklar').load('arkiv_maj.php');
 
-	   									</div>
+    });
+    
+});
+</script>
+    
+        
+
+            							<div id="ArkivMaj">
+               								<a data-toggle="collapse" href="#maj_maanad" aria-expanded="false"
+                							aria-controls="collapseExample">
+                   							Maj <b class="caret"></b>
+                							</a>
+            							</div>
+                
+            							<div class="collapse" id="maj_maanad">
+
+                							<div id="ArkivMajArtiklar" class="collapse">
+
+            									<!-- This is where test2.php should be inserted -->
+
+                							</div>
+            							</div>
+
+        
             
     
 
@@ -367,16 +353,6 @@ $(document).ready(function(){
 				</div><!-- col-xs-6 col-md-3 -->
 			</div> <!-- row -->
        </div><!-- AVsluta content DIV -->
-
-<script type="text/javascript">
-$(document).ready(function(){
-    $("#ArkivMaj").click(function(){
-        $('#ArkivMajArtiklar').load('arkiv_maj.php');
-
-    });
-    
-});
-</script>
 
 END;
 
