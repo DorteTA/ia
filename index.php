@@ -15,24 +15,6 @@ $artikelnews = "";
 $artikel_month = "";
 $juni ="";
 
-$content .= <<<END
-
-<body>
-<!-- Laddar in resultat från sidan arkiv_maj.php i DIV med id ArkivMaj -->
-
-<script type="text/javascript">
-$(document).ready(function(){
-    $("#ArkivMaj").click(function(){
-        $('#ArkivMajArtiklar').load('arkiv_maj.php');
-
-    });
-    
-});
-
-</script>
-END;
-
-
 $query = <<<END
 
 	SELECT *
