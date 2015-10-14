@@ -294,7 +294,7 @@ $(document).ready(function(){
 
 					<div class="panel panel-blue">
 						<div class="panel-heading">
-							<h3 class="panel-title">Nyhetsarkiv</h3>
+							<h3 class="panel-title">Nyhetsarkiv 2015</h3>
 						</div><!-- panel-heading -->
 						<div class="panel-body">
 							<p class="divider"></p>
@@ -354,9 +354,9 @@ $(document).ready(function(){
 $(document).ready(function(){
     $("#ArkivMaj").click(function(){
         $('#ArkivMajArtiklar').load('arkiv_maj.php');
-
+        
     });
-    
+    return false;
 });
 </script>
 

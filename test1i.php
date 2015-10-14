@@ -17,7 +17,6 @@ $(document).ready(function(){
     });
     
 });
-
 </script>
 
 					<!-- kolumn höger rad 2 nyhetsarkiv -->
