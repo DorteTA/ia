@@ -287,14 +287,18 @@ $content = <<<END
 					<p class="divider"></p>
 	
 					<!-- Nyhetsarkiv dropdown meny inddelad i månader -->
+
 					<div class="collapse-in" id="dokument">
 						<ul class="list-unstyled">
           					<li class="dropdown-left">
+					
 								<a data-toggle="collapse" href="#juni" aria-expanded="false"
 								aria-controls="collapseExample">
 									Juni <b class="caret"></b>
 								</a>
+					
 								<!-- juni -->
+					
 								<div class="collapse" id="juni">
 									<div class="collapse-in">  									
 										<a href="index.php?ArtikelId={$artikelid}">
@@ -302,13 +306,15 @@ $content = <<<END
 										</a>
 									</div>									
 	   							</div><!-- juni -->	
-	   								
+	   							
+	   							<!-- maj -->
+
 	   							<a data-toggle="collapse" href="#maj" aria-expanded="false"
 								aria-controls="collapseExample" id="ArkivMaj">
 		   							Maj <b class="caret"></b>
 	   							</a>
 								
-								<!-- maj content -->
+								<!-- maj innehåll -->
 	   							
 	   							<div class="collapse" id="maj">	
 	   							
@@ -317,6 +323,27 @@ $content = <<<END
 	   								<!-- arkiv maj laddas in här -->
 	   								
   									</div><!-- maj -->
+  								</div><!-- maj -->
+
+  								<!-- april -->
+
+  								<a data-toggle="collapse" href="#april" aria-expanded="false"
+								aria-controls="collapseExample" id="ArkivApril">
+		   							April <b class="caret"></b>
+	   							</a>
+								
+								<!-- april innehåll -->
+	   							
+	   							<div class="collapse" id="april">	
+	   							
+	   								<div id="ArkivAprilArtiklar" class="collapse-in">
+	   								
+	   								<!-- arkiv april laddas in här -->
+	   								
+  									</div><!-- ArkivAprilArtiklar -->
+  								
+  								</div><!-- april -->
+
 	   						</li>
  						</ul>
 					</div><!-- collapse in -->
@@ -326,15 +353,22 @@ $content = <<<END
 	</div><!-- row -->
 </div><!-- content -->
 
-<!-- Laddar in resultat från sidan arkiv_maj.php i DIV med id ArkivMaj -->
-<script type="text/javascript">
+<!-- Laddar in resultat från arkivsidorna ex arkiv_maj.php i DIV med id ArkivMaj -->
+<script>
 $(document).ready(function(){
     $("#ArkivMaj").click(function(){
         $('#ArkivMajArtiklar').load('arkiv_maj.php');
         
     });
-    return false;
+
+    $("#ArkivApril").click(function(){
+        $('#ArkivAprilArtiklar').load('arkiv_april.php');
+        
+    });
+	return false;
+
 });
+
 </script>
 
 END;
