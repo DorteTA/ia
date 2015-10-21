@@ -133,7 +133,12 @@ END;
 	{
 		while($row = $res->fetch_object())
 		{
+			$date = strtotime($row->ArtikelTimeStamp);
+		
+			//encode gör att datum från DB visas med svenska tecken
+			utf8_encode($date = strftime("%#d %B %Y", $date));
 			$artikelname = $row->ArtikelName;
+			
 
 			
 		}
