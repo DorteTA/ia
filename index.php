@@ -54,6 +54,7 @@ if($res->num_rows > 0)
 		$artikelname	= htmlspecialchars($artikelname);
 		$artikelmessage	= htmlspecialchars($artikelmessage);
 
+		// Visar innehållet från databasen i strängen $artikelnews
 		$artikelnews .= <<<END
 		
 						<div class="panel-body">
@@ -77,8 +78,6 @@ if($res->num_rows > 0)
 								</div><!-- media body -->
 							</div><!-- media -->	
 						</div><!-- panel-body -->
-	
-
 END;
 	}
 }
@@ -94,9 +93,6 @@ if(!empty($_GET))
 		WHERE ArtikelId = "{$getartikelid}"
 		ORDER by ArtikelTimeStamp DESC;
 END;
-
-
-
 
 	$res = $mysqli->query($query) or die();
 
@@ -116,7 +112,7 @@ END;
 	
 }
 
-// Hämtar ut artiklar från juni månad
+// Hämtar ut artiklar från juni månad via ArtikelTimeStamp då månaden är 06 dvs juni
 $query = <<<END
 
 	SELECT * FROM artikel
@@ -127,7 +123,7 @@ END;
 
 $res = $mysqli->query($query) or die();
 
-//Sätter tidszonen till europäisk/svensk tidszon
+// Sätter tidszonen till europäisk/svensk tidszon
 date_default_timezone_set("Europe/Stockholm");
 
 
@@ -292,20 +288,23 @@ $content = <<<END
 						<ul class="list-unstyled">
           					<li class="dropdown-left">
 					
-								<a data-toggle="collapse" href="#juni" aria-expanded="false"
-								aria-controls="collapseExample">
-									Juni <b class="caret"></b>
-								</a>
-					
 								<!-- juni -->
-					
-								<div class="collapse" id="juni">
-									<div class="collapse-in">  									
-										<a href="index.php?ArtikelId={$artikelid}">
-											{$juni}
-										</a>
-									</div>									
-	   							</div><!-- juni -->	
+
+	   							<a data-toggle="collapse" href="#juni" aria-expanded="false"
+								aria-controls="collapseExample" id="ArkivJuni">
+		   							Juni <b class="caret"></b>
+	   							</a>
+								
+								<!-- juni innehåll -->
+	   							
+	   							<div class="collapse" id="juni">	
+	   							
+	   								<div id="ArkivJuniArtiklar" class="collapse-in">
+	   								
+	   								<!-- arkiv juni laddas in här -->
+	   								
+  									</div><!-- juni -->
+  								</div><!-- juni innehåll -->
 	   							
 	   							<!-- maj -->
 
@@ -322,8 +321,8 @@ $content = <<<END
 	   								
 	   								<!-- arkiv maj laddas in här -->
 	   								
-  									</div><!-- maj -->
-  								</div><!-- maj -->
+  									</div><!-- ArkivMajArtiklar -->
+  								</div><!-- collapse maj -->
 
   								<!-- april -->
 
@@ -342,7 +341,64 @@ $content = <<<END
 	   								
   									</div><!-- ArkivAprilArtiklar -->
   								
-  								</div><!-- april -->
+  								</div><!-- collapse april -->
+
+  								<!-- mars -->
+
+  								<a data-toggle="collapse" href="#mars" aria-expanded="false"
+								aria-controls="collapseExample" id="ArkivMars">
+		   							Mars <b class="caret"></b>
+	   							</a>
+								
+								<!-- mars innehåll -->
+	   							
+	   							<div class="collapse" id="mars">	
+	   							
+	   								<div id="ArkivMarsArtiklar" class="collapse-in">
+	   								
+	   								<!-- arkiv mars laddas in här -->
+	   								
+  									</div><!-- ArkivMarsArtiklar -->
+  								
+  								</div><!-- mars -->
+
+  								<!-- februari -->
+
+  								<a data-toggle="collapse" href="#februari" aria-expanded="false"
+								aria-controls="collapseExample" id="ArkivFebruari">
+		   							Februari <b class="caret"></b>
+	   							</a>
+								
+								<!-- februari innehåll -->
+	   							
+	   							<div class="collapse" id="februari">	
+	   							
+	   								<div id="ArkivFebruariArtiklar" class="collapse-in">
+	   								
+	   								<!-- februari april laddas in här -->
+	   								
+  									</div><!-- ArkivFebruariArtiklar -->
+  								
+  								</div><!-- februari -->
+
+  								<!-- januari -->
+
+  								<a data-toggle="collapse" href="#januari" aria-expanded="false"
+								aria-controls="collapseExample" id="ArkivJanuari">
+		   							Januari <b class="caret"></b>
+	   							</a>
+								
+								<!-- januari innehåll -->
+	   							
+	   							<div class="collapse" id="januari">
+	   							
+	   								<div id="ArkivJanuariArtiklar" class="collapse-in">
+	   								
+	   								<!-- arkiv januari laddas in här -->
+	   								
+  									</div><!-- ArkivJanuariArtiklar -->
+  								
+  								</div><!-- januari -->
 
 	   						</li>
  						</ul>
@@ -356,17 +412,30 @@ $content = <<<END
 <!-- Laddar in resultat från arkivsidorna ex arkiv_maj.php i DIV med id ArkivMaj -->
 <script>
 $(document).ready(function(){
+	$("#ArkivJuni").click(function(){
+        $('#ArkivJuniArtiklar').load('arkiv_juni.php');        
+    });
+
     $("#ArkivMaj").click(function(){
-        $('#ArkivMajArtiklar').load('arkiv_maj.php');
-        
+        $('#ArkivMajArtiklar').load('arkiv_maj.php');        
     });
 
     $("#ArkivApril").click(function(){
         $('#ArkivAprilArtiklar').load('arkiv_april.php');
-        
+    });
+
+	$("#ArkivMars").click(function(){
+        $('#ArkivMarsArtiklar').load('arkiv_mars.php');
+    });
+
+	$("#ArkivFebruari").click(function(){
+        $('#ArkivFebruariArtiklar').load('arkiv_februari.php');
+    });
+
+	$("#ArkivJanuari").click(function(){
+        $('#ArkivJanuariArtiklar').load('arkiv_januari.php');
     });
 	return false;
-
 });
 
 </script>

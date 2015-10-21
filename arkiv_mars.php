@@ -1,7 +1,7 @@
 <?php
 /*---------------------------------
-arkiv_juni.php
-Hämtar innehållet från juni månad
+arkiv_april.php
+Hämtar innehållet från april månad
 ---------------------------------*/
 
 // Uppkoblingen till databasen
@@ -12,13 +12,14 @@ include_once("inc/Connstring.php");
 include_once("inc/HTMLTemplate.php");
 
 // Variabler
-$juni ="";
+$april ="";
 
-// Hämtar ut artiklar från juni månad
+// Hämtar ut artiklar från april månad och
+// visar senaste artikel först
 $query = <<<END
 
 	SELECT * FROM artikel
-	WHERE ArtikelTimeStamp LIKE '%2015-06%'
+	WHERE ArtikelTimeStamp LIKE '%2015-04%'
 	ORDER BY ArtikelTimeStamp DESC;
 
 END;
@@ -49,7 +50,7 @@ if($res->num_rows > 0)
 		$artikeltimestamp = $row->ArtikelTimeStamp;
 	
 		// Strängen som innehåller HTML samt resultatet från databasen
-		$juni .= <<<END
+		$april .= <<<END
 
 			
 	       			<div class="col-md-12 sans-padding-right">			
@@ -69,10 +70,10 @@ END;
 	}
 }
 
-// Visar databas-innehållet hämtad in i strängen $juni
+// Visar databas-innehållet hämtad in i strängen $april
 $content .= <<<END
 
-					{$juni}	
+					{$april}	
 								
 END;
 
