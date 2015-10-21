@@ -102,9 +102,13 @@ ul.bottom {
 .padding {
   padding: 15px;
 }
+
 img.padding-round {
   padding: 10px;
   border-radius: 5px;
+}
+img.artikelpic{
+  margin: -15px 0px -15px -15px;
 }
 .padding-form {
   padding-top: 0;
@@ -232,12 +236,9 @@ img.h1 {
  }
  
 img.img-100x {
+  position: relative;
   width:100%;
-  margin-top:0px;
-  margin-bottom: 15px;
-  margin-left:0px;
-  margin-right:0px;
- 
+  padding-bottom: 15px; 
 }
 
 .bilddiv {
@@ -552,9 +553,12 @@ background: linear-gradient(to right, #ffcc33, white, #ffcc33); /* Standard synt
 .panel-body {
   padding: 15px;
 }
+
+/*
 .panel-body-15px {
   padding: none;
 }
+*/
 .panel-heading {
   padding: 10px 15px;
   border-bottom: 1px solid transparent;

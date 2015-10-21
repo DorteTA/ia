@@ -1,7 +1,7 @@
 <?php
 /*---------------------------------
-arkiv_april.php
-Hämtar innehållet från april månad
+arkiv_mars.php
+Hämtar innehållet från mars månad
 ---------------------------------*/
 
 // Uppkoblingen till databasen
@@ -12,14 +12,14 @@ include_once("inc/Connstring.php");
 include_once("inc/HTMLTemplate.php");
 
 // Variabler
-$april ="";
+$mars ="";
 
 // Hämtar ut artiklar från april månad och
 // visar senaste artikel först
 $query = <<<END
 
 	SELECT * FROM artikel
-	WHERE ArtikelTimeStamp LIKE '%2015-04%'
+	WHERE ArtikelTimeStamp LIKE '%2015-03%'
 	ORDER BY ArtikelTimeStamp DESC;
 
 END;
@@ -41,16 +41,19 @@ if($res->num_rows > 0)
 		$date = strtotime($row->ArtikelTimeStamp);
 
 		
-		//encode gör att datum från DB visas med svenska tecken
+		//encode gör att datum från DB visas på svenska
 		utf8_encode($date = strftime("%#d %B", $date));
 		
 		$artikelid = $row->ArtikelId;
 		$artikelname = $row->ArtikelName;
+
+		// substr visar max antal ord anvisad här som 24
 		$artikelsubtext = substr($artikelname, 0, 24);
+
 		$artikeltimestamp = $row->ArtikelTimeStamp;
 	
 		// Strängen som innehåller HTML samt resultatet från databasen
-		$april .= <<<END
+		$mars .= <<<END
 
 			
 	       			<div class="col-md-12 sans-padding-right">			
@@ -70,10 +73,10 @@ END;
 	}
 }
 
-// Visar databas-innehållet hämtad in i strängen $april
+// Visar databas-innehållet hämtad in i strängen $mars
 $content .= <<<END
 
-					{$april}	
+					{$mars}	
 								
 END;
 

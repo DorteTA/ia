@@ -36,16 +36,18 @@ if($res->num_rows > 0)
 	// Kör igenom resultatet
 	while($row = $res->fetch_object())
 	{
-		//Sätter tid till svenska
+		// Sätter tid till svenska
 		setlocale(LC_TIME, "sv_SE", "sv_SE.65001", "swedish");   
 		$date = strtotime($row->ArtikelTimeStamp);
 
 		
-		//encode gör att datum från DB visas med svenska tecken
+		// encode gör att datum från DB visas med svenska tecken
 		utf8_encode($date = strftime("%#d %B", $date));
 		
 		$artikelid = $row->ArtikelId;
 		$artikelname = $row->ArtikelName;
+
+		// substr visar max antal ord anvisad här som 24
 		$artikelsubtext = substr($artikelname, 0, 24);
 		$artikeltimestamp = $row->ArtikelTimeStamp;
 	
@@ -70,7 +72,7 @@ END;
 	}
 }
 
-// Visar databas-innehållet hämtad in i strängen $april
+// Visar databas-innehållet hämtad in i strängen $januari
 $content .= <<<END
 
 					{$januari}	

@@ -12,7 +12,6 @@ $artikelpic = "";
 $artikelpic_thumb = "";
 $artikelnews = "";
 $artikel_month = "";
-$juni ="";
 
 $query = <<<END
 
@@ -112,58 +111,6 @@ END;
 	
 }
 
-// Hämtar ut artiklar från juni månad via ArtikelTimeStamp då månaden är 06 dvs juni
-$query = <<<END
-
-	SELECT * FROM artikel
-	WHERE ArtikelTimeStamp LIKE '%2015-06%'
-	ORDER BY ArtikelTimeStamp DESC;
-
-END;
-
-$res = $mysqli->query($query) or die();
-
-// Sätter tidszonen till europäisk/svensk tidszon
-date_default_timezone_set("Europe/Stockholm");
-
-
-if($res->num_rows > 0)
-{
-	//Loops through results
-	while($row = $res->fetch_object())
-	{
-		//Sätter tid till svenska
-		setlocale(LC_TIME, "sv_SE", "sv_SE.65001", "swedish");   
-		$date = strtotime($row->ArtikelTimeStamp);
-
-		
-		//encode gör att datum från DB visas med svenska tecken
-		utf8_encode($date = strftime("%#d %B", $date));
-		
-		$artikelid = $row->ArtikelId;
-		$artikelname = $row->ArtikelName;
-		$artikelsubtext = substr($artikelname, 0, 24);
-		$artikeltimestamp = $row->ArtikelTimeStamp;
-	
-		
-		$juni .= <<<END
-
-		
-				
-          			<div class="col-md-12 sans-padding-right">			
-          				
-						<p class="pull-left tid-nyheter-arkiv sans-padding-left">{$date}</p>
-							<a href="index.php?ArtikelId={$artikelid}">
-								<p>{$artikelsubtext} ...</p>
-							</a>
-						
-					</div>
-								
-	
-
-END;
-	}
-}
 
 if(!empty($_GET))
 {
@@ -225,11 +172,17 @@ $content = <<<END
 					<h3 class="panel-title">{$artikelname}</h3>
 				</div><!-- panel-heading -->
 		
-				<div class="panel-body-15px">
+				<div class="panel-body">
 					{$artikelpic}
-					<p class="padding-15px">				
-						{$artikelmessage}
-					</p>						
+					
+					<p class="text-muted">
+					Publicerad: {$date}
+					</p>
+
+					<p>				
+					{$artikelmessage}
+					</p>
+
 				</div><!-- panel body -->
 			</div><!-- panel panel yellow -->
 								

@@ -40,12 +40,15 @@ if($res->num_rows > 0)
 		$date = strtotime($row->ArtikelTimeStamp);
 
 		
-		//encode gör att datum från DB visas med svenska tecken
+		//encode gör att datum från DB visas på svenska
 		utf8_encode($date = strftime("%#d %B", $date));
 		
 		$artikelid = $row->ArtikelId;
 		$artikelname = $row->ArtikelName;
+
+		// substr visar max antal ord anvisad här som 24
 		$artikelsubtext = substr($artikelname, 0, 24);
+		
 		$artikeltimestamp = $row->ArtikelTimeStamp;
 	
 		// Strängen som innehåller HTML samt resultatet från databasen
