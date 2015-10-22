@@ -1,9 +1,12 @@
 <?php
+
 /*------------------------------------
 HTMLTemplate.php
 IA projekt
-Contains HTML code that is the same
-over several pages
+Innehåller HTML, Länkar till ia CSS,
+Bootstrap, javascript och jQuery så
+dessa inte behövs intastas manuellt
+på alla sidor
 ------------------------------------*/
 
 include_once("inc/Connstring.php");
@@ -14,7 +17,8 @@ $adminHTML = "";
 
 if(isset($_SESSION["username"])) {
 
- $adminHTML = <<<END
+  // Användare-meny visar namn på den inloggade
+  $adminHTML = <<<END
 
     <div class="col-xs-4 col-md-4">
       <ul class="list-inline padding">
@@ -31,6 +35,7 @@ END;
 }
 else
 {
+  // Användare-meny där användare kan registrera sig och logga in
   $adminHTML = <<<END
 
     <div class="col-xs-6 col-md-3">
@@ -46,13 +51,6 @@ $header = <<<END
 <!doctype html>
 <html>
 	<head>
-	<!---------------------------------
-	index.html
-	Start page with welcome
-	The first page the visitor sees
-	HTML template for IA webbplats
-	----------------------------------->
-
 
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Responsiv -->
@@ -71,18 +69,17 @@ $header = <<<END
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 			
       <script src="js/docs.min.js"></script>
-      <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+      <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>   
       
-      
-	
 		<title>IA webbplats | Konståkning</title>
 
 	</head>
 
 	<body>
 
-		<div id="container"><!-- Börja container DIV -->
-			<div class="fixed" id="header">
+	<div id="container"><!-- Börja container DIV -->
+
+		<div class="fixed" id="header">
 	
 			<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 			
@@ -90,7 +87,8 @@ $header = <<<END
     
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header fixed">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <button type="button" class="navbar-toggle" data-toggle="collapse"
+           data-target="#bs-example-navbar-collapse-1">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -102,7 +100,8 @@ $header = <<<END
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-        <!-- home -->
+        <!-- Hem -->
+
         <ul class="nav navbar-nav">
             <li class="dropdown">
     	        <a href="index.php">Hem </a>
@@ -110,6 +109,7 @@ $header = <<<END
         </ul>
 
         <!-- dropdown meny Om oss -->
+
           <ul class="nav navbar-nav">
               <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Om oss <b class="caret"></b></a>
@@ -136,70 +136,73 @@ $header = <<<END
 
     	  <!-- Dropdown meny Tävla -->
     	  <ul class="nav navbar-nav">
-              <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tävla <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="elitserien.php">Elitserien 2014-2015</a></li>
-                <li><a href="regler.php">Regler</a></li>
-                <li><a href="em2015.php">EM 2015</a></li>
-                <li><a href="sm.php">Svenska mästerskapen 2014</a></li>
-                <li><a href="resultat.php">Tävlingar och resultat</a></li>
-                <li><a href="medaljer.php">Medaljörer 1984-2014</a></li>
-                <li><a href="info.php">Information</a></li>
-              </ul>
-            </li>
-          </ul>
-    	  
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tävla <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="elitserien.php">Elitserien 2014-2015</a></li>
+              <li><a href="regler.php">Regler</a></li>
+              <li><a href="em2015.php">EM 2015</a></li>
+              <li><a href="sm.php">Svenska mästerskapen 2014</a></li>
+              <li><a href="resultat.php">Tävlingar och resultat</a></li>
+              <li><a href="medaljer.php">Medaljörer 1984-2014</a></li>
+              <li><a href="info.php">Information</a></li>
+            </ul>
+          </li>
+        </ul>
     	   
-          <!-- högre delen av navbar med 3 dropdown menyer -->
+        <!-- högre delen av navbar med 3 dropdown menyer -->
     	 
-    	  <!-- dropdown meny Driva Förening -->
-    	  <ul class="nav navbar-nav navbar-right">
-              <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Driva Förening <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="starta.php">Starta förening</a></li>
-                <li><a href="arrangera.php">Arrangera tävling</a></li>
-                <li><a href="http://iof2.idrottonline.se/SvenskaKonstakningsforbundet/Drivaforening/Ansokomnamnbyte/" target="_blank">Ansöka om namnbyte</a></li>
-                <li><a href="riktlinjer.php">Riktlinjer vid istidsförhandlingar</a></li>
-              </ul>
-            </li>
-          </ul>
+        <!-- dropdown meny Driva Förening -->
+    	  
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Driva Förening <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="starta.php">Starta förening</a></li>
+              <li><a href="arrangera.php">Arrangera tävling</a></li>
+              <li><a href="http://iof2.idrottonline.se/SvenskaKonstakningsforbundet/Drivaforening/Ansokomnamnbyte/" target="_blank">Ansöka om namnbyte</a></li>
+              <li><a href="riktlinjer.php">Riktlinjer vid istidsförhandlingar</a></li>
+            </ul>
+          </li>
+        </ul>
 
     	  <!-- dropdown meny Engagera dig -->
-          <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Engagera dig <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="utvecklings.php">Utvecklingskommiten</a></li>
-                <li><a href="utbildning.php">Utbildning</a></li>
-              </ul>
-            </li>
-          </ul>
+      
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Engagera dig <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="utvecklings.php">Utvecklingskommiten</a></li>
+              <li><a href="utbildning.php">Utbildning</a></li>
+            </ul>
+          </li>
+        </ul>
     	  
     	  <!-- dropdown meny Kontakta oss -->
-    	  <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Kontakta oss <b class="caret"></b>
-              </a>
+    	
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Kontakta oss <b class="caret"></b>
+          </a>
+  
+            <ul class="dropdown-menu">
+              <li><a href="press.php">Press</a></li>
+              <li><a href="faq.php">FAQ</a></li>
+              <li><a href="ledigajobb.php">Lediga Jobb</a></li>
+              <li><a href="avdelningar.php">Avdelningar</a></li>
+              <li><a href="distrikt.php">Distrikt och föreningar</a></li>              
+            </ul><!-- dropdown menu -->
 
-              <ul class="dropdown-menu">
-                <li><a href="press.php">Press</a></li>
-                <li><a href="faq.php">FAQ</a></li>
-                <li><a href="ledigajobb.php">Lediga Jobb</a></li>
-                <li><a href="avdelningar.php">Avdelningar</a></li>
-                <li><a href="distrikt.php">Distrikt och föreningar</a></li>
-                
-              </ul>
-            </li><!-- dropdown -->
-          </ul><!-- nav navbar nav navbar right -->
+          </li><!-- dropdown -->
+        </ul><!-- nav navbar nav navbar right -->
     	 
         </div><!-- /.navbar collapse -->
       </div><!-- /.container fluid -->
     </nav>
 
 <!-- undermeny m logga i, shoppa, se varukorg -->
+
 <div class="undermeny">
 	<div class="row">
 		{$adminHTML}
@@ -213,75 +216,70 @@ $header = <<<END
             Butik <span class="glyphicon glyphicon-shopping-cart"></span>
           </a>
         </li>
-      </ul> 
-      
+      </ul>
 
-		</div><!-- col xs 6 col md 3 -->
+		</div><!-- col md 4 col sx 4 pull left -->
 
-		<!-- undermeny m sök form -->
+		<!-- Sök form -->
+
     <div class="col-md-4 pull-right undermeny-search">
-        <form class="navbar-form navbar-left navbar-search" role="search" action="search.php" method="GET">
-          <div class="input-group pull-right">
-              <input type="text" class="form-control" placeholder="Sök..." id="searchfield" name="search" required>
-                <span class="input-group-btn">
-                  <button type="submit" class="btn btn-search btn-warning">
-                    <span class="glyphicon glyphicon-search"></span>
-                  </button>
-                </span>
-          </div>
-        </form>
+      <form class="navbar-form navbar-left navbar-search" role="search" action="search.php" method="GET">
+        <div class="input-group pull-right">
+          <input type="text" class="form-control" placeholder="Sök..." id="searchfield" name="search" required>
+            <span class="input-group-btn">
+              <button type="submit" class="btn btn-search btn-warning">
+                <span class="glyphicon glyphicon-search"></span>
+              </button>
+            </span>
+        </div><!-- input group pull right -->
+      </form><!-- navbar form navbar left navbar search -->
 
-      </div>
-    </div><!-- col xs 6 col md 3 -->
-
-
-  
-
-		</div><!-- col-xs-6 col-md-3 -->
+    </div><!-- col md 4 pull right undermny search -->
 	</div><!-- row -->
 </div><!-- undermeny -->
-
 		
 </div><!-- header -->
-	
 
 END;
+
+// Läser in sidans innehåll i $content
 
 $content = <<<END
-
-			
-  
-
+ 
 END;
 
 
+// Läser in sidans nederste innehåll i $footer
 
 $footer = <<<END
 	    <div class="footer border-bottom-radius navbar-fixed-bottom">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12 text-center">
-						<ul class="list-inline">
-							<li class="yellow">
-              <a class="li yellow" href="avdelningar.php">Kontakta oss</a> &middot;
-              <a class="li yellow" href="faq.php">FAQ</a> &middot;
-              <a class="li white" href="samarbetspartners.php">Samarbetspartner</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-              <a href="https://www.facebook.com/konstakningsforbundet/">
-                <img src="img/facebook.png">
-              </a> &nbsp;
-              <a href="https://twitter.com/skatesweden/">
-                <img src="img/twitter.png">
-              </a> &nbsp;
-              <a href="https://www.youtube.com/results?search_query=svenska+konst%C3%A5kningsf%C3%B6rbundet">
-                <img src="img/youtube.png">
-              </a>
-              </li>
-						</ul>
-						<p class="text-center white text-10px">Copyright &copy; 2014-2015 Svenska Konståkningsförbundet.</p>
-					</div>
-				</div><!-- row -->
-			</div><!-- container -->
-		</div><!-- footer -->
+  			<div class="container">
+  				<div class="row">
+  					<div class="col-md-12 text-center">
+  						<ul class="list-inline">
+  							<li class="yellow">
+                <a class="li yellow" href="avdelningar.php">Kontakta oss</a> &middot;
+                <a class="li yellow" href="faq.php">FAQ</a> &middot;
+                <a class="li white" href="samarbetspartners.php">Samarbetspartner</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                <a href="https://www.facebook.com/konstakningsforbundet/">
+                  <img src="img/facebook.png">
+                </a> &nbsp;
+                <a href="https://twitter.com/skatesweden/">
+                  <img src="img/twitter.png">
+                </a> &nbsp;
+                <a href="https://www.youtube.com/results?search_query=svenska+konst%C3%A5kningsf%C3%B6rbundet">
+                  <img src="img/youtube.png">
+                </a>
+                </li>
+  						</ul>
+              <br>
+              <br>
+              <br>
+  						<p class="text-center white text-10px">Copyright &copy; 2014-2015 Svenska Konståkningsförbundet.</p>
+  					</div><!-- col med 12 text center -->
+				  </div><!-- row -->
+			 </div><!-- container -->
+		  </div><!-- footer -->
 	</div><!-- container class DIV -->
 
 </body>

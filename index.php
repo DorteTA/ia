@@ -13,6 +13,7 @@ $artikelpic_thumb = "";
 $artikelnews = "";
 $artikel_month = "";
 
+
 $query = <<<END
 
 	SELECT *
@@ -21,7 +22,7 @@ $query = <<<END
 	ORDER BY artikeltimestamp DESC;
 END;
 
-//Ger felmeddelande om databasen inte kan köras och hänvisar till felnummer, annars körs den
+// Ger felmeddelande om databasen inte kan köras och hänvisar till felnummer, annars körs den
 $res = $mysqli->query($query) or die("Could not query database" . $mysqli->errno . " : " . $mysqli->error);	
 
 // Sätter tidszonen till europäisk/svensk tidszon
@@ -38,7 +39,7 @@ if($res->num_rows > 0)
 		$date = strtotime($row->ArtikelTimeStamp);
 
 		
-		//encode gör att datum från DB visas med svenska tecken
+		//encode gör att datum från DB visas på svenska
 		utf8_encode($date = strftime("%A %#d %B %Y", $date));
 		
 		$artikelid = $row->ArtikelId;
@@ -49,10 +50,6 @@ if($res->num_rows > 0)
 		$artikelpic_thumb = $row->ArtikelPicThumb;
 		$artikeltimestamp = $row->ArtikelTimeStamp;		
 		
-		//Hindrar XSS-attack
-		$artikelname	= htmlspecialchars($artikelname);
-		$artikelmessage	= htmlspecialchars($artikelmessage);
-
 		// Visar innehållet från databasen i strängen $artikelnews
 		$artikelnews .= <<<END
 		
@@ -103,8 +100,7 @@ END;
 			$artikelmessage = $row->ArtikelMessage;
 			$artikelpic = $row->ArtikelPic;
 			$artikelpic_thumb = $row->ArtikelPicThumb;
-			$artikeltimestamp = $row->ArtikelTimeStamp;
-			
+			$artikeltimestamp = $row->ArtikelTimeStamp;			
 		}
 
 	}
@@ -124,9 +120,6 @@ if(!empty($_GET))
 		ORDER by ArtikelTimeStamp DESC;
 END;
 
-
-
-
 	$res = $mysqli->query($query) or die();
 
 	if($res->num_rows == 1)
@@ -137,25 +130,13 @@ END;
 		
 			//encode gör att datum från DB visas med svenska tecken
 			utf8_encode($date = strftime("%#d %B %Y", $date));
-			$artikelname = $row->ArtikelName;
 			
-
-			
+			$artikelname = $row->ArtikelName;			
 		}
 
 	}
 	
-}
-/*
-
-$artikelmessage = $row->ArtikelMessage;
-			$artikelpic = $row->ArtikelPic;
-			$artikelpic_thumb = $row->ArtikelPicThumb;
-			$artikeltimestamp = $row->ArtikelTimeStamp;
-*/
-	   	
-			
-					
+}		
 
 
 $content = <<<END
@@ -367,7 +348,8 @@ $content = <<<END
 	</div><!-- row -->
 </div><!-- content -->
 
-<!-- Laddar in resultat från arkivsidorna ex arkiv_maj.php i DIV med id ArkivMaj -->
+<!-- jQuery script som laddar in resultat från arkivsidorna, ex arkiv_maj.php i DIV med id ArkivMaj -->
+
 <script>
 $(document).ready(function(){
 	$("#ArkivJuni").click(function(){
@@ -400,13 +382,13 @@ $(document).ready(function(){
 
 END;
 
-//Stänger resultaten
+// Stänger resultaten
 $res->close();
 
-//Stänger ned uppkoblingen med databasen
+// Stänger ned uppkoblingen med databasen
 $mysqli->close();
 
-//Visar innehållet av sidans header, content och footer
+// Visar innehållet av sidans header, content och footer
 echo $header;
 echo $content;
 echo $footer;
