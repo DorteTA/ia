@@ -12,7 +12,9 @@ $artikeltime_aakare = "";
 
 $artikelnames = "";
 $artikelnames_aakare = "";
+
 // Hämtar ut den specifika artikeln 
+
 if(!empty($_GET))
 {
 	$getartikelid = isset($_GET['ArtikelId']) ? $_GET['ArtikelId'] : '';
@@ -30,9 +32,20 @@ END;
 	{
 		while($row = $res->fetch_object())
 		{
+			
+			// Sätter tid till svenska
+
+			setlocale(LC_TIME, "sv_SE", "sv_SE.65001", "swedish");   
+			$date = strtotime($row->ArtikelTimeStamp);
+		
+			//encode gör att datum från DB visas på svenska
+			
+			utf8_encode($date = strftime("%#d %B %Y", $date));
+			
 			$artikelname = $row->ArtikelName;
 			$artikelmessage = $row->ArtikelMessage;
 			$artikeltimestamp = $row->ArtikelTimeStamp;
+
 			
 			$artikeltime = <<<END
 
@@ -41,8 +54,12 @@ END;
 				<h3 class="panel-title">{$artikelname}</h3>
 			</div><!-- panel-heading -->
 				<div class="panel-body">
-					{$artikelmessage}	
-					{$artikeltimestamp}		
+					<p class="text-muted">
+						Publicerad: {$date}
+					</p>
+					<p>
+						{$artikelmessage}
+					</p>		
 				</div><!-- panel-body -->
 		</div><!-- panel panel-yellow -->
 	
@@ -51,6 +68,7 @@ END;
 		}
 	}
 }
+
 // Om inte det finns nån artikel som skickats i adressfältet så görs detta
 else
 {
@@ -81,7 +99,6 @@ END;
 					</div><!-- panel-heading -->
 						<div class="panel-body">
 							{$artikelmessage}
-							{$artikeltimestamp}
 						</div><!-- panel-body -->
 				</div><!-- panel panel-yellow -->
 			
