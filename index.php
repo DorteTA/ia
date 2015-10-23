@@ -34,13 +34,13 @@ if($res->num_rows > 0)
 	//Loops through results
 	while($row = $res->fetch_object())
 	{
-		//Sätter tid till svenska
+		// Sätter tid till svenska
 		setlocale(LC_TIME, "sv_SE", "sv_SE.65001", "swedish");   
 		$date = strtotime($row->ArtikelTimeStamp);
 
 		
 		//encode gör att datum från DB visas på svenska
-		utf8_encode($date = strftime("%A %#d %B %Y", $date));
+		utf8_encode($date = strftime("%#d %B %Y", $date));
 		
 		$artikelid = $row->ArtikelId;
 		$artikelname = $row->ArtikelName;

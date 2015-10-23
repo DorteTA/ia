@@ -39,8 +39,8 @@ END;
 				<h3 class="panel-title">{$artikelname}</h3>
 			</div><!-- panel-heading -->
 				<div class="panel-body">
-					{$artikelmessage}<br><br>	
-					{$artikeltimestamp}<br><br>		
+					{$artikelmessage}	
+					{$artikeltimestamp}		
 				</div><!-- panel-body -->
 		</div><!-- panel panel-yellow -->
 	
@@ -135,7 +135,7 @@ $content = <<<END
 						
 						<!-- Om oss undermeny -->
 						
-							<h3 class="panel-title yellow">Så bedöms konståkning</h3>
+							<h3 class="panel-title yellow">Träna</h3>
 						</div><!-- panel heading -->
 						</a>
 					
