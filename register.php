@@ -18,9 +18,10 @@ if(!empty($_POST))
 			$city = $_POST['city'];
 			$pass = $_POST['password'];
 
-			if($username == '' || $mail == "" || $name == "" || $surname == "" || $address == "" || $zipcode == "" || $city == "" || $pass == "")
+			if($username == '' || $mail == "" || $name == "" || $surname == "" || $address == "" || $zipcode == ""
+			|| $city == "" || $pass == "")
 			{
-				$feedback = "<p>Fyll i alla fält</p>";
+				$feedback = "<p>Fyll i alla fält.</p>";
 			}
 			else
 			{
@@ -48,8 +49,9 @@ $content = <<<END
 						<div class="panel-heading">
 							<h3 class="panel-title">Registrera dig</h3>
 						</div><!-- panel-heading -->
+						
 						<div class="panel-body">
-						{$feedback}
+							{$feedback}
 							<form action="register.php" method="POST" class="blue" id="register-form">
 							
 								<label for="username">Användarnamn</label>

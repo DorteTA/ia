@@ -26,7 +26,9 @@ if(isset($_SESSION["username"])) {
         <a class="li yellow" href="profile.php">
           <strong>{$_SESSION["username"]}</strong>
         </a> &middot; <a class="li yellow" href="logout.php">
-          Logga ut</a> &middot;</li>
+          Logga ut
+        </a>
+        </li>
       </ul>
     </div><!-- col xs 6 col md3 -->
 

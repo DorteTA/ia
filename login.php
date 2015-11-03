@@ -79,9 +79,9 @@ $content = <<<END
 						</div><!-- panel-heading -->
 						<div class="panel-body">
 							<form action="login.php" method="post" id="login-form pull-right">
-							<label for="username">Username:</label>
+							<label for="username">Användarnamn:</label>
 							<input type="text" id="username" name="username" value="" /><br><br>
-							<label for="password">Password:</label>
+							<label for="password">Lösenord:</label>
 							<input type="password" id="password" name="password" value="" /><br><br>
 							<input type="submit" id="submit" value="logga in" />
 							<p><a href="register.php">Registrera dig</a></p>
