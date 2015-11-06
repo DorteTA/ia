@@ -59,12 +59,11 @@ if($res->num_rows > 0)
           				
 						<p class="pull-left tid-nyheter-arkiv sans-padding-left">
 							{$date}
-						</p>
-						<a href="index.php?ArtikelId={$artikelid}">
-							<p>
+						
+							<a href="index.php?ArtikelId={$artikelid}">							
 								{$artikelsubtext} ...
-							</p>
-						</a>
+							</a>
+						</p>
 						
 					</div><!-- col md 12 -->
 

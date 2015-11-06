@@ -136,11 +136,11 @@ if($res->num_rows > 0)
 		$artikelnames .= <<<END
 
 
-			<div class="collapse-in" id="dokument">
+			<div class="collapse-in" id="info">
 								
-				<ul class="">
+				<ul class="dropdown">
           								
-	   				<a href="info.php?ArtikelId={$artikelId}">
+	   				<a href="info.php?ArtikelId={$artikelId}" class="" data-toggle="collapse">
 	   					<li>{$artikelname}</li>
 	   				</a>	   									
 	   			</ul>
@@ -154,8 +154,11 @@ END;
 	}
 }
 
-$content = <<<END
 
+$content = <<<END
+<head>
+<script src="jquery-1.11.3.min.js"></script>
+</head>
 			
        	<div id="content">
 			<div class="row">
@@ -168,17 +171,16 @@ $content = <<<END
 						
 							<h3 class="panel-title yellow">Information</h3>
 						</div><!-- panel heading -->
-						</a>
-					
+										
 							
 						<div class="panel-body">
-							<div class="collapse-in" id="dokument">
+							<div id="info" class="collapse-in">
 								
-									<ul class="">
+									<ul class="dropdown">
           								<li class="dropdown-left">
 	   									<a data-toggle="collapse" href="#arrangorer" aria-expanded="false"
 										aria-controls="collapseExample">
-	   										<li>Arrangörer <b class="caret"></b></li>
+	   										<li class="dropdown">Arrangörer <b class="caret"></b></li>
 	   									</a>
 
 	   									<!-- Arrangorer -->
@@ -256,6 +258,12 @@ $content = <<<END
 				</div><!-- col-xs-6 col-md-3 -->
 			</div> <!-- row -->
        </div><!-- AVsluta content DIV -->
+<script>
+$('.dropdown').click(function(){
+      if($('.a').hasClass('collapse')
+        $('#info').collapse('show');
+});
+</script>
 
 END;
 
