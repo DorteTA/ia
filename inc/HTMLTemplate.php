@@ -206,11 +206,17 @@ $header = <<<END
 <!-- undermeny m logga i, shoppa, se varukorg -->
 
 <div class="undermeny">
-	<div class="row">
-		{$adminHTML}
+  <div class="row">
+    
+    <div class="col-xs-6 col-md-3">
+      <ul class="list-inline padding">
+        <li class="yellow"><a class="li yellow" href="login.php">Logga in</a> &middot;
+         <a class="li yellow" href="register.php">Registrera dig</a></li>
+      </ul>
+    </div><!-- col-xs-6 col-md-3 -->
 
-		<!-- undermeny tom -->
-		<div class="col-md-4 col-sx-4 pull-left">
+    <!-- undermeny tom -->
+    <div class="col-md-4 col-sx-4 pull-left">
 
       <ul class="list-inline padding pull-left">
         <li class="yellow">
@@ -220,9 +226,9 @@ $header = <<<END
         </li>
       </ul>
 
-		</div><!-- col md 4 col sx 4 pull left -->
+    </div><!-- col md 4 col sx 4 pull left -->
 
-		<!-- Sök form -->
+    <!-- Sök form -->
 
     <div class="col-md-4 pull-right undermeny-search">
       <form class="navbar-form navbar-left navbar-search" role="search" action="search.php" method="GET">
@@ -237,8 +243,9 @@ $header = <<<END
       </form><!-- navbar form navbar left navbar search -->
 
     </div><!-- col md 4 pull right undermny search -->
-	</div><!-- row -->
+  </div><!-- row -->
 </div><!-- undermeny -->
+
 		
 </div><!-- header -->
 
