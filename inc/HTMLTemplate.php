@@ -210,7 +210,8 @@ $header = <<<END
 		{$adminHTML}
 
 		<!-- undermeny tom -->
-		<div class="col-md-4 col-sx-4 pull-left">
+		<div class="col-md-6 col-sx-6 pull-left">
+
 
       <ul class="list-inline padding pull-left">
         <li class="yellow">
@@ -224,10 +225,12 @@ $header = <<<END
 
 		<!-- Sök form -->
 
-    <div class="col-md-4 pull-right undermeny-search">
-      <form class="navbar-form navbar-left navbar-search" role="search" action="search.php" method="GET">
-        <div class="input-group pull-right">
-          <input type="text" class="form-control" placeholder="Sök..." id="searchfield" name="search" required>
+    <div class="col-md-4 pull-right undermeny-search">     
+    
+
+      <form class="navbar-form navbar-left" role="search" action="search.php" method="GET">
+       
+          <input type="text" class="form-control pull-left col-md-4" placeholder="Sök..." id="searchfield" name="search" required>
             <span class="input-group-btn">
               <button type="submit" class="btn btn-search btn-warning">
                 <span class="glyphicon glyphicon-search"></span>

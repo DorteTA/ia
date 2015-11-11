@@ -329,16 +329,11 @@ background: linear-gradient(-15deg, #f9f9f9, #fff); /* Standard syntax (must be 
 
 .undermeny {
   top: 40px;
-  width: 350px;
+  width:100%;
   vertical-align: middle;
   
 }
 
-/*.undermeny-form {
-  width: 100%;
-  padding: 0;
-}
-*/
 
 .undermeny-form {
   width: 100%;
