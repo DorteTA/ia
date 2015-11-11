@@ -1,10 +1,10 @@
 <?php
-/*---------------------------------
+/*------------------------------------
 arkiv_juni.php
-Hämtar innehållet från juni månad
----------------------------------*/
+Hämtar innehållet från juni månad i DB
+------------------------------------*/
 
-// Uppkoblingen till databasen
+// Uppkoppling till databasen
 include_once("inc/Connstring.php");
 
 // Använder HTML-mallen där CSS och javascript ingår,
@@ -14,7 +14,8 @@ include_once("inc/HTMLTemplate.php");
 // Variabler
 $juni ="";
 
-// Hämtar ut artiklar från juni månad
+// Hämtar ut artiklar från juni månad,
+// visar senaste artikel först
 $query = <<<END
 
 	SELECT * FROM artikel
@@ -23,7 +24,7 @@ $query = <<<END
 
 END;
 
-// Hämta resultat
+// Hämtar resultat
 $res = $mysqli->query($query) or die();
 
 // Sätter tidszonen till europäisk/svensk tidszon
@@ -35,12 +36,12 @@ if($res->num_rows > 0)
 	// Kör igenom resultatet
 	while($row = $res->fetch_object())
 	{
-		//Sätter tid till svenska
+		// Sätter tid till svenska
 		setlocale(LC_TIME, "sv_SE", "sv_SE.65001", "swedish");   
 		$date = strtotime($row->ArtikelTimeStamp);
 
 		
-		//encode gör att datum från DB visas på svenska
+		// Encode som gör att datum från DB visas på svenska
 		utf8_encode($date = strftime("%#d %B", $date));
 		
 		$artikelid = $row->ArtikelId;
@@ -51,11 +52,11 @@ if($res->num_rows > 0)
 		
 		$artikeltimestamp = $row->ArtikelTimeStamp;
 	
-		// Strängen som innehåller HTML samt resultatet från databasen
+		// Variablen som innehåller HTML samt resultat från databasen
 		$juni .= <<<END
 
 			
-	       			<div class="col-md-12 sans-padding-right">			
+	       			<div class="col-xs-12 sans-padding-right">			
           				
 						<p class="pull-left tid-nyheter-arkiv sans-padding-left">
 							{$date}
@@ -71,7 +72,7 @@ END;
 	}
 }
 
-// Visar databas-innehållet hämtad in i strängen $juni
+// Visar databas-innehållet i strängen $content, hämtad in i strängen $juni
 $content .= <<<END
 
 					{$juni}	
