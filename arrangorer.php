@@ -9,6 +9,7 @@ include_once("inc/Connstring.php");
 
 $artikeltime = "";
 $artikelnames = "";
+
 // Hämtar ut den specifika artikeln 
 if(!empty($_GET))
 {
@@ -33,15 +34,15 @@ END;
 			
 			$artikeltime = <<<END
 
-		<div class="panel panel-yellow">
-			<div class="panel-heading">
-				<h3 class="panel-title">{$artikelname}</h3>
-			</div><!-- panel-heading -->
+			<div class="panel panel-yellow">
+				<div class="panel-heading">
+					<h3 class="panel-title">{$artikelname}</h3>
+				</div><!-- end panel heading -->
 				<div class="panel-body">
 					{$artikelmessage}	
 					{$artikeltimestamp}		
-				</div><!-- panel-body -->
-		</div><!-- panel panel-yellow -->
+				</div><!-- end panel-body -->
+			</div><!-- end panel panel-yellow -->
 	
 
 END;
