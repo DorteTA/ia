@@ -1,26 +1,21 @@
 <?php
 /*---------------------------------
 login.php
-Inlogningssidan där användaren
-kan logga in
+Inlogning with welcome
+The first page the visitor sees
 ---------------------------------*/
 
 
 include_once("inc/HTMLTemplate.php");
 
-// Variabler
 $feedback = "";
 $content = "";
-$table = "";
 
 
 if(!empty($_POST)) {
-
-	// Kontakter DB med info från Connstring.php
 	include_once("inc/Connstring.php");
-
-	// Tabellens namn
-	$table = "user";	
+	$table = "user";
+	
 	
 	$username =	isset($_POST['username']) ? $_POST['username'] : '';
 	$password = isset($_POST['password']) ? $_POST['password'] : '';

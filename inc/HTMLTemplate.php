@@ -20,7 +20,7 @@ if(isset($_SESSION["username"])) {
   // Användare-meny visar namn på den inloggade
   $adminHTML = <<<END
 
-    <div class="col-xs-4 col-md-4">
+    <div class="col-xs-4 col-md-3">
       <ul class="list-inline padding">
         <li class="yellow">Inloggad som:
         <a class="li yellow" href="profile.php">
@@ -40,14 +40,15 @@ else
   // Användare-meny där användare kan registrera sig och logga in
   $adminHTML = <<<END
 
-    <div class="col-xs-6 col-md-3">
+    <div class="col-xs-4 col-md-3">
       <ul class="list-inline padding">
         <li class="yellow"><a class="li yellow" href="login.php">Logga in</a> &middot;
          <a class="li yellow" href="register.php">Registrera dig</a></li>
       </ul>
-    </div><!-- col-xs-6 col-md-3 -->
+    </div><!-- end col xs 4 col md 4-->
 END;
 }
+
 
 $header = <<<END
 <!doctype html>
@@ -207,13 +208,7 @@ $header = <<<END
 
 <div class="undermeny">
   <div class="row">
-    
-    <div class="col-xs-6 col-md-3">
-      <ul class="list-inline padding">
-        <li class="yellow"><a class="li yellow" href="login.php">Logga in</a> &middot;
-         <a class="li yellow" href="register.php">Registrera dig</a></li>
-      </ul>
-    </div><!-- col-xs-6 col-md-3 -->
+    {$adminHTML}
 
     <!-- undermeny tom -->
     <div class="col-md-4 col-sx-4 pull-left">
