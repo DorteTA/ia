@@ -12,6 +12,8 @@ $artikelpic = "";
 $artikelpic_thumb = "";
 $artikelnews = "";
 $artikel_month = "";
+$roletype = "";
+$userid ="";
 
 
 $query = <<<END
@@ -48,7 +50,10 @@ if($res->num_rows > 0)
 		$artikelsubtext = substr($artikelmessage, 0, 75);
 		$artikelpic = $row->ArtikelPic;
 		$artikelpic_thumb = $row->ArtikelPicThumb;
-		$artikeltimestamp = $row->ArtikelTimeStamp;		
+		$artikeltimestamp = $row->ArtikelTimeStamp;
+		$userid = $row->userId;
+		
+
 		
 		// Visar innehållet från databasen i strängen $artikelnews
 		$artikelnews .= <<<END
@@ -84,7 +89,7 @@ if(!empty($_GET))
 
 		$query = <<<END
 
-		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb, ArtikelTimeStamp
+		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb, ArtikelTimeStamp, userId
 		FROM artikel
 		WHERE ArtikelId = "{$getartikelid}"
 		ORDER by ArtikelTimeStamp DESC;
@@ -100,7 +105,9 @@ END;
 			$artikelmessage = $row->ArtikelMessage;
 			$artikelpic = $row->ArtikelPic;
 			$artikelpic_thumb = $row->ArtikelPicThumb;
-			$artikeltimestamp = $row->ArtikelTimeStamp;			
+			$artikeltimestamp = $row->ArtikelTimeStamp;
+			$artikelname = $row->ArtikelName;
+			$userid = $row->userId;
 		}
 
 	}
@@ -114,7 +121,7 @@ if(!empty($_GET))
 
 		$query = <<<END
 
-		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb, ArtikelTimeStamp
+		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb, ArtikelTimeStamp, userId
 		FROM artikel
 		WHERE ArtikelId = "{$getartikelid}"
 		ORDER by ArtikelTimeStamp DESC;
@@ -131,7 +138,8 @@ END;
 			//encode gör att datum från DB visas med svenska tecken
 			utf8_encode($date = strftime("%#d %B %Y", $date));
 			
-			$artikelname = $row->ArtikelName;			
+			$artikelname = $row->ArtikelName;
+			$userid = $row->userId;
 		}
 
 	}

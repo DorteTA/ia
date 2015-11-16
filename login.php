@@ -36,7 +36,7 @@ if(!empty($_POST)) {
 		
 		$query = <<<END
 		
-		SELECT username, password, userId
+		SELECT username, password, userId, roletype
 		FROM {$table}
 		WHERE username = "{$username}";
 		
@@ -54,6 +54,7 @@ END;
 				
 				$_SESSION["username"] = 	$username;
 				$_SESSION["userId"]	=		$row->userId;
+				$_SESSION["roletype"]	=	$row->roletype;
 				
 				header("Location: index.php");
 			}
