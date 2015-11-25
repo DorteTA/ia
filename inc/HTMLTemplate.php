@@ -89,6 +89,7 @@ $header = <<<END
       <div class="container-fluid">
     
         <!-- Brand and toggle get grouped for better mobile display -->
+
         <div class="navbar-header fixed">
           <button type="button" class="navbar-toggle" data-toggle="collapse"
            data-target="#bs-example-navbar-collapse-1">
@@ -107,7 +108,7 @@ $header = <<<END
 
         <ul class="nav navbar-nav">
             <li class="dropdown">
-    	        <a href="index.php">Hem </a>
+    	        <a href="index.php"><span class="glyphicon glyphicon-home"></span></a>
             </li>
         </ul>
 
