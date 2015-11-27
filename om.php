@@ -30,6 +30,13 @@ END;
 	{
 		while($row = $res->fetch_object())
 		{
+			//Sätter tid till svenska
+			setlocale(LC_TIME, "sv_SE", "sv_SE.65001", "swedish");   
+			$date = strtotime($row->ArtikelTimeStamp);
+
+			//encode gör att datum från DB visas på svenska
+			utf8_encode($date = strftime("%#d %B %Y", $date));
+			
 			$artikelname = $row->ArtikelName;
 			$artikelmessage = $row->ArtikelMessage;
 			$artikeltimestamp = $row->ArtikelTimeStamp;
@@ -42,8 +49,10 @@ END;
 				<h3 class="panel-title">{$artikelname}</h3>
 			</div><!-- panel-heading -->
 				<div class="panel-body">
-					{$artikelmessage}	
-					{$artikeltimestamp}	
+					<p class="text-muted">
+						Publicerad {$date} av ...
+					</p>
+					{$artikelmessage}
 				</div><!-- panel-body -->
 		</div><!-- panel panel-yellow -->
 	
