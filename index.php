@@ -154,7 +154,7 @@ $content = <<<END
 		<div class="col-md-3">
 			<div class="panel panel-blue">
 				<div class="panel-heading">
-					<h3 class="panel-title">Nyheter</h3>
+					<h3 class="panel-title">Nyheter Juni</h3>
 				</div><!-- panel-heading -->
 				{$artikelnews}
 			</div><!-- panel panel blue -->								
@@ -170,7 +170,7 @@ $content = <<<END
 					{$artikelpic}
 					
 					<p class="text-muted">
-					Publicerad: {$date}
+					Publicerad: {$date} av ...
 					</p>
 
 					<p>				

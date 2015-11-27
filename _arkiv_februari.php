@@ -41,35 +41,38 @@ if($res->num_rows > 0)
 		$date = strtotime($row->ArtikelTimeStamp);
 
 		
-		//encode gör att datum från DB visas på svenska
+		// encode gör att datum från DB visas på svenska
 		utf8_encode($date = strftime("%#d %B", $date));
 		
 		$artikelid = $row->ArtikelId;
 		$artikelname = $row->ArtikelName;
-
 		// substr visar max antal ord anvisad här som 24
-		$artikelsubtext = substr($artikelname, 0, 28);
-		
+		$artikelsubtext = substr($artikelname, 0, 24);
 		$artikeltimestamp = $row->ArtikelTimeStamp;
 	
 		// Strängen som innehåller HTML samt resultatet från databasen
 		$februari .= <<<END
-
-					<!-- kolumn m bredd 12 -->
-	       			<div class="col-md-12 sans-padding-left pull-left">
+			
+	       			<!-- kolumn m bredd 3 -->
+	       			<div class="col-md-3 sans-padding-left pull-left">
 
 	       				<!-- sätter in datum från artikel i DB -->         				
-						{$date}&nbsp; 
+						{$date}
+					
+					</div><!-- end col md 3 -->
+
+					<!-- kolumn m bredd 9 -->
+					<div class="col-md-9 sans-padding-right pull-left">
+
+						<!-- länka som tar fram artikel från DB och -->
+						<!-- sätter in den på index sidan -->
 						<a href="index.php?ArtikelId={$artikelid}">
 
 							<!-- visar förkortat namn på artikel -->							
-							{$artikelsubtext}...
+							{$artikelsubtext} ...
 						</a>
-					
-					</div><!-- end col md 12 -->
+					</div><!-- end col md 9 -->
 
-					
-				
 END;
 	}
 }

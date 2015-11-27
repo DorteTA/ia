@@ -30,6 +30,9 @@ p.feedback-warning {
   width: auto;
 
 }
+.text-yellow {
+  color: #ffcc33;
+}
 
 /* Karusell för sponsorbilder */
 #myCarousel {

@@ -36,7 +36,7 @@ if($res->num_rows > 0)
 	// Kör igenom resultatet
 	while($row = $res->fetch_object())
 	{
-		//Sätter tid till svenska
+		// Sätter tid till svenska
 		setlocale(LC_TIME, "sv_SE", "sv_SE.65001", "swedish");   
 		$date = strtotime($row->ArtikelTimeStamp);
 
@@ -46,26 +46,30 @@ if($res->num_rows > 0)
 		
 		$artikelid = $row->ArtikelId;
 		$artikelname = $row->ArtikelName;
-		$artikelsubtext = substr($artikelname, 0, 24);
+
+		// substr visar max antal ord anvisad här som 24
+		$artikelsubtext = substr($artikelname, 0, 28);
+		
 		$artikeltimestamp = $row->ArtikelTimeStamp;
 	
 		// Strängen som innehåller HTML samt resultatet från databasen
 		$april .= <<<END
 
-			
-	       			<div class="col-md-12 sans-padding-right">			
-          				
-						<p class="pull-left tid-nyheter-arkiv sans-padding-left">
-							{$date}
-						</p>
-						<a href="index.php?ArtikelId={$artikelid}">
-							<p>
-								{$artikelsubtext} ...
-							</p>
-						</a>
-						
-					</div><!-- col md 12 -->
+					<!-- kolumn m bredd 12 -->
+	       			<div class="col-md-12 sans-padding-left pull-left">
 
+	       				<!-- sätter in datum från artikel i DB -->         				
+						{$date}&nbsp; 
+						<a href="index.php?ArtikelId={$artikelid}">
+
+							<!-- visar förkortat namn på artikel -->							
+							{$artikelsubtext}...
+						</a>
+					
+					</div><!-- end col md 12 -->
+
+					
+				
 END;
 	}
 }
