@@ -12,9 +12,12 @@ $artikelpic = "";
 $artikelpic_thumb = "";
 $artikelnews = "";
 $artikel_month = "";
-$roletype = "";
 $userid ="";
 
+//Kollar om användaren är inloggat och lägger in namnet i variablen $name, så användaren inte behöver skriva namnet i gästboken
+if(isset($_SESSION['username'])) {
+	$name = $_SESSION['username'];
+}
 
 $query = <<<END
 
@@ -53,6 +56,9 @@ if($res->num_rows > 0)
 		$artikeltimestamp = $row->ArtikelTimeStamp;
 		$userid = $row->userId;
 		
+		$adminId = isset($_SESSION["userId"]) ? $_SESSION["userId"] : "NULL" ;
+		
+		$adminClass = (!is_null($row->adminId)) ? " admin" : "";
 
 		
 		// Visar innehållet från databasen i strängen $artikelnews
