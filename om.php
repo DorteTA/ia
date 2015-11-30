@@ -112,7 +112,7 @@ $query = <<<END
 	SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, ArtikelPic, kategori
 	FROM artikel
 	WHERE kategori = 'om'
-	ORDER BY Artikeltimestamp
+	ORDER BY ArtikelTimeStamp;
 END;
 
 $res = $mysqli->query($query) or die();

@@ -1,10 +1,9 @@
 <?php
 /*---------------------------------
 login.php
-Inlogningssidan där användaren
-kan logga in
+Inlogningssidan där användare och
+editörer kan logga in
 ---------------------------------*/
-
 
 include_once("inc/HTMLTemplate.php");
 
@@ -24,6 +23,12 @@ if(!empty($_POST)) {
 	
 	$username =	isset($_POST['username']) ? $_POST['username'] : '';
 	$password = isset($_POST['password']) ? $_POST['password'] : '';
+	$spamTest =	isset($_POST['address']) ? $_POST['address'] : '';
+
+	//Om fältet address INTE är tomt (som det bör vara) ges feedback om att man har upptäckt en spam-bot
+	if($spamTest != '') {
+		die("Jag tror du är en robot. Om jag har fel, gå tillbaka och prova igen.");
+	}
 	
 	if($username == '' || $password == '') {
 		$feedback = "<p class=\"feedback-yellow\">Fyll i alla uppgifter.</p>";
@@ -36,7 +41,7 @@ if(!empty($_POST)) {
 		
 		$query = <<<END
 		
-		SELECT username, password, userId, roletype
+		SELECT username, password, userId
 		FROM {$table}
 		WHERE username = "{$username}";
 		
@@ -53,8 +58,7 @@ END;
 				session_regenerate_id();
 				
 				$_SESSION["username"] = 	$username;
-				$_SESSION["userId"]	=		$row->userId;
-				$_SESSION["roletype"]	=	$row->roletype;
+				$_SESSION["userId"]	=		$row->userId;				
 				
 				header("Location: index.php");
 			}
@@ -67,7 +71,7 @@ END;
 			$feedback = "<p class=\"feedback-red\">Fel användarnamn.</p>";
 		}
 		$mysqli->close();
-	
+		
 	}
 
 }
