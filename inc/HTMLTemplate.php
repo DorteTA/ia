@@ -13,12 +13,12 @@ include_once("inc/Connstring.php");
 
 session_start();
 
-$adminHTML = "";
+$userHTML = "";
 
 if(isset($_SESSION["username"])) {
 
   // Användare-meny visar namn på den inloggade
-  $adminHTML = <<<END
+  $userHTML = <<<END
 
     <div class="col-xs-4 col-md-3">
       <ul class="list-inline padding">
@@ -38,7 +38,7 @@ END;
 else
 {
   // Användare-meny där användare kan registrera sig och logga in
-  $adminHTML = <<<END
+  $userHTML = <<<END
 
     <div class="col-xs-4 col-md-3">
       <ul class="list-inline padding">
@@ -209,7 +209,7 @@ $header = <<<END
 
 <div class="undermeny">
   <div class="row">
-    {$adminHTML}
+    {$userHTML}
 
     <!-- undermeny tom -->
     <div class="col-md-4 col-sx-4 pull-left">
