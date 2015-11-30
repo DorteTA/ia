@@ -22,9 +22,10 @@ body {
 }
 
 p.feedback-warning {
-  background-color: Orange;
+  background-color: #ffcc33;
   border-radius: 6px;
-  color: White;
+  color: #000;
+  font-weight: bold;
   padding-left: 15px;
   padding-right: 15px;
   width: auto;
