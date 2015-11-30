@@ -31,7 +31,7 @@ if(!empty($_POST)) {
 	}
 	
 	if($username == '' || $password == '') {
-		$feedback = "<p class=\"feedback-yellow\">Fyll i alla uppgifter.</p>";
+		$feedback = "<p class=\"text-yellow\">Fyll i alla uppgifter.</p>";
 	}
 	else {
 	
@@ -63,12 +63,12 @@ END;
 				header("Location: index.php");
 			}
 			else {
-				$feedback = "<p class=\"feedback-red\">Fel lösenord.</p>";
+				$feedback = "<p class=\"text-red\">Fel lösenord.</p>";
 			}
 			$res->close();
 		}
 		else {
-			$feedback = "<p class=\"feedback-red\">Fel användarnamn.</p>";
+			$feedback = "<p class=\"text-red\">Fel användarnamn.</p>";
 		}
 		
 	}
