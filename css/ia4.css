@@ -376,44 +376,10 @@ background: linear-gradient(-15deg, #f9f9f9, #fff); /* Standard syntax (must be 
   background-color: white;
 }
 
-/*.row {
-  z-index:1000;
-  margin-right: -15px;
-  margin-left: -15px;
-}
-*/
-
-
 .navbar {
   z-index:1000;
   background-color: #fff;
 }
-/*.navbar {
-
-  z-index:1000;
-  position: relative;
-  min-height: 50px;
-  margin-bottom: 20px;
-  border: 1px solid transparent;
-  opacity:0.8;
- 
-    background: -webkit-radial-gradient(white, #263777);  Safari 5.1 to 6.0 
-  background: -o-radial-gradient(white, #263777);  For Opera 11.6 to 12.0 
-  background: -moz-radial-gradient(white, #263777);  For Firefox 3.6 to 15 
-  background: radial-gradient(white, #263777);  Standard syntax (must be last) 
-  background-image:url("../img/logo-forbund2.jpg");
-  background-repeat:no-repeat;
-  background-position:center top;
-}
-/*
-
-/*.nav-tabs .dropdown-menu {
-z-index:1000;
-  margin-top: -1px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
-*/
 
 .footer {
   background-color: #263777;
@@ -437,14 +403,6 @@ z-index:1000;
 .yellow a.li:link,a.li:link,a.li:active,a.li:hover,a.li:visited {color: #ffcc33; }
 
 
-/*.login a.admin:visited,a.admin:link {
-  color:#E9E9E9;
-}
-
-.login a.adminHover:hover,a.admin:active {
-  color:#000;
-}
-*/
 .text-10px{
 
   font-size: 10px;

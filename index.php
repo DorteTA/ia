@@ -95,7 +95,7 @@ if(!empty($_GET))
 
 		$query = <<<END
 
-		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb, ArtikelTimeStamp, userId
+		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb, ArtikelTimeStamp, adminId, userId
 		FROM artikel
 		WHERE ArtikelId = "{$getartikelid}"
 		ORDER by ArtikelTimeStamp DESC;
@@ -113,7 +113,9 @@ END;
 			$artikelpic_thumb = $row->ArtikelPicThumb;
 			$artikeltimestamp = $row->ArtikelTimeStamp;
 			$artikelname = $row->ArtikelName;
+			$adminid= $row->adminId;
 			$userid = $row->userId;
+			
 		}
 
 	}
@@ -127,11 +129,19 @@ if(!empty($_GET))
 
 		$query = <<<END
 
-		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb, ArtikelTimeStamp, userId, adminId
+		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb, ArtikelTimeStamp, adminId, userId
 		FROM artikel
 		WHERE ArtikelId = "{$getartikelid}"
 		ORDER by ArtikelTimeStamp DESC;
 END;
+
+	//lägger till admin-meny om användaren är inloggat
+	if(isset($_SESSION['userId'])){
+		$content .= <<<END
+
+		<a href="article-delete.php?id={$row->artikelId}">Radera</a> &middot; <a href="gb-edit.php?id={$row->artikelId}">Edit post</a>
+END;
+	
 
 	$res = $mysqli->query($query) or die();
 
@@ -146,13 +156,16 @@ END;
 			
 			$artikelname = $row->ArtikelName;
 			$userid = $row->userId;
+			$adminid = $row->adminId;
+
+
 		}
 
 	}
 	
 }		
 
-
+}
 $content = <<<END
 
 <div id="content">

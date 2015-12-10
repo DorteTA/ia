@@ -8,19 +8,19 @@ Redigerar kommentarer i gästboken
 include_once("inc/HTMLTemplate.php");
 include_once("inc/Connstring.php");
 
-$userId = isset($_SESSION["userId"]) ? $_SESSION["userId"] : "NULL" ;
+$adminId = isset($_SESSION["userId"]) ? $_SESSION["userId"] : "NULL" ;
 
-$postId = isset($_GET['id']) ? $_GET['id'] : '';
+$artikelId = isset($_GET['ArtikelId']) ? $_GET['ArtikelId'] : '';
 
 
-$updated = isset($_POST['msg']) ? $_POST['msg'] : '';
+$updated = isset($_POST['artikelmessage']) ? $_POST['msg'] : '';
 
 if(isset($_POST['msg'])) {
 
 	$query = <<<END
-	UPDATE post
-	SET postMessage = '$updated'
-	WHERE postId = $postId
+	UPDATE artikel
+	SET artikelMessage = '$updated'
+	WHERE ArtikelId = $ArtikelId
 END;
 	
 	$res = $mysqli->query($query) or die("Failed.");
@@ -28,14 +28,14 @@ END;
 
 	$query = <<<END
 	SELECT * FROM artikel
-	WHERE artikelId = $artikelId
+	WHERE ArtikelId = $ArtikelId
 END;
 	
 $res = $mysqli->query($query);
 
 while($row = $res->fetch_object()){
-	$name = $row->postName;
-	$msg = 	$row->postMessage;
+	$artikelname = $row->ArtikelName;
+	$artikelmessage = 	$row->ArtikelMessage;
 	$date = $row->postTimestamp;
 	
 	$postContent = <<<END
@@ -48,7 +48,7 @@ END;
 	}
 
 $content = <<<END
-<form action="gb-edit.php?id={$postId}" method="post">
+<form action="gb-edit.php?id={$ArtikelId}" method="post">
 	<label for="msg">Redigera post: </label>
 	<textarea id="msg" name="msg">{$msg}</textarea>
 	<input type="submit" value="Skicka">
