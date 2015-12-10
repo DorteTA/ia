@@ -21,6 +21,20 @@ body {
   
 }
 
+.zero-margin-left {
+  margin-left: -15px;
+  margin-right: auto;
+}
+
+.zero-margin-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.zero-margin-right {
+  margin-left: auto;
+  margin-right: -15px;
+}
 p.feedback-warning {
   background-color: #ffcc33;
   border-radius: 6px;
