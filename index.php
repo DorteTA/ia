@@ -10,11 +10,14 @@ include_once("inc/HTMLTemplate.php");
 // Variabler
 $artikelpic = "";
 $artikelpic_thumb = "";
+$artikelskribent = "";
 $artikelnews = "";
 $artikel_month = "";
 $userid ="";
+$artikeldelatwitter = "";
+$artikeldelafb = "";
 
-//Kollar om användaren är inloggat och lägger in namnet i variablen $name, så användaren inte behöver skriva namnet i gästboken
+//Kollar om användaren är inloggat och lägger in namnet i variablen $name
 if(isset($_SESSION['username'])) {
 	$name = $_SESSION['username'];
 }
@@ -54,12 +57,10 @@ if($res->num_rows > 0)
 		$artikelpic = $row->ArtikelPic;
 		$artikelpic_thumb = $row->ArtikelPicThumb;
 		$artikeltimestamp = $row->ArtikelTimeStamp;
+		$artikelskribent = $row->ArtikelSkribent;
+		$artikeldelatwitter = $row->ArtikelDelaTwitter;
+		$artikeldelafb = $row->ArtikelDelaFb;
 		$userid = $row->userId;
-		
-		$adminId = isset($_SESSION["userId"]) ? $_SESSION["userId"] : "NULL" ;
-		
-		$adminClass = (!is_null($row->adminId)) ? " admin" : "";
-
 		
 		// Visar innehållet från databasen i strängen $artikelnews
 		$artikelnews .= <<<END
@@ -95,10 +96,12 @@ if(!empty($_GET))
 
 		$query = <<<END
 
-		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb, ArtikelTimeStamp, adminId, userId
+		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb, ArtikelTimeStamp,
+		 ArtikelSkribent, ArtikelDelTwitter, ArtikelDelFb, userId
 		FROM artikel
 		WHERE ArtikelId = "{$getartikelid}"
 		ORDER by ArtikelTimeStamp DESC;
+
 END;
 
 	$res = $mysqli->query($query) or die();
@@ -113,7 +116,9 @@ END;
 			$artikelpic_thumb = $row->ArtikelPicThumb;
 			$artikeltimestamp = $row->ArtikelTimeStamp;
 			$artikelname = $row->ArtikelName;
-			$adminid= $row->adminId;
+			$artikelskribent= $row->ArtikelSkribent;
+			$artikeldeltwitter= $row->ArtikelDelTwitter;
+			$artikeldelfb= $row->ArtikelDelFb;
 			$userid = $row->userId;
 			
 		}
@@ -129,7 +134,8 @@ if(!empty($_GET))
 
 		$query = <<<END
 
-		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb, ArtikelTimeStamp, adminId, userId, adminName
+		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb, ArtikelTimeStamp, ArtikelSkribent,
+		ArtikelDelaTwitter, ArtikelDelaFb, userId
 		FROM artikel
 		WHERE ArtikelId = "{$getartikelid}"
 		ORDER by ArtikelTimeStamp DESC;
@@ -147,9 +153,10 @@ END;
 			utf8_encode($date = strftime("%#d %B %Y", $date));
 			
 			$artikelname = $row->ArtikelName;
+			$artikelskribent = $row->ArtikelSkribent;
 			$userid = $row->userId;
-			$adminid = $row->adminId;
-
+			$artikeldelatwitter = $row->ArtikelDelaTwitter;
+			$artikeldelafb = $row->ArtikelDelaFb;
 
 		}
 
@@ -157,7 +164,7 @@ END;
 	
 }		
 
-}
+
 $content = <<<END
 
 <div id="content">
@@ -181,12 +188,16 @@ $content = <<<END
 					{$artikelpic}
 					
 					<p class="text-muted">
-					Publicerad: {$date} av {$adminId}
+					Publicerad: {$date} av <strong>{$artikelskribent}</strong>
 					</p>
 
 					<p>				
 					{$artikelmessage}
 					</p>
+
+					<div class="col-md-12 pull-right">
+						{$artikeldelatwitter} {$artikeldelafb}
+					</div>
 
 				</div><!-- panel body -->
 			</div><!-- panel panel yellow -->
