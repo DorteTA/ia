@@ -6,6 +6,7 @@ avdelningar
 
 include_once("inc/HTMLTemplate.php");
 include_once("inc/Connstring.php");
+
 // Hämtar ut den specifika artikeln 
 $artikeltime = "";
 $artikelnames = "";
@@ -73,7 +74,7 @@ END;
 
 				<div class="panel panel-yellow">
 					<div class="panel-heading">
-						<h3 class="panel-title">{$artikelname}</h3>
+						<h4 class="panel-title">{$artikelname}</h4>
 					</div><!-- panel-heading -->
 						<div class="panel-body">
 							{$artikelmessage}
@@ -134,7 +135,7 @@ $content = <<<END
 						
 						<!-- Om oss undermeny -->
 						
-							<h3 class="panel-title yellow">Avdelningar</h3>
+							<h4 class="panel-title yellow">Avdelningar</h4>
 						</div><!-- panel heading -->
 						</a>
 					
@@ -153,7 +154,7 @@ $content = <<<END
 				<div class="col-md-3 pull-right">
 					<div class="panel panel-blue">
 						<div class="panel-heading">
-							<h3 class="panel-title">Sponsorer</h3>
+							<h4 class="panel-title">Sponsorer</h4>
 						</div><!-- panel-heading -->
 						<div class="panel-body">
 							<p>På index-sidan ska här ligga en carousel m sponsorer och samarbetspartnare.

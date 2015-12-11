@@ -21,20 +21,6 @@ body {
   
 }
 
-.zero-margin-left {
-  margin-left: -15px;
-  margin-right: auto;
-}
-
-.zero-margin-center {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.zero-margin-right {
-  margin-left: auto;
-  margin-right: -15px;
-}
 p.feedback-warning {
   background-color: #ffcc33;
   border-radius: 6px;
@@ -545,12 +531,16 @@ background: linear-gradient(to right, #ffcc33, white, #ffcc33); /* Standard synt
 .panel-heading > .dropdown .dropdown-toggle {
   color: inherit;
 }
+
+/* Används ej */
+/*
 .panel-title {
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 16px;
+  font-size: 14px;
   color: inherit;
 }
+*/
 .panel-title > a {
   color: inherit;
 }
@@ -842,7 +832,7 @@ color: #263777;
 .panel-title {
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 30px;
+  font-size: 20px;
   color: inherit;
 }
 

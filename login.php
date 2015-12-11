@@ -165,12 +165,12 @@ $content = <<<END
 								<p>{$feedback}</p>
 						</div><!-- panel-heading -->
 						<div class="panel-body">
-							<form action="login.php" method="post" id="login-form pull-right">
-							<label for="username">Användarnamn:</label>
-							<input type="text" id="username" name="username" value="" /><br><br>
-							<label for="password">Lösenord:</label>
-							<input type="password" id="password" name="password" value="" /><br><br>
-							<input type="submit" id="submit" value="logga in" />
+							<form action="login.php" method="post" class="blue" id="login-form pull-right">
+							<label for="username">Användarnamn</label>
+							<input type="text" class="form-control" id="username" name="username" value="" />
+							<label for="password">Lösenord</label>
+							<input type="password" class="form-control" id="password" name="password" value="" />
+							<input type="submit" class="btn btn-blue btn-xs" id="submit" value="logga in" />
 							<p><a href="register.php">Registrera dig</a></p>
 							</form>
 							
