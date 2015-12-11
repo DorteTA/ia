@@ -21,6 +21,7 @@ body {
   
 }
 
+/*
 p.feedback-warning {
   background-color: #ffcc33;
   border-radius: 6px;
@@ -31,6 +32,9 @@ p.feedback-warning {
   width: auto;
 
 }
+*/
+
+/* feedback färg */
 .text-yellow {
   color: #ffcc33;
 }
@@ -44,21 +48,28 @@ margin-right: auto;
 background-color: white;
 }
 
+/* Font storlek 9 pixlar som visas på nyhetssidan samt söksidans resultat */
 .tid-nyheter {
   font-size: 9px;
   color: grey;
 }
 
+/* används ej */
+/*
 .tid-nyheter-arkiv {
   color: grey;
   margin-left: 0;
   margin-right: 15px;
 }
 
+*/
+
+/* Används till nyhetsarkiven */
+/* Ingen luft till vänster */
 .sans-padding-left {
 padding-left: 0;
 padding-right:15px;
- }
+}
  
 .sans-padding {
 padding-left: 0;

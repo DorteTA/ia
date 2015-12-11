@@ -129,19 +129,11 @@ if(!empty($_GET))
 
 		$query = <<<END
 
-		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb, ArtikelTimeStamp, adminId, userId
+		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb, ArtikelTimeStamp, adminId, userId, adminName
 		FROM artikel
 		WHERE ArtikelId = "{$getartikelid}"
 		ORDER by ArtikelTimeStamp DESC;
 END;
-
-	//lägger till admin-meny om användaren är inloggat
-	if(isset($_SESSION['userId'])){
-		$content .= <<<END
-
-		<a href="article-delete.php?id={$row->artikelId}">Radera</a> &middot; <a href="gb-edit.php?id={$row->artikelId}">Edit post</a>
-END;
-	
 
 	$res = $mysqli->query($query) or die();
 
@@ -189,7 +181,7 @@ $content = <<<END
 					{$artikelpic}
 					
 					<p class="text-muted">
-					Publicerad: {$date} av ...
+					Publicerad: {$date} av {$adminId}
 					</p>
 
 					<p>				
