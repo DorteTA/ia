@@ -14,6 +14,7 @@ include_once("inc/Connstring.php");
 session_start();
 
 $userHTML = "";
+$adminHTML ="";
 
 if(isset($_SESSION["username"])) {
 
@@ -22,8 +23,7 @@ if(isset($_SESSION["username"])) {
 
     <div class="col-xs-4 col-md-3">
       <ul class="list-inline padding">
-        <li class="yellow">Inloggad som:
-        <a class="li yellow" href="profile.php">
+        <li class="yellow">Inloggad som:        
           <strong>{$_SESSION["username"]}</strong>
         </a> &middot; <a class="li yellow" href="logout.php">
           Logga ut
@@ -33,8 +33,12 @@ if(isset($_SESSION["username"])) {
     </div><!-- col xs 6 col md3 -->
 
 
+
+
 END;
 }
+
+// <a class="li yellow" href="profile.php">
 else
 {
   // Användare-meny där användare kan registrera sig och logga in
@@ -46,6 +50,16 @@ else
          <a class="li yellow" href="register.php">Registrera dig</a></li>
       </ul>
     </div><!-- end col xs 4 col md 4-->
+END;
+}
+
+if(isset($_SESSION["admname"])) {
+
+    $adminHTML = <<<END
+
+    <div class="col-md-4">
+    {$_SESSION["admname"]}
+    </div>
 END;
 }
 

@@ -63,14 +63,10 @@ END;
 				header("Location: index.php");
 			}
 			else {
-				$feedback = "<p class=\"text-red\">Fel lösenord.</p>";
+				$feedback = "<p class=\"text-yellow\">Fel lösenord eller användernamn.</p>";
 			}
 			$res->close();
-		}
-		else {
-			$feedback = "<p class=\"text-red\">Fel användarnamn.</p>";
-		}
-		
+		}		
 	}
 }
 
@@ -96,7 +92,7 @@ if(!empty($_POST)) {
 	}
 	//Om fält m namn eller besked inte har fyllts i, får användaren en feedback att fylla i alla fält
 	if($username == '' || $password == '') {
-		$feedback = "<p class=\"text-yellow\">Var god fyll i alla fält.</p>";
+		$feedback = '<p class=\"text-yellow\">Var god fyll i alla fält.</p>';
 	
 	} else {
 		//SQL injections åtgärd
@@ -136,12 +132,12 @@ END;
 			//Här kan olika feedback givas om användaren har skrivit fel användarnamn, men har valt att inte göra så, eftersom det ger evt hackare tips
 			//om att de har hittat rätt password eller anvädarenamn.
 			else {
-				$feedback = "<p class\"text-red\"Fel lösenord eller användarnamn.</p>";
+				$feedback = '<p class\"text-yellow\"Fel lösenord eller användarnamn.</p>';
 			}
 			$res->close();
 		}
 		else {
-			$feedback = "<p class=\"text-red\">Fel lösenord eller användarnamn</p>";
+			$feedback = '<p class\"text-yellow\"Fel lösenord eller användarnamn.</p>';
 		}
 		
 		$mysqli->close();
@@ -161,11 +157,11 @@ $content = <<<END
 				<div class="col-md-3">
 					<div class="panel panel-blue">
 						<div class="panel-heading">
-							<h3 class="panel-title">Logga in</h3>
-								<p>{$feedback}</p>
+							<h4 class="panel-title">Logga in</h4>
 						</div><!-- panel-heading -->
 						<div class="panel-body">
 							<form action="login.php" method="post" class="blue" id="login-form pull-right">
+							{$feedback}
 							<label for="username">Användarnamn</label>
 							<input type="text" class="form-control" id="username" name="username" value="" />
 							<label for="password">Lösenord</label>

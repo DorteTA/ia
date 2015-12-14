@@ -43,8 +43,8 @@ END;
 		$artikelpic = $row->ArtikelPic;
 		$artikelpic_thumb = $row->ArtikelPicThumb;
 		$artikeltimestamp = $row->ArtikelTimeStamp;
-		$userid = $row->userId;
-		$adminId = $row->adminId;
+//		$userid = $row->userId;
+//		$adminId = $row->adminId;
 
 
 			$searchResult .= <<<END

@@ -10,11 +10,15 @@ include_once("inc/HTMLTemplate.php");
 // Variabler
 $artikelpic = "";
 $artikelpic_thumb = "";
+$artikelskribent = "";
 $artikelnews = "";
 $artikel_month = "";
-$userid ="";
+//$userid = "";
+//$artikeldelatwitter = "";
+//$artikeldelafb = "";
+$artikelfotograf = "";
 
-//Kollar om användaren är inloggat och lägger in namnet i variablen $name, så användaren inte behöver skriva namnet i gästboken
+//Kollar om användaren är inloggat och lägger in namnet i variablen $name
 if(isset($_SESSION['username'])) {
 	$name = $_SESSION['username'];
 }
@@ -34,16 +38,15 @@ $res = $mysqli->query($query) or die("Could not query database" . $mysqli->errno
 date_default_timezone_set("Europe/Stockholm");
 
 
-if($res->num_rows > 0)
-{
+if($res->num_rows > 0) {
+
 	//Loops through results
-	while($row = $res->fetch_object())
-	{
+	while($row = $res->fetch_object()) {
+
 		// Sätter tid till svenska
 		setlocale(LC_TIME, "sv_SE", "sv_SE.65001", "swedish");   
 		$date = strtotime($row->ArtikelTimeStamp);
 
-		
 		//encode gör att datum från DB visas på svenska
 		utf8_encode($date = strftime("%#d %B %Y", $date));
 		
@@ -54,12 +57,11 @@ if($res->num_rows > 0)
 		$artikelpic = $row->ArtikelPic;
 		$artikelpic_thumb = $row->ArtikelPicThumb;
 		$artikeltimestamp = $row->ArtikelTimeStamp;
-		$userid = $row->userId;
-		
-//		$adminId = isset($_SESSION["userId"]) ? $_SESSION["userId"] : "NULL" ;
-		
-//		$adminClass = (!is_null($row->adminId)) ? " admin" : "";
-
+		$artikelskribent = $row->ArtikelSkribent;
+		$artikelfotograf = $row->ArtikelFotograf;
+//		$artikeldelatwitter = $row->ArtikelDelaTwitter;
+//		$artikeldelafb = $row->ArtikelDelaFb;
+//		$userid = $row->userId;
 		
 		// Visar innehållet från databasen i strängen $artikelnews
 		$artikelnews .= <<<END
@@ -89,16 +91,18 @@ END;
 	}
 }
 
-if(!empty($_GET))
-{
+if(!empty($_GET)) {
+
 	$getartikelid = isset($_GET['ArtikelId']) ? $_GET['ArtikelId'] : '';
 
 		$query = <<<END
 
-		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb, ArtikelTimeStamp, adminId, userId
+		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb, ArtikelTimeStamp,
+		 ArtikelSkribent, ArtikelFotograf
 		FROM artikel
 		WHERE ArtikelId = "{$getartikelid}"
 		ORDER by ArtikelTimeStamp DESC;
+
 END;
 
 	$res = $mysqli->query($query) or die();
@@ -113,8 +117,11 @@ END;
 			$artikelpic_thumb = $row->ArtikelPicThumb;
 			$artikeltimestamp = $row->ArtikelTimeStamp;
 			$artikelname = $row->ArtikelName;
-			$adminid= $row->adminId;
-			$userid = $row->userId;
+			$artikelskribent= $row->ArtikelSkribent;
+			$artikelfotograf = $row->ArtikelFotograf;
+//			$artikeldeltwitter= $row->ArtikelDelTwitter;
+//			$artikeldelfb= $row->ArtikelDelFb;
+//			$userid = $row->userId;
 			
 		}
 
@@ -129,19 +136,12 @@ if(!empty($_GET))
 
 		$query = <<<END
 
-		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb, ArtikelTimeStamp, adminId, userId
+		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb, ArtikelTimeStamp, ArtikelSkribent,
+		 ArtikelFotograf
 		FROM artikel
 		WHERE ArtikelId = "{$getartikelid}"
 		ORDER by ArtikelTimeStamp DESC;
 END;
-
-	//lägger till admin-meny om användaren är inloggat
-	if(isset($_SESSION['userId'])){
-		$content .= <<<END
-
-		<a href="article-delete.php?id={$row->artikelId}">Radera</a> &middot; <a href="gb-edit.php?id={$row->artikelId}">Edit post</a>
-END;
-	
 
 	$res = $mysqli->query($query) or die();
 
@@ -155,9 +155,11 @@ END;
 			utf8_encode($date = strftime("%#d %B %Y", $date));
 			
 			$artikelname = $row->ArtikelName;
-			$userid = $row->userId;
-			$adminid = $row->adminId;
-
+			$artikelskribent = $row->ArtikelSkribent;
+			$artikelfotograf = $row->ArtikelFotograf;
+//			$userid = $row->userId;
+//			$artikeldelatwitter = $row->ArtikelDelaTwitter;
+//			$artikeldelafb = $row->ArtikelDelaFb;
 
 		}
 
@@ -165,7 +167,7 @@ END;
 	
 }		
 
-}
+
 $content = <<<END
 
 <div id="content">
@@ -181,19 +183,34 @@ $content = <<<END
 				
 		<div class="col-xs-12 col-md-6">
 			<div class="panel panel-yellow">
+
+				<!-- Rubrik -->
 				<div class="panel-heading">
 					<h3 class="panel-title">{$artikelname}</h3>
 				</div><!-- panel-heading -->
-		
+
+				<!-- Artikel -->		
 				<div class="panel-body">
+
+					<!-- Artikelbild -->
 					{$artikelpic}
 					
-					<p class="text-muted">
-					Publicerad: {$date} av ...
-					</p>
+					<!-- Div som innehåller skribentnamn och fotografnamn -->
+					<div class="col-lg-12 sans-padding pull-left">
+						
+						<p class="col-md-6 sans-padding-left text-muted text-left pull-left">
+						Publicerad: {$date} av <i>{$artikelskribent}</i> 
+						</p>
 
+						<p class="col-md-6 text-muted text-right sans-padding-right pull-right">
+						Foto: {$artikelfotograf}
+						</p>
+					
+					</div>
+
+					<!-- Sjalva artikeln -->
 					<p>				
-					{$artikelmessage}
+						{$artikelmessage}
 					</p>
 
 				</div><!-- panel body -->
@@ -204,7 +221,7 @@ $content = <<<END
 		<!-- Rad högre m sponsorkarusell-->
 
 		<div class="col-md-3 pull-right">
-			<div class="panel panel-blue">
+			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h3 class="panel-title">Sponsorer</h3>
 				</div><!-- panel-heading -->
