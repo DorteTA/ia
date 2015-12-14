@@ -422,8 +422,9 @@ background: linear-gradient(-15deg, #f9f9f9, #fff); /* Standard syntax (must be 
   background-color: white;
 }
 
+/* Z-index 1000 för annars visas navigerings-menyn inte */
 .navbar {
-  z-index:1000;
+  z-index:1000;               
   background-color: #fff;
 }
 
