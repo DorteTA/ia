@@ -56,9 +56,9 @@ if($res->num_rows > 0)
 		$artikeltimestamp = $row->ArtikelTimeStamp;
 		$userid = $row->userId;
 		
-		$adminId = isset($_SESSION["userId"]) ? $_SESSION["userId"] : "NULL" ;
+//		$adminId = isset($_SESSION["userId"]) ? $_SESSION["userId"] : "NULL" ;
 		
-		$adminClass = (!is_null($row->adminId)) ? " admin" : "";
+//		$adminClass = (!is_null($row->adminId)) ? " admin" : "";
 
 		
 		// Visar innehållet från databasen i strängen $artikelnews
