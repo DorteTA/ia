@@ -4,10 +4,7 @@
 @font-face {
   font-family: 'Glyphicons Halflings';
   src: url('../fonts/glyphicons-halflings-regular.eot');
-  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
-   url('../fonts/glyphicons-halflings-regular.woff') format('woff'),
-    url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'),
-     url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
 }
 
 html {
@@ -24,39 +21,6 @@ body {
   
 }
 
-.breadcrumb {
-  padding: 8px 15px;
-  margin-bottom: 0;
-  list-style: none;
-  background-color: #fff;
-  border-radius: 4px;
-}
-.breadcrumb > li {
-  display: inline-block;
-  border-radius: 4px;
-  width:20px;
-  text-align: center;
-  color: Yellow;
-}
-
-.breadcrumb > li + li:before {
-  padding: 0 5px;
-  color: #ccc;
-  content: "/\00a0";
-}
-.breadcrumb > .active {
-  color: #ddd;
-  border-radius: 4px;
-  background-color: Blue;
-}
-
-.breadcrumb > li a.link {
-  color: #ddd;
-  border-radius: 4px;
-  background-color: Yellow;
-  text-decoration: underline;
-}
-/*
 p.feedback-warning {
   background-color: #ffcc33;
   border-radius: 6px;
@@ -67,9 +31,6 @@ p.feedback-warning {
   width: auto;
 
 }
-*/
-
-/* feedback färg */
 .text-yellow {
   color: #ffcc33;
 }
@@ -83,28 +44,21 @@ margin-right: auto;
 background-color: white;
 }
 
-/* Font storlek 9 pixlar som visas på nyhetssidan samt söksidans resultat */
 .tid-nyheter {
   font-size: 9px;
   color: grey;
 }
 
-/* används ej */
-/*
 .tid-nyheter-arkiv {
   color: grey;
   margin-left: 0;
   margin-right: 15px;
 }
 
-*/
-
-/* Används till nyhetsarkiven */
-/* Ingen luft till vänster */
 .sans-padding-left {
 padding-left: 0;
 padding-right:15px;
-}
+ }
  
 .sans-padding {
 padding-left: 0;
@@ -112,7 +66,7 @@ padding-right:0;
  }
 
 .sans-padding-right {
-padding-left: 15px;
+padding-left: auto;
 padding-right:0;
  }
 
@@ -422,9 +376,8 @@ background: linear-gradient(-15deg, #f9f9f9, #fff); /* Standard syntax (must be 
   background-color: white;
 }
 
-/* Z-index 1000 för annars visas navigerings-menyn inte */
 .navbar {
-  z-index:1000;               
+  z-index:1000;
   background-color: #fff;
 }
 

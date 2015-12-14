@@ -13,9 +13,10 @@ $artikelpic_thumb = "";
 $artikelskribent = "";
 $artikelnews = "";
 $artikel_month = "";
-$userid ="";
-$artikeldelatwitter = "";
-$artikeldelafb = "";
+//$userid = "";
+//$artikeldelatwitter = "";
+//$artikeldelafb = "";
+$artikelfotograf = "";
 
 //Kollar om användaren är inloggat och lägger in namnet i variablen $name
 if(isset($_SESSION['username'])) {
@@ -37,16 +38,15 @@ $res = $mysqli->query($query) or die("Could not query database" . $mysqli->errno
 date_default_timezone_set("Europe/Stockholm");
 
 
-if($res->num_rows > 0)
-{
+if($res->num_rows > 0) {
+
 	//Loops through results
-	while($row = $res->fetch_object())
-	{
+	while($row = $res->fetch_object()) {
+
 		// Sätter tid till svenska
 		setlocale(LC_TIME, "sv_SE", "sv_SE.65001", "swedish");   
 		$date = strtotime($row->ArtikelTimeStamp);
 
-		
 		//encode gör att datum från DB visas på svenska
 		utf8_encode($date = strftime("%#d %B %Y", $date));
 		
@@ -58,9 +58,10 @@ if($res->num_rows > 0)
 		$artikelpic_thumb = $row->ArtikelPicThumb;
 		$artikeltimestamp = $row->ArtikelTimeStamp;
 		$artikelskribent = $row->ArtikelSkribent;
-		$artikeldelatwitter = $row->ArtikelDelaTwitter;
-		$artikeldelafb = $row->ArtikelDelaFb;
-		$userid = $row->userId;
+		$artikelfotograf = $row->ArtikelFotograf;
+//		$artikeldelatwitter = $row->ArtikelDelaTwitter;
+//		$artikeldelafb = $row->ArtikelDelaFb;
+//		$userid = $row->userId;
 		
 		// Visar innehållet från databasen i strängen $artikelnews
 		$artikelnews .= <<<END
@@ -90,13 +91,14 @@ END;
 	}
 }
 
-if(!empty($_GET))
-{
+if(!empty($_GET)) {
+
 	$getartikelid = isset($_GET['ArtikelId']) ? $_GET['ArtikelId'] : '';
 
 		$query = <<<END
 
-		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb, ArtikelTimeStamp, ArtikelSkribent, ArtikelDelTwitter, ArtikelDelFb, userId
+		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb, ArtikelTimeStamp,
+		 ArtikelSkribent, ArtikelFotograf
 		FROM artikel
 		WHERE ArtikelId = "{$getartikelid}"
 		ORDER by ArtikelTimeStamp DESC;
@@ -116,9 +118,10 @@ END;
 			$artikeltimestamp = $row->ArtikelTimeStamp;
 			$artikelname = $row->ArtikelName;
 			$artikelskribent= $row->ArtikelSkribent;
-			$artikeldeltwitter= $row->ArtikelDelTwitter;
-			$artikeldelfb= $row->ArtikelDelFb;
-			$userid = $row->userId;
+			$artikelfotograf = $row->ArtikelFotograf;
+//			$artikeldeltwitter= $row->ArtikelDelTwitter;
+//			$artikeldelfb= $row->ArtikelDelFb;
+//			$userid = $row->userId;
 			
 		}
 
@@ -134,7 +137,7 @@ if(!empty($_GET))
 		$query = <<<END
 
 		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb, ArtikelTimeStamp, ArtikelSkribent,
-		ArtikelDelaTwitter, ArtikelDelaFb, userId
+		 ArtikelFotograf
 		FROM artikel
 		WHERE ArtikelId = "{$getartikelid}"
 		ORDER by ArtikelTimeStamp DESC;
@@ -153,9 +156,10 @@ END;
 			
 			$artikelname = $row->ArtikelName;
 			$artikelskribent = $row->ArtikelSkribent;
-			$userid = $row->userId;
-			$artikeldelatwitter = $row->ArtikelDelaTwitter;
-			$artikeldelafb = $row->ArtikelDelaFb;
+			$artikelfotograf = $row->ArtikelFotograf;
+//			$userid = $row->userId;
+//			$artikeldelatwitter = $row->ArtikelDelaTwitter;
+//			$artikeldelafb = $row->ArtikelDelaFb;
 
 		}
 
@@ -179,24 +183,35 @@ $content = <<<END
 				
 		<div class="col-xs-12 col-md-6">
 			<div class="panel panel-yellow">
+
+				<!-- Rubrik -->
 				<div class="panel-heading">
 					<h3 class="panel-title">{$artikelname}</h3>
 				</div><!-- panel-heading -->
-		
+
+				<!-- Artikel -->		
 				<div class="panel-body">
+
+					<!-- Artikelbild -->
 					{$artikelpic}
 					
-					<p class="text-muted">
-					Publicerad: {$date} av <strong>{$artikelskribent}</strong>
-					</p>
+					<!-- Div som innehåller skribentnamn och fotografnamn -->
+					<div class="col-lg-12 sans-padding pull-left">
+						
+						<p class="col-md-6 sans-padding-left text-muted text-left pull-left">
+						Publicerad: {$date} av <i>{$artikelskribent}</i> 
+						</p>
 
-					<p>				
-					{$artikelmessage}
-					</p>
-
-					<div class="col-md-12 pull-right">
-						{$artikeldelatwitter} {$artikeldelafb}
+						<p class="col-md-6 text-muted text-right sans-padding-right pull-right">
+						Foto: {$artikelfotograf}
+						</p>
+					
 					</div>
+
+					<!-- Sjalva artikeln -->
+					<p>				
+						{$artikelmessage}
+					</p>
 
 				</div><!-- panel body -->
 			</div><!-- panel panel yellow -->
