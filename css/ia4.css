@@ -597,7 +597,7 @@ a.text-primary:hover {
   color: #3071a9;
 }
 */
-
+/*
 .panel-default > .panel-heading-blue {
 
   height:55px;
@@ -609,6 +609,7 @@ a.text-primary:hover {
 }
 
 /* blue panel hover color and text decoration none */
+/*
 .panel-default > a.panel-heading-blue:hover,
 .panel-default > a.panel-heading-blue:focus {
   text-decoration: underline;
@@ -652,10 +653,14 @@ a.text-primary:hover {
   border-bottom-color: green;
   background-color: green;
 }
+*/
 
+/* Panel gul */
 .panel-yellow {
   border-color: #ddd;
 }
+
+/* Panel Gul > Panel Rubrik */
 .panel-yellow > .panel-heading {
   color: #263777;
   background-color: #ffcc33;
@@ -668,10 +673,12 @@ a.text-primary:hover {
   border-bottom-color: #ddd;
 }
 
+/* Panel Blå */
 .panel-blue {
   border-color: #ddd;
 }
 
+/* Panel Blå > Panel Rubrik */
 .panel-blue > .panel-heading {
   color: #ffcc33;
   background-color: #263777;
@@ -683,6 +690,8 @@ a.text-primary:hover {
 .panel-blue > .panel-footer + .panel-collapse .panel-body {
   border-bottom-color: #ddd;
 }
+
+/* Sökform attributer */
 .navbar-form {
 height: 30px;
   padding: 10px 15px;
@@ -696,12 +705,12 @@ height: 30px;
           box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 1px 0 rgba(255, 255, 255, .1);
 }
 
+/* Generell Form attributer */
 .form-group {
 margin-top:0px;
 
 vertical-align:center;
   margin-left:-15px;
-
 
 }
 
@@ -743,7 +752,7 @@ vertical-align:center;
 .form-control::-webkit-input-placeholder {
   color: #999;
 }
-
+/*
 .btn {
   display: inline-block;
   padding: 6px 12px;
@@ -763,6 +772,10 @@ vertical-align:center;
   border: 1px solid transparent;
   border-radius: 4px;
 }
+*/
+
+/* Sök-knappen*/
+
 
 .btn-search {
 margin-left: 0;
@@ -783,23 +796,28 @@ margin-bottom: 7px;
   border-radius: 8px;
 }
 
-.btn-yellow {
+/*
+.btn-search {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+*/
 
+/* Gul knapp */
+.btn-yellow {
 background-color: #ffcc33;
 color: #263777;
-
 }
 
+/* Blå knapp */
 .btn-blue{
   background-color: #263777;
   color: #ffcc33;
   border-color: #ffcc33;
 }
 
-
-
-
-
+/*
 .btn:focus,
 .btn:active:focus,
 .btn.active:focus {
@@ -812,16 +830,18 @@ color: #263777;
   color: #333;
   text-decoration: none;
 }
+*/
 
+/* Gul knapp hover och focus */
 .btn-yellow:hover,
 .btn-yellow:focus {
   color: #ffcc33;
   background-color: #263777;
   font-style:bold;
   text-decoration: none;
-
 }
 
+/* Blå knapp hover och focus */
 .btn-blue:hover,
 .btn-blue:focus {
   color: #263777;
@@ -831,12 +851,8 @@ color: #263777;
   text-align:center;
 }
 
-.btn-search {
-  color: #333;
-  background-color: #fff;
-  border-color: #ccc;
-}
 
+/*
 .btn:active,
 .btn.active {
   background-image: none;
@@ -845,11 +861,16 @@ color: #263777;
           box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
 }
 
+
 .btn-default {
   color: #333;
   background-color: #fff;
   border-color: #ccc;
 }
+
+*/
+
+/* Knapp ändrar bakgrundsfärg till gul när musen svävar över den */
 .btn-default:hover,
 .btn-default:focus,
 .btn-default:active,
@@ -858,14 +879,6 @@ color: #263777;
   color: #333;
   background-color: #ffcc33;
   border-color: #adadad;
-}
-
-
-.panel-title {
-  margin-top: 0;
-  margin-bottom: 0;
-  font-size: 20px;
-  color: inherit;
 }
 
 .dropdown-left {
@@ -877,6 +890,7 @@ color: #263777;
 .dropdown-left > .yellow a.li:hover,
 .dropdown-left > .yellow a.li:visited {
   color: #000;
+  font-weight: strong;
 }
 .yellow a.li:link,a.li:link,a.li:active,a.li:hover,a.li:visited {color: #ffcc33; }
 
