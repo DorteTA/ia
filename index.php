@@ -193,7 +193,9 @@ $content = <<<END
 				<div class="panel-body">
 
 					<!-- Artikelbild -->
+					<div class="col-lg-12 col-md-12 center-block img-responsive img-rounded sans-padding img-artikel pull-left">
 					{$artikelpic}
+					</div>
 					
 					<!-- Div som innehåller skribentnamn och fotografnamn -->
 					<div class="col-lg-12 sans-padding pull-left">
