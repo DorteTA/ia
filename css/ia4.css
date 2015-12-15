@@ -375,7 +375,7 @@ background: linear-gradient(-15deg, #f9f9f9, #fff); /* Standard syntax (must be 
 */
 
 
-
+/* innehåll */
 #content {
   z-index:-1;
   margin-top: 100px;
@@ -387,11 +387,13 @@ background: linear-gradient(-15deg, #f9f9f9, #fff); /* Standard syntax (must be 
   background-color: white;
 }
 
+/* */
 .navbar {
   z-index:1000;
   background-color: #fff;
 }
 
+/* Footer klass */
 .footer {
   background-color: #263777;
   position:relative;
