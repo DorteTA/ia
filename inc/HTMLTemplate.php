@@ -247,7 +247,7 @@ $header = <<<END
           <input type="text" id="search-size" class="form-control" placeholder="Sök..." name="search" required>
             <span class="input-group-btn">
               <button type="submit" class="btn btn-search btn-warning">
-                <span class="glyphicon glyphicon-search"></span>
+                <span class="glyphicon glyphicon-search black"></span>
               </button>
             </span>
         </div><!-- input group pull right -->
