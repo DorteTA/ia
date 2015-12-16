@@ -240,11 +240,11 @@ $header = <<<END
 
     <!-- Sök form -->
 
-    <div class="col-md-4 pull-right undermeny-search">
+    <div class="col-md-4 pull-right undermeny-search border-none">
     
-      <form class="navbar-form navbar-right navbar-search" role="search" action="search.php" method="GET">
-        <div class="input-group pull-right">
-          <input type="text" class="form-control" placeholder="Sök..." id="searchfield" name="search" required>
+      <form class="navbar-form navbar-right border-none" role="search" action="search.php" method="GET">
+        <div class="input-group border-none pull-right">
+          <input type="text" id="search-size" class="form-control" placeholder="Sök..." name="search" required>
             <span class="input-group-btn">
               <button type="submit" class="btn btn-search btn-warning">
                 <span class="glyphicon glyphicon-search"></span>

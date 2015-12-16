@@ -223,7 +223,7 @@ $content = <<<END
 		<!-- Rad högre m sponsorkarusell-->
 
 		<div class="col-md-3 pull-right">
-			<div class="panel panel-default">
+			<div class="panel panel-grey">
 				<div class="panel-heading">
 					<h3 class="panel-title">Sponsorer</h3>
 				</div><!-- panel-heading -->
