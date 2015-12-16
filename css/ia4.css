@@ -1,6 +1,7 @@
 @charset "utf-8";
 @import url(http://fonts.googleapis.com/css?family=Noto+Sans:700);
 
+/* Typografi ikoner Glyphicons Halflings */
 @font-face {
   font-family: 'Glyphicons Halflings';
   src:  url('../fonts/glyphicons-halflings-regular.eot');
@@ -24,6 +25,7 @@ body {
   
 }
 
+/*
 p.feedback-warning {
   background-color: #ffcc33;
   border-radius: 6px;
@@ -34,6 +36,9 @@ p.feedback-warning {
   width: auto;
 
 }
+*/
+
+/* Feedback varningsfärg gul */
 .text-yellow {
   color: #ffcc33;
 }
@@ -47,13 +52,15 @@ margin-right: auto;
 background-color: white;
 }
 
+/* Text-storlek 9 pixlar grå färg för datum och tidvisning */
+/* i nyhetsmenyn till vänster på index-sidan */
 .tid-nyheter {
   font-size: 9px;
-  color: grey;
+  color: #aaa;
 }
 
 .tid-nyheter-arkiv {
-  color: grey;
+  color: #aaa;
   margin-left: 0;
   margin-right: 15px;
 }
@@ -96,7 +103,6 @@ p.padding-15px {
 ul.bottom {
   margin-right:auto;
   margin-left:auto;
-
   list-style-type: none;
   padding: 40px;
   margin: 0px;
@@ -104,19 +110,22 @@ ul.bottom {
   display:inline-block;
 }
 
-
-
 .padding {
   padding: 15px;
 }
 
+/*
 img.padding-round {
   padding: 10px;
   border-radius: 5px;
 }
+*/
+
+/*
 img.artikelpic{
   margin: -15px 0px -15px -15px;
 }
+*/
 .padding-form {
   padding-top: 0;
   padding-right: 5px;
@@ -125,17 +134,19 @@ img.artikelpic{
 }
 
  
+/*
 div.desc {
   background-color: #E9E9E9;
-  color: grey;
+  color: #aaa;
   font-family: Helvetica, Arial, sans-serif;
   font-size:x-small;
   font-weight:normal;
-  padding-top: 10px; /*padding top */
+  padding-top: 10px; /*padding top
   padding-bottom: 10px;
   text-align: center;
     width:100%; 
 }
+*/
 
 /* Visar ej innehåll i div */
 div.hidden {
@@ -149,7 +160,6 @@ div.hidden {
   width:100%;
   margin-right: auto;
   margin-left: auto;
-
 }
 
 /* #header div */
@@ -167,7 +177,7 @@ div.hidden {
   /*margin-right:200px;*/
 }
 
-/* class som gör att ett element stannar på samma position oavsett om användaren scrollar */
+/* klass som gör att ett element stannar på samma position oavsett om användaren scrollar */
 .fixed {
   position:fixed;
 }
