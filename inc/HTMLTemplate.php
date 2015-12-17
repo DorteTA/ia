@@ -75,7 +75,9 @@ $header = <<<END
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-		<link href="css/ia4.css" rel="stylesheet">
+		
+    <!-- IA stilmall -->
+    <link href="css/ia.css" rel="stylesheet">
 		
 		<!-- Bootstrap core JavaScript börjar
 			================================================== -->
