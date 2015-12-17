@@ -426,7 +426,7 @@ vertical-align:center;
   /*margin-left:-15px;*/
 }
 
-/* Form attributer */
+/* Form attributer med gul kant och runda hörn */
 .form-control {
   margin-top: 2px;
   vertical-align:center;
@@ -466,13 +466,13 @@ vertical-align:center;
   color: #999;
 }
 
-/* Gul knapp */
+/* Gul knapp med blå text */
 .btn-yellow {
 background-color: #ffcc33;
 color: #263777;
 }
 
-/* Blå knapp */
+/* Blå knapp med gul text */
 .btn-blue{
   background-color: #263777;
   color: #ffcc33;
@@ -508,28 +508,6 @@ color: #263777;
   background-color: #ffcc33;
   border-color: #adadad;
 }
-
-/* svart text i dropdown-menyer */
-/*
-.dropdown-left {
-  color: #000;
- }
-*/
-/* svarta länkar i dropdown-left meny */
-/*
-.dropdown-left > .yellow a.li:link,
-.dropdown-left > .yellow a.li:active,
-.dropdown-left > .yellow a.li:hover,
-.dropdown-left > .yellow a.li:visited {
-  color: #000;
-}
-
-.dropdown-left:hover,
-.dropdown-left:focus,
-.dropdown-left:active {
-  color: #000;
-}
-*/
 
 /* Vis inte cirkel symbol i unordered list */
 ul {
