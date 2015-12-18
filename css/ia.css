@@ -210,6 +210,43 @@ div .img-artikel {
   width: 270px;
 }
 
+/* responsivitet för mobila enheter */
+@media (max-width: 1276px) {
+
+  /* Sökrutan */
+  .undermeny-search {
+  width: 300px;
+  padding-right: 30px;
+  vertical-align: middle;
+  border: none;
+  }
+
+  /* Sök-rutans bredd i pixlar */
+  #search-size {
+    width: 230px;
+  }
+
+}
+
+/* responsivitet för mobila enheter */
+@media (max-width: @screen-xs-max) {
+  
+  /* Sökrutan */
+  .undermeny-search {
+  width: 300px;
+  border: none;
+  float:right;
+  margin-right: 30px;
+  padding-left: none;
+  }
+
+  /* Sök-rutans bredd i pixlar */
+  #search-size {
+    width: 230px;
+  }
+
+}
+
 /* Sök-knappen högre om sök-rutan*/
 .btn-search {
   margin-top: 2px;

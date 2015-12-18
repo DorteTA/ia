@@ -114,7 +114,6 @@ $header = <<<END
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -180,7 +179,8 @@ $header = <<<END
             <ul class="dropdown-menu">
               <li><a href="starta.php">Starta förening</a></li>
               <li><a href="arrangera.php">Arrangera tävling</a></li>
-              <li><a href="http://iof2.idrottonline.se/SvenskaKonstakningsforbundet/Drivaforening/Ansokomnamnbyte/" target="_blank">Ansöka om namnbyte</a></li>
+              <li><a href="http://iof2.idrottonline.se/SvenskaKonstakningsforbundet/Drivaforening/Ansokomnamnbyte/"
+               target="_blank">Ansöka om namnbyte</a></li>
               <li><a href="riktlinjer.php">Riktlinjer vid istidsförhandlingar</a></li>
             </ul>
           </li>
@@ -228,11 +228,12 @@ $header = <<<END
     {$userHTML}
 
     <!-- undermeny tom -->
-    <div class="col-md-4 col-sx-4 pull-left">
+    <div class="col-xs-6 col-sm-4 col-sx-4 col-md-4 pull-left">
 
       <ul class="list-inline padding pull-left">
         <li class="yellow">
-          <a class="li yellow" href="http://skatesweden.sporrongshop.com/Startpage/Startpage.aspx?MenuID=3121">
+          <a class="li yellow" href="http://skatesweden.sporrongshop.com/Startpage/Startpage.aspx?MenuID=3121" alt="Till Shopen" 
+          target="_blank">
             Butik <span class="glyphicon glyphicon-shopping-cart"></span>
           </a>
         </li>
@@ -242,11 +243,11 @@ $header = <<<END
 
     <!-- Sök form -->
 
-    <div class="col-md-4 pull-right undermeny-search border-none">
+    <div class="col-xs-6 col-sm-4 pull-right undermeny-search border-none">
     
       <form class="navbar-form navbar-right border-none" role="search" action="search.php" method="GET">
         <div class="input-group border-none pull-right">
-          <input type="text" id="search-size" class="form-control" placeholder="Sök..." name="search" required>
+          <input type="text" id="search-size" class="form-control col-md-4" placeholder="Sök..." name="search" required>
             <span class="input-group-btn">
               <button type="submit" class="btn btn-search btn-warning">
                 <span class="glyphicon glyphicon-search black"></span>
@@ -306,7 +307,6 @@ $footer = <<<END
 
 </body>
 </html>
-
 
 END;
 ?>
