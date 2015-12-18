@@ -32,13 +32,9 @@ if(isset($_SESSION["username"])) {
       </ul>
     </div><!-- col xs 6 col md3 -->
 
-
-
-
 END;
 }
 
-// <a class="li yellow" href="profile.php">
 else
 {
   // Användare-meny där användare kan registrera sig och logga in
@@ -247,7 +243,7 @@ $header = <<<END
     
       <form class="navbar-form navbar-right border-none" role="search" action="search.php" method="GET">
         <div class="input-group border-none pull-right">
-          <input type="text" id="search-size" class="form-control col-md-4" placeholder="Sök..." name="search" required>
+          <input type="text" id="search-size" class="form-control col-md-4 border-none" placeholder="Sök..." name="search" required>
             <span class="input-group-btn">
               <button type="submit" class="btn btn-search btn-warning">
                 <span class="glyphicon glyphicon-search black"></span>
@@ -255,25 +251,19 @@ $header = <<<END
             </span>
         </div><!-- input group pull right -->
       </form><!-- navbar form navbar left navbar search -->
-
     </div><!-- col md 4 pull right undermny search -->
   </div><!-- row -->
-</div><!-- undermeny -->
-
-		
+</div><!-- undermeny -->	
 </div><!-- header -->
 
 END;
 
 // Läser in sidans innehåll i $content
-
 $content = <<<END
  
 END;
 
-
 // Läser in sidans nederste innehåll i $footer
-
 $footer = <<<END
 	    <div class="footer border-bottom-radius navbar-fixed-bottom">
   			<div class="container">
