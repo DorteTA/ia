@@ -149,13 +149,13 @@ img.img-100x {
   padding-bottom: 15px; 
 }
 
-/* Artikel Bild hållare */
+/* Artikel Bild max höjd 350 pixlar */
 div .img-artikel {
   max-height:350px;
   overflow:hidden;
 }
 
-/* class till dropdown-meny med linär bakgrund från grå till vit */
+/* Klass till dropdown-meny med linär bakgrund från grå till vit */
 .dropdown-menu {
   position: absolute;
   top: 100%;

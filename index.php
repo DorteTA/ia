@@ -210,7 +210,7 @@ $content = <<<END
 					
 					</div>
 
-					<!-- Sjalva artikeln -->
+					<!-- Själva artikeln -->
 					<p>				
 						{$artikelmessage}
 					</p>
@@ -227,10 +227,10 @@ $content = <<<END
 				<div class="panel-heading">
 					<h3 class="panel-title">Sponsorer</h3>
 				</div><!-- panel-heading -->
-
-				<!-- Sponsor karusell -->
 				
 				<div class="panel-body">
+					
+					<!-- Sponsor karusell -->
 					<div id="myCarousel" class="carousel">
 		  				<div id="my-carousel" class="carousel slide" data-ride="carousel">
 			       			<div class="carousel-inner">
@@ -244,13 +244,13 @@ $content = <<<END
 	               					<a href="http://nofall.se/" target="_blank">
 		   								<img src="sponsor/no_fall.png" class="karusell-bild" alt="No Fall">
 		   							</a>
-								</div>
+								</div><!-- item -->
 
 	               				<div class="item">
 	               					<a href="http://www.mpskating.com/" target="_blank">
 								   		<img src="sponsor/mp_skating.png" class="karusell-bild" alt="MP Skating">
 								   	</a>
-								</div>
+								</div><!-- item -->
 
 	           				</div><!-- carousel inner -->
 	           			</div><!-- carousel slide -->			
