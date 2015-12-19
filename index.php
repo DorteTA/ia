@@ -205,7 +205,7 @@ $content = <<<END
 						</p>
 
 						<p class="col-md-6 text-muted text-right sans-padding-right pull-right">
-						Foto: {$artikelfotograf}
+						{$artikelfotograf}
 						</p>
 					
 					</div>
