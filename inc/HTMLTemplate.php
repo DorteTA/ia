@@ -239,7 +239,7 @@ $header = <<<END
 
     <!-- Sök form -->
 
-    <div class="col-xs-6 col-sm-4 pull-right undermeny-search border-none">
+    <div class="col-xs-4 col-sm-4 pull-right undermeny-search border-none">
     
       <form class="navbar-form navbar-right border-none" role="search" action="search.php" method="GET">
         <div class="input-group border-none pull-right">
