@@ -293,7 +293,6 @@ END;
 // Läser in sidans innehåll i $content
 $content = <<<END
 
-
 END;
 
 // Läser in sidans nederste innehåll i $footer

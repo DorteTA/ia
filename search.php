@@ -77,16 +77,12 @@ END;
 
 	}
 }
-$content = <<<END
+$content .= <<<END
 
 <div id="content">
 	<div class="row">
 		<div class="col-md-3">
-			<div class="panel panel-blue">
-				<div class="panel-heading">			
- 			
-				<!-- tom -->
-			</div>
+			Ingenting
 
 		</div><!-- col md 3 -->
 				
@@ -105,12 +101,20 @@ $content = <<<END
 				</div><!-- panel body -->
 			
 			</div><!-- panel panel yellow -->
-								
-		</div><!-- col xs 6 col md 6 -->	
-							
-		<!-- Rad högre m sponsorkarusell-->
 
-		{$sponsorer}
+								
+		</div><!-- col xs 6 col md 6 -->
+		</div>
+</div>							
+		<!-- Rad högre m sponsorkarusell -->
+		
+
+			<div class="col-md-3 pull-right">
+			Ingenting 2
+
+		</div><!-- col md 3 -->
+
+		
 
 
 
