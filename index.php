@@ -12,10 +12,6 @@ $artikelpic = "";
 $artikelpic_thumb = "";
 $artikelskribent = "";
 $artikelnews = "";
-$artikel_month = "";
-//$userid = "";
-//$artikeldelatwitter = "";
-//$artikeldelafb = "";
 $artikelfotograf = "";
 
 //Kollar om användaren är inloggat och lägger in namnet i variablen $name

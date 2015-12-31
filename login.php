@@ -100,7 +100,7 @@ $content = <<<END
 							
 				</div><!-- panel-body -->
 			</div><!-- panel panel-blue -->								
-		</div><!-- col-md-3 -->
+		</div><!-- col-md-3 -->a
 	</div><!-- row -->
 </div><!-- content -->
 
