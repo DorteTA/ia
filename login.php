@@ -76,7 +76,7 @@ END;
 }
 
 //Innehållet som visas via strängen $content
-$content = <<<END
+$content .= <<<END
 			
 <div id="content">
 	<div class="row">
@@ -98,9 +98,9 @@ $content = <<<END
 						<p><a href="register.php">Registrera dig</a></p>
 					</form>
 							
-				</div><!-- panel-body -->
-			</div><!-- panel panel-blue -->								
-		</div><!-- col-md-3 -->a
+				</div><!-- panel body -->
+			</div><!-- panel panel blue -->								
+		</div><!-- col md 3 -->
 	</div><!-- row -->
 </div><!-- content -->
 

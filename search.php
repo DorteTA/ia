@@ -79,16 +79,18 @@ END;
 }
 $content = <<<END
 
-			
- <div id="content">
+<div id="content">
 	<div class="row">
 		<div class="col-md-3">
-			
-			<!-- tom -->
+			<div class="panel panel-blue">
+				<div class="panel-heading">			
+ 			
+				<!-- tom -->
+			</div>
 
 		</div><!-- col md 3 -->
 				
-		<div class="col-xs-12 col-md-6">
+		<div class="col-md-6">
 			<div class="panel panel-yellow">
 				
 				<div class="panel-heading">
@@ -104,18 +106,16 @@ $content = <<<END
 			
 			</div><!-- panel panel yellow -->
 								
-		</div><!-- col xs 12 col md 6 -->	
+		</div><!-- col xs 6 col md 6 -->	
 							
-		<!-- Rad högre -->
-		<div class="col-md-3 pull-right">
-				
-			<!-- tom -->
+		<!-- Rad högre m sponsorkarusell-->
 
-		</div><!-- end col md 3 -->
+		{$sponsorer}
 
-	</div><!-- row -->
-</div><!-- content -->
 
+
+</div>
+</div>
 END;
 
 echo $header;

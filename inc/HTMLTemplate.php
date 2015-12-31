@@ -14,7 +14,6 @@ include_once("inc/Connstring.php");
 session_start();
 
 $userHTML = "";
-$adminHTML ="";
 
 if(isset($_SESSION["username"])) {
 
@@ -48,17 +47,6 @@ else
     </div><!-- end col xs 4 col md 4-->
 END;
 }
-
-if(isset($_SESSION["admname"])) {
-
-    $adminHTML = <<<END
-
-    <div class="col-md-4">
-    {$_SESSION["admname"]}
-    </div>
-END;
-}
-
 
 $header = <<<END
 <!doctype html>
@@ -258,9 +246,54 @@ $header = <<<END
 
 END;
 
+$sponsorer = <<<END
+
+<!-- Rad högre m sponsorkarusell-->
+
+<div class="col-md-3 pull-right">
+  <div class="panel panel-grey">
+
+    <div class="panel-heading">
+      <h3 class="panel-title">Sponsorer</h3>
+    </div><!-- panel heading -->
+        
+    <div class="panel-body">
+          
+    <!-- Sponsor karusell -->
+      <div id="myCarousel" class="carousel">
+        <div id="my-carousel" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            
+            <div class="item active">
+              <a href="http://www.sporrong.se/" target="_blank">
+                <img src="sponsor/sporrong.png" class="karusell-bild" alt="Sporrong">
+              </a>
+            </div><!-- item active -->
+
+            <div class="item">
+              <a href="http://nofall.se/" target="_blank">
+                <img src="sponsor/no_fall.png" class="karusell-bild" alt="No Fall">
+              </a>
+            </div><!-- item -->
+
+            <div class="item">
+             <a href="http://www.mpskating.com/" target="_blank">
+               <img src="sponsor/mp_skating.png" class="karusell-bild" alt="MP Skating">
+             </a>
+            </div><!-- item -->
+
+          </div><!-- carousel inner -->
+        </div><!-- carousel slide -->     
+      </div><!-- myCarousel -->
+    </div><!-- panel body -->
+  </div><!-- panel panel grey -->
+
+END;
+
 // Läser in sidans innehåll i $content
 $content = <<<END
- 
+
+
 END;
 
 // Läser in sidans nederste innehåll i $footer
