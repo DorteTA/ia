@@ -82,7 +82,6 @@ $content .= <<<END
 <div id="content">
 	<div class="row">
 		<div class="col-md-3">
-			Ingenting
 
 		</div><!-- col md 3 -->
 				
@@ -105,12 +104,12 @@ $content .= <<<END
 								
 		</div><!-- col xs 6 col md 6 -->
 		</div>
-</div>							
+		</div>
+
 		<!-- Rad högre m sponsorkarusell -->
 		
-
-			<div class="col-md-3 pull-right">
-			Ingenting 2
+			
+			{$sponsorer}
 
 		</div><!-- col md 3 -->
 
