@@ -24,7 +24,7 @@ $query = <<<END
 	SELECT *
 	FROM artikel
 	WHERE kategori = 'nyhet'
-	ORDER BY artikeltimestamp DESC;
+	ORDER BY artikelTimestamp DESC;
 END;
 
 // Ger felmeddelande om databasen inte kan köras och hänvisar till felnummer, annars körs den
@@ -55,9 +55,6 @@ if($res->num_rows > 0) {
 		$artikeltimestamp = $row->ArtikelTimeStamp;
 		$artikelskribent = $row->ArtikelSkribent;
 		$artikelfotograf = $row->ArtikelFotograf;
-//		$artikeldelatwitter = $row->ArtikelDelaTwitter;
-//		$artikeldelafb = $row->ArtikelDelaFb;
-//		$userid = $row->userId;
 		
 		// Visar innehållet från databasen i strängen $artikelnews
 		$artikelnews .= <<<END
@@ -114,11 +111,7 @@ END;
 			$artikeltimestamp = $row->ArtikelTimeStamp;
 			$artikelname = $row->ArtikelName;
 			$artikelskribent= $row->ArtikelSkribent;
-			$artikelfotograf = $row->ArtikelFotograf;
-//			$artikeldeltwitter= $row->ArtikelDelTwitter;
-//			$artikeldelfb= $row->ArtikelDelFb;
-//			$userid = $row->userId;
-			
+			$artikelfotograf = $row->ArtikelFotograf;		
 		}
 
 	}
@@ -153,9 +146,6 @@ END;
 			$artikelname = $row->ArtikelName;
 			$artikelskribent = $row->ArtikelSkribent;
 			$artikelfotograf = $row->ArtikelFotograf;
-//			$userid = $row->userId;
-//			$artikeldelatwitter = $row->ArtikelDelaTwitter;
-//			$artikeldelafb = $row->ArtikelDelaFb;
 
 		}
 

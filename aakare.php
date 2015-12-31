@@ -10,6 +10,7 @@ include_once("inc/Connstring.php");
 $artikeltime = "";
 $artikelnames = "";
 $artikelnames_aakare = "";
+
 // Hämtar ut den specifika artikeln 
 if(!empty($_GET))
 {
@@ -151,23 +152,43 @@ $content = <<<END
 				</div><!-- mitten -->	
 							
 				<!-- Rad högre -->
-				<div class="col-md-3 pull-right">
-					<div class="panel panel-blue">
-						<div class="panel-heading">
-							<h3 class="panel-title">Sponsorer</h3>
-						</div><!-- panel-heading -->
-						<div class="panel-body">
-							<p>På index-sidan ska här ligga en carousel m sponsorer och samarbetspartnare.
-							</p>
-							<p class="divider"></p>
-							<p>asdf as adfsfgsfgsdfgsdfg dfg dfg df gsdfg sdfg sdfg sdf gsdfg sdfg
-							sdf sdf asfa ssdfaj sdf. 
-							ksadfj asdf asdf asdf... asdf asdfasdf asdf sadf asdf as adfsfgsfg
-							sdfgsdfg dfg dfg df.
-							</p>
-						</div><!-- panel-body -->
-					</div><!-- panel panel-blue -->								
-				</div><!-- col-xs-6 col-md-3 -->
+						<!-- Rad högre m sponsorkarusell-->
+
+		<div class="col-md-3 pull-right">
+			<div class="panel panel-grey">
+				<div class="panel-heading">
+					<h3 class="panel-title">Sponsorer</h3>
+				</div><!-- panel-heading -->
+				
+				<div class="panel-body">
+					
+					<!-- Sponsor karusell -->
+					<div id="myCarousel" class="carousel">
+		  				<div id="my-carousel" class="carousel slide" data-ride="carousel">
+			       			<div class="carousel-inner">
+								<div class="item active">
+									<a href="http://www.sporrong.se/" target="_blank">
+		   								<img src="sponsor/sporrong.png" class="karusell-bild" alt="Sporrong">
+	  	      						</a>
+								</div><!-- item active -->
+
+	               				<div class="item">
+	               					<a href="http://nofall.se/" target="_blank">
+		   								<img src="sponsor/no_fall.png" class="karusell-bild" alt="No Fall">
+		   							</a>
+								</div><!-- item -->
+
+	               				<div class="item">
+	               					<a href="http://www.mpskating.com/" target="_blank">
+								   		<img src="sponsor/mp_skating.png" class="karusell-bild" alt="MP Skating">
+								   	</a>
+								</div><!-- item -->
+
+	           				</div><!-- carousel inner -->
+	           			</div><!-- carousel slide -->			
+	     			</div><!-- myCarousel -->
+		     	</div><!-- panel body -->
+			</div><!-- panel panel-blue-->
 			</div> <!-- row -->
        </div><!-- AVsluta content DIV -->
 
