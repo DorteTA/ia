@@ -2,7 +2,7 @@
 /*---------------------------------
 om.php
 Om oss
-Dokument
+Organisation
 ---------------------------------*/
 
 include_once("inc/HTMLTemplate.php");
@@ -66,7 +66,7 @@ else
 {
 	$query = <<<END
 
-		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori, ArtikelPic
+		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori, ArtikelPic, ArtikelSkribent, ArtikelFotograf
 		FROM artikel
 		WHERE kategori = 'om'
 		ORDER BY ArtikelTimeStamp
@@ -170,7 +170,7 @@ $content = <<<END
 						
 						<!-- Om oss undermeny -->
 						
-							<h3 class="panel-title yellow">Dokument</h3>
+							<h3 class="panel-title yellow">Organisation</h3>
 						</div><!-- panel heading -->
 						</a>
 					

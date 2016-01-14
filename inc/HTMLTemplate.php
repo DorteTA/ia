@@ -106,7 +106,7 @@ $header = <<<END
         <!-- Hem -->
 
         <ul class="nav navbar-nav">
-            <li class="dropdown">
+            <li class="dropdown pull-left">
     	        <a href="index.php"><span class="glyphicon glyphicon-home"></span></a>
             </li>
         </ul>
@@ -117,8 +117,8 @@ $header = <<<END
               <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Om oss <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="om.php">Dokument</a></li>
                 <li><a href="historia.php">Historia</a></li>
+                <li><a href="om.php">Organisation</a></li>
                 <li><a href="om.php">Skate Sweden</a></li>
               </ul>
             </li>
@@ -148,46 +148,19 @@ $header = <<<END
               <li><a href="sm.php">Svenska mästerskapen 2014</a></li>
               <li><a href="resultat.php">Tävlingar och resultat</a></li>
               <li><a href="medaljer.php">Medaljörer 1984-2014</a></li>
-              <li><a href="info.php">Information</a></li>
+              <li><a href="info.php">Tävlingsinformation</a></li>
             </ul>
           </li>
         </ul>
     	   
-        <!-- högre delen av navbar med 3 dropdown menyer -->
-    	 
-        <!-- dropdown meny Driva Förening -->
-    	  
-        <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Driva Förening <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="starta.php">Starta förening</a></li>
-              <li><a href="arrangera.php">Arrangera tävling</a></li>
-              <li><a href="http://iof2.idrottonline.se/SvenskaKonstakningsforbundet/Drivaforening/Ansokomnamnbyte/"
-               target="_blank">Ansöka om namnbyte</a></li>
-              <li><a href="riktlinjer.php">Riktlinjer vid istidsförhandlingar</a></li>
-            </ul>
-          </li>
-        </ul>
-
-    	  <!-- dropdown meny Engagera dig -->
-      
-        <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Engagera dig <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="utvecklings.php">Utvecklingskommiten</a></li>
-              <li><a href="utbildning.php">Utbildning</a></li>
-            </ul>
-          </li>
-        </ul>
-    	  
-    	  <!-- dropdown meny Kontakta oss -->
+        <!-- högre delen av navbar med 3 dropdown menyer -->     
+   	  
+    	  <!-- dropdown meny Kontakt -->
     	
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            Kontakta oss <b class="caret"></b>
+            Kontakt <b class="caret"></b>
           </a>
   
             <ul class="dropdown-menu">
@@ -198,9 +171,38 @@ $header = <<<END
               <li><a href="distrikt.php">Distrikt och föreningar</a></li>              
             </ul><!-- dropdown menu -->
 
+
+
           </li><!-- dropdown -->
         </ul><!-- nav navbar nav navbar right -->
-    	 
+    	  
+        <!-- dropdown meny Förening -->
+        
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Förening <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="starta.php">Starta förening</a></li>
+              <li><a href="arrangera.php">Arrangera tävling</a></li>
+              <li><a href="http://iof2.idrottonline.se/SvenskaKonstakningsforbundet/Drivaforening/Ansokomnamnbyte/"
+               target="_blank">Ansöka om namnbyte</a></li>
+              <li><a href="riktlinjer.php">Riktlinjer vid istidsförhandlingar</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <!-- dropdown meny Engagera dig -->
+      
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Engagera dig <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="utvecklings.php">Utvecklingskommiten</a></li>
+              <li><a href="utbildning.php">Utbildning</a></li>
+            </ul>
+          </li>
+        </ul>
+
         </div><!-- /.navbar collapse -->
       </div><!-- /.container fluid -->
     </nav>
