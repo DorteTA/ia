@@ -341,7 +341,9 @@ $content = <<<END
  						</ul>
 					</div><!-- collapse in -->
 				</div><!-- panel body -->
-			</div><!-- panel panel blue-->												
+			</div><!-- panel panel blue-->
+
+			Kalender												
 		</div><!-- col md 3 pull right -->
 	</div><!-- row -->
 </div><!-- content -->
