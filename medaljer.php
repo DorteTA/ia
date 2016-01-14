@@ -134,7 +134,7 @@ $content = <<<END
 						
 						<!-- Om oss undermeny -->
 						
-							<h3 class="panel-title yellow">Medaljer</h3>
+							<h3 class="panel-title yellow">Tävla / Medaljörer 1984–2014</h3>
 						</div><!-- panel heading -->
 						</a>
 					

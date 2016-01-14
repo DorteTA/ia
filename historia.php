@@ -134,7 +134,7 @@ $content = <<<END
 						
 						<!-- Om oss undermeny -->
 						
-							<h3 class="panel-title yellow">Historia</h3>
+							<h3 class="panel-title yellow">Om oss / Historia</h3>
 						</div><!-- panel heading -->
 						</a>
 					

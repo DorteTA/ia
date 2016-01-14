@@ -18,15 +18,17 @@ if(!empty($_GET))
 
 	$query = <<<END
 
-		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp
+		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb, ArtikelTimeStamp,
+		 ArtikelSkribent, ArtikelFotograf
 		FROM artikel
 		WHERE ArtikelId = "{$getartikelid}";
 END;
 
 	$res = $mysqli->query($query) or die();
 
-	if($res->num_rows > 0)
-	{
+	if($res->num_rows > 0) {
+
+		
 		while($row = $res->fetch_object())
 		{
 			$artikelname = $row->ArtikelName;

@@ -170,7 +170,7 @@ $content = <<<END
 						
 						<!-- Om oss undermeny -->
 						
-							<h3 class="panel-title yellow">Organisation</h3>
+							<h3 class="panel-title yellow">Om oss / Organisation</h3>
 						</div><!-- panel heading -->
 						</a>
 					

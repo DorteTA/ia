@@ -166,7 +166,7 @@ $content = <<<END
 						
 						<!-- Om oss undermeny -->
 						
-							<h3 class="panel-title yellow">Tävlingsinformation</h3>
+							<h3 class="panel-title yellow">Tävla / Information</h3>
 						</div><!-- panel heading -->
 						</a>
 					
