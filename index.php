@@ -196,10 +196,8 @@ $content = <<<END
 					
 					</div>
 
-					<!-- Själva artikeln -->
-					<p>				
+					<!-- Själva artikeln -->			
 						{$artikelmessage}
-					</p>
 
 				</div><!-- panel body -->
 			</div><!-- panel panel yellow -->
