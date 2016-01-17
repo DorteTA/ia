@@ -66,7 +66,7 @@ else
 {
 	$query = <<<END
 
-		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori, ArtikelPic, ArtikelSkribent, ArtikelFotograf
+		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, ArtikelPic, ArtikelSkribent, ArtikelFotograf, kategori
 		FROM artikel
 		WHERE kategori = 'om'
 		ORDER BY ArtikelTimeStamp
