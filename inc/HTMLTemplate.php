@@ -235,8 +235,8 @@ $header = <<<END
         <div class="input-group border-none pull-right">
           <input type="text" id="search-size" class="form-control col-md-4 border-none" placeholder="Sök..." name="search" required>
             <span class="input-group-btn">
-              <button type="submit" class="btn btn-search btn-warning">
-                <span class="glyphicon glyphicon-search black"></span>
+              <button type="submit" class="btn btn-search">
+                <span class="glyphicon glyphicon-search blue"></span>
               </button>
             </span>
         </div><!-- input group pull right -->
