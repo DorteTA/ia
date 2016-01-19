@@ -29,7 +29,8 @@ END;
 	{
 		while($row = $result->fetch_object())
 		{
-					// Sätter tid till svenska
+		
+		// Sätter tid till svenska
 		setlocale(LC_TIME, "sv_SE", "sv_SE.65001", "swedish");   
 		$date = strtotime($row->ArtikelTimeStamp);
 		
@@ -43,9 +44,6 @@ END;
 		$artikelpic = $row->ArtikelPic;
 		$artikelpic_thumb = $row->ArtikelPicThumb;
 		$artikeltimestamp = $row->ArtikelTimeStamp;
-//		$userid = $row->userId;
-//		$adminId = $row->adminId;
-
 
 			$searchResult .= <<<END
 							<div class="media">
