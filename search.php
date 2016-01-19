@@ -103,22 +103,15 @@ $content .= <<<END
 
 								
 		</div><!-- col xs 6 col md 6 -->
-		</div>
-		</div>
-
-		<!-- Rad högre m sponsorkarusell -->
-		
-			
-			{$sponsorer}
-
-		</div><!-- col md 3 -->
-
 		
 
+		{$sponsorer}
+
+		</div><!-- sponsorer -->
 
 
-</div>
-</div>
+	</div><!-- row -->
+</div><! -- content -->
 END;
 
 echo $header;

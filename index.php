@@ -55,6 +55,7 @@ if($res->num_rows > 0) {
 		$artikeltimestamp = $row->ArtikelTimeStamp;
 		$artikelskribent = $row->ArtikelSkribent;
 		$artikelfotograf = $row->ArtikelFotograf;
+
 		
 		// Visar innehållet från databasen i strängen $artikelnews
 		$artikelnews .= <<<END
@@ -91,7 +92,7 @@ if(!empty($_GET)) {
 		$query = <<<END
 
 		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb, ArtikelTimeStamp,
-		 ArtikelSkribent, ArtikelFotograf
+		 ArtikelSkribent, ArtikelFotograf, kategori
 		FROM artikel
 		WHERE ArtikelId = "{$getartikelid}"
 		ORDER by ArtikelTimeStamp DESC;
@@ -138,14 +139,23 @@ END;
 	{
 		while($row = $res->fetch_object())
 		{
-			$date = strtotime($row->ArtikelTimeStamp);
+
+		// Sätter tid till svenska
+		setlocale(LC_TIME, "sv_SE", "sv_SE.65001", "swedish");   
+		$date = strtotime($row->ArtikelTimeStamp);
+
+		//encode gör att datum från DB visas på svenska
+		utf8_encode($date = strftime("%#d %B %Y", $date));
 		
-			// encode gör att datum från DB visas med svenska tecken
-			utf8_encode($date = strftime("%#d %B %Y", $date));
-			
-			$artikelname = $row->ArtikelName;
-			$artikelskribent = $row->ArtikelSkribent;
-			$artikelfotograf = $row->ArtikelFotograf;
+		$artikelid = $row->ArtikelId;
+		$artikelname = $row->ArtikelName;
+		$artikelmessage = $row->ArtikelMessage;
+		$artikelsubtext = substr($artikelmessage, 0, 75);
+		$artikelpic = $row->ArtikelPic;
+		$artikelpic_thumb = $row->ArtikelPicThumb;
+		$artikeltimestamp = $row->ArtikelTimeStamp;
+		$artikelskribent = $row->ArtikelSkribent;
+		$artikelfotograf = $row->ArtikelFotograf;
 
 		}
 
