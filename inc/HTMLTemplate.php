@@ -2,7 +2,8 @@
 
 /*------------------------------------
 HTMLTemplate.php
-IA projekt
+IA projekt Svenska Konståkningsföreningen
+och Skatesweden
 Innehåller HTML, Länkar till ia CSS,
 Bootstrap, javascript och jQuery så
 dessa inte behövs intastas manuellt
@@ -48,6 +49,7 @@ else
 END;
 }
 
+// Överste delen av webbplatsen med global navigeringsmeny
 $header = <<<END
 <!doctype html>
 <html>
@@ -119,7 +121,7 @@ $header = <<<END
               <ul class="dropdown-menu">
                 <li><a href="historia.php">Historia</a></li>
                 <li><a href="om.php">Organisation</a></li>
-                <li><a href="om.php">Skate Sweden</a></li>
+                <li><a href="skatesweden.php">Skatesweden</a></li>
               </ul>
             </li>
           </ul>

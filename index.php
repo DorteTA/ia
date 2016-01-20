@@ -4,7 +4,11 @@ index.php
 Startsidan
 ---------------------------------*/
 
+// Uppkoblingen till databasen
 include_once("inc/Connstring.php");
+
+// Använder HTML-mallen där CSS och javascript ingår,
+// så detta inte behövs tastas in på varje sida
 include_once("inc/HTMLTemplate.php");
 
 // Variabler
@@ -14,17 +18,21 @@ $artikelskribent = "";
 $artikelnews = "";
 $artikelfotograf = "";
 
-//Kollar om användaren är inloggat och lägger in namnet i variablen $name
+// Kollar om användaren är inloggat
+// och lägger in namnet i variablen $name
 if(isset($_SESSION['username'])) {
 	$name = $_SESSION['username'];
 }
 
+// Väljer alla artiklar med katogorin nyhet,
+// visar nyaste först och max de 5 senaste
 $query = <<<END
 
 	SELECT *
 	FROM artikel
 	WHERE kategori = 'nyhet'
-	ORDER BY artikelTimestamp DESC;
+	ORDER BY artikelTimestamp DESC
+	LIMIT 5;
 END;
 
 // Ger felmeddelande om databasen inte kan köras och hänvisar till felnummer, annars körs den
@@ -33,17 +41,17 @@ $res = $mysqli->query($query) or die("Could not query database" . $mysqli->errno
 // Sätter tidszonen till europäisk/svensk tidszon
 date_default_timezone_set("Europe/Stockholm");
 
-
+// Om det finns några artiklar
 if($res->num_rows > 0) {
 
-	//Loops through results
+	// Kör resultat
 	while($row = $res->fetch_object()) {
 
 		// Sätter tid till svenska
 		setlocale(LC_TIME, "sv_SE", "sv_SE.65001", "swedish");   
 		$date = strtotime($row->ArtikelTimeStamp);
 
-		//encode gör att datum från DB visas på svenska
+		// encode gör att datum från DB visas på svenska
 		utf8_encode($date = strftime("%#d %B %Y", $date));
 		
 		$artikelid = $row->ArtikelId;
@@ -82,6 +90,7 @@ if($res->num_rows > 0) {
 							</div><!-- media -->	
 						</div><!-- panel-body -->
 END;
+
 	}
 }
 
@@ -174,49 +183,7 @@ $content = <<<END
 					<h3 class="panel-title">Nyheter Juni</h3>
 				</div><!-- panel-heading -->
 				{$artikelnews}
-			</div><!-- panel panel blue -->								
-		</div><!-- col md 3 -->
-				
-		<div class="col-xs-12 col-md-6">
-			<div class="panel panel-yellow">
-
-				<!-- Rubrik -->
-				<div class="panel-heading">
-					<h3 class="panel-title">{$artikelname}</h3>
-				</div><!-- panel heading -->
-
-				<!-- Artikel -->		
-				<div class="panel-body">
-
-					<!-- Artikelbild -->
-					<div class="col-lg-12 col-md-12 center-block img-responsive img-rounded sans-padding img-artikel pull-left">
-					{$artikelpic}
-					</div>
-					
-					<!-- Div som innehåller skribentnamn och fotografnamn -->
-					<div class="col-lg-12 sans-padding pull-left">
-						
-						<p class="col-md-6 sans-padding-left text-muted text-left pull-left">
-						Publicerad: {$date} av <i>{$artikelskribent}</i> 
-						</p>
-
-						<p class="col-md-6 text-muted text-right sans-padding-right pull-right">
-						{$artikelfotograf}
-						</p>
-					
-					</div>
-
-					<!-- Själva artikeln -->			
-						{$artikelmessage}
-
-				</div><!-- panel body -->
-			</div><!-- panel panel yellow -->
-								
-		</div><!-- col xs 12 col md 6 -->	
-							
-		<!-- Rad högre m sponsorkarusell-->
-
-		{$sponsorer}
+			</div><!-- panel panel blue -->
 
 			<!-- kolumn höger rad 2 nyhetsarkiv -->
 
@@ -350,6 +317,51 @@ $content = <<<END
 					</div><!-- collapse in -->
 				</div><!-- panel body -->
 			</div><!-- panel panel blue-->
+											
+		</div><!-- col md 3 -->
+				
+		<div class="col-xs-12 col-md-6">
+			<div class="panel panel-yellow">
+
+				<!-- Rubrik -->
+				<div class="panel-heading">
+					<h3 class="panel-title">{$artikelname}</h3>
+				</div><!-- panel heading -->
+
+				<!-- Artikel -->		
+				<div class="panel-body">
+
+					<!-- Artikelbild -->
+					<div class="col-lg-12 col-md-12 center-block img-responsive img-rounded sans-padding img-artikel pull-left">
+					{$artikelpic}
+					</div>
+					
+					<!-- Div som innehåller skribentnamn och fotografnamn -->
+					<div class="col-lg-12 sans-padding pull-left">
+						
+						<p class="col-md-6 sans-padding-left text-muted text-left pull-left">
+						Publicerad: {$date} av <i>{$artikelskribent}</i> 
+						</p>
+
+						<p class="col-md-6 text-muted text-right sans-padding-right pull-right">
+						{$artikelfotograf}
+						</p>
+					
+					</div>
+
+					<!-- Själva artikeln -->			
+						{$artikelmessage}
+
+				</div><!-- panel body -->
+			</div><!-- panel panel yellow -->
+								
+		</div><!-- col xs 12 col md 6 -->	
+							
+		<!-- Rad högre m sponsorkarusell-->
+
+		{$sponsorer}
+
+			
 
 			Kalender												
 		</div><!-- col md 3 pull right -->
