@@ -26,6 +26,21 @@ body {
   
 }
 
+p.padding-left {
+  padding-left: 15px;
+  padding-top: 5px;
+}
+
+/*
+.fb-comments, .fb-comments iframe[style], .fb-comments span {
+   width: 100% !important; overflow-x: hidden; overflow-y: auto; 
+}
+
+.fb-feed {
+  max-width: 285px !important;
+}
+*/
+
 /* Attributer för bläddring av sidor SK pagination-navigering */
 .pagination {
   display: inline-block;
@@ -154,6 +169,9 @@ ul.bottom {
 /* Luft 15 pixlar höger, vänster, upp och ned */
 .padding {
   padding: 15px;
+}
+.padding-zero {
+  padding: none;
 }
 
 /* luft i överste navigeringsmenyn, 5 pixlar höger och vänster, ingen upp och ned */

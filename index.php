@@ -362,21 +362,17 @@ $content = <<<END
 		{$sponsorer}
 
 		<!-- Skatesweden -->
-
-			<div class="panel panel-blue">
-				<div class="panel-heading">
-					<h3 class="panel-title">Skatesweden</h3>
-				</div><!-- panel-heading -->
+			
+					<h3 class="panel-title blue"><strong>Skatesweden</strong></h3>							
 				
-				<div class="panel-body img-rounded">
 					<!-- instagram -->
 						
-		   			<strong>Instagram</strong>
+		   			<strong><p>Instagram</p></strong>
 	   											   								
 	   				<!-- Skatesweden Instagram -->         				
 					  					
   					<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-version="6"
-  					 style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0
+  					 style=" background:#FFF; border:none; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0
   					  1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%;
   					   width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;">
   					    <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50% 0;
@@ -388,9 +384,14 @@ $content = <<<END
   					      	fhrY1nYFnB/lQPb79drWOyJVa/DAvg9B/rLB4cC+Nqgdz/TvBbBnr6GBReqn/nRmDgaQEej7WhonozjF+Y2I/fZou/qAAA
   					      	AAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px;
   					      	 width:44px;"></div></div> <p style=" margin:8px 0 0 0; padding:0 4px;">
-  					      	  <a href="https://www.instagram.com/p/ggtNVvJu3E/" style=" color:#000;
-  					      	   font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal;
-  					      	    line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">Hand</a></p>
+  					      	  <a href="https://www.instagram.com/p/ggtNVvJu3E/"
+  					      	   style=" color:#000;
+  					      	   font-family:Arial,sans-serif;
+  					      	    font-size:14px;
+  					      	     font-style:normal;
+  					      	      font-weight:normal;
+  					      	    line-height:17px;
+  					      	     text-decoration:none; word-wrap:break-word;" target="_blank">Hand</a></p>
   					      	     <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px;
   					      	      margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center;
   					      	       text-overflow:ellipsis; white-space:nowrap;">Ett filmklipp publicerat av SkateSwe
@@ -411,15 +412,30 @@ $content = <<<END
 					  &mdash; Konståkningförbundet (@skatesweden)
 					   <a href="https://twitter.com/skatesweden/status/676656223920504832">15 december 2015</a>
 					   </blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+					<!-- script for Twitter feeds -->
+					<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 					<p class="divider"></p>
 
 					<strong>Facebook</strong>
-					<p class="divider"></p>
 
-				</div><!-- panel body -->
-			</div><!-- panel panel blue -->
-
+					<div id="fb-root" class="fb-feed"></div>
+					
+					<script>(function(d, s, id) {  var js, fjs = d.getElementsByTagName(s)[0];
+					  if (d.getElementById(id)) return;  js = d.createElement(s); js.id = id;
+					  js.src = "//connect.facebook.net/da_DK/sdk.js#xfbml=1&version=v2.3";
+					    fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));
+					</script>
+					
+					<div class="fb-post"
+					 data-href="https://www.facebook.com/skatesweden/posts/1765399140354593"
+					 data-adapt-container-width="true"><div class="fb-xfbml-parse-ignore">
+					 <blockquote cite="https://www.facebook.com/skatesweden/posts/1765399140354593">
+					 <p class="14px">Uppladdningen inf&#xf6;r EM forts&#xe4;tter! L&#xe4;s om Isabelle Olssons och Matilda
+					  Algotssons f&#xf6;rv&#xe4;ntningar i Skateswedens intervju. #skatesweden</p>Opslået af
+					   <a href="https://www.facebook.com/skatesweden/">Skate Sweden - Swedish Figure Skating</a>
+					    på&nbsp;<a href="https://www.facebook.com/skatesweden/posts/1765399140354593">19. januar 2016</a>
+					    </blockquote></div></div>
+				
 		</div><!-- col md 3 pull right -->
 	</div><!-- row -->
 </div><!-- content -->
