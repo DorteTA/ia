@@ -185,7 +185,7 @@ $content = <<<END
 				{$artikelnews}
 			</div><!-- panel panel blue -->
 
-			<!-- kolumn höger rad 2 nyhetsarkiv -->
+			<!-- Nyhetsarkiv -->
 
 			<div class="panel panel-blue">
 				<div class="panel-heading">
@@ -317,7 +317,7 @@ $content = <<<END
 					</div><!-- collapse in -->
 				</div><!-- panel body -->
 			</div><!-- panel panel blue-->
-											
+
 		</div><!-- col md 3 -->
 				
 		<div class="col-xs-12 col-md-6">
@@ -361,9 +361,65 @@ $content = <<<END
 
 		{$sponsorer}
 
-			
+		<!-- Skatesweden -->
 
-			Kalender												
+			<div class="panel panel-blue">
+				<div class="panel-heading">
+					<h3 class="panel-title">Skatesweden</h3>
+				</div><!-- panel-heading -->
+				
+				<div class="panel-body img-rounded">
+					<!-- instagram -->
+						
+		   			<strong>Instagram</strong>
+	   											   								
+	   				<!-- Skatesweden Instagram -->         				
+					  					
+  					<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-version="6"
+  					 style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0
+  					  1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%;
+  					   width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;">
+  					    <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50% 0;
+  					     text-align:center; width:100%;"> <div style="
+  					      background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAAGFBMVEUiIiI
+  					      	9PT0eHh4gIB4hIBkcHBwcHBwcHBydr+JQAAAACHRSTlMABA4YHyQsM5jtaMwAAADfSURBVDjL7ZVBEgMhCAQBAf//42xcN
+  					      	bpAqakcM0ftUmFAAIBE81IqBJdS3lS6zs3bIpB9WED3YYXFPmHRfT8sgyrCP1x8uEUxLMzNWElFOYCV6mHWWwMzdPEKHlh
+  					      	Lw7NWJqkHc4uIZphavDzA2JPzUDsBZziNae2S6owH8xPmX8G7zzgKEOPUoYHvGz1TBCxMkd3kwNVbU0gKHkx+iZILf77Io
+  					      	fhrY1nYFnB/lQPb79drWOyJVa/DAvg9B/rLB4cC+Nqgdz/TvBbBnr6GBReqn/nRmDgaQEej7WhonozjF+Y2I/fZou/qAAA
+  					      	AAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px;
+  					      	 width:44px;"></div></div> <p style=" margin:8px 0 0 0; padding:0 4px;">
+  					      	  <a href="https://www.instagram.com/p/ggtNVvJu3E/" style=" color:#000;
+  					      	   font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal;
+  					      	    line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">Hand</a></p>
+  					      	     <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px;
+  					      	      margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center;
+  					      	       text-overflow:ellipsis; white-space:nowrap;">Ett filmklipp publicerat av SkateSwe
+  					      	        (@skatesweden) <time style=" font-family:Arial,sans-serif; font-size:14px;
+  					      	         line-height:17px;" datetime="2013-11-09T22:42:22+00:00">Nov 9, 2013 kl. 2:42 PST</time>
+  					      	         </p>
+  					      	         </div>
+  					      	         </blockquote>
+					<script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
+  					<p class="divider"></p>
+
+					<strong>Twitter</strong>
+
+					<blockquote class="twitter-tweet" data-cards="hidden" lang="sv"><p lang="sv" dir="ltr">
+					Sveriges EM-trupp 2016 klar: Alexander Majorov, Joshi Helgesson, Isabelle Olsson &amp;
+					 Matilda Algotsson – <a href="https://t.co/r1e1hb0VqB">https://t.co/r1e1hb0VqB</a>
+					  <a href="https://twitter.com/hashtag/skatesweden?src=hash">#skatesweden</a></p>
+					  &mdash; Konståkningförbundet (@skatesweden)
+					   <a href="https://twitter.com/skatesweden/status/676656223920504832">15 december 2015</a>
+					   </blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+					<p class="divider"></p>
+
+					<strong>Facebook</strong>
+					<p class="divider"></p>
+
+				</div><!-- panel body -->
+			</div><!-- panel panel blue -->
+
 		</div><!-- col md 3 pull right -->
 	</div><!-- row -->
 </div><!-- content -->
