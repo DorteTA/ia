@@ -1,7 +1,7 @@
 <?php
 /*---------------------------------
 index.php
-Startsidan
+Startsidan / Hem
 ---------------------------------*/
 
 // Uppkoblingen till databasen
@@ -136,7 +136,7 @@ if(!empty($_GET))
 		$query = <<<END
 
 		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb, ArtikelTimeStamp, ArtikelSkribent,
-		 ArtikelFotograf
+		 ArtikelFotograf, kategori
 		FROM artikel
 		WHERE ArtikelId = "{$getartikelid}"
 		ORDER by ArtikelTimeStamp DESC;
@@ -416,9 +416,11 @@ $content = <<<END
 					<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 					<p class="divider"></p>
 
-					<strong>Facebook</strong>
+					<p><strong>Facebook</strong></p>
 
-					<div id="fb-root" class="fb-feed"></div>
+					
+
+					<div id="fb-root"></div>
 					
 					<script>(function(d, s, id) {  var js, fjs = d.getElementsByTagName(s)[0];
 					  if (d.getElementById(id)) return;  js = d.createElement(s); js.id = id;
@@ -427,15 +429,16 @@ $content = <<<END
 					</script>
 					
 					<div class="fb-post"
-					 data-href="https://www.facebook.com/skatesweden/posts/1765399140354593"
-					 data-adapt-container-width="true"><div class="fb-xfbml-parse-ignore">
+					 data-href="https://www.facebook.com/skatesweden/posts/1765399140354593" data-width="285">
+					 <div class="fb-xfbml-parse-ignore">
+					 
 					 <blockquote cite="https://www.facebook.com/skatesweden/posts/1765399140354593">
 					 <p class="14px">Uppladdningen inf&#xf6;r EM forts&#xe4;tter! L&#xe4;s om Isabelle Olssons och Matilda
 					  Algotssons f&#xf6;rv&#xe4;ntningar i Skateswedens intervju. #skatesweden</p>Opslået af
 					   <a href="https://www.facebook.com/skatesweden/">Skate Sweden - Swedish Figure Skating</a>
 					    på&nbsp;<a href="https://www.facebook.com/skatesweden/posts/1765399140354593">19. januar 2016</a>
 					    </blockquote></div></div>
-				
+						
 		</div><!-- col md 3 pull right -->
 	</div><!-- row -->
 </div><!-- content -->
