@@ -1,15 +1,14 @@
 <?php
 
-/*------------------------------------
+/*----------------------------------------------------------
 HTMLTemplate.php
-IA projekt Svenska Konståkningsföreningen
-och Skatesweden
-Innehåller HTML, Länkar till ia CSS,
-Bootstrap, javascript och jQuery så
-dessa inte behövs intastas manuellt
-på alla sidor
-------------------------------------*/
+IA projekt Svenska Konståkningsföreningen och Skatesweden
+Innehåller HTML, Länkar till ia CSS, Bootstrap, javascript
+och jQuery så dessa inte behövs intastas manuellt på alla
+sidor
+----------------------------------------------------------*/
 
+// Uppkoblingen till databasen
 include_once("inc/Connstring.php");
 
 session_start();

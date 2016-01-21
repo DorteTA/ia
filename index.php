@@ -7,8 +7,10 @@ Startsidan / Hem
 // Uppkoblingen till databasen
 include_once("inc/Connstring.php");
 
-// Använder HTML-mallen där CSS och javascript ingår,
-// så detta inte behövs tastas in på varje sida
+/*---------------------------------------------------
+Använder HTML-mallen där CSS och javascript ingår,
+så detta inte behövs tastas in på varje sida
+---------------------------------------------------*/
 include_once("inc/HTMLTemplate.php");
 
 // Variabler
@@ -18,14 +20,18 @@ $artikelskribent = "";
 $artikelnews = "";
 $artikelfotograf = "";
 
-// Kollar om användaren är inloggat
-// och lägger in namnet i variablen $name
+/*---------------------------------------------------
+Kollar om användaren är inloggat
+och lägger in namnet i variablen $name
+---------------------------------------------------*/
 if(isset($_SESSION['username'])) {
 	$name = $_SESSION['username'];
 }
 
-// Väljer alla artiklar med katogorin nyhet,
-// visar nyaste först och max de 5 senaste
+/*---------------------------------------------------
+Väljer alla artiklar med katogorin nyhet,
+visar nyaste först och max de 5 senaste
+---------------------------------------------------*/
 $query = <<<END
 
 	SELECT *
@@ -35,7 +41,10 @@ $query = <<<END
 	LIMIT 5;
 END;
 
-// Ger felmeddelande om databasen inte kan köras och hänvisar till felnummer, annars körs den
+/*---------------------------------------------------
+Ger felmeddelande om databasen inte kan köras och
+hänvisar till felnummer, annars körs den
+---------------------------------------------------*/
 $res = $mysqli->query($query) or die("Could not query database" . $mysqli->errno . " : " . $mysqli->error);	
 
 // Sätter tidszonen till europäisk/svensk tidszon
@@ -68,27 +77,28 @@ if($res->num_rows > 0) {
 		// Visar innehållet från databasen i strängen $artikelnews
 		$artikelnews .= <<<END
 		
-						<div class="panel-body">
-							<div class="media">
-								<a class="pull-left" href="index.php?ArtikelId={$artikelid}">
-									{$artikelpic_thumb}
-								</a>
+<div class="panel-body">
+	<div class="media">
+		<a class="pull-left" href="index.php?ArtikelId={$artikelid}">
+			{$artikelpic_thumb}
+		</a>
+						
+		<div class="tid-nyheter">
+			{$date}
+		</div>
 								
-								<div class="tid-nyheter">
-									{$date}
-								</div>
-								
-								<div class="media-body">
-									<h4 class="media-heading">
-										<a href="index.php?ArtikelId={$artikelid}">
-											{$artikelname}
-										</a>
-									</h4>
-									{$artikelsubtext} ...
+		<div class="media-body">
+			<h4 class="media-heading">
+				<a href="index.php?ArtikelId={$artikelid}">
+					{$artikelname}
+				</a>
+			</h4>
+			
+			{$artikelsubtext} ...
 
-								</div><!-- media body -->
-							</div><!-- media -->	
-						</div><!-- panel-body -->
+		</div><!-- media body -->
+	</div><!-- media -->	
+</div><!-- panel-body -->
 END;
 
 	}
@@ -100,8 +110,8 @@ if(!empty($_GET)) {
 
 		$query = <<<END
 
-		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb, ArtikelTimeStamp,
-		 ArtikelSkribent, ArtikelFotograf, kategori
+		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb,
+		 ArtikelTimeStamp, ArtikelSkribent, ArtikelFotograf, kategori
 		FROM artikel
 		WHERE ArtikelId = "{$getartikelid}"
 		ORDER by ArtikelTimeStamp DESC;

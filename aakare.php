@@ -153,47 +153,21 @@ $content = <<<END
 					{$artikeltime}	
 				</div><!-- mitten -->	
 							
-			<!-- Rad högre m sponsorkarusell-->
+				<!-- Rad högre m sponsorkarusell-->
 
-			<div class="col-md-3 pull-right">
-				<div class="panel panel-grey">
-					<div class="panel-heading">
-						<h3 class="panel-title">Sponsorer</h3>
-					</div><!-- panel-heading -->
-					
-					<div class="panel-body">
-						
-						<!-- Sponsor karusell -->
-						<div id="myCarousel" class="carousel">
-			  				<div id="my-carousel" class="carousel slide" data-ride="carousel">
-				       			<div class="carousel-inner">
-									<div class="item active">
-										<a href="http://www.sporrong.se/" target="_blank">
-			   								<img src="sponsor/sporrong.png" class="karusell-bild" alt="Sporrong">
-		  	      						</a>
-									</div><!-- item active -->
+				{$sponsorer}
 
-		               				<div class="item">
-		               					<a href="http://nofall.se/" target="_blank">
-			   								<img src="sponsor/no_fall.png" class="karusell-bild" alt="No Fall">
-			   							</a>
-									</div><!-- item -->
-
-		               				<div class="item">
-		               					<a href="http://www.mpskating.com/" target="_blank">
-									   		<img src="sponsor/mp_skating.png" class="karusell-bild" alt="MP Skating">
-									   	</a>
-									</div><!-- item -->
-
-		           				</div><!-- carousel inner -->
-		           			</div><!-- carousel slide -->			
-		     			</div><!-- myCarousel -->
-			     	</div><!-- panel body -->
-				</div><!-- panel panel-blue-->
-				</div> <!-- row -->
-	       </div><!-- AVsluta content DIV -->
+				</div><!-- col md 3 -->
+	</div><!-- row -->
+</div><!-- AVsluta content DIV -->
 
 END;
+
+// Stänger resultaten
+$res->close();
+
+// Stänger ned uppkoblingen med databasen
+$mysqli->close();
 
 echo $header;
 echo $content;
