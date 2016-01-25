@@ -300,35 +300,37 @@ END;
 
 // Läser in sidans nederste innehåll i $footer
 $footer = <<<END
-	    <div class="footer border-bottom-radius navbar-fixed-bottom">
-  			<div class="container">
-  				<div class="row">
-  					<div class="col-md-12 text-center">
-  						<ul class="list-inline">
-  							<li class="yellow">
-                <a class="li yellow" href="avdelningar.php">Kontakta oss</a> &middot;
-                <a class="li yellow" href="faq.php">FAQ</a> &middot;
-                <a class="li white" href="samarbetspartners.php">Samarbetspartner</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                <a href="https://www.facebook.com/konstakningsforbundet/">
-                  <img src="img/facebook.png">
-                </a> &nbsp;
-                <a href="https://twitter.com/skatesweden/">
-                  <img src="img/twitter.png">
-                </a> &nbsp;
-                <a href="https://www.youtube.com/results?search_query=svenska+konst%C3%A5kningsf%C3%B6rbundet">
-                  <img src="img/youtube.png">
-                </a>
-                </li>
-  						</ul>
-              <br>
-              <br>
-              <br>
-  						<p class="text-center white text-10px">Copyright &copy; 2014-2015 Svenska Konståkningsförbundet.</p>
-  					</div><!-- col med 12 text center -->
-				  </div><!-- row -->
-			 </div><!-- container -->
-		  </div><!-- footer -->
-	</div><!-- container class DIV -->
+  <div class="footer border-bottom-radius navbar-fixed-bottom">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<ul class="list-inline">
+						<li class="yellow">
+              <a class="li yellow" href="avdelningar.php">Kontakta oss</a> &middot;
+              <a class="li yellow" href="faq.php">FAQ</a> &middot;
+              <a class="li white" href="samarbetspartners.php">Samarbetspartner</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              <a href="https://www.facebook.com/konstakningsforbundet/">
+                <img src="img/facebook.png">
+              </a> &nbsp;
+              <a href="https://twitter.com/skatesweden/">
+                <img src="img/twitter.png">
+              </a> &nbsp;
+              <a href="https://www.youtube.com/results?search_query=svenska+konst%C3%A5kningsf%C3%B6rbundet">
+                <img src="img/youtube.png">
+              </a>
+            </li>
+					</ul>
+
+          <br>
+          <br>
+          <br>
+
+					<p class="text-center white text-10px">Copyright &copy; 2014-2015 Svenska Konståkningsförbundet.</p>
+				</div><!-- col med 12 text center -->
+			</div><!-- row -->
+		</div><!-- container -->
+	</div><!-- footer -->
+</div><!-- container class DIV -->
 
 </body>
 </html>
