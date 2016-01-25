@@ -55,21 +55,20 @@ if($res->num_rows > 0)
 		// Strängen som innehåller HTML samt resultatet från databasen
 		$juni .= <<<END
 
-	<!-- kolumn m bredd 12 -->
-	<div class="col-md-12 sans-padding-left pull-left">
+<!-- kolumn m bredd 12 -->
+<div class="col-md-12 sans-padding-left pull-left">
 		
-		<!-- sätter in datum från artikel i DB -->
-		{$date}&nbsp; 
+	<!-- sätter in datum från artikel i DB -->
+	{$date}&nbsp; 
 		
-		<!-- Länkar till artikel och läser in den på index sidan -->
-		<a href="index.php?ArtikelId={$artikelid}">
-		
+	<!-- Länkar till artikel och läser in den på index sidan -->
+	<a href="index.php?ArtikelId={$artikelid}">
+
 		<!-- visar förkortat namn på artikel och tre punktar efter -->		
 		{$artikelsubtext}...
-		</a><!-- slut på länka -->
-					
-	</div><!-- end col md 12 -->
-			
+	</a><!-- slut på länka -->
+				
+</div><!-- end col md 12 -->
 				
 END;
 	}
@@ -78,7 +77,7 @@ END;
 // Visar databas-innehållet hämtad in i strängen $juni
 $content .= <<<END
 
-					{$juni}	
+{$juni}	
 								
 END;
 

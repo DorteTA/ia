@@ -20,16 +20,17 @@ if(isset($_SESSION["username"])) {
   // Användare-meny visar namn på den inloggade
   $userHTML = <<<END
 
-    <div class="col-xs-4 col-md-3">
-      <ul class="list-inline padding">
-        <li class="yellow">Inloggad som:        
-          <strong>{$_SESSION["username"]}</strong>
-        </a> &middot; <a class="li yellow" href="logout.php">
-          Logga ut
-        </a>
-        </li>
-      </ul>
-    </div><!-- col xs 6 col md3 -->
+<div class="col-xs-4 col-md-3">
+  <ul class="list-inline padding">
+    <li class="yellow">Inloggad som:        
+    <strong>{$_SESSION["username"]}</strong>
+     &middot;
+    <a class="li yellow" href="logout.php">
+      Logga ut
+    </a>
+    </li>
+  </ul>
+</div><!-- col xs 4 col md 3 -->
 
 END;
 }
@@ -39,12 +40,14 @@ else
   // Användare-meny där användare kan registrera sig och logga in
   $userHTML = <<<END
 
-    <div class="col-xs-4 col-md-3">
-      <ul class="list-inline padding">
-        <li class="yellow"><a class="li yellow" href="login.php">Logga in</a> &middot;
-         <a class="li yellow" href="register.php">Registrera dig</a></li>
-      </ul>
-    </div><!-- end col xs 4 col md 4-->
+<div class="col-xs-4 col-md-3">
+  <ul class="list-inline padding">
+    <li class="yellow">
+      <a class="li yellow" href="login.php">Logga in</a> &middot;
+      <a class="li yellow" href="register.php">Registrera dig</a>
+    </li>
+  </ul>
+</div><!-- end col xs 4 col md 3 -->
 END;
 }
 
@@ -53,8 +56,7 @@ $header = <<<END
 <!doctype html>
 <html>
 	<head>
-
-		<meta charset="UTF-8">
+    <meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Responsiv -->
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 
@@ -65,15 +67,15 @@ $header = <<<END
     <link href="css/ia.css" rel="stylesheet">
 		
 		<!-- Bootstrap core JavaScript börjar
-			================================================== -->
+		================================================== -->
 
-      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 			
-      <!-- Latest compiled and minified JavaScript -->
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-			
-      <script src="js/docs.min.js"></script>
-      <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>   
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		
+    <script src="js/docs.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>   
       
 		<title>IA webbplats | Konståkning</title>
 
@@ -171,8 +173,6 @@ $header = <<<END
               <li><a href="avdelningar.php">Avdelningar</a></li>
               <li><a href="distrikt.php">Distrikt och föreningar</a></li>              
             </ul><!-- dropdown menu -->
-
-
 
           </li><!-- dropdown -->
         </ul><!-- nav navbar nav navbar right -->
@@ -301,11 +301,11 @@ END;
 // Läser in sidans nederste innehåll i $footer
 $footer = <<<END
   <div class="footer border-bottom-radius navbar-fixed-bottom">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 text-center">
-					<ul class="list-inline">
-						<li class="yellow">
+  	<div class="container">
+  		<div class="row">
+  			<div class="col-md-12 text-center">
+  				<ul class="list-inline">
+  					<li class="yellow">
               <a class="li yellow" href="avdelningar.php">Kontakta oss</a> &middot;
               <a class="li yellow" href="faq.php">FAQ</a> &middot;
               <a class="li white" href="samarbetspartners.php">Samarbetspartner</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
@@ -319,17 +319,17 @@ $footer = <<<END
                 <img src="img/youtube.png">
               </a>
             </li>
-					</ul>
+  			</ul>
 
-          <br>
-          <br>
-          <br>
+        <br>
+        <br>
+        <br>
 
-					<p class="text-center white text-10px">Copyright &copy; 2014-2015 Svenska Konståkningsförbundet.</p>
-				</div><!-- col med 12 text center -->
-			</div><!-- row -->
-		</div><!-- container -->
-	</div><!-- footer -->
+  			<p class="text-center white text-10px">Copyright &copy; 2014-2015 Svenska Konståkningsförbundet.</p>
+  		  </div><!-- col med 12 text center -->
+  		</div><!-- row -->
+  	</div><!-- container -->
+  </div><!-- footer -->
 </div><!-- container class DIV -->
 
 </body>

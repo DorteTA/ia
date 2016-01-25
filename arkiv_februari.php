@@ -39,7 +39,6 @@ if($res->num_rows > 0)
 		// Sätter tid till svenska
 		setlocale(LC_TIME, "sv_SE", "sv_SE.65001", "swedish");   
 		$date = strtotime($row->ArtikelTimeStamp);
-
 		
 		//encode gör att datum från DB visas på svenska
 		utf8_encode($date = strftime("%#d %B", $date));
@@ -47,7 +46,7 @@ if($res->num_rows > 0)
 		$artikelid = $row->ArtikelId;
 		$artikelname = $row->ArtikelName;
 
-		// substr visar max antal ord anvisad här som 24
+		// substr visar max antal ord anvisad här som 28
 		$artikelsubtext = substr($artikelname, 0, 28);
 		
 		$artikeltimestamp = $row->ArtikelTimeStamp;
@@ -55,20 +54,18 @@ if($res->num_rows > 0)
 		// Strängen som innehåller HTML samt resultatet från databasen
 		$februari .= <<<END
 
-					<!-- kolumn m bredd 12 -->
-	       			<div class="col-md-12 sans-padding-left pull-left">
+<!-- kolumn m bredd 12 -->
+<div class="col-md-12 sans-padding-left pull-left">
 
-	       				<!-- sätter in datum från artikel i DB -->         				
-						{$date}&nbsp; 
-						<a href="index.php?ArtikelId={$artikelid}">
+	<!-- sätter in datum från artikel i DB -->         				
+	{$date}&nbsp;
 
-							<!-- visar förkortat namn på artikel -->							
-							{$artikelsubtext}...
-						</a>
-					
-					</div><!-- end col md 12 -->
-
-					
+	<a href="index.php?ArtikelId={$artikelid}">
+		<!-- visar förkortat namn på artikel -->							
+		{$artikelsubtext}...
+	</a>
+		
+</div><!-- end col md 12 -->			
 				
 END;
 	}
@@ -77,7 +74,7 @@ END;
 // Visar databas-innehållet hämtad in i strängen $februari
 $content .= <<<END
 
-					{$februari}	
+	{$februari}	
 								
 END;
 
