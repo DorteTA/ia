@@ -6,27 +6,30 @@ indelad i månader
 ---------------------------------*/
 
 // Uppkoblingen till databasen
-include_once("Connstring.php");
+//include_once("Connstring.php");
 
 // Använder HTML-mallen där CSS och javascript ingår,
 // så detta inte behövs tastas in på varje sida
-include_once("HTMLTemplate.php");
+//include_once("HTMLTemplate.php");
 
 // Variabler
-$februari ="";
+$juni ="";
+$visa_artiklar ="";
 
-$arkiv ="";
 
-// Hämtar ut artiklar från februari månad och
+// Hämtar ut artiklar från juni månad och
 // visar senaste artikel först
 $query = <<<END
 
 	SELECT * FROM artikel
-	WHERE ArtikelTimeStamp LIKE '%2015-02%'
+	WHERE ArtikelTimeStamp LIKE '%2015-06%'
 	ORDER BY ArtikelTimeStamp DESC;
 
 END;
 
+$visa_artiklar = <<<END
+
+<?php
 // Hämta resultat
 $res = $mysqli->query($query) or die();
 
@@ -56,7 +59,7 @@ if($res->num_rows > 0)
 		$artikeltimestamp = $row->ArtikelTimeStamp;
 	
 		// Strängen som innehåller HTML samt resultatet från databasen
-		$arkiv .= <<<END
+		$juni .= <<<END
 
 					<!-- kolumn m bredd 12 -->
 	       			<div class="col-md-12 sans-padding-left pull-left">
@@ -74,13 +77,12 @@ if($res->num_rows > 0)
 					
 				
 END;
-	}
-}
+	
 
-// Visar databas-innehållet hämtad in i strängen $februari
+// Visar databas-innehållet hämtad in i strängen $juni
 $content .= <<<END
 
-					{$februari}	
+					{$juni}	
 								
 END;
 
@@ -91,6 +93,6 @@ $res->close();
 $mysqli->close();
 
 // Visar innehållet av sidans content
-echo $content;
+//echo $content;
 
 ?>
