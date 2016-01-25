@@ -47,7 +47,7 @@ if($res->num_rows > 0)
 		$artikelid = $row->ArtikelId;
 		$artikelname = $row->ArtikelName;
 
-		// substr visar max antal ord anvisad här som 24
+		// substr visar max antal ord anvisad här som 28
 		$artikelsubtext = substr($artikelname, 0, 28);
 		
 		$artikeltimestamp = $row->ArtikelTimeStamp;
@@ -55,20 +55,18 @@ if($res->num_rows > 0)
 		// Strängen som innehåller HTML samt resultatet från databasen
 		$april .= <<<END
 
-					<!-- kolumn m bredd 12 -->
-	       			<div class="col-md-12 sans-padding-left pull-left">
+<!-- kolumn m bredd 12 -->
+	<div class="col-md-12 sans-padding-left pull-left">
 
-	       				<!-- sätter in datum från artikel i DB -->         				
-						{$date}&nbsp; 
-						<a href="index.php?ArtikelId={$artikelid}">
+	<!-- sätter in datum från artikel i DB -->         				
+	{$date}&nbsp;
 
-							<!-- visar förkortat namn på artikel -->							
-							{$artikelsubtext}...
-						</a>
-					
-					</div><!-- end col md 12 -->
-
-					
+	<a href="index.php?ArtikelId={$artikelid}">
+		<!-- visar förkortat namn på artikel -->							
+		{$artikelsubtext}...
+	</a>				
+</div><!-- end col md 12 -->
+		
 				
 END;
 	}
@@ -77,7 +75,7 @@ END;
 // Visar databas-innehållet hämtad in i strängen $april
 $content .= <<<END
 
-					{$april}	
+{$april}	
 								
 END;
 

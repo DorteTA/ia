@@ -29,8 +29,8 @@ if(isset($_SESSION['username'])) {
 }
 
 /*---------------------------------------------------
-Väljer alla artiklar med katogorin nyhet,
-visar nyaste först och max de 5 senaste
+Väljer allt från tabellen artikel i DB med katogorin
+nyhet, visar nyaste först och max de 5 senaste
 ---------------------------------------------------*/
 $query = <<<END
 
@@ -66,13 +66,14 @@ if($res->num_rows > 0) {
 		$artikelid = $row->ArtikelId;
 		$artikelname = $row->ArtikelName;
 		$artikelmessage = $row->ArtikelMessage;
+
+		// substr visar max antal ord anvisad här som 75
 		$artikelsubtext = substr($artikelmessage, 0, 75);
 		$artikelpic = $row->ArtikelPic;
 		$artikelpic_thumb = $row->ArtikelPicThumb;
 		$artikeltimestamp = $row->ArtikelTimeStamp;
 		$artikelskribent = $row->ArtikelSkribent;
 		$artikelfotograf = $row->ArtikelFotograf;
-
 		
 		// Visar innehållet från databasen i strängen $artikelnews
 		$artikelnews .= <<<END
