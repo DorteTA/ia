@@ -130,7 +130,6 @@ END;
 			$artikelpic = $row->ArtikelPic;
 			$artikelpic_thumb = $row->ArtikelPicThumb;
 			$artikeltimestamp = $row->ArtikelTimeStamp;
-			$artikelname = $row->ArtikelName;
 			$artikelskribent= $row->ArtikelSkribent;
 			$artikelfotograf = $row->ArtikelFotograf;		
 		}
