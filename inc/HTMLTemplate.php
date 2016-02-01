@@ -11,10 +11,15 @@ sidor
 // Uppkoblingen till databasen
 include_once("inc/Connstring.php");
 
+// Börja session
 session_start();
 
+// Variabel som heredoc läsas in i
 $userHTML = "";
 
+// Om session udername påbörjats visa innehållet i angivna
+// variabel $userHTML
+// som visar en anväbndar-meny under den globala menyn. 
 if(isset($_SESSION["username"])) {
 
   // Användare-meny visar namn på den inloggade
@@ -37,7 +42,8 @@ END;
 
 else
 {
-  // Användare-meny där användare kan registrera sig och logga in
+  // Användare-meny där användare kan registrera sig och logga
+  // Visas enbart om användaren inte är inloggat
   $userHTML = <<<END
 
 <div class="col-xs-4 col-md-3">
@@ -56,12 +62,18 @@ $header = <<<END
 <!doctype html>
 <html>
 	<head>
-    <meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Responsiv -->
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <!-- Older compiled and minified CSS -->
+    <!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" -->
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+     integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+     crossorigin="anonymous">
 		
     <!-- IA stilmall -->
     <link href="css/ia.css" rel="stylesheet">
@@ -69,10 +81,20 @@ $header = <<<END
 		<!-- Bootstrap core JavaScript börjar
 		================================================== -->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-			
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- gammalt jQuery -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> -->
+
+    <!-- nyaste jQuery V 2.2.0 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>			
+    
+    <!-- Older compiled and minified JavaScript -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
+
+    <!-- Senaste kompilerade och minifierade JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+    integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+    crossorigin="anonymous">
+    </script>
 		
     <script src="js/docs.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>   
@@ -127,7 +149,7 @@ $header = <<<END
             </li>
           </ul>
 
-          <!-- dropdown meny Träna -->
+        <!-- dropdown meny Träna -->
     	  <ul class="nav navbar-nav">
               <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Träna <b class="caret"></b></a>
