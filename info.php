@@ -12,6 +12,7 @@ $artikeltime_aakare = "";
 
 $artikelnames = "";
 $artikelnames_aakare = "";
+$kategori = "";
 
 // Hämtar ut den specifika artikeln 
 
@@ -21,37 +22,35 @@ if(!empty($_GET))
 
 	$query = <<<END
 
-		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp
+		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, Kategori
 		FROM artikel
 		WHERE ArtikelId = "{$getartikelid}";
 END;
 
 	$res = $mysqli->query($query) or die();
 
-	if($res->num_rows > 0)
-	{
-		while($row = $res->fetch_object())
-		{
+	if($res->num_rows > 0) {
+
+		while($row = $res->fetch_object()) {
 			
 			// Sätter tid till svenska
-
 			setlocale(LC_TIME, "sv_SE", "sv_SE.65001", "swedish");   
 			$date = strtotime($row->ArtikelTimeStamp);
 		
-			//encode gör att datum från DB visas på svenska
-			
+			//encode gör att datum från DB visas på svenska			
 			utf8_encode($date = strftime("%#d %B %Y", $date));
 			
 			$artikelname = $row->ArtikelName;
 			$artikelmessage = $row->ArtikelMessage;
 			$artikeltimestamp = $row->ArtikelTimeStamp;
+			$kategori = $row->Kategori;
 
 			
 			$artikeltime = <<<END
 
 		<div class="panel panel-yellow">
 			<div class="panel-heading">
-				<h3 class="panel-title">{$artikelname}</h3>
+				<h3 class="panel-title">{$kategori} / {$artikelname}</h3>
 			</div><!-- panel-heading -->
 				<div class="panel-body">
 					<p class="text-muted">
@@ -74,7 +73,7 @@ else
 {
 	$query = <<<END
 
-		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori
+		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, Kategori
 		FROM artikel
 		WHERE kategori = 'arrangorer'
 		ORDER BY Artikeltimestamp
@@ -110,9 +109,9 @@ END;
 // Hämtar ut undermenyn när användaren klickat på en länk
 $query = <<<END
 
-	SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori
+	SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, Kategori
 	FROM artikel
-	WHERE kategori = 'arrangorer'
+	WHERE kategori = 'Arrangörer'
 	ORDER BY ArtikelTimeStamp ASC;
 	
 END;
@@ -124,10 +123,10 @@ END;
 
 $res = $mysqli->query($query) or die();
 
-if($res->num_rows > 0)
-{
-	while($row = $res->fetch_object())
-	{
+if($res->num_rows > 0) {
+
+	while($row = $res->fetch_object()) {
+
 		$artikelId = $row->ArtikelId;
 		$artikelname = $row->ArtikelName;
 		$artikelmessage = $row->ArtikelMessage;
@@ -135,18 +134,15 @@ if($res->num_rows > 0)
 
 		$artikelnames .= <<<END
 
-
 			<div class="collapse-in" id="dokument">
-								
-				<ul class="">
+
+				<ul class="meny">
           								
 	   				<a href="info.php?ArtikelId={$artikelId}">
 	   					<li>{$artikelname}</li>
 	   				</a>	   									
 	   			</ul>
 			</div><!-- collapse -->
-
-
 					
 END;
 
@@ -157,24 +153,24 @@ END;
 $content = <<<END
 
 			
-       	<div id="content">
-			<div class="row">
-				<div class="col-md-3">
-					<div class="panel panel-blue">
+<div id="content">
+	<div class="row">
+		<div class="col-md-3">
+			<div class="panel panel-blue">
 
-						<div class="panel-heading">
-						
+				<div class="panel-heading">
+					
 						<!-- Om oss undermeny -->
 						
-							<h3 class="panel-title yellow">Tävla / Information</h3>
+							<h3 class="panel-title yellow">Tävla / Tävlingsinformation</h3>
 						</div><!-- panel heading -->
-						</a>
+						
 					
 							
 						<div class="panel-body">
 							<div class="collapse-in" id="dokument">
 								
-									<ul class="">
+									<ul class="meny">
           								<li class="dropdown-left">
 	   									<a data-toggle="collapse" href="#arrangorer" aria-expanded="false"
 										aria-controls="collapseExample">
@@ -232,7 +228,10 @@ $content = <<<END
 					</div><!-- panel panel blue -->									
 				</div><!-- col md 3 -->
 				
+				<!-- mitten -->
+
 				<div class="col-xs-12 col-md-6">
+
 					{$artikeltime}	
 				</div><!-- mitten -->	
 							

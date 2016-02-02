@@ -32,6 +32,10 @@ p.padding-left {
   padding-top: 5px;
 }
 
+ul.meny {
+  padding-left: 0;
+  padding-right: 0;
+}
 /*
 .fb-comments, .fb-comments iframe[style], .fb-comments span {
    width: 100% !important; overflow-x: hidden !important; overflow-y: auto; 

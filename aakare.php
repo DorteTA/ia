@@ -31,7 +31,6 @@ if(!empty($_GET))
 		FROM artikel
 		WHERE ArtikelId = "{$getartikelid}"
 		ORDER by ArtikelTimeStamp DESC;
-		;
 END;
 
 	$res = $mysqli->query($query) or die();
@@ -81,7 +80,7 @@ END;
 			while($row = $res->fetch_object())
 			{
 				$artikelname = $row->ArtikelName;
-				// substr visar max antal ord anvisad här som 20
+				// substr visar max antal bokstaver anvisad här som 20
 				$artikelname_rubrik = substr($artikelname, 0, 20);
 				$artikelmessage = $row->ArtikelMessage;
 				$artikeltimestamp = $row->ArtikelTimeStamp;
