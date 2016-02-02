@@ -9,6 +9,7 @@ include_once("inc/Connstring.php");
 
 $artikeltime = "";
 $artikelnames = "";
+$kategori = "";
 
 // Hämtar ut den specifika artikeln 
 if(!empty($_GET))
@@ -17,7 +18,7 @@ if(!empty($_GET))
 
 	$query = <<<END
 
-		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp
+		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, Kategori
 		FROM artikel
 		WHERE ArtikelId = "{$getartikelid}";
 END;
@@ -31,11 +32,14 @@ END;
 			$artikelname = $row->ArtikelName;
 			$artikelmessage = $row->ArtikelMessage;
 			$artikeltimestamp = $row->ArtikelTimeStamp;
-			
+			$kategori = $row->Kategori;
+
 			$artikeltime = <<<END
 
 <div class="panel panel-yellow">
 	<div class="panel-heading">
+	Test
+	</div>
 
 	<h3 class="panel-title">
 	{$artikelname}
@@ -60,7 +64,7 @@ else
 {
 	$query = <<<END
 
-		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori
+		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, Kategori
 		FROM artikel
 		WHERE kategori = 'arrangera'
 		ORDER BY ArtikelTimeStamp DESC;
@@ -99,10 +103,11 @@ END;
 // Hämtar ut undermenyn när användaren klickat på en länk
 $query = <<<END
 
-	SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori, maanad
+	SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, Kategori
 	FROM artikel
 	WHERE kategori = 'arrangera'
-	ORDER BY ArtikelTimeStamp
+	ORDER BY ArtikelTimeStamp;
+
 END;
 
 $res = $mysqli->query($query) or die();
@@ -115,7 +120,6 @@ if($res->num_rows > 0)
 		$artikelname = $row->ArtikelName;
 		$artikelmessage = $row->ArtikelMessage;
 		$artikeltimestamp = $row->ArtikelTimeStamp;
-		$maanad = $row->maanad;
 
 		$artikelnames .= <<<END
 

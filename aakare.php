@@ -18,6 +18,7 @@ $artikeltime = "";
 $artikelnames = "";
 $artikelnames_aakare = "";
 $artikelname_rubrik ="";
+$kategori = "";
 
 // Hämtar ut den specifika artikeln 
 if(!empty($_GET))
@@ -27,7 +28,7 @@ if(!empty($_GET))
 	$query = <<<END
 
 		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb, ArtikelTimeStamp,
-		 ArtikelSkribent, ArtikelFotograf
+		 ArtikelSkribent, ArtikelFotograf, Kategori
 		FROM artikel
 		WHERE ArtikelId = "{$getartikelid}"
 		ORDER by ArtikelTimeStamp DESC;
@@ -43,12 +44,13 @@ END;
 			$artikelname = $row->ArtikelName;
 			$artikelmessage = $row->ArtikelMessage;
 			$artikeltimestamp = $row->ArtikelTimeStamp;
+			$kategori = $row->Kategori;
 			
 			$artikeltime = <<<END
 
 		<div class="panel panel-yellow">
 			<div class="panel-heading">
-				<h3 class="panel-title">{$artikelname}</h3>
+				<h3 class="panel-title">{$kategori} / {$artikelname}</h3>
 			</div><!-- panel-heading -->
 				<div class="panel-body">
 					{$artikelmessage}	
@@ -67,9 +69,9 @@ else
 {
 	$query = <<<END
 
-		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori
+		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, Kategori
 		FROM artikel
-		WHERE kategori = 'aakare'
+		WHERE kategori = 'Åkare'
 		ORDER BY Artikeltimestamp ASC;
 END;
 
@@ -84,12 +86,13 @@ END;
 				$artikelname_rubrik = substr($artikelname, 0, 20);
 				$artikelmessage = $row->ArtikelMessage;
 				$artikeltimestamp = $row->ArtikelTimeStamp;
+				$kategori = $row->Kategori;
 
 				$artikeltime = <<<END
 
 				<div class="panel panel-yellow">
 					<div class="panel-heading">
-						<h3 class="panel-title">{$artikelname}</h3>
+						<h3 class="panel-title">{$kategori} / {$artikelname}</h3>
 					</div><!-- panel heading -->
 
 						<div class="panel-body">
@@ -111,9 +114,9 @@ END;
 // Hämtar ut undermenyn när användaren klickat på en länk
 $query = <<<END
 
-	SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori
+	SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, Kategori
 	FROM artikel
-	WHERE kategori = 'aakare'
+	WHERE kategori = 'Åkare'
 	ORDER BY ArtikelTimestamp ASC;
 
 END;
@@ -133,6 +136,7 @@ if($res->num_rows > 0)
 		$artikelname_rubrik = substr($artikelname, 0, 20);
 		$artikelmessage = $row->ArtikelMessage;
 		$artikeltimestamp = $row->ArtikelTimeStamp;
+		$kategori = $row->Kategori;
 
 		$artikelnames .= <<<END
 
@@ -171,8 +175,8 @@ $content = <<<END
 						
 						<!-- Info / Åkare -->
 						
-							<h3 class="panel-title yellow">{$artikelname_rubrik}</h3>
-						</div><!-- panel heading -->					
+							<h3 class="panel-title yellow">{$kategori} / {$artikelname}</h3>
+						</div><!-- panel heading -->
 							
 						<div class="panel-body">
 							{$artikelnames}
