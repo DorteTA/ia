@@ -13,9 +13,11 @@ include_once("inc/HTMLTemplate.php");
 // Uppkoblingen till databasen
 include_once("inc/Connstring.php");
 
+// Variabler
 $artikeltime = "";
 $artikelnames = "";
 $artikelnames_aakare = "";
+
 // Hämtar ut den specifika artikeln 
 if(!empty($_GET))
 {

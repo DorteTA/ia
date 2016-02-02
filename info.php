@@ -13,9 +13,9 @@ include_once("inc/HTMLTemplate.php");
 // Uppkoblingen till databasen
 include_once("inc/Connstring.php");
 
+// Variabler
 $artikeltime = "";
 $artikeltime_aakare = "";
-
 $artikelnames = "";
 $artikelnames_aakare = "";
 $kategori = "";
