@@ -1,30 +1,30 @@
 <?php
 /*---------------------------------
-arkiv_juni.php
-Hämtar innehållet från juni månad
+arkiv_nytt.php
+Hämtar innehållet från artiklar
 ---------------------------------*/
 
-/*---------------------------------------------------
-Använder HTML-mallen där CSS och javascript ingår,
-så detta inte behövs tastas in på varje sida
----------------------------------------------------*/
+// Använder HTML-mallen där CSS och javascript ingår,
+// så detta inte behövs tastas in på varje sida
 include_once("inc/HTMLTemplate.php");
 
 // Uppkoblingen till databasen
 include_once("inc/Connstring.php");
 
 // Variabler
-$juni ="";
+$maanad ="";
+$januari ="";
 
-// Hämtar ut artiklar från juni månad och
+// Hämtar ut artiklar från januari månad och
 // visar senaste artikel först
 $query = <<<END
 
 	SELECT * FROM artikel
-	WHERE ArtikelTimeStamp LIKE '%2015-06%'
 	ORDER BY ArtikelTimeStamp DESC;
 
 END;
+
+// WHERE ArtikelTimeStamp LIKE '%2015-01%'
 
 // Hämta resultat
 $res = $mysqli->query($query) or die();
@@ -49,39 +49,44 @@ if($res->num_rows > 0)
 		$artikelid = $row->ArtikelId;
 		$artikelname = $row->ArtikelName;
 
-		// substr visar max antal ord anvisad här som 24
+		// substr visar max antal ord anvisad här som 28
 		$artikelsubtext = substr($artikelname, 0, 28);
 		
 		$artikeltimestamp = $row->ArtikelTimeStamp;
 	
 		// Strängen som innehåller HTML samt resultatet från databasen
-		$juni .= <<<END
+		$maanad .= <<<END
 
 <!-- kolumn m bredd 12 -->
 <div class="col-md-12 sans-padding-left pull-left">
-		
-	<!-- sätter in datum från artikel i DB -->
+
+	<!-- sätter in datum från artikel i DB -->         				
 	{$date}&nbsp; 
-		
-	<!-- Länkar till artikel och läser in den på index sidan -->
 	<a href="index.php?ArtikelId={$artikelid}">
 
-		<!-- visar förkortat namn på artikel och tre punktar efter -->		
+		<!-- visar förkortat namn på artikel -->							
 		{$artikelsubtext}...
-	</a><!-- slut på länka -->
-				
-</div><!-- end col md 12 -->
+	</a>
 				
 END;
 	}
 }
 
-// Visar databas-innehållet hämtad in i strängen $juni
+// Visar databas-innehållet hämtad in i strängen $januari
 $content .= <<<END
 
-{$juni}	
+{$maanad}
+
+<p>If you click on the "Hide" button, I will disappear.</p>
+
+<button id="hide">Hide</button>
+<button id="show">Show</button>
+
+</div><!-- end col md 12 -->
+
 								
 END;
+
 
 // Stänger resultaten
 $res->close();
