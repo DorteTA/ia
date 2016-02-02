@@ -4,7 +4,13 @@ arrangera.php
 elit
 ---------------------------------*/
 
+/*---------------------------------------------------
+Använder HTML-mallen där CSS och javascript ingår,
+så detta inte behövs tastas in på varje sida
+---------------------------------------------------*/
 include_once("inc/HTMLTemplate.php");
+
+// Uppkoblingen till databasen
 include_once("inc/Connstring.php");
 
 $artikeltime = "";
@@ -38,8 +44,6 @@ END;
 
 <div class="panel panel-yellow">
 	<div class="panel-heading">
-	Test
-	</div>
 
 	<h3 class="panel-title">
 	{$artikelname}
@@ -150,7 +154,7 @@ $content = <<<END
 
 				<div class="panel-heading">
 					<!-- Om oss undermeny -->		
-					<h3 class="panel-title yellow">Arrangera tävling</h3>
+					<h3 class="panel-title yellow">Förening / Arrangera tävling</h3>
 				</div><!-- panel heading -->					
 							
 				<div class="panel-body">

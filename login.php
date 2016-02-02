@@ -5,6 +5,10 @@ Inlogningssidan där användare och
 editörer kan logga in
 ---------------------------------*/
 
+/*---------------------------------------------------
+Använder HTML-mallen där CSS och javascript ingår,
+så detta inte behövs tastas in på varje sida
+---------------------------------------------------*/
 include_once("inc/HTMLTemplate.php");
 
 // Variabler

@@ -1,6 +1,11 @@
 <?php
 
+/*---------------------------------------------------
+Använder HTML-mallen där CSS och javascript ingår,
+så detta inte behövs tastas in på varje sida
+---------------------------------------------------*/
 include_once("inc/HTMLTemplate.php");
+
 include_once("inc/Connstring.php");
 
 // Variabler
