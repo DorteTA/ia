@@ -279,7 +279,7 @@ $sponsorer = <<<END
   <div class="panel panel-grey">
 
     <div class="panel-heading">
-      <h3 class="panel-title">Sponsorer</h3>
+      <h3 class="panel-title bold">Sponsorer</h3>
     </div><!-- panel heading -->
         
     <div class="panel-body">

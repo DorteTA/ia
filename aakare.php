@@ -17,12 +17,12 @@ include_once("inc/Connstring.php");
 $artikeltime = "";
 $artikelnames = "";
 $artikelnames_aakare = "";
-$artikelname_rubrik ="";
+//$artikelname_rubrik ="";
 $kategori = "";
 
 // Hämtar ut den specifika artikeln 
-if(!empty($_GET))
-{
+if(!empty($_GET)) {
+
 	$getartikelid = isset($_GET['ArtikelId']) ? $_GET['ArtikelId'] : '';
 
 	$query = <<<END
@@ -184,7 +184,7 @@ $content = <<<END
 				
 		<div class="col-xs-12 col-md-6">
 			{$artikeltime}	
-		</div><!-- mitten -->	
+		</div><!-- col xs 12 col md 6 -->	
 							
 		<!-- Rad högre m sponsorkarusell-->
 
