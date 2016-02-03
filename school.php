@@ -18,8 +18,7 @@ include_once("inc/Connstring.php");
 $artikeltime = "";
 $artikelnames = "";
 
-// Hämtar ut den specifika artikeln 
-
+// Hämtar ut den specifika artikeln
 if(!empty($_GET))
 {
 	$getartikelid = isset($_GET['ArtikelId']) ? $_GET['ArtikelId'] : '';
@@ -59,23 +58,22 @@ END;
 	}
 }
 // Om inte det finns nån artikel som skickats i adressfältet så görs detta
-else
-{
+else {
 
 $query = <<<END
 
-	SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori
+	SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, Kategori
 	FROM artikel
-	WHERE kategori = 'skola'
+	WHERE kategori = 'Skola'
 	ORDER BY Artikeltimestamp
 END;
 
 $res = $mysqli->query($query) or die();
 
-if($res->num_rows > 0)
-{
-	while($row = $res->fetch_object())
-	{
+if($res->num_rows > 0) {
+
+	while($row = $res->fetch_object()) {
+
 		$artikelId = $row->ArtikelId;
 		$artikelname = $row->ArtikelName;
 		$artikelmessage = $row->ArtikelMessage;
@@ -84,26 +82,30 @@ if($res->num_rows > 0)
 		$artikeltime .= <<<END
 
 		<div class="panel panel-yellow">
+		
 			<div class="panel-heading">
 				<h3 class="panel-title">{$artikelname}</h3>
 			</div><!-- panel-heading -->
+
 				<div class="panel-body">
 					{$artikelmessage}<br><br>	
 					{$artikeltimestamp}<br><br>		
-				</div><!-- panel-body -->
-		</div><!-- panel panel-yellow -->
-	
+				</div><!-- panel body -->
+		
+		</div><!-- panel panel yellow -->	
 
 END;
 	}
 }
+
 }
-// Hämtar ut undermenyn när användaren klickat på en länk
+
+// Hämtar ut resultat i undermenyn med kategori Nybörjare när användaren klickat på en länk
 $query = <<<END
 
-	SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori
+	SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, Kategori
 	FROM artikel
-	WHERE kategori = 'beginner'
+	WHERE kategori = 'Nybörjare'
 	ORDER BY Artikeltimestamp
 END;
 

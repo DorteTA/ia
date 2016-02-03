@@ -1,8 +1,9 @@
 <?php
-/*---------------------------------
+/*---------------------------------------------------
 index.php
-Startsidan / Hem
----------------------------------*/
+Startsidan / Hem med nyheter, nyhetsarkiv, feeds från
+sociala medier som Instagram, Twitter och Facebook
+---------------------------------------------------*/
 
 /*---------------------------------------------------
 Använder HTML-mallen där CSS och javascript ingår,

@@ -1,9 +1,8 @@
 <?php
-/*---------------------------------
+/*---------------------------------------------------
 login.php
-Inlogningssidan där användare och
-editörer kan logga in
----------------------------------*/
+Inlogningssidan där användare kan logga in
+---------------------------------------------------*/
 
 /*---------------------------------------------------
 Använder HTML-mallen där CSS och javascript ingår,

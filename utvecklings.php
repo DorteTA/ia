@@ -18,8 +18,8 @@ $artikeltime = "";
 $artikelnames = "";
 
 // Hämtar ut den specifika artikeln 
-if(!empty($_GET))
-{
+if(!empty($_GET)) {
+
 	$getartikelid = isset($_GET['ArtikelId']) ? $_GET['ArtikelId'] : '';
 
 	$query = <<<END
@@ -31,25 +31,28 @@ END;
 
 	$res = $mysqli->query($query) or die();
 
-	if($res->num_rows > 0)
-	{
-		while($row = $res->fetch_object())
-		{
+	if($res->num_rows > 0) {
+
+		while($row = $res->fetch_object()) {
+
 			$artikelname = $row->ArtikelName;
 			$artikelmessage = $row->ArtikelMessage;
 			$artikeltimestamp = $row->ArtikelTimeStamp;
 			
 			$artikeltime = <<<END
 
-		<div class="panel panel-yellow">
-			<div class="panel-heading">
-				<h3 class="panel-title">{$artikelname}</h3>
-			</div><!-- panel-heading -->
-				<div class="panel-body">
-					{$artikelmessage}	
-					{$artikeltimestamp}		
-				</div><!-- panel-body -->
-		</div><!-- panel panel-yellow -->
+<div class="panel panel-yellow">
+
+	<div class="panel-heading">
+	<h3 class="panel-title blue bold">{$artikelname}</h3>
+	</div><!-- panel heading -->
+
+	<div class="panel-body">
+		{$artikelmessage}	
+		{$artikeltimestamp}		
+	</div><!-- panel body -->
+
+</div><!-- panel panel yellow -->
 	
 
 END;
@@ -61,9 +64,9 @@ else
 {
 	$query = <<<END
 
-		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori
+		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, Kategori
 		FROM artikel
-		WHERE kategori = 'utvecklings'
+		WHERE kategori = 'Utvecklingskommitéen'
 		ORDER BY Artikeltimestamp
 END;
 
@@ -81,13 +84,13 @@ END;
 
 				<div class="panel panel-yellow">
 					<div class="panel-heading">
-						<h3 class="panel-title">{$artikelname}</h3>
+						<h3 class="panel-title blue bold">{$artikelname}</h3>
 					</div><!-- panel-heading -->
 						<div class="panel-body">
 							{$artikelmessage}
 							{$artikeltimestamp}
-						</div><!-- panel-body -->
-				</div><!-- panel panel-yellow -->
+						</div><!-- panel body -->
+				</div><!-- panel panel ellow -->
 			
 
 END;
@@ -97,9 +100,9 @@ END;
 // Hämtar ut undermenyn när användaren klickat på en länk
 $query = <<<END
 
-	SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori
+	SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, Kategori
 	FROM artikel
-	WHERE kategori = 'utvecklings'
+	WHERE kategori = 'Utvecklingskommitéen'
 	ORDER BY Artikeltimestamp
 END;
 
@@ -119,7 +122,7 @@ if($res->num_rows > 0)
 
 			<div class="collapse-in" id="dokument">
 								
-				<ul class="">
+				<ul class="meny">
           								
 	   				<a href="utvecklings.php?ArtikelId={$artikelId}">
 	   					<li>{$artikelname}</li>
@@ -136,13 +139,13 @@ $content = <<<END
        	<div id="content">
 			<div class="row">
 				<div class="col-md-3">
-					<div class="panel panel-blue">
+					<div class="panel panel-yellow">
 
 						<div class="panel-heading">
 						
 						<!-- Om oss undermeny -->
 						
-							<h3 class="panel-title yellow">Utvecklingskommiten</h3>
+							<h3 class="panel-title blue bold">Utvecklingskommiten</h3>
 						</div><!-- panel heading -->
 						</a>
 					

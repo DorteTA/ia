@@ -17,11 +17,15 @@ $searchResult = "";
 $artikelpic = "";
 $artikelpic_thumb = "";
 
-if(isset($_GET['search']))
-{
+// Sökfunktion
+if(isset($_GET['search'])) {
 
 	$search = $_GET['search'];
 
+	/*---------------------------------------------------
+	Välja allt från de artiklarna där artikelnamn eller
+	artikel-innehåll matcher sökord, visa senaste först.
+	---------------------------------------------------*/
 	$query = <<<END
 		SELECT * FROM artikel
 		WHERE artikelName
@@ -31,10 +35,9 @@ if(isset($_GET['search']))
 END;
 	$result = $mysqli->query($query) or die();
 
-	if($result->num_rows > 0)
-	{
-		while($row = $result->fetch_object())
-		{
+	if($result->num_rows > 0) {
+
+		while($row = $result->fetch_object()) {
 		
 		// Sätter tid till svenska
 		setlocale(LC_TIME, "sv_SE", "sv_SE.65001", "swedish");   

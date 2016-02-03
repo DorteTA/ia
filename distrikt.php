@@ -1,7 +1,7 @@
 <?php
 /*---------------------------------
 distrikt.php
-elit
+Kontakt / Distrikt och föreningar
 ---------------------------------*/
 
 /*---------------------------------------------------
@@ -16,8 +16,8 @@ include_once("inc/Connstring.php");
 // Variabler
 $artikeltime = "";
 $artikelnames = "";
-// Hämtar ut den specifika artikeln 
 
+// Hämtar ut den specifika artikeln
 if(!empty($_GET))
 {
 	$getartikelid = isset($_GET['ArtikelId']) ? $_GET['ArtikelId'] : '';

@@ -1,7 +1,7 @@
 <?php
 /*---------------------------------
 info.php
-information
+Tävla / Tävlingsinformation
 ---------------------------------*/
 
 /*---------------------------------------------------
@@ -81,7 +81,7 @@ else
 
 		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, Kategori
 		FROM artikel
-		WHERE kategori = 'arrangorer'
+		WHERE kategori = 'Arrangörer'
 		ORDER BY Artikeltimestamp
 END;
 

@@ -42,14 +42,17 @@ END;
 			$artikeltime = <<<END
 
 		<div class="panel panel-yellow">
+			
 			<div class="panel-heading">
 				<h3 class="panel-title">{$artikelname}</h3>
 			</div><!-- panel-heading -->
+
 				<div class="panel-body">
 					{$artikelmessage}	
 					{$artikeltimestamp}		
-				</div><!-- panel-body -->
-		</div><!-- panel panel-yellow -->
+				</div><!-- panel body -->
+
+		</div><!-- panel panel yellow -->
 	
 
 END;
@@ -61,18 +64,18 @@ else
 {
 	$query = <<<END
 
-		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori
+		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, Kategori
 		FROM artikel
-		WHERE kategori = 'sm'
+		WHERE kategori = 'SM'
 		ORDER BY Artikeltimestamp
 END;
 
 	$res = $mysqli->query($query) or die();
 
-		if($res->num_rows > 0)
-		{
-			while($row = $res->fetch_object())
-			{
+		if($res->num_rows > 0) {
+
+			while($row = $res->fetch_object()) {
+
 				$artikelname = $row->ArtikelName;
 				$artikelmessage = $row->ArtikelMessage;
 				$artikeltimestamp = $row->ArtikelTimeStamp;
@@ -80,26 +83,29 @@ END;
 				$artikeltime = <<<END
 
 				<div class="panel panel-yellow">
+					
 					<div class="panel-heading">
 						<h3 class="panel-title">{$artikelname}</h3>
 					</div><!-- panel-heading -->
+
 						<div class="panel-body">
 							{$artikelmessage}
 							{$artikeltimestamp}
-						</div><!-- panel-body -->
-				</div><!-- panel panel-yellow -->
-			
+						</div><!-- panel body -->
+
+				</div><!-- panel panel yellow -->
 
 END;
 			}
 		}
 }
+
 // Hämtar ut undermenyn när användaren klickat på en länk
 $query = <<<END
 
-	SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori
+	SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, Kategori
 	FROM artikel
-	WHERE kategori = 'sm'
+	WHERE kategori = 'SM'
 	ORDER BY Artikeltimestamp
 END;
 

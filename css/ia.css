@@ -442,9 +442,13 @@ color: #ffcc33;
   color:#fff;
 }
 
+.bold {
+  font-weight: 600;
+}
+
 /* Svart text-/ikonfärg */
 .black {
-  color: #000;
+  color: #111;
 }
 
 /* Gul text-/ikonfärg */

@@ -1,7 +1,7 @@
 <?php
 /*---------------------------------
-information / Åkare
 aakare.php
+information / Åkare
 ---------------------------------*/
 
 /*---------------------------------------------------
@@ -39,8 +39,8 @@ END;
 	if($res->num_rows > 0) {
 
 		
-		while($row = $res->fetch_object())
-		{
+		while($row = $res->fetch_object()) {
+
 			$artikelname = $row->ArtikelName;
 			$artikelmessage = $row->ArtikelMessage;
 			$artikeltimestamp = $row->ArtikelTimeStamp;
@@ -48,16 +48,17 @@ END;
 			
 			$artikeltime = <<<END
 
-		<div class="panel panel-yellow">
-			<div class="panel-heading">
-				<h3 class="panel-title">{$kategori} / {$artikelname}</h3>
-			</div><!-- panel-heading -->
-				<div class="panel-body">
-					{$artikelmessage}	
-					{$artikeltimestamp}		
-				</div><!-- panel-body -->
-		</div><!-- panel panel-yellow -->
-	
+<div class="panel panel-yellow">
+	<div class="panel-heading">
+	<h3 class="panel-title blue bold">{$kategori} / {$artikelname}</h3>
+	</div><!-- panel-heading -->
+
+	<div class="panel-body">
+		{$artikelmessage}	
+		{$artikeltimestamp}		
+	</div><!-- panel body -->
+
+</div><!-- panel panel yellow -->	
 
 END;
 		}
@@ -90,22 +91,21 @@ END;
 
 				$artikeltime = <<<END
 
-				<div class="panel panel-yellow">
-					<div class="panel-heading">
-						<h3 class="panel-title">{$kategori} / {$artikelname}</h3>
-					</div><!-- panel heading -->
+<div class="panel panel-yellow">
+	<div class="panel-heading">
+	<h3 class="panel-title blue bold">{$kategori} / {$artikelname}</h3>
+	</div><!-- panel heading -->
 
-						<div class="panel-body">
-							{$artikelmessage}
-							{$artikeltimestamp}
-						</div><!-- panel body -->
+	<div class="panel-body">
+		{$artikelmessage}
+		{$artikeltimestamp}
+	</div><!-- panel body -->
 
-				</div><!-- panel panel-yellow -->
+</div><!-- panel panel yellow -->
 			
 
 END;
 			$artikelname_rubrik = <<<END
-
 
 END;
 			} 
@@ -125,10 +125,10 @@ END;
 
 $res = $mysqli->query($query) or die();
 
-if($res->num_rows > 0)
-{
-	while($row = $res->fetch_object())
-	{
+if($res->num_rows > 0) {
+
+	while($row = $res->fetch_object()) {
+
 		$artikelId = $row->ArtikelId;
 		$artikelname = $row->ArtikelName;
 		
@@ -143,10 +143,10 @@ if($res->num_rows > 0)
 			<div class="collapse-in">
 								
 				<ul class="">
-	   				<a href="aakare.php?ArtikelId={$artikelId}">
-	   					<li>{$artikelname}</li>
-	   				</a>	   									
-	   			</ul>
+					<a href="aakare.php?ArtikelId={$artikelId}">
+						<li>{$artikelname}</li>
+					</a>	   									
+				</ul>
 			</div><!-- collapse -->
 					
 END;
@@ -155,8 +155,8 @@ END;
 
 		<div class="collapse-in">
 
-	   					Information / {$artikelname}	   									
-	   		
+						Tävlingsinformation / {$artikelname}	   									
+			
 			</div><!-- collapse -->
 
 END;
@@ -165,36 +165,34 @@ END;
 	
 }
 $content = <<<END
-			
-       	<div id="content">
-			<div class="row">
-				<div class="col-md-3">
-					<div class="panel panel-blue">
 
-						<div class="panel-heading">
-						
-						<!-- Info / Åkare -->
-						
-							<h3 class="panel-title yellow">{$kategori} / {$artikelname}</h3>
-						</div><!-- panel heading -->
-							
-						<div class="panel-body">
-							{$artikelnames}
-						</div><!-- panel body -->
-					</div><!-- panel panel blue -->									
-				</div><!-- col md 3 -->
+<div id="content">
+	<div class="row">
+		<div class="col-md-3">
+			<div class="panel panel-yellow">
+
+				<div class="panel-heading">						
+					<h3 class="panel-title blue bold">{$kategori} / {$artikelname}</h3>
+				</div><!-- panel heading -->
 				
-				<div class="col-xs-12 col-md-6">
-					{$artikeltime}	
-				</div><!-- mitten -->	
+				<div class="panel-body">
+					{$artikelnames}
+				</div><!-- panel body -->
+			</div><!-- panel panel blue -->
+
+		</div><!-- col md 3 -->
+				
+		<div class="col-xs-12 col-md-6">
+			{$artikeltime}	
+		</div><!-- mitten -->	
 							
-				<!-- Rad högre m sponsorkarusell-->
+		<!-- Rad högre m sponsorkarusell-->
 
-				{$sponsorer}
+		{$sponsorer}
 
-				</div><!-- col md 3 -->
+		</div><!-- col md 3 -->
 	</div><!-- row -->
-</div><!-- AVsluta content DIV -->
+</div><!-- content -->
 
 END;
 
