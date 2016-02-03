@@ -17,8 +17,7 @@ include_once("inc/Connstring.php");
 $artikeltime = "";
 $artikelnames = "";
 
-// Hämtar ut den specifika artikeln 
-
+// Hämtar ut den specifika artikeln
 if(!empty($_GET))
 {
 	$getartikelid = isset($_GET['ArtikelId']) ? $_GET['ArtikelId'] : '';
@@ -45,7 +44,7 @@ $artikeltime = <<<END
 <div class="panel panel-yellow">
 
 	<div class="panel-heading">
-		<h3 class="panel-title">{$artikelname}</h3>
+		<h3 class="panel-title blue bold">{$artikelname}</h3>
 	</div><!-- panel-heading -->
 
 	<div class="panel-body">
@@ -65,7 +64,7 @@ else {
 
 	$query = <<<END
 
-		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori
+		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, Kategori
 		FROM artikel
 		WHERE kategori = 'historia'
 		ORDER BY Artikeltimestamp
@@ -86,7 +85,7 @@ END;
 <div class="panel panel-yellow">
 
 	<div class="panel-heading">
-		<h3 class="panel-title">{$artikelname}</h3>
+		<h3 class="panel-title blue bold">{$artikelname}</h3>
 	</div><!-- panel heading -->
 
 	<div class="panel-body">
@@ -94,7 +93,7 @@ END;
 		{$artikeltimestamp}	
 	</div><!-- panel body -->
 
-</div><!-- panel panel-yellow -->
+</div><!-- panel panel yellow -->
 
 END;
 			}
@@ -104,7 +103,7 @@ END;
 // Hämtar ut undermenyn när användaren klickat på en länk
 $query = <<<END
 
-	SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori
+	SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, Kategori
 	FROM artikel
 	WHERE kategori = 'elit'
 	ORDER BY Artikeltimestamp
@@ -124,7 +123,7 @@ if($res->num_rows > 0) {
 $artikelnames .= <<<END
 
 <div class="collapse-in" id="dokument">							
-	<ul class="">
+	<ul class="meny">
 	<a href="elit.php?ArtikelId={$artikelId}">
 		<li>{$artikelname}</li>
 	</a>	   									
@@ -135,17 +134,20 @@ END;
 	}
 }
 $content = <<<END
-	
+
 <div id="content">
 	<div class="row">
+
+		<!-- vänster kolumn -->
+
 		<div class="col-md-3">
-			<div class="panel panel-blue">
+			<div class="panel panel-yellow">
 
 				<div class="panel-heading">
 						
 				<!-- Om oss undermeny -->
 						
-				<h3 class="panel-title yellow">Träna / Elitnivåträning</h3>
+				<h3 class="panel-title blue bold">Träna / Elitnivåträning</h3>
 				</div><!-- panel heading -->					
 							
 				<div class="panel-body">
@@ -159,27 +161,11 @@ $content = <<<END
 		</div><!-- mitten -->	
 							
 		<!-- Rad högre -->
-		<div class="col-md-3 pull-right">
-			<div class="panel panel-blue">
-				<div class="panel-heading">
-				<h3 class="panel-title">Sponsorer</h3>
-				</div><!-- panel-heading -->
-	
-				<div class="panel-body">
-				<p>På index-sidan ska här ligga en carousel m sponsorer och samarbetspartnare.
-				</p>
-				<p class="divider"></p>
-				<p>asdf as adfsfgsfgsdfgsdfg dfg dfg df gsdfg sdfg sdfg sdf gsdfg sdfg
-				sdf sdf asfa ssdfaj sdf. 
-				ksadfj asdf asdf asdf... asdf asdfasdf asdf sadf asdf as adfsfgsfg
-				sdfgsdfg dfg dfg df.
-				</p>
-				</div><!-- panel body -->
-
-			</div><!-- panel panel blue -->								
+			{$sponsorer}
 		</div><!-- col xs 6 col md 3 -->
+
 	</div> <!-- row -->
-</div><!-- AVsluta content DIV -->
+</div><!-- content -->
 
 END;
 

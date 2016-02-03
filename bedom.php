@@ -46,7 +46,7 @@ END;
 
 	<!-- Rubrik -->
 	<div class="panel-heading">
-		<h3 class="panel-title">{$artikelname}</h3>
+		<h3 class="panel-title blue bold">{$artikelname}</h3>
 	</div><!-- panel heading -->
 	
 	<!-- Innehåll under rubrik -->
@@ -66,7 +66,7 @@ else {
 
 	$query = <<<END
 
-		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori
+		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, Kategori
 		FROM artikel
 		WHERE kategori = 'bedom'
 		ORDER BY Artikeltimestamp
@@ -86,7 +86,7 @@ END;
 
 <div class="panel panel-yellow">
 	<div class="panel-heading">
-		<h3 class="panel-title">{$artikelname}</h3>
+		<h3 class="panel-title blue bold">{$artikelname}</h3>
 	</div><!-- panel-heading -->
 
 	<div class="panel-body">
@@ -103,7 +103,7 @@ END;
 // Hämtar ut undermenyn när användaren klickat på en länk
 $query = <<<END
 
-	SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, kategori
+	SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, Kategori
 	FROM artikel
 	WHERE kategori = 'bedom'
 	ORDER BY Artikeltimestamp
@@ -140,12 +140,15 @@ $content = <<<END
 			
 <div id="content">
 	<div class="row">
+
+		<!-- vänster kolumn -->
+	
 		<div class="col-md-3">
-			<div class="panel panel-blue">
+			<div class="panel panel-yellow">
 
 				<div class="panel-heading">
-					<!-- Träna undermeny -->						
-					<h3 class="panel-title yellow">Träna / Bedömning</h3>
+					<!-- Träna undermeny -->					
+					<h3 class="panel-title blue bold">Träna / Bedömning</h3>
 				</div><!-- panel heading -->					
 							
 				<div class="panel-body">
@@ -160,24 +163,9 @@ $content = <<<END
 		</div><!-- mitten -->	
 							
 		<!-- Rad högre -->
-		<div class="col-md-3 pull-right">
-			<div class="panel panel-blue">
-				<div class="panel-heading">
-					<h3 class="panel-title">Sponsorer</h3>
-				</div><!-- panel-heading -->
-		
-				<div class="panel-body">
-					<p>På index-sidan ska här ligga en carousel m sponsorer och samarbetspartnare.
-					</p>
-					<p class="divider"></p>
-					<p>asdf as adfsfgsfgsdfgsdfg dfg dfg df gsdfg sdfg sdfg sdf gsdfg sdfg
-					sdf sdf asfa ssdfaj sdf. 
-					ksadfj asdf asdf asdf... asdf asdfasdf asdf sadf asdf as adfsfgsfg
-					sdfgsdfg dfg dfg df.
-					</p>
-				</div><!-- panel body -->
-			</div><!-- panel panel blue -->								
-		</div><!-- col-xs-6 col-md-3 -->
+		{$sponsorer}
+		</div><!-- col md 3 -->
+
 	</div> <!-- row -->
 </div><!-- content -->
 
