@@ -32,22 +32,11 @@ p.padding-left {
   padding-top: 5px;
 }
 
+/* 15 px luft till vänster i ul */
 ul.meny {
-  padding-left: 0;
+  padding-left: 15px;
   padding-right: 0;
 }
-/*
-.fb-comments, .fb-comments iframe[style], .fb-comments span {
-   width: 100% !important; overflow-x: hidden !important; overflow-y: auto; 
-}
-
-*/
-/*
-.fb-feed {
-  max-width: 285px !important;
-   <!-- data-adapt-container-width="true" -->
-}
-*/
 
 /* Attributer för bläddring av sidor SK pagination-navigering */
 .pagination {

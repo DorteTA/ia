@@ -25,17 +25,17 @@ if(!empty($_GET))
 
 	$query = <<<END
 
-		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, Kategori
+		SELECT *
 		FROM artikel
 		WHERE ArtikelId = "{$getartikelid}";
 END;
 
 	$res = $mysqli->query($query) or die();
 
-	if($res->num_rows > 0)
-	{
-		while($row = $res->fetch_object())
-		{
+	if($res->num_rows > 0) {
+
+		while($row = $res->fetch_object()) {
+
 			$artikelname = $row->ArtikelName;
 			$artikelmessage = $row->ArtikelMessage;
 			$artikeltimestamp = $row->ArtikelTimeStamp;
@@ -46,7 +46,7 @@ END;
 <div class="panel panel-yellow">
 	<div class="panel-heading">
 
-	<h3 class="panel-title">
+	<h3 class="panel-title blue bold">
 	{$artikelname}
 	</h3>
 
@@ -69,9 +69,9 @@ else
 {
 	$query = <<<END
 
-		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, Kategori
+		SELECT *
 		FROM artikel
-		WHERE kategori = 'arrangera'
+		WHERE kategori = 'Arrangera'
 		ORDER BY ArtikelTimeStamp DESC;
 END;
 
@@ -89,7 +89,7 @@ END;
 
 <div class="panel panel-yellow">
 	<div class="panel-heading">
-	<h3 class="panel-title">
+	<h3 class="panel-title blue bold">
 		{$artikelname}
 	</h3>
 	</div><!-- panel-heading -->
@@ -108,9 +108,9 @@ END;
 // Hämtar ut undermenyn när användaren klickat på en länk
 $query = <<<END
 
-	SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, Kategori
+	SELECT *
 	FROM artikel
-	WHERE kategori = 'arrangera'
+	WHERE kategori = 'Arrangera'
 	ORDER BY ArtikelTimeStamp;
 
 END;

@@ -17,7 +17,6 @@ include_once("inc/Connstring.php");
 $artikeltime = "";
 $artikelnames = "";
 $artikelnames_aakare = "";
-//$artikelname_rubrik ="";
 $kategori = "";
 
 // Hämtar ut den specifika artikeln 
@@ -27,8 +26,7 @@ if(!empty($_GET)) {
 
 	$query = <<<END
 
-		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb, ArtikelTimeStamp,
-		 ArtikelSkribent, ArtikelFotograf, Kategori
+		SELECT *
 		FROM artikel
 		WHERE ArtikelId = "{$getartikelid}"
 		ORDER by ArtikelTimeStamp DESC;

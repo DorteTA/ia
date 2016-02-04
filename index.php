@@ -20,6 +20,7 @@ $artikelpic_thumb = "";
 $artikelskribent = "";
 $artikelnews = "";
 $artikelfotograf = "";
+$kategori = "";
 
 /*---------------------------------------------------
 Kollar om användaren är inloggat
@@ -37,7 +38,7 @@ $query = <<<END
 
 	SELECT *
 	FROM artikel
-	WHERE kategori = 'nyhet'
+	WHERE kategori = 'Nyhet'
 	ORDER BY artikelTimestamp DESC
 	LIMIT 5;
 END;
@@ -64,18 +65,36 @@ if($res->num_rows > 0) {
 		// encode gör att datum från DB visas på svenska
 		utf8_encode($date = strftime("%#d %B %Y", $date));
 		
+		// Sträng med artikelns id-nummer
 		$artikelid = $row->ArtikelId;
+
+		// Sträng med artikelns rubrik
 		$artikelname = $row->ArtikelName;
+
+		// Sträng med artikelns innehåll
 		$artikelmessage = $row->ArtikelMessage;
 
 		// substr visar max antal ord anvisad här som 75
 		$artikelsubtext = substr($artikelmessage, 0, 75);
-		$artikelpic = $row->ArtikelPic;
-		$artikelpic_thumb = $row->ArtikelPicThumb;
-		$artikeltimestamp = $row->ArtikelTimeStamp;
-		$artikelskribent = $row->ArtikelSkribent;
-		$artikelfotograf = $row->ArtikelFotograf;
 		
+		// sträng med artikelbild
+		$artikelpic = $row->ArtikelPic;
+
+		// Sträng med artikelbild förminskad
+		$artikelpic_thumb = $row->ArtikelPicThumb;
+
+		// Sträng med artikelns tid och datum
+		$artikeltimestamp = $row->ArtikelTimeStamp;
+
+		// Sträng med namn på artikelns skribent(er)
+		$artikelskribent = $row->ArtikelSkribent;
+
+		// Sträng med namn på artikelns fotograf(er)
+		$artikelfotograf = $row->ArtikelFotograf;
+
+		// Sträng med artikelns kategori
+		$kategori = $row->Kategori;
+
 		// Visar innehållet från databasen i strängen $artikelnews
 		$artikelnews .= <<<END
 		
@@ -112,8 +131,7 @@ if(!empty($_GET)) {
 
 		$query = <<<END
 
-		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb,
-		 ArtikelTimeStamp, ArtikelSkribent, ArtikelFotograf, kategori
+		SELECT *
 		FROM artikel
 		WHERE ArtikelId = "{$getartikelid}"
 		ORDER by ArtikelTimeStamp DESC;
@@ -132,7 +150,8 @@ END;
 			$artikelpic_thumb = $row->ArtikelPicThumb;
 			$artikeltimestamp = $row->ArtikelTimeStamp;
 			$artikelskribent= $row->ArtikelSkribent;
-			$artikelfotograf = $row->ArtikelFotograf;		
+			$artikelfotograf = $row->ArtikelFotograf;
+			$kategori = $row->Kategori;		
 		}
 
 	}
@@ -146,8 +165,7 @@ if(!empty($_GET))
 
 		$query = <<<END
 
-		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelPic, ArtikelPicThumb, ArtikelTimeStamp, ArtikelSkribent,
-		 ArtikelFotograf, kategori
+		SELECT *
 		FROM artikel
 		WHERE ArtikelId = "{$getartikelid}"
 		ORDER by ArtikelTimeStamp DESC;
@@ -176,6 +194,7 @@ END;
 		$artikeltimestamp = $row->ArtikelTimeStamp;
 		$artikelskribent = $row->ArtikelSkribent;
 		$artikelfotograf = $row->ArtikelFotograf;
+		$kategori = $row->Kategori;
 
 		}
 
@@ -183,24 +202,23 @@ END;
 	
 }		
 
-
 $content = <<<END
 
 <div id="content">
 	<div class="row">
 		<div class="col-md-3">
-			<div class="panel panel-blue">
+			<div class="panel panel-yellow">
 				<div class="panel-heading">
-					<h3 class="panel-title">Nyheter Juni</h3>
+					<h3 class="panel-title blue bold">Nyheter Juni</h3>
 				</div><!-- panel-heading -->
 				{$artikelnews}
 			</div><!-- panel panel blue -->
 
 			<!-- Nyhetsarkiv -->
 
-			<div class="panel panel-blue">
+			<div class="panel panel-yellow">
 				<div class="panel-heading">
-					<h3 class="panel-title">Nyhetsarkiv 2015</h3>
+					<h3 class="panel-title blue bold">Nyhetsarkiv 2015</h3>
 				</div><!-- panel-heading -->
 				<div class="panel-body">
 					<p class="divider"></p>
@@ -336,14 +354,15 @@ $content = <<<END
 
 				<!-- Rubrik -->
 				<div class="panel-heading">
-					<h3 class="panel-title">{$artikelname}</h3>
+					<h3 class="panel-title blue bold">{$artikelname}</h3>
 				</div><!-- panel heading -->
 
 				<!-- Artikel -->		
 				<div class="panel-body">
 
 					<!-- Artikelbild -->
-					<div class="col-lg-12 col-md-12 center-block img-responsive img-rounded sans-padding img-artikel pull-left">
+					<div class="col-lg-12 col-md-12 center-block img-responsive
+					 img-rounded sans-padding img-artikel pull-left">
 					{$artikelpic}
 					</div>
 					
@@ -361,7 +380,7 @@ $content = <<<END
 					</div>
 
 					<!-- Själva artikeln -->			
-						{$artikelmessage}
+					<p>{$artikelmessage}</p>
 
 				</div><!-- panel body -->
 			</div><!-- panel panel yellow -->
@@ -371,85 +390,111 @@ $content = <<<END
 		<!-- Rad högre m sponsorkarusell-->
 
 		{$sponsorer}
-
-		<!-- Skatesweden -->
+		
+		<!-- instagram -->
 			
-					<h3 class="panel-title blue"><strong>Skatesweden</strong></h3>							
+		<p class="bold blue">Instagram</p>							   								
+	   			  					
+  		<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-version="6"
+  		style=" background:#FFF; border:none; border-radius:3px; box-shadow:0 0 1px 0
+  		rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px;
+  		padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+	  		<div style="padding:8px;">
+	  			<div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50%
+	  			0; text-align:center; width:100%;">
+	  		    	<div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEU
+	  		    	gAAACwAAAAsCAMAAAApWqozAAAAGFBMVEUiIiI9PT0eHh4gIB4hIBkcHBwcHBwcHBydr+JQ
+	  		    	AAAACHRSTlMABA4YHyQsM5jtaMwAAADfSURBVDjL7ZVBEgMhCAQBAf//42xcNbpAqakcM0f
+	  		    	tUmFAAIBE81IqBJdS3lS6zs3bIpB9WED3YYXFPmHRfT8sgyrCP1x8uEUxLMzNWElFOYCV6m
+	  		    	HWWwMzdPEKHlhLw7NWJqkHc4uIZphavDzA2JPzUDsBZziNae2S6owH8xPmX8G7zzgKEOPUo
+	  		    	YHvGz1TBCxMkd3kwNVbU0gKHkx+iZILf77IofhrY1nYFnB/lQPb79drWOyJVa/DAvg9B/rL
+	  		    	B4cC+Nqgdz/TvBbBnr6GBReqn/nRmDgaQEej7WhonozjF+Y2I/fZou/qAAAAAElFTkSuQmC
+	  		    	C);	display:block; height:44px; margin:0 auto -44px; position:relative;
+	  	    		top:-22px; width:44px;">
+	  			</div><!-- background -->
+	  		</div><!-- padding -->
+
+	  		<p style="margin:8px 0 0 0; padding:0 4px;">
+	  			<a href="https://www.instagram.com/p/ggtNVvJu3E/" style=" color:#111;
+	  			font-family:Arial,sans-serif; font-size:14px; font-style:normal;
+	  			font-weight:normal; line-height:17px; text-decoration:none;
+	  			word-wrap:break-word;" target="_blank">
+	  				Hand
+	  			</a>
+	  		</p>
+	  		<p style="color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px;
+	  		line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px
+	  		0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">
+		  	    Ett filmklipp publicerat av SkateSwe (@skatesweden)
+		  		<time style=" font-family:Arial,sans-serif; font-size:14px;
+		  		line-height:17px;" datetime="2013-11-09T22:42:22+00:00">
+		  			Nov 9, 2013 kl. 2:42 PST
+		  		</time>
+	  		</p>
+	  		<!-- </div> -->
+  			</blockquote>
+					
+			<script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
+  					
+  			<p class="divider"></p>
+
+			<p class="bold blue">Twitter</p>
+
+			<blockquote class="twitter-tweet" data-cards="hidden" lang="sv">
+				<p lang="sv" dir="ltr">
+					Sveriges EM-trupp 2016 klar: Alexander Majorov, Joshi Helgesson, Isabelle
+					Olsson &amp; Matilda Algotsson – 
+					<a href="https://t.co/r1e1hb0VqB">
+						https://t.co/r1e1hb0VqB
+					</a>
+					<a href="https://twitter.com/hashtag/skatesweden?src=hash">
+						#skatesweden
+					</a>
+				</p>
 				
-					<!-- instagram -->
-						
-		   			<strong><p>Instagram</p></strong>
-	   											   								
-	   				<!-- Skatesweden Instagram -->         				
-					  					
-  					<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-version="6"
-  					 style=" background:#FFF; border:none; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0
-  					  1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%;
-  					   width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;">
-  					    <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50% 0;
-  					     text-align:center; width:100%;"> <div style="
-  					      background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAAGFBMVEUiIiI
-  					      	9PT0eHh4gIB4hIBkcHBwcHBwcHBydr+JQAAAACHRSTlMABA4YHyQsM5jtaMwAAADfSURBVDjL7ZVBEgMhCAQBAf//42xcN
-  					      	bpAqakcM0ftUmFAAIBE81IqBJdS3lS6zs3bIpB9WED3YYXFPmHRfT8sgyrCP1x8uEUxLMzNWElFOYCV6mHWWwMzdPEKHlh
-  					      	Lw7NWJqkHc4uIZphavDzA2JPzUDsBZziNae2S6owH8xPmX8G7zzgKEOPUoYHvGz1TBCxMkd3kwNVbU0gKHkx+iZILf77Io
-  					      	fhrY1nYFnB/lQPb79drWOyJVa/DAvg9B/rLB4cC+Nqgdz/TvBbBnr6GBReqn/nRmDgaQEej7WhonozjF+Y2I/fZou/qAAA
-  					      	AAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px;
-  					      	 width:44px;"></div></div> <p style=" margin:8px 0 0 0; padding:0 4px;">
-  					      	  <a href="https://www.instagram.com/p/ggtNVvJu3E/"
-  					      	   style=" color:#000;
-  					      	   font-family:Arial,sans-serif;
-  					      	    font-size:14px;
-  					      	     font-style:normal;
-  					      	      font-weight:normal;
-  					      	    line-height:17px;
-  					      	     text-decoration:none; word-wrap:break-word;" target="_blank">Hand</a></p>
-  					      	     <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px;
-  					      	      margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center;
-  					      	       text-overflow:ellipsis; white-space:nowrap;">Ett filmklipp publicerat av SkateSwe
-  					      	        (@skatesweden) <time style=" font-family:Arial,sans-serif; font-size:14px;
-  					      	         line-height:17px;" datetime="2013-11-09T22:42:22+00:00">Nov 9, 2013 kl. 2:42 PST</time>
-  					      	         </p>
-  					      	         </div>
-  					      	         </blockquote>
-					<script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
-  					<p class="divider"></p>
+				&mdash; Konståkningförbundet (@skatesweden)
+				
+				<a href="https://twitter.com/skatesweden/status/676656223920504832">
+					15 december 2015
+				</a>
+			</blockquote>
 
-					<strong>Twitter</strong>
-
-					<blockquote class="twitter-tweet" data-cards="hidden" lang="sv"><p lang="sv" dir="ltr">
-					Sveriges EM-trupp 2016 klar: Alexander Majorov, Joshi Helgesson, Isabelle Olsson &amp;
-					 Matilda Algotsson – <a href="https://t.co/r1e1hb0VqB">https://t.co/r1e1hb0VqB</a>
-					  <a href="https://twitter.com/hashtag/skatesweden?src=hash">#skatesweden</a></p>
-					  &mdash; Konståkningförbundet (@skatesweden)
-					   <a href="https://twitter.com/skatesweden/status/676656223920504832">15 december 2015</a>
-					   </blockquote>
-					<!-- script for Twitter feeds -->
-					<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-					<p class="divider"></p>
-
-					<p><strong>Facebook</strong></p>
-
+			<!-- script for Twitter feeds -->
+			
+			<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+			
+			<p class="divider"></p>
+			<p class="bold blue">Facebook</p>					
+			<div id="fb-root"></div>
 					
-
-					<div id="fb-root"></div>
+			<script>(function(d, s, id) {  var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;  js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/da_DK/sdk.js#xfbml=1&version=v2.3";
+			fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));
+			</script>
 					
-					<script>(function(d, s, id) {  var js, fjs = d.getElementsByTagName(s)[0];
-					  if (d.getElementById(id)) return;  js = d.createElement(s); js.id = id;
-					  js.src = "//connect.facebook.net/da_DK/sdk.js#xfbml=1&version=v2.3";
-					    fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));
-					</script>
-					
-					<div class="fb-post"
-					 data-href="https://www.facebook.com/skatesweden/posts/1765399140354593" data-width="285">
-					 <div class="fb-xfbml-parse-ignore">
-					 
-					 <blockquote cite="https://www.facebook.com/skatesweden/posts/1765399140354593">
-					 <p class="14px">Uppladdningen inf&#xf6;r EM forts&#xe4;tter! L&#xe4;s om Isabelle Olssons och Matilda
-					  Algotssons f&#xf6;rv&#xe4;ntningar i Skateswedens intervju. #skatesweden</p>Opslået af
-					   <a href="https://www.facebook.com/skatesweden/">Skate Sweden - Swedish Figure Skating</a>
-					    på&nbsp;<a href="https://www.facebook.com/skatesweden/posts/1765399140354593">19. januar 2016</a>
-					    </blockquote></div></div>
-						
+			<div class="fb-post" 
+			data-href="https://www.facebook.com/skatesweden/posts/1765399140354593"
+			data-width="285">
+				<div class="fb-xfbml-parse-ignore">		 
+			 		<blockquote cite="https://www.facebook.com/skatesweden/posts/1765399140354593">
+					 	<p class="14px">
+					 		Uppladdningen inf&#xf6;r EM forts&#xe4;tter! L&#xe4;s om Isabelle
+					 		Olssons och Matilda Algotssons f&#xf6;rv&#xe4;ntningar i Skateswedens
+					 		intervju. #skatesweden
+					 	</p>
+					 	
+					 	Opslået af
+					 	<a href="https://www.facebook.com/skatesweden/">
+					 		Skate Sweden - Swedish Figure Skating
+					 	</a>
+					    på&nbsp;
+					    <a href="https://www.facebook.com/skatesweden/posts/1765399140354593">
+					    	19. januar 2016
+					    </a>
+					</blockquote>
+				</div><!-- fb -->
+			</div><!-- fb post -->
 		</div><!-- col md 3 pull right -->
 	</div><!-- row -->
 </div><!-- content -->

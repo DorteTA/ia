@@ -20,7 +20,8 @@ $januari ="";
 // visar senaste artikel först
 $query = <<<END
 
-	SELECT * FROM artikel
+	SELECT *
+	FROM artikel
 	WHERE ArtikelTimeStamp LIKE '%2015-01%'
 	ORDER BY ArtikelTimeStamp DESC;
 
@@ -33,27 +34,30 @@ $res = $mysqli->query($query) or die();
 date_default_timezone_set("Europe/Stockholm");
 
 // Om artiklar finns
-if($res->num_rows > 0)
-{
+if($res->num_rows > 0) {
+
 	// Kör igenom resultatet
-	while($row = $res->fetch_object())
-	{
-		// Sätter tid till svenska
+	while($row = $res->fetch_object()) {
+
+// Sätter tid till svenska
 		setlocale(LC_TIME, "sv_SE", "sv_SE.65001", "swedish");   
 		$date = strtotime($row->ArtikelTimeStamp);
-
 		
-		//encode gör att datum från DB visas på svenska
+		// Encode gör att datum från DB visas på svenska
 		utf8_encode($date = strftime("%#d %B", $date));
 		
+		// Sträng med artikelns id-nummer
 		$artikelid = $row->ArtikelId;
+
+		// Sträng med artikelns rubrik
 		$artikelname = $row->ArtikelName;
 
-		// substr visar max antal ord anvisad här som 28
+		// Substr visar max antal ord anvisad här som 28
 		$artikelsubtext = substr($artikelname, 0, 28);
 		
+		// Sträng med artikelns tid och datum
 		$artikeltimestamp = $row->ArtikelTimeStamp;
-	
+			
 		// Strängen som innehåller HTML samt resultatet från databasen
 		$januari .= <<<END
 
