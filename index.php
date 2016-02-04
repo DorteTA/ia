@@ -140,10 +140,10 @@ END;
 
 	$res = $mysqli->query($query) or die();
 
-	if($res->num_rows == 1)
-	{
-		while($row = $res->fetch_object())
-		{
+	if($res->num_rows == 1)	{
+
+		while($row = $res->fetch_object()) {
+			
 			$artikelname = $row->ArtikelName;
 			$artikelmessage = $row->ArtikelMessage;
 			$artikelpic = $row->ArtikelPic;

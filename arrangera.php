@@ -57,8 +57,8 @@ END;
 		{$artikelmessage}	
 		{$artikeltimestamp}		
 
-	</div><!-- panel-body -->
-</div><!-- panel panel-yellow -->
+	</div><!-- panel body -->
+</div><!-- panel panel yellow -->
 	
 END;
 		}
@@ -133,13 +133,7 @@ if($res->num_rows > 0)
 	<a href="arrangera.php?ArtikelId={$artikelId}">
 		<li>{$artikelname}</li>
 	</a>
-	</ul>
-	
-	<div class="collapse-in" id="dokument">
-	  <a href="arkiv_juni.php?maanad='Juni'">
-	  	Juni
-	  </a>						
-	</div><!-- collapse -->	   									
+	</ul>							
 	   			
 </div><!-- collapse -->
 					

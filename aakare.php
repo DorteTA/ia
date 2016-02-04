@@ -48,8 +48,8 @@ END;
 
 <div class="panel panel-yellow">
 	<div class="panel-heading">
-	<h3 class="panel-title blue bold">{$kategori} / {$artikelname}</h3>
-	</div><!-- panel-heading -->
+		<h3 class="panel-title blue bold">{$kategori} / {$artikelname}</h3>
+	</div><!-- panel heading -->
 
 	<div class="panel-body">
 		{$artikelmessage}	
@@ -140,7 +140,7 @@ if($res->num_rows > 0) {
 
 			<div class="collapse-in">
 								
-				<ul class="">
+				<ul class="meny">
 					<a href="aakare.php?ArtikelId={$artikelId}">
 						<li>{$artikelname}</li>
 					</a>	   									
