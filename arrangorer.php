@@ -18,8 +18,8 @@ $artikeltime = "";
 $artikelnames = "";
 
 // Hämtar ut den specifika artikeln 
-if(!empty($_GET))
-{
+if(!empty($_GET)) {
+
 	$getartikelid = isset($_GET['ArtikelId']) ? $_GET['ArtikelId'] : '';
 
 	$query = <<<END
@@ -31,10 +31,10 @@ END;
 
 	$res = $mysqli->query($query) or die();
 
-	if($res->num_rows > 0)
-	{
-		while($row = $res->fetch_object())
-		{
+	if($res->num_rows > 0) {
+
+		while($row = $res->fetch_object()) {
+
 			$artikelname = $row->ArtikelName;
 			$artikelmessage = $row->ArtikelMessage;
 			$artikeltimestamp = $row->ArtikelTimeStamp;
@@ -45,14 +45,14 @@ END;
 
 	<div class="panel-heading">
 		<h3 class="panel-title">{$artikelname}</h3>
-	</div><!-- panel-heading -->
+	</div><!-- panel heading -->
 	
 	<div class="panel-body">
 		{$artikelmessage}	
 		{$artikeltimestamp}		
-	</div><!-- panel-body -->
+	</div><!-- panel body -->
 
-</div><!-- panel panel-yellow -->
+</div><!-- panel panel yellow -->
 	
 
 END;
@@ -60,8 +60,8 @@ END;
 	}
 }
 // Om inte det finns nån artikel som skickats i adressfältet så görs detta
-else
-{
+else {
+
 	$query = <<<END
 
 		SELECT ArtikelId, ArtikelName, ArtikelMessage, ArtikelTimeStamp, Kategori
@@ -72,25 +72,27 @@ END;
 
 	$res = $mysqli->query($query) or die();
 
-		if($res->num_rows > 0)
-		{
-			while($row = $res->fetch_object())
-			{
+		if($res->num_rows > 0) {
+
+			while($row = $res->fetch_object()) {
+
 				$artikelname = $row->ArtikelName;
 				$artikelmessage = $row->ArtikelMessage;
 				$artikeltimestamp = $row->ArtikelTimeStamp;
 
 				$artikeltime = <<<END
 
-				<div class="panel panel-yellow">
-					<div class="panel-heading">
-						<h3 class="panel-title">{$artikelname}</h3>
-					</div><!-- panel-heading -->
-						<div class="panel-body">
-							{$artikelmessage}
-							{$artikeltimestamp}
-						</div><!-- panel-body -->
-				</div><!-- panel panel-yellow -->
+<div class="panel panel-yellow">
+	<div class="panel-heading">
+		<h3 class="panel-title">{$artikelname}</h3>
+	</div><!-- panel heading -->
+	
+	<div class="panel-body">
+		{$artikelmessage}
+		{$artikeltimestamp}
+	</div><!-- panel body -->
+
+</div><!-- panel panel yellow -->
 			
 
 END;
