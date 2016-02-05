@@ -9,7 +9,7 @@ sidor
 ----------------------------------------------------------*/
 
 // Uppkoblingen till databasen
-include_once("inc/Connstring.php");
+//include_once("inc/Connstring.php");
 
 // Börja session
 session_start();
@@ -276,10 +276,10 @@ $sponsorer = <<<END
 <!-- Rad högre m sponsorkarusell-->
 
 <div class="col-md-3 pull-right">
-  <div class="panel panel-grey">
+  <div class="panel panel-yellow">
 
     <div class="panel-heading">
-      <h3 class="panel-title bold">Sponsorer</h3>
+      <h3 class="panel-title bold blue">Sponsorer</h3>
     </div><!-- panel heading -->
         
     <div class="panel-body">

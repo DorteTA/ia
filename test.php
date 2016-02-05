@@ -13,6 +13,8 @@ include_once("inc/HTMLTemplate.php");
 // Uppkoblingen till databasen
 include_once("inc/Connstring.php");
 
+include_once("inc/Artiklar.php");
+
 // Variabler
 $artikeltime = "";
 $artikelnames = "";
@@ -199,32 +201,7 @@ END;
 
 $content = <<<END
 			
-<div id="content">
-	<div class="row">
-		<div class="col-md-3">
-			<div class="panel panel-yellow">
-
-				<div class="panel-heading">			
-					<h3 class="panel-title blue bold">Om oss / Historia</h3>
-				</div><!-- panel heading -->							
-				
-				<div class="panel-body">
-					{$artikelnames}
-				</div><!-- panel body -->
-
-			</div><!-- panel panel yellow -->									
-		</div><!-- col md 3 -->
-				
-		<div class="col-xs-12 col-md-6">
-			{$artikeltime}	
-		</div><!-- mitten -->	
-								
-		<!-- Rad högre m sponsorkarusell-->
-			{$sponsorer}
-		
-		</div><!-- col md 3 -->
-	</div> <!-- row -->
-</div><!-- content -->
+{$visa_artikel}
 
 END;
 

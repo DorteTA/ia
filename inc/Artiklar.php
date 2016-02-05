@@ -1,17 +1,16 @@
 <?php
 /*---------------------------------
-aakare.php
-information / Åkare
+Artiklar
 ---------------------------------*/
 
 /*---------------------------------------------------
 Använder HTML-mallen där CSS och javascript ingår,
 så detta inte behövs tastas in på varje sida
 ---------------------------------------------------*/
-include_once("inc/HTMLTemplate.php");
+include_once('HTMLTemplate.php');
 
 // Uppkoblingen till databasen
-include_once("inc/Connstring.php");
+include_once('Connstring.php');
 
 // Variabler
 $artikeltime = "";
