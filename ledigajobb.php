@@ -13,15 +13,6 @@ include_once("inc/HTMLTemplate.php");
 // Uppkoblingen till databasen
 include_once("inc/Connstring.php");
 
-/*---------------------------------------------------
-Använder HTML-mallen där CSS och javascript ingår,
-så detta inte behövs tastas in på varje sida
----------------------------------------------------*/
-include_once("inc/HTMLTemplate.php");
-
-// Uppkoblingen till databasen
-include_once("inc/Connstring.php");
-
 // Variabler
 $artikelnames = "";
 $kategori = "";
@@ -133,7 +124,7 @@ else {
 
 		SELECT *
 		FROM artikel
-		WHERE kategori = 'ledigajobb'
+		WHERE kategori = 'Lediga jobb'
 		ORDER BY ArtikelTimeStamp DESC;
 END;
 
@@ -189,7 +180,7 @@ END;
 
 		<!-- Rubrik -->
 		<div class="panel-heading">
-			<h3 class="panel-title blue bold">{$kategori} / {$artikelname}</h3>
+			<h3 class="panel-title blue bold">{$artikelname}</h3>
 		</div><!-- panel heading -->
 
 		<!-- Artikel -->		
@@ -229,7 +220,7 @@ $query = <<<END
 
 	SELECT ArtikelId, ArtikelName, Kategori
 	FROM artikel
-	WHERE kategori = 'ledigajobb'
+	WHERE kategori = 'Lediga jobb'
 	ORDER BY ArtikelTimeStamp ASC;
 	
 END;
@@ -273,10 +264,12 @@ $content = <<<END
 	<div class="row">
 		<div class="col-md-3">
 
+			<!-- Vänster kolumn -->
+
 			<!-- gult panel -->
 			<div class="panel panel-yellow">
 				<div class="panel-heading">
-					<h3 class="panel-title blue bold">Kontakt</h3>
+					<h3 class="panel-title blue bold">Kontakt / {$kategori}</h3>
 				</div><!-- panel heading -->					
 							
 				<div class="panel-body">
@@ -285,13 +278,13 @@ $content = <<<END
 			</div><!-- panel panel yellow -->									
 		</div><!-- col md 3 -->
 				
-		<!-- mitten -->
+		<!-- Centrerad kolumn -->
 
 		<div class="col-md-6">
-			{$visa_artikel}				
-		</div><!-- mitten -->
+			{$visa_artikel}		
+		</div><!-- Centrerad kolumn -->
 
-		<!-- Rad högre m sponsorkarusell-->
+		<!-- Högre  kolumn m sponsorkarusell-->
 			{$sponsorer}
 		</div><!-- col xs 6 col md 3 -->
 
