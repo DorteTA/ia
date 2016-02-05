@@ -34,7 +34,6 @@ END;
 Ger felmeddelande om databasen inte kan köras och
 hänvisar till felnummer, annars körs den
 ---------------------------------------------------*/
-
 $res = $mysqli->query($query) or die("Could not query database" . $mysqli->errno . " : " . $mysqli->error);
 
 if($res->num_rows > 0) {
@@ -129,10 +128,15 @@ else {
 		ORDER BY ArtikelTimeStamp DESC;
 END;
 
+	/*---------------------------------------------------
+	Ger felmeddelande om databasen inte kan köras och
+	hänvisar till felnummer, annars körs den
+	---------------------------------------------------*/
 	$res = $mysqli->query($query) or die("Could not query database" . $mysqli->errno . " : " . $mysqli->error);
 
 		if($res->num_rows > 0) {
 
+			// Kör resultat
 			while($row = $res->fetch_object()) {
 
 			// Sätter tid till svenska
@@ -220,16 +224,23 @@ $query = <<<END
 	
 END;
 
-$res = $mysqli->query($query) or die();
+/*------------------------------------------------
+Ger felmeddelande om databasen inte kan köras och
+hänvisar till felnummer, annars körs den
+------------------------------------------------*/
+$res = $mysqli->query($query) or die("Could not query database" . $mysqli->errno . " : " . $mysqli->error);
 
+// Om det finns några artiklar
 if($res->num_rows > 0) {
 
+	// Kör resultat
 	while($row = $res->fetch_object()) {
 
 		$artikelId = $row->ArtikelId;
 		$artikelname = $row->ArtikelName;
 		$kategori = $row->Kategori;
 
+		// Visar artikelnamn på länkar
 		$artikelnames .= <<<END
 
 			<div class="collapse-in" id="dokument">
