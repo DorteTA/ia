@@ -103,9 +103,6 @@ END;
 			
 
 END;
-			$artikelname_rubrik = <<<END
-
-END;
 			} 
 		}
 }
