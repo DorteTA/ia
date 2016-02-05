@@ -27,7 +27,9 @@ if(!empty($_GET)) {
 
 		SELECT *
 		FROM artikel
-		WHERE ArtikelId = "{$getartikelid}";
+		WHERE ArtikelId = "{$getartikelid}"
+		ORDER by ArtikelTimeStamp DESC;
+
 END;
 
 /*---------------------------------------------------
@@ -221,7 +223,7 @@ $query = <<<END
 	SELECT ArtikelId, ArtikelName, Kategori
 	FROM artikel
 	WHERE kategori = 'Lediga jobb'
-	ORDER BY ArtikelTimeStamp ASC;
+	ORDER BY ArtikelTimeStamp DESC;
 	
 END;
 
@@ -257,7 +259,6 @@ END;
 	}
 }
 
-
 $content = <<<END
 		
 <div id="content">
@@ -292,6 +293,12 @@ $content = <<<END
 </div><!-- content -->
 
 END;
+
+// Stänger resultaten
+$res->close();
+
+// Stänger ned uppkoblingen med databasen
+$mysqli->close();
 
 echo $header;
 echo $content;
