@@ -177,40 +177,40 @@ END;
 
 			$visa_artikel = <<<END
 
-	<!-- artikeln i mitten -->
-	<div class="panel panel-yellow">
+<!-- artikeln i mitten -->
+<div class="panel panel-yellow">
 
-		<!-- Rubrik -->
-		<div class="panel-heading">
-			<h3 class="panel-title blue bold">{$artikelname}</h3>
-		</div><!-- panel heading -->
+	<!-- Rubrik -->
+	<div class="panel-heading">
+		<h3 class="panel-title blue bold">{$artikelname}</h3>
+	</div><!-- panel heading -->
 
-		<!-- Artikel -->		
-		<div class="panel-body">
+	<!-- Artikel -->		
+	<div class="panel-body">
 
-		<!-- Artikelbild -->
-		<div class="col-lg-12 col-md-12 center-block img-responsive
-			 img-rounded sans-padding img-artikel pull-left">
-			{$artikelpic}
-		</div>
+	<!-- Artikelbild -->
+	<div class="col-lg-12 col-md-12 center-block img-responsive
+		 img-rounded sans-padding img-artikel pull-left">
+		{$artikelpic}
+	</div>
 					
-		<!-- Div som innehåller skribentnamn och fotografnamn -->
-		<div class="col-lg-12 sans-padding pull-left">
+	<!-- Div som innehåller skribentnamn och fotografnamn -->
+	<div class="col-lg-12 sans-padding pull-left">
 						
-			<p class="col-md-6 sans-padding-left text-muted text-left pull-left">
-				Publicerad: {$date} av <i>{$artikelskribent}</i> 
-			</p>
+		<p class="col-md-6 sans-padding-left text-muted text-left pull-left">
+			Publicerad: {$date} av <i>{$artikelskribent}</i> 
+		</p>
 
-			<p class="col-md-6 text-muted text-right sans-padding-right pull-right">
-				{$artikelfotograf}
-			</p>
+		<p class="col-md-6 text-muted text-right sans-padding-right pull-right">
+			{$artikelfotograf}
+		</p>
 					
-		</div><!-- skribent och fotograf -->
+	</div><!-- skribent och fotograf -->
 
-		<!-- Själva artikeln -->			
-			<p>{$artikelmessage}</p>
-		</div><!-- panel body -->
-	</div><!-- panel panel yellow -->
+	<!-- Själva artikeln -->			
+		<p>{$artikelmessage}</p>
+	</div><!-- panel body -->
+</div><!-- panel panel yellow -->
 
 END;
 			}
