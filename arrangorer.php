@@ -110,10 +110,10 @@ END;
 
 $res = $mysqli->query($query) or die();
 
-if($res->num_rows > 0)
-{
-	while($row = $res->fetch_object())
-	{
+if($res->num_rows > 0) {
+
+	while($row = $res->fetch_object()) {
+
 		$artikelId = $row->ArtikelId;
 		$artikelname = $row->ArtikelName;
 		$artikelmessage = $row->ArtikelMessage;
@@ -121,9 +121,8 @@ if($res->num_rows > 0)
 
 		$artikelnames .= <<<END
 
-<div class="collapse-in" id="dokument">
-			
-	<ul class="">        								
+<div class="collapse-in" id="dokument">		
+	<ul class="meny">					
 		<a href="arrangorer.php?ArtikelId={$artikelId}">
 			<li>{$artikelname}</li>
 		</a>	   									
