@@ -132,7 +132,7 @@ else {
 
 		SELECT *
 		FROM artikel
-		WHERE kategori = 'om'
+		WHERE kategori = 'Organisation'
 		ORDER BY ArtikelTimeStamp DESC;
 END;
 
@@ -228,7 +228,7 @@ $query = <<<END
 
 	SELECT ArtikelId, ArtikelName, Kategori
 	FROM artikel
-	WHERE kategori = 'om'
+	WHERE kategori = 'Organisation'
 	ORDER BY ArtikelTimeStamp DESC;
 	
 END;
