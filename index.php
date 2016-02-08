@@ -209,7 +209,7 @@ $content = <<<END
 		<div class="col-md-3">
 			<div class="panel panel-yellow">
 				<div class="panel-heading">
-					<h3 class="panel-title blue bold">Nyheter Juni</h3>
+					<h3 class="panel-title blue">Nyheter Juni</h3>
 				</div><!-- panel-heading -->
 				{$artikelnews}
 			</div><!-- panel panel blue -->
@@ -218,7 +218,7 @@ $content = <<<END
 
 			<div class="panel panel-yellow">
 				<div class="panel-heading">
-					<h3 class="panel-title blue bold">Nyhetsarkiv 2015</h3>
+					<h3 class="panel-title blue">Nyhetsarkiv 2015</h3>
 				</div><!-- panel-heading -->
 				<div class="panel-body">
 					<p class="divider"></p>
