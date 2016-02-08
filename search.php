@@ -49,39 +49,52 @@ END;
 		$artikelid = $row->ArtikelId;
 		$artikelname = $row->ArtikelName;
 		$artikelmessage = $row->ArtikelMessage;
-		$artikelsubtext = substr($artikelmessage, 0, 80);
+		$artikelsubtext = substr($artikelmessage, 0, 76);
 		$artikelpic = $row->ArtikelPic;
 		$artikelpic_thumb = $row->ArtikelPicThumb;
 		$artikeltimestamp = $row->ArtikelTimeStamp;
 
 			$searchResult .= <<<END
-							<div class="media">
-								<a class="pull-left" href="index.php?ArtikelId={$artikelid}">
+
+						<div class="media media-height search-result">
+
+							<div class="media-height media-left media-top search-result">
+								<a href="index.php?ArtikelId={$artikelid}">
 									{$artikelpic_thumb}
 								</a>
 								
 								<div class="tid-nyheter">
 									{$date}
 								</div>
-								
-								<div class="media-body">
-									<h4 class="media-heading">
+							</div><!-- media -->
+
+							<div class="media-body search-result">
+								<h4 class="media-heading">
+									<p class="search-result">
 										<a href="index.php?ArtikelId={$artikelid}">
 											{$artikelname}
 										</a>
-									</h4>
-									{$artikelsubtext} ...
+									</p>
+								</h4>
+								<p class="search-result">{$artikelsubtext} ...
+								
+								</p>			
 
-								</div><!-- media body -->
-							</div><!-- media -->
+							</div><!-- media body -->
+
+						</div><!-- media -->
+						<hr>
+
+
+
 END;
 
 		}
 	}
-	else
-	{
-		$feedback .= "<p class=\"feedback-warning\">Det finns ingen artikel i databasen med det ordet.</p>";
 
+	else {
+		
+		$feedback .= "<p class=\"feedback-warning\">Det finns ingen artikel i databasen med det ordet.</p>";
 	}
 }
 $content .= <<<END
@@ -96,14 +109,15 @@ $content .= <<<END
 			<div class="panel panel-yellow">
 				
 				<div class="panel-heading">
-					<h3 class="panel-title">Sökresultat</h3>
+					<h3 class="panel-title blue bold">Sökresultat för {$search}</h3>
 				</div><!-- panel-heading -->
 				
-				<div class="panel-body">
+				<div class="panel-body search-result">
 
+					<p class="search-result">
 					{$feedback}
 					{$searchResult}
-
+					</p>
 				</div><!-- panel body -->
 			
 			</div><!-- panel panel yellow -->
@@ -114,9 +128,7 @@ $content .= <<<END
 
 		{$sponsorer}
 
-		</div><!-- sponsorer -->
-
-
+		</div>
 	</div><!-- row -->
 </div><! -- content -->
 END;

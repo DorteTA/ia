@@ -27,6 +27,22 @@ body {
   
 }
 
+/* Attributer för sökresultat så all text inkl rubriker */
+/* visas med samma storlek och format */
+.search-result > h4, h3, h2, h1, p, div {
+  font-size: 14px;
+  font-weight: normal !important;
+  font-variant: normal;
+}
+
+hr:after {display:none;}
+
+.media-height {
+  max-height: 100px;
+  min-height: 80px;
+  overflow: hidden;
+}
+
 p.padding-left {
   padding-left: 15px;
   padding-top: 5px;
