@@ -26,7 +26,7 @@ body {
   overflow-x: hidden;
   
 }
-.panel-heading > h1, h2, h3, h3.panel-title, h4, h4.h3.panel-title {
+.panel-heading > h1, h2, h3, h3.panel-title, h4, h4.h3.panel-title, p.bold {
   font-weight: 600;
 }
 
@@ -35,9 +35,9 @@ body {
   font-weight: normal;
 }
 
-.panel-heading, .media-heading > h4, h4.panel-title {
+.panel-heading, .media-body, .media-heading > h4, h4.panel-title {
   font-size: 14px;
-  font-weight: normal;
+  font-weight: normal !important;
 }
 
 
