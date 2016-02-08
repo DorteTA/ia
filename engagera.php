@@ -249,7 +249,7 @@ if($res->num_rows > 0) {
 <div class="collapse-in" id="dokument">
 	<ul class="meny">
           								
-	   	<a href="utbildning.php?ArtikelId={$artikelId}">
+	   	<a href="engagera.php?ArtikelId={$artikelId}">
 			<li>{$artikelname}</li>
 		</a>	   									
 	</ul>
