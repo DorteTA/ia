@@ -63,7 +63,7 @@ END;
 									{$artikelpic_thumb}
 								</a>
 								
-								<div class="tid-nyheter">
+								<div class="tid-nyheter pull-left">
 									{$date}
 								</div>
 							</div><!-- media -->
