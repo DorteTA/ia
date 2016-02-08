@@ -128,7 +128,7 @@ $content .= <<<END
 
 		{$sponsorer}
 
-		</div>
+		</div><!-- col md 3 -->
 	</div><!-- row -->
 </div><! -- content -->
 END;
