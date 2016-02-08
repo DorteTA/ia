@@ -12,10 +12,9 @@ include_once("inc/Connstring.php");
 // Variabler
 $feedback = "";
 
-if(!empty($_POST))
-{
-	if(isset($_POST['submit']))
-	{
+if(!empty($_POST)){
+
+	if(isset($_POST['submit'])) 
 			$username = $_POST['username'];
 			$mail = $_POST['mail'];
 			$name = $_POST['name'];
@@ -26,8 +25,7 @@ if(!empty($_POST))
 			$pass = $_POST['password'];
 
 			if($username == '' || $mail == "" || $name == "" || $surname == "" || $address == "" || $zipcode == ""
-			|| $city == "" || $pass == "")
-			{
+			|| $city == "" || $pass == ""){
 				$feedback = "<p>Fyll i alla fält.</p>";
 			}
 			else
@@ -46,15 +44,15 @@ END;
 		
 
 	}
-}
+
 $content = <<<END
 
        	<div id="content">
 			<div class="row">
 				<div class="col-md-3">
-					<div class="panel panel-blue">
+					<div class="panel panel-yellow">
 						<div class="panel-heading">
-							<h3 class="panel-title">Registrera dig</h3>
+							<h3 class="panel-title blue bold">Registrera dig</h3>
 						</div><!-- panel-heading -->
 						
 						<div class="panel-body">

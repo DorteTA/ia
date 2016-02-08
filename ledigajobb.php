@@ -18,7 +18,7 @@ $artikelnames = "";
 $kategori = "";
 $visa_artikel = "";
 
-// Hämtar ut allt från den specifika artikeln
+// Hämtar ut den specifika artikeln
 if(!empty($_GET)) {
 
 	$getartikelid = isset($_GET['ArtikelId']) ? $_GET['ArtikelId'] : '';
@@ -42,41 +42,41 @@ if($res->num_rows > 0) {
 
 	while($row = $res->fetch_object()) {
 		
-	// Sätter tid till svenska
-	setlocale(LC_TIME, "sv_SE", "sv_SE.65001", "swedish");   
-	$date = strtotime($row->ArtikelTimeStamp);
-	// encode gör att datum från DB visas på svenska
-	utf8_encode($date = strftime("%#d %B %Y", $date));
-	
-	// Sträng med artikelns id-nummer
-	$artikelid = $row->ArtikelId;
+		// Sätter tid till svenska
+		setlocale(LC_TIME, "sv_SE", "sv_SE.65001", "swedish");   
+		$date = strtotime($row->ArtikelTimeStamp);
+		// encode gör att datum från DB visas på svenska
+		utf8_encode($date = strftime("%#d %B %Y", $date));
+		
+		// Sträng med artikelns id-nummer
+		$artikelid = $row->ArtikelId;
 
-	// Sträng med artikelns rubrik
-	$artikelname = $row->ArtikelName;
+		// Sträng med artikelns rubrik
+		$artikelname = $row->ArtikelName;
 
-	// Sträng med artikelns innehåll
-	$artikelmessage = $row->ArtikelMessage;
+		// Sträng med artikelns innehåll
+		$artikelmessage = $row->ArtikelMessage;
 
-	// sträng med artikelbild
-	$artikelpic = $row->ArtikelPic;
+		// sträng med artikelbild
+		$artikelpic = $row->ArtikelPic;
 
-	// Sträng med artikelbild förminskad
-	$artikelpic_thumb = $row->ArtikelPicThumb;
+		// Sträng med artikelbild förminskad
+		$artikelpic_thumb = $row->ArtikelPicThumb;
 
-	// Sträng med artikelns tid och datum
-	$artikeltimestamp = $row->ArtikelTimeStamp;
+		// Sträng med artikelns tid och datum
+		$artikeltimestamp = $row->ArtikelTimeStamp;
 
-	// Sträng med namn på artikelns skribent(er)
-	$artikelskribent = $row->ArtikelSkribent;
+		// Sträng med namn på artikelns skribent(er)
+		$artikelskribent = $row->ArtikelSkribent;
 
-	// Sträng med namn på artikelns fotograf(er)
-	$artikelfotograf = $row->ArtikelFotograf;
+		// Sträng med namn på artikelns fotograf(er)
+		$artikelfotograf = $row->ArtikelFotograf;
 
-	// Sträng med artikelns kategori
-	$kategori = $row->Kategori;
-	
-	// Visar innehållet från artikeln i strängen $visa_artikel
-	$visa_artikel = <<<END
+		// Sträng med artikelns kategori
+		$kategori = $row->Kategori;
+		
+		// Visar innehållet från artikeln i strängen $visa_artikel
+		$visa_artikel = <<<END
 
 <!-- gult panel -->
 <div class="panel panel-yellow">
@@ -177,40 +177,40 @@ END;
 
 			$visa_artikel = <<<END
 
-	<!-- artikeln i mitten -->
-	<div class="panel panel-yellow">
+<!-- artikeln i mitten -->
+<div class="panel panel-yellow">
 
-		<!-- Rubrik -->
-		<div class="panel-heading">
-			<h3 class="panel-title blue bold">{$artikelname}</h3>
-		</div><!-- panel heading -->
+	<!-- Rubrik -->
+	<div class="panel-heading">
+		<h3 class="panel-title blue bold">{$artikelname}</h3>
+	</div><!-- panel heading -->
 
-		<!-- Artikel -->		
-		<div class="panel-body">
+	<!-- Artikel -->		
+	<div class="panel-body">
 
-		<!-- Artikelbild -->
-		<div class="col-lg-12 col-md-12 center-block img-responsive
-			 img-rounded sans-padding img-artikel pull-left">
-			{$artikelpic}
-		</div>
+	<!-- Artikelbild -->
+	<div class="col-lg-12 col-md-12 center-block img-responsive
+		 img-rounded sans-padding img-artikel pull-left">
+		{$artikelpic}
+	</div>
 					
-		<!-- Div som innehåller skribentnamn och fotografnamn -->
-		<div class="col-lg-12 sans-padding pull-left">
+	<!-- Div som innehåller skribentnamn och fotografnamn -->
+	<div class="col-lg-12 sans-padding pull-left">
 						
-			<p class="col-md-6 sans-padding-left text-muted text-left pull-left">
-				Publicerad: {$date} av <i>{$artikelskribent}</i> 
-			</p>
+		<p class="col-md-6 sans-padding-left text-muted text-left pull-left">
+			Publicerad: {$date} av <i>{$artikelskribent}</i> 
+		</p>
 
-			<p class="col-md-6 text-muted text-right sans-padding-right pull-right">
-				{$artikelfotograf}
-			</p>
+		<p class="col-md-6 text-muted text-right sans-padding-right pull-right">
+			{$artikelfotograf}
+		</p>
 					
-		</div><!-- skribent och fotograf -->
+	</div><!-- skribent och fotograf -->
 
-		<!-- Själva artikeln -->			
-			<p>{$artikelmessage}</p>
-		</div><!-- panel body -->
-	</div><!-- panel panel yellow -->
+	<!-- Själva artikeln -->			
+		<p>{$artikelmessage}</p>
+	</div><!-- panel body -->
+</div><!-- panel panel yellow -->
 
 END;
 			}
@@ -246,13 +246,13 @@ if($res->num_rows > 0) {
 		// Visar artikelnamn på länkar
 		$artikelnames .= <<<END
 
-			<div class="collapse-in" id="dokument">
-				<ul class="meny">		
-	   				<a href="ledigajobb.php?ArtikelId={$artikelId}">
-	   					<li>{$artikelname}</li>
-	   				</a>	   									
-	   			</ul>
-			</div><!-- collapse -->
+<div class="collapse-in" id="dokument">
+	<ul class="meny">		
+		<a href="ledigajobb.php?ArtikelId={$artikelId}">
+			<li>{$artikelname}</li>
+		</a>	   									
+	</ul>
+</div><!-- collapse -->
 					
 END;
 
@@ -300,6 +300,7 @@ $res->close();
 // Stänger ned uppkoblingen med databasen
 $mysqli->close();
 
+// Visar innehållet av sidans header, content och footer
 echo $header;
 echo $content;
 echo $footer;

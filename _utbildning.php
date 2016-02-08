@@ -1,7 +1,7 @@
 <?php
 /*---------------------------------
-starta.php
-Förening / Starta Förening
+utbildning.php
+utbildningar
 ---------------------------------*/
 
 /*---------------------------------------------------
@@ -126,7 +126,7 @@ else {
 
 		SELECT *
 		FROM artikel
-		WHERE kategori = 'Starta Förening'
+		WHERE kategori = 'Engagera dig'
 		ORDER BY ArtikelTimeStamp DESC;
 END;
 
@@ -222,7 +222,7 @@ $query = <<<END
 
 	SELECT ArtikelId, ArtikelName, Kategori
 	FROM artikel
-	WHERE kategori = 'Starta Förening'
+	WHERE kategori = 'Engagera dig'
 	ORDER BY ArtikelTimeStamp DESC;
 	
 END;
@@ -248,7 +248,8 @@ if($res->num_rows > 0) {
 
 <div class="collapse-in" id="dokument">
 	<ul class="meny">
-		<a href="starta.php?ArtikelId={$artikelId}">
+          								
+	   	<a href="utbildning.php?ArtikelId={$artikelId}">
 			<li>{$artikelname}</li>
 		</a>	   									
 	</ul>
@@ -270,8 +271,8 @@ $content = <<<END
 			<!-- gult panel -->
 			<div class="panel panel-yellow">
 				<div class="panel-heading">
-
-				<h3 class="panel-title blue bold">Förening / Starta förening</h3>
+				
+					<h3 class="panel-title blue bold">Engagera dig</h3>
 				</div><!-- panel heading -->					
 							
 				<div class="panel-body">

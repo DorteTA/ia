@@ -27,7 +27,9 @@ if(!empty($_GET)) {
 
 		SELECT *
 		FROM artikel
-		WHERE ArtikelId = "{$getartikelid}";
+		WHERE ArtikelId = "{$getartikelid}"
+		ORDER by ArtikelTimeStamp DESC;
+
 END;
 
 /*---------------------------------------------------
@@ -128,62 +130,62 @@ else {
 		ORDER BY ArtikelTimeStamp DESC;
 END;
 
-	/*---------------------------------------------------
-	Ger felmeddelande om databasen inte kan köras och
-	hänvisar till felnummer, annars körs den
-	---------------------------------------------------*/
-	$res = $mysqli->query($query) or die("Could not query database" . $mysqli->errno . " : " . $mysqli->error);
+/*---------------------------------------------------
+Ger felmeddelande om databasen inte kan köras och
+hänvisar till felnummer, annars körs den
+---------------------------------------------------*/
+$res = $mysqli->query($query) or die("Could not query database" . $mysqli->errno . " : " . $mysqli->error);
 
-		if($res->num_rows > 0) {
+	if($res->num_rows > 0) {
 
-			// Kör resultat
-			while($row = $res->fetch_object()) {
+		// Kör resultat
+		while($row = $res->fetch_object()) {
 
-			// Sätter tid till svenska
-			setlocale(LC_TIME, "sv_SE", "sv_SE.65001", "swedish");   
-			$date = strtotime($row->ArtikelTimeStamp);
+		// Sätter tid till svenska
+		setlocale(LC_TIME, "sv_SE", "sv_SE.65001", "swedish");
+		$date = strtotime($row->ArtikelTimeStamp);
 
-			// encode gör att datum från DB visas på svenska
-			utf8_encode($date = strftime("%#d %B %Y", $date));
+		// encode gör att datum från DB visas på svenska
+		utf8_encode($date = strftime("%#d %B %Y", $date));
+	
+		// Sträng med artikelns id-nummer
+		$artikelid = $row->ArtikelId;
+
+		// Sträng med artikelns rubrik
+		$artikelname = $row->ArtikelName;
+
+		// Sträng med artikelns innehåll
+		$artikelmessage = $row->ArtikelMessage;
 		
-			// Sträng med artikelns id-nummer
-			$artikelid = $row->ArtikelId;
+		// sträng med artikelbild
+		$artikelpic = $row->ArtikelPic;
 
-			// Sträng med artikelns rubrik
-			$artikelname = $row->ArtikelName;
+		// Sträng med artikelbild förminskad
+		$artikelpic_thumb = $row->ArtikelPicThumb;
 
-			// Sträng med artikelns innehåll
-			$artikelmessage = $row->ArtikelMessage;
-		
-			// sträng med artikelbild
-			$artikelpic = $row->ArtikelPic;
+		// Sträng med artikelns tid och datum
+		$artikeltimestamp = $row->ArtikelTimeStamp;
 
-			// Sträng med artikelbild förminskad
-			$artikelpic_thumb = $row->ArtikelPicThumb;
+		// Sträng med namn på artikelns skribent(er)
+		$artikelskribent = $row->ArtikelSkribent;
 
-			// Sträng med artikelns tid och datum
-			$artikeltimestamp = $row->ArtikelTimeStamp;
+		// Sträng med namn på artikelns fotograf(er)
+		$artikelfotograf = $row->ArtikelFotograf;
 
-			// Sträng med namn på artikelns skribent(er)
-			$artikelskribent = $row->ArtikelSkribent;
+		// Sträng med artikelns kategori
+		$kategori = $row->Kategori;
 
-			// Sträng med namn på artikelns fotograf(er)
-			$artikelfotograf = $row->ArtikelFotograf;
+		$visa_artikel = <<<END
 
-			// Sträng med artikelns kategori
-			$kategori = $row->Kategori;
+<div class="panel panel-yellow">
 
-			$visa_artikel = <<<END
+	<!-- Rubrik -->
+	<div class="panel-heading">
+		<h3 class="panel-title blue bold">{$artikelname}</h3>
+	</div><!-- panel heading -->
 
-	<div class="panel panel-yellow">
-
-		<!-- Rubrik -->
-		<div class="panel-heading">
-			<h3 class="panel-title blue bold">{$artikelname}</h3>
-		</div><!-- panel heading -->
-
-		<!-- Artikel -->		
-		<div class="panel-body">
+	<!-- Artikel -->		
+	<div class="panel-body">
 
 		<!-- Artikelbild -->
 		<div class="col-lg-12 col-md-12 center-block img-responsive
@@ -205,9 +207,9 @@ END;
 		</div><!-- skribent och fotograf -->
 
 		<!-- Själva artikeln -->			
-			<p>{$artikelmessage}</p>
-			</div><!-- panel body -->
-			</div><!-- panel panel yellow -->
+		<p>{$artikelmessage}</p>
+	</div><!-- panel body -->
+</div><!-- panel panel yellow -->
 
 END;
 			}
@@ -243,13 +245,13 @@ if($res->num_rows > 0) {
 		// Visar artikelnamn på länkar
 		$artikelnames .= <<<END
 
-			<div class="collapse-in" id="dokument">
-				<ul class="meny">		
-	   				<a href="info.php?ArtikelId={$artikelId}">
-	   					<li>{$artikelname}</li>
-	   				</a>	   									
-	   			</ul>
-			</div><!-- collapse -->
+<div class="collapse-in" id="dokument">
+	<ul class="meny">		
+		<a href="info.php?ArtikelId={$artikelId}">
+			<li>{$artikelname}</li>
+	   	</a>	   									
+	</ul>
+</div><!-- collapse -->
 					
 END;
 
@@ -261,9 +263,11 @@ $content = <<<END
 		
 <div id="content">
 	<div class="row">
-		<div class="col-md-3">
 
-		<!-- gult panel -->
+		<!-- Vänster kolumn -->
+		<div class="col-md-3">
+	
+			<!-- gult panel -->
 			<div class="panel panel-yellow">
 
 				<div class="panel-heading">
@@ -274,63 +278,63 @@ $content = <<<END
 				<div class="panel-body">
 					<div id="dokument" class="collapse-in">				
 						<ul class="meny">
-          		<li class="dropdown-left">
-	   						<a data-toggle="collapse" href="#arrangorer" aria-expanded="false"
-								aria-controls="collapseExample">
-	   							<li>Arrangörer <b class="caret"></b></li>
-	   						</a>
+          					<li class="dropdown-left">
+		   						<a data-toggle="collapse" href="#arrangorer" aria-expanded="false"
+									aria-controls="collapseExample">
+		   							<li>Arrangörer <b class="caret"></b></li>
+		   						</a>
 
-	   						<!-- Arrangörer -->
+	   							<!-- Arrangörer -->
 	   							
-	   						<div class="collapse" id="arrangorer">
-	   							{$artikelnames}
-	   						</div>
-	   						<a data-toggle="collapse" href="#akare" aria-expanded="false"
-								aria-controls="collapseExample">
-	   							<li>Åkare <b class="caret"></b></li>
-	   						</a>
+		   						<div class="collapse" id="arrangorer">
+		   							{$artikelnames}
+		   						</div>
+		   						<a data-toggle="collapse" href="#akare" aria-expanded="false"
+									aria-controls="collapseExample">
+		   							<li>Åkare <b class="caret"></b></li>
+		   						</a>
 
-	   						<!-- åkare -->
+		   						<!-- åkare -->
 
-	   						<div class="collapse" id="akare">
-	   							<ul class="meny">
-		   							<li><a href="info.php?ArtikelId=79">För åkare</a></li>
-		   							<li><a href="info.php?ArtikelId=72">Åkarlicens</a></li>
+		   						<div class="collapse" id="akare">
+		   							<ul class="meny">
+			   							<li><a href="info.php?ArtikelId=79">För åkare</a></li>
+			   							<li><a href="info.php?ArtikelId=72">Åkarlicens</a></li>
 										<li><a href="info.php?ArtikelId=80">Föreningsövergång</a></li>
 										<li><a href="info.php?ArtikelId=81">Internationella
 										tävlingar på egen bekostnad</a></li>
 									</ul>
-	   						</div>
+		   						</div><!-- akare -->
 	   						
-	   						<a data-toggle="collapse" href="#foraldrar" aria-expanded="false"
-								aria-controls="collapseExample">
-	   							<li>Föräldrar <b class="caret"></b></li>
-	   						</a>
-	   							
-	   						<!-- föräldrar -->
-	   							
-	   						<div class="collapse" id="foraldrar">
-	   							<ul class="meny">
-		   							<li><a href="info.php?ArtikelId=82">För Föräldrar</a></li>
+		   						<a data-toggle="collapse" href="#foraldrar" aria-expanded="false"
+									aria-controls="collapseExample">
+		   							<li>Föräldrar <b class="caret"></b></li>
+		   						</a>
+		   							
+		   						<!-- föräldrar -->
+		   							
+		   						<div class="collapse" id="foraldrar">
+		   							<ul class="meny">
+			   							<li><a href="info.php?ArtikelId=82">För Föräldrar</a></li>
 										<li><a href="info.php?ArtikelId=83">Konståkningen Vill</a></li>
 										<li><a href="info.php?ArtikelId=84">Vanliga frågor</a></li>
 									</ul>
-	   						</div>
-	   										   									
-	   						<a data-toggle="collapse" href="#funktionarer" aria-expanded="false"
-								aria-controls="collapseExample">
-	   							<li>Funktionärer <b class="caret"></b></li>
-	   						</a>
-	   							
-	   						<!-- funktionarer -->
-	   							
-	   						<div class="collapse" id="funktionarer">
-	   							<ul class="meny">
-		   							<li><a href="info.php?ArtikelId=85">För Funktionärer</a></li>
+		   						</div>
+		   										   									
+		   						<a data-toggle="collapse" href="#funktionarer" aria-expanded="false"
+									aria-controls="collapseExample">
+		   							<li>Funktionärer <b class="caret"></b></li>
+		   						</a>
+		   							
+		   						<!-- funktionarer -->
+		   							
+		   						<div class="collapse" id="funktionarer">
+		   							<ul class="meny">
+			   							<li><a href="info.php?ArtikelId=85">För Funktionärer</a></li>
 									</ul>
-	   						</div>
-	   					</li>					
-	   				</ul>
+		   						</div>
+		   					</li>					
+	   					</ul>
 					</div><!-- collapse -->	
 				</div><!-- panel body -->
 			</div><!-- panel panel blue -->									
@@ -338,16 +342,16 @@ $content = <<<END
 				
 		<!-- mitten -->
 
-		<div class="col-xs-12 col-md-6">
+		<!-- Centrerad kolumn -->
 
-			{$visa_artikel}	
-				
-		</div><!-- mitten -->	
+		<div class="col-md-6">
+			{$visa_artikel}		
+		</div><!-- Centrerad kolumn -->
 							
 							
-	<!-- Rad högre m sponsorkarusell-->
+		<!-- Högre  kolumn m sponsorkarusell-->
 
-		{$sponsorer}
+			{$sponsorer}
 
 		</div><!-- col xs 6 col md 3 -->
 	</div><!-- row -->

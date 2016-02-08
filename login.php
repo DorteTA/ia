@@ -10,8 +10,12 @@ så detta inte behövs tastas in på varje sida
 ---------------------------------------------------*/
 include_once("inc/HTMLTemplate.php");
 
-// Uppkoblingen till databasen
-// include_once("inc/Connstring.php");
+
+/*---------------------------------------------------
+Använder HTML-mallen där CSS och javascript ingår,
+så detta inte behövs tastas in på varje sida
+---------------------------------------------------*/
+include_once("inc/HTMLTemplate.php");
 
 // Variabler
 $feedback = "";
@@ -20,7 +24,7 @@ $table = "";
 
 if(!empty($_POST)) {
 
-	// Kontakter DB med info från Connstring.php
+	// Uppkoblingen till databasen
 	include_once("inc/Connstring.php");
 
 	// Tabellens namn
@@ -43,7 +47,6 @@ if(!empty($_POST)) {
 		$username	= $mysqli->real_escape_string($username);
 		$password	= $mysqli->real_escape_string($password);
 		
-		
 		$query = <<<END
 		
 		SELECT username, password, userId
@@ -52,7 +55,10 @@ if(!empty($_POST)) {
 		
 END;
 
-		
+		/*------------------------------------------------
+		Ger felmeddelande om databasen inte kan köras och
+		hänvisar till felnummer, annars körs den
+		------------------------------------------------*/
 		$res = $mysqli->query($query) or die("Could not query database" . $mysqli->errno . " : " . $mysqli->error); 
 		
 		if($res->num_rows == 1) {
@@ -87,10 +93,10 @@ $content .= <<<END
 <div id="content">
 	<div class="row">
 		<div class="col-md-3">
-			<div class="panel panel-blue">
+			<div class="panel panel-yellow">
 
 				<div class="panel-heading">
-					<h4 class="panel-title">Logga in</h4>
+					<h4 class="panel-title blue bold">Logga in</h4>
 				</div><!-- panel-heading -->
 
 				<div class="panel-body">
@@ -100,6 +106,7 @@ $content .= <<<END
 						<input type="text" class="form-control" id="username" name="username" value="" />
 						<label for="password">Lösenord</label>
 						<input type="password" class="form-control" id="password" name="password" value="" />
+						<br>
 						<input type="submit" class="btn btn-blue btn-xs" id="submit" value="logga in" />
 						<p><a href="register.php">Registrera dig</a></p>
 					</form>
@@ -112,6 +119,7 @@ $content .= <<<END
 
 END;
 
+// Visar innehållet av sidans header, content och footer
 echo $header;
 echo $content;
 echo $footer;

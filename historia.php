@@ -84,7 +84,7 @@ if($res->num_rows > 0) {
 	<div class="panel-heading">
 
 		<!-- Rubrik där kategori och artikelname visar resp kategori och rubriknamn -->
-		<h3 class="panel-title blue bold">{$artikelname}</h3>
+		<h3 class="panel-title blue bold">{$kategori} / {$artikelname}</h3>
 	</div><!-- panel heading -->
 
 	<div class="panel-body">
@@ -138,44 +138,44 @@ END;
 
 		if($res->num_rows > 0) {
 
-		// Kör resultat
-		while($row = $res->fetch_object()) {
+			// Kör resultat
+			while($row = $res->fetch_object()) {
 
-		// Sätter tid till svenska
-		setlocale(LC_TIME, "sv_SE", "sv_SE.65001", "swedish");   
-		$date = strtotime($row->ArtikelTimeStamp);
+			// Sätter tid till svenska
+			setlocale(LC_TIME, "sv_SE", "sv_SE.65001", "swedish");   
+			$date = strtotime($row->ArtikelTimeStamp);
 
-		// encode gör att datum från DB visas på svenska
-		utf8_encode($date = strftime("%#d %B %Y", $date));
-		
-		// Sträng med artikelns id-nummer
-		$artikelid = $row->ArtikelId;
+			// encode gör att datum från DB visas på svenska
+			utf8_encode($date = strftime("%#d %B %Y", $date));
+			
+			// Sträng med artikelns id-nummer
+			$artikelid = $row->ArtikelId;
 
-		// Sträng med artikelns rubrik
-		$artikelname = $row->ArtikelName;
+			// Sträng med artikelns rubrik
+			$artikelname = $row->ArtikelName;
 
-		// Sträng med artikelns innehåll
-		$artikelmessage = $row->ArtikelMessage;
-		
-		// sträng med artikelbild
-		$artikelpic = $row->ArtikelPic;
+			// Sträng med artikelns innehåll
+			$artikelmessage = $row->ArtikelMessage;
+			
+			// sträng med artikelbild
+			$artikelpic = $row->ArtikelPic;
 
-		// Sträng med artikelbild förminskad
-		$artikelpic_thumb = $row->ArtikelPicThumb;
+			// Sträng med artikelbild förminskad
+			$artikelpic_thumb = $row->ArtikelPicThumb;
 
-		// Sträng med artikelns tid och datum
-		$artikeltimestamp = $row->ArtikelTimeStamp;
+			// Sträng med artikelns tid och datum
+			$artikeltimestamp = $row->ArtikelTimeStamp;
 
-		// Sträng med namn på artikelns skribent(er)
-		$artikelskribent = $row->ArtikelSkribent;
+			// Sträng med namn på artikelns skribent(er)
+			$artikelskribent = $row->ArtikelSkribent;
 
-		// Sträng med namn på artikelns fotograf(er)
-		$artikelfotograf = $row->ArtikelFotograf;
+			// Sträng med namn på artikelns fotograf(er)
+			$artikelfotograf = $row->ArtikelFotograf;
 
-		// Sträng med artikelns kategori
-		$kategori = $row->Kategori;
+			// Sträng med artikelns kategori
+			$kategori = $row->Kategori;
 
-		$visa_artikel = <<<END
+			$visa_artikel = <<<END
 
 <!-- artikeln i mitten -->
 <div class="panel panel-yellow">
@@ -301,6 +301,7 @@ $res->close();
 // Stänger ned uppkoblingen med databasen
 $mysqli->close();
 
+// Visar innehållet av sidans header, content och footer
 echo $header;
 echo $content;
 echo $footer;

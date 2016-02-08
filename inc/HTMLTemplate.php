@@ -220,8 +220,8 @@ $header = <<<END
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Engagera dig <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="utvecklings.php">Utvecklingskommiten</a></li>
-              <li><a href="utbildning.php">Utbildning</a></li>
+              <li><a href="engagera.php?ArtikelId=60">Utvecklingskommiten</a></li>
+              <li><a href="engagera.php?ArtikelId=61">Utbildning</a></li>
             </ul>
           </li>
         </ul>
