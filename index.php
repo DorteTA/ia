@@ -138,20 +138,50 @@ if(!empty($_GET)) {
 
 END;
 
-	$res = $mysqli->query($query) or die();
+	/*---------------------------------------------------
+	Ger felmeddelande om databasen inte kan köras och
+	hänvisar till felnummer, annars körs den
+	---------------------------------------------------*/
+	$res = $mysqli->query($query) or die("Could not query database" . $mysqli->errno . " : " . $mysqli->error);
 
 	if($res->num_rows == 1)	{
 
 		while($row = $res->fetch_object()) {
 			
-			$artikelname = $row->ArtikelName;
-			$artikelmessage = $row->ArtikelMessage;
-			$artikelpic = $row->ArtikelPic;
-			$artikelpic_thumb = $row->ArtikelPicThumb;
-			$artikeltimestamp = $row->ArtikelTimeStamp;
-			$artikelskribent= $row->ArtikelSkribent;
-			$artikelfotograf = $row->ArtikelFotograf;
-			$kategori = $row->Kategori;		
+		// Sätter tid till svenska
+		setlocale(LC_TIME, "sv_SE", "sv_SE.65001", "swedish");   
+		$date = strtotime($row->ArtikelTimeStamp);
+
+		// encode gör att datum från DB visas på svenska
+		utf8_encode($date = strftime("%#d %B %Y", $date));
+		
+		// Sträng med artikelns id-nummer
+		$artikelid = $row->ArtikelId;
+
+		// Sträng med artikelns rubrik
+		$artikelname = $row->ArtikelName;
+
+		// Sträng med artikelns innehåll
+		$artikelmessage = $row->ArtikelMessage;
+		
+		// sträng med artikelbild
+		$artikelpic = $row->ArtikelPic;
+
+		// Sträng med artikelbild förminskad
+		$artikelpic_thumb = $row->ArtikelPicThumb;
+
+		// Sträng med artikelns tid och datum
+		$artikeltimestamp = $row->ArtikelTimeStamp;
+
+		// Sträng med namn på artikelns skribent(er)
+		$artikelskribent = $row->ArtikelSkribent;
+
+		// Sträng med namn på artikelns fotograf(er)
+		$artikelfotograf = $row->ArtikelFotograf;
+
+		// Sträng med artikelns kategori
+		$kategori = $row->Kategori;
+
 		}
 
 	}
@@ -171,29 +201,50 @@ if(!empty($_GET))
 		ORDER by ArtikelTimeStamp DESC;
 END;
 
-	$res = $mysqli->query($query) or die();
+/*---------------------------------------------------
+Ger felmeddelande om databasen inte kan köras och
+hänvisar till felnummer, annars körs den
+---------------------------------------------------*/
+$res = $mysqli->query($query) or die("Could not query database" . $mysqli->errno . " : " . $mysqli->error);
 
-	if($res->num_rows == 1)
-	{
-		while($row = $res->fetch_object())
-		{
+	if($res->num_rows == 1)	{
+
+		while($row = $res->fetch_object()) {
 
 		// Sätter tid till svenska
 		setlocale(LC_TIME, "sv_SE", "sv_SE.65001", "swedish");   
 		$date = strtotime($row->ArtikelTimeStamp);
 
-		//encode gör att datum från DB visas på svenska
+		// encode gör att datum från DB visas på svenska
 		utf8_encode($date = strftime("%#d %B %Y", $date));
 		
+		// Sträng med artikelns id-nummer
 		$artikelid = $row->ArtikelId;
+
+		// Sträng med artikelns rubrik
 		$artikelname = $row->ArtikelName;
+
+		// Sträng med artikelns innehåll
 		$artikelmessage = $row->ArtikelMessage;
+
 		$artikelsubtext = substr($artikelmessage, 0, 75);
+		
+		// sträng med artikelbild
 		$artikelpic = $row->ArtikelPic;
+
+		// Sträng med artikelbild förminskad
 		$artikelpic_thumb = $row->ArtikelPicThumb;
+
+		// Sträng med artikelns tid och datum
 		$artikeltimestamp = $row->ArtikelTimeStamp;
+
+		// Sträng med namn på artikelns skribent(er)
 		$artikelskribent = $row->ArtikelSkribent;
+
+		// Sträng med namn på artikelns fotograf(er)
 		$artikelfotograf = $row->ArtikelFotograf;
+
+		// Sträng med artikelns kategori
 		$kategori = $row->Kategori;
 
 		}

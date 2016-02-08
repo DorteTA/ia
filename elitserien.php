@@ -4,7 +4,7 @@ elitserien.php
 Tävla / elitserien
 ---------------------------------*/
 
-*---------------------------------------------------
+/*---------------------------------------------------
 Använder HTML-mallen där CSS och javascript ingår,
 så detta inte behövs tastas in på varje sida
 ---------------------------------------------------*/

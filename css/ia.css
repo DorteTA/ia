@@ -698,10 +698,9 @@ ul {
 
 /* Attributer för sökresultat så all text inkl rubriker */
 /* visas med samma storlek och format */
-
 p.media, .media, .search-result > h4, h3, h2, h1, p, .bold, strong, .strong {
   font-size: 14px;
   font-weight: normal;
   font-variant: normal;
-  text-transform: capitalize;
+/*  text-transform: capitalize;*/
 }
