@@ -95,9 +95,9 @@ ul.meny {
 .pagination > li > span:hover,
 .pagination > li > a:focus,
 .pagination > li > span:focus {
-  color: #263777;
-  background-color: #ffcc33;
-  border-color: #ffcc33;
+  color: #ffcc33;
+  background-color: #263777;
+  border-color: #263777;
 }
 .pagination > .active > a,
 .pagination > .active > span,
@@ -106,10 +106,10 @@ ul.meny {
 .pagination > .active > a:focus,
 .pagination > .active > span:focus {
   z-index: 2;
-  color: #ffcc33;
+  color: #263777;
   cursor: default;
-  background-color: #263777;
-  border-color: #263777;
+  background-color: #ffcc33;
+  border-color: #ffcc33;
 }
 .pagination > .disabled > span,
 .pagination > .disabled > span:hover,
